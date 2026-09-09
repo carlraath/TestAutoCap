@@ -91,6 +91,9 @@ test("the go-live checklist, executed and evidenced", async ({ page, context, re
     rows.map((r) => Array.from(r.querySelectorAll("td")).map((c) => (c.textContent ?? "").trim())),
   );
   const [firstCode, firstPassword] = credentials[0];
+  // The rate-limit check deliberately locks an account out for fifteen minutes, so it uses a
+  // different participant from the one the practice reset needs to sign in as.
+  const [lockCode, lockPassword] = credentials[credentials.length - 1];
 
   await page.reload();
   await expect(page.getByRole("table", { name: "Allocation Register" })).toHaveCount(0);
@@ -106,21 +109,6 @@ test("the go-live checklist, executed and evidenced", async ({ page, context, re
   expect(cookie?.httpOnly).toBe(true);
   expect(cookie?.secure).toBe(true);
   note(`   Session cookie cp_session: httpOnly ${String(cookie?.httpOnly)}, secure ${String(cookie?.secure)}, sameSite ${String(cookie?.sameSite)}.`);
-
-  // A fresh context: signing in from the administrator's own context would be redirected away
-  // from the sign-in page, because that session is already signed in.
-  const anonymous = await context.browser()!.newContext({ ignoreHTTPSErrors: true });
-  const rateLimited = await anonymous.newPage();
-  for (let attempt = 1; attempt <= 10; attempt += 1) {
-    await signIn(rateLimited, firstCode, "definitely-not-the-password");
-    await expect(rateLimited.getByText("That participant code and password do not match.")).toBeVisible();
-  }
-  await signIn(rateLimited, firstCode, firstPassword);
-  await expect(rateLimited.getByText("That participant code and password do not match.")).toBeVisible();
-  note("5. Rate limiting live: after ten failed attempts the correct password is refused, with the same generic message.");
-  await rateLimited.screenshot({ path: `${OUT}/04-rate-limited.png`, fullPage: true });
-  await rateLimited.close();
-  await anonymous.close();
 
   // ---------- Timezone ----------
   await page.goto("/admin/audit");
@@ -187,8 +175,24 @@ test("the go-live checklist, executed and evidenced", async ({ page, context, re
   note(`8. Practice export produced all four files: ${files.join(", ")}.`);
   await page.screenshot({ path: `${OUT}/07-export.png`, fullPage: true });
 
-  note("9. All four guides delivered and current: guides/participant-guide.md, administrator-guide.md, hosting-guide.md, operations-guide.md, each verified line by line against this build.");
-  note("10. The no personal data verification is re-run against this production database immediately after this run; see docs/evidence/go-live/no-pii.txt.");
+  // ---------- Rate limiting, last because it locks this address out ----------
+  // A fresh context: signing in from the administrator's own context would be redirected away
+  // from the sign-in page, because that session is already signed in.
+  const anonymous = await context.browser()!.newContext({ ignoreHTTPSErrors: true });
+  const rateLimited = await anonymous.newPage();
+  for (let attempt = 1; attempt <= 10; attempt += 1) {
+    await signIn(rateLimited, lockCode, "definitely-not-the-password");
+    await expect(rateLimited.getByText("That participant code and password do not match.")).toBeVisible();
+  }
+  await signIn(rateLimited, lockCode, lockPassword);
+  await expect(rateLimited.getByText("That participant code and password do not match.")).toBeVisible();
+  note(`9. Rate limiting live: after ten failed attempts against ${lockCode} the correct password is refused, with the same generic message.`);
+  await rateLimited.screenshot({ path: `${OUT}/04-rate-limited.png`, fullPage: true });
+  await rateLimited.close();
+  await anonymous.close();
+
+  note("10. All four guides delivered and current: guides/participant-guide.md, administrator-guide.md, hosting-guide.md, operations-guide.md, each verified line by line against this build.");
+  note("11. The no personal data verification is re-run against this production database immediately after this run; see docs/evidence/go-live/no-pii.txt.");
 
   fs.writeFileSync(`${OUT}/checklist.md`, `# Go-live checklist\n\nExecuted 2026-09-10 against the production HTTPS deployment.\n\n\`\`\`\n${lines.join("\n")}\n\`\`\`\n`, "utf8");
 });
