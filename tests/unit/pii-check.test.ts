@@ -26,4 +26,10 @@ describe("personal data detection", () => {
     expect(findPiiInText("participant-01 scored 8 of 10")).toEqual([]);
     expect(findPiiInText("ref TMP-4001 at 2026-09-10T05:00:00Z")).toEqual([]);
   });
+
+  it("does not mistake a digit run inside a seed hash for a telephone number", () => {
+    // Every results row carries a SHA-256 seed, and a ten-digit run inside one is not a number.
+    expect(findPiiInText("seed cb68a1890548911042d1400beaf64580f6b9a62a5986ee3e4472389a8d40e680")).toEqual([]);
+    expect(findPiiInText("0786351552cb68a189")).toEqual([]);
+  });
 });
