@@ -39,6 +39,10 @@
 
   --color-success: #2e7d32;
   --color-attention: #b26a00;
+  /* docs/05 names #b26a00 as the attention amber. On white it reaches 4.24:1, just under the 4.5:1
+     WCAG AA needs for normal text, so text uses this darker shade (6.0:1) and #b26a00 stays for
+     borders, fills and marks, where the 3:1 non-text threshold applies. */
+  --color-attention-ink: #8f5600;
   --color-danger: #b3261e;
 
   --radius-card: 0.5rem;

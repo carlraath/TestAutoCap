@@ -24,7 +24,7 @@ const melbourneTime = new Intl.DateTimeFormat("en-AU", {
 
 /** Calm autosave status. Says "Saved" only when the caller says so. */
 export function SavedIndicator({ state, savedAt }: SavedIndicatorProps) {
-  const tone = state === "saved" ? "text-success" : state === "saving" ? "text-ink-600" : "text-attention";
+  const tone = state === "saved" ? "text-success" : state === "saving" ? "text-ink-600" : "text-attention-ink";
   const title = state === "saved" && savedAt ? `Saved at ${melbourneTime.format(savedAt)}` : undefined;
   return (
     <span

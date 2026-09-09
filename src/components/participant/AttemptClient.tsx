@@ -117,7 +117,7 @@ export function AttemptClient({ view, initialIndex }: AttemptClientProps) {
   }
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6" data-testid="attempt-root" data-attempt-id={view.attemptId}>
       <div data-testid="attempt-header" className="flex h-10 items-center justify-between gap-4">
         <h1 className="min-w-0 truncate text-base font-semibold tracking-tight text-ink-900 sm:text-lg">{view.assessmentTitle}</h1>
         <TimerChip endAt={view.endAt} serverNow={view.serverNow} onExpire={expire} />

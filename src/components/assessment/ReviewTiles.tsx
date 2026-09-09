@@ -21,7 +21,7 @@ export function ReviewTiles({ items, onJump }: ReviewTilesProps) {
           const number = tile.index + 1;
           const look = tile.answered
             ? "border-brand-500 bg-brand-500 text-white hover:bg-brand-600"
-            : "border-attention bg-white text-attention hover:bg-attention/10";
+            : "border-attention bg-white text-attention-ink hover:bg-attention/10";
           return (
             <li key={tile.itemId}>
               <button

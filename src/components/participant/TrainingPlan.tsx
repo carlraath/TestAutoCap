@@ -104,7 +104,7 @@ function ModuleRow({ module }: { module: TrainingPlanModule }) {
             Credited
           </span>
         ) : null}
-        {evidence ? <span className="text-attention">Provisional, confirmed at review</span> : null}
+        {evidence ? <span className="text-attention-ink">Provisional, confirmed at review</span> : null}
         {module.outcome === "not_assessed" ? <span>Confirmed at journey map issue</span> : null}
       </span>
     </li>

@@ -4,7 +4,7 @@ import { OUTCOME_LABELS } from "./format";
 const STYLES: Record<ModuleOutcome, string> = {
   prescribed: "border-brand-500 bg-brand-500 text-white",
   credited: "border-success bg-white text-success",
-  evidence_review: "border-attention bg-white text-attention",
+  evidence_review: "border-attention bg-white text-attention-ink",
   not_assessed: "border-line bg-surface text-ink-600",
 };
 

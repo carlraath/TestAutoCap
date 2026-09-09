@@ -87,7 +87,7 @@ export default async function ItemsPage() {
                       <Td>
                         {row.outlier ? (
                           <span
-                            className="inline-flex items-center gap-1 whitespace-nowrap rounded-full border border-attention bg-white px-2 py-0.5 text-xs font-medium text-attention"
+                            className="inline-flex items-center gap-1 whitespace-nowrap rounded-full border border-attention bg-white px-2 py-0.5 text-xs font-medium text-attention-ink"
                             title={row.outlierReasons.join(" ")}
                           >
                             <AttentionIcon className="h-3.5 w-3.5" />

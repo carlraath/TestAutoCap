@@ -71,7 +71,7 @@ export function TimerChip({ endAt, serverNow, onExpire }: TimerChipProps) {
 
   const seconds = Math.ceil(remainingMs / 1000);
   const amber = valid && seconds < TIMER_AMBER_SECONDS;
-  const tone = amber ? "border-attention text-attention" : "border-line text-ink-900";
+  const tone = amber ? "border-attention text-attention-ink" : "border-line text-ink-900";
 
   return (
     <>
