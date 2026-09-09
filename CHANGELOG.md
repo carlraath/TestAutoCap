@@ -23,3 +23,43 @@ All notable changes to Avec / Capability Placement. Dates are Australia/Melbourn
 - Lifecycle: start (one attempt, unique index), autosave including partial matching placements, server-authoritative timer with expiry finalisation on contact and sweep, idempotent submit, resume, reset with full archive; JSON API for attempt view, autosave and submit.
 - Assessment components: single, multi, ordering (drag and drop plus Move up/down and keyboard lift/move/drop), matching (drag and drop plus per-token selector), timer chip (amber under two minutes), progress bar, review tiles, saved indicator.
 - 236 unit and integration tests; adversarial lifecycle review with fixes.
+
+### Phase 3 - Participant experience (2026-09-10)
+- Dashboard, instructions with the verbatim copy, attempt screen with segmented progress, a
+  server-authoritative timer that turns amber under two minutes, and autosave debounced within a
+  second with a saved indicator that never claims more than the server confirmed.
+- Ordering and matching questions operable by drag, by on-screen controls and by keyboard alone.
+- Review screen, per-assessment confirmation, and the Training Plan with its A4 print view.
+
+### Phase 4 - Admin reporting and operations (2026-09-10)
+- Overview, results with expandable per-participant detail including keys, rationales and source
+  anchors, cohort statistics drawn as inline graphics, module demand, item analysis with outlier
+  flags, audit log, retire with the slot-depth guard, and close and export producing all four files.
+- Deterministic sample cohort generator for demonstrating the reports.
+
+### Phase 5 - Question bank (2026-09-10)
+- 65 items authored to the docs/04 blueprints, then reviewed by three independent adversarial
+  lenses per item and resolved slot by slot, with every SQL key executed in PostgreSQL and every
+  Python key run. Review document and sign-off record in bank/review.
+- Pilot run end to end with two internal accounts, drag and drop by mouse and by keyboard, and the
+  pilot attempts reset away.
+
+### Phase 6 - Hardening and verification (2026-09-10)
+- 284 unit and integration tests; end-to-end suite green on Chromium, Edge, Firefox and WebKit.
+- Accessibility: 20 screens audited with axe at WCAG 2.0 and 2.1 A and AA, zero violations, plus a
+  keyboard-only pass and a focus-visibility check. Fixed a real contrast failure in the attention
+  amber for small text.
+- Load: 20 concurrent participants autosaving, polling and submitting for a minute. 2420 requests,
+  no failures, p99 73 ms, no answer lost and every attempt submitted exactly once.
+- No personal data verified against the schema and all four exports. Two false positives in the
+  checker itself were narrowed and covered by tests.
+
+### Phase 7 - Documentation (2026-09-10)
+- Participant, Administrator, Hosting and Operations guides in /guides, each verified line by line
+  against the built application by an independent reviewer and corrected in place.
+- Hosting Guide proven by a clean second deployment from a fresh clone, then torn down. That run
+  found and fixed a missing .env.example in the repository.
+
+### Phase 8 - Go-live (2026-09-10)
+- The docs/06 go-live checklist executed against a production HTTPS deployment and evidenced line
+  by line in docs/evidence/go-live.
