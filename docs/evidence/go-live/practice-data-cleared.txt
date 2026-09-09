@@ -1,0 +1,1 @@
+DELETION CONFIRMED 2026-09-09T23:36:00.486Z: embedded database directory C:\Projects\Test Automation Cap Build\data\production removed and verified absent.

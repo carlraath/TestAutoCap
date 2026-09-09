@@ -1,0 +1,660 @@
+{
+  "exportedAt": "2026-09-09T23:35:32.725Z",
+  "bankVersion": 1,
+  "appVersion": "0.1.0",
+  "participants": [
+    {
+      "userId": "af9f135a-425b-4511-85e8-6accef345980",
+      "code": "participant-01",
+      "number": 1,
+      "createdAt": "2026-09-09T23:35:31.006Z",
+      "lastActivityAt": "2026-09-09T23:35:32.078Z"
+    },
+    {
+      "userId": "92062e4c-860b-4f3a-8b83-19f593b64985",
+      "code": "participant-02",
+      "number": 2,
+      "createdAt": "2026-09-09T23:35:31.006Z",
+      "lastActivityAt": null
+    },
+    {
+      "userId": "4e80e89b-9190-4cdd-b61c-83da09a4d824",
+      "code": "participant-03",
+      "number": 3,
+      "createdAt": "2026-09-09T23:35:31.006Z",
+      "lastActivityAt": null
+    },
+    {
+      "userId": "42f16b4d-fe3d-4e99-8dae-9b10c889a4d3",
+      "code": "participant-04",
+      "number": 4,
+      "createdAt": "2026-09-09T23:35:31.006Z",
+      "lastActivityAt": null
+    },
+    {
+      "userId": "6d7cb748-a751-48df-8925-db9e18a16c05",
+      "code": "participant-05",
+      "number": 5,
+      "createdAt": "2026-09-09T23:35:31.006Z",
+      "lastActivityAt": null
+    },
+    {
+      "userId": "ed05b194-c6cf-4685-8e7d-2c221999d6f6",
+      "code": "participant-06",
+      "number": 6,
+      "createdAt": "2026-09-09T23:35:31.006Z",
+      "lastActivityAt": null
+    },
+    {
+      "userId": "3e78464e-a77e-47d2-86b5-a5fc64fc6524",
+      "code": "participant-07",
+      "number": 7,
+      "createdAt": "2026-09-09T23:35:31.006Z",
+      "lastActivityAt": null
+    },
+    {
+      "userId": "a65b7609-325e-4649-ac3e-c782d360f009",
+      "code": "participant-08",
+      "number": 8,
+      "createdAt": "2026-09-09T23:35:31.006Z",
+      "lastActivityAt": null
+    },
+    {
+      "userId": "bb7240d6-15c2-4a9e-a776-9e1b8702e16e",
+      "code": "participant-09",
+      "number": 9,
+      "createdAt": "2026-09-09T23:35:31.006Z",
+      "lastActivityAt": null
+    },
+    {
+      "userId": "708eae76-0f32-4bf6-b29d-79b7dff9389d",
+      "code": "participant-10",
+      "number": 10,
+      "createdAt": "2026-09-09T23:35:31.006Z",
+      "lastActivityAt": null
+    },
+    {
+      "userId": "44d94b42-d585-45aa-af09-68291dd3bf18",
+      "code": "participant-11",
+      "number": 11,
+      "createdAt": "2026-09-09T23:35:31.006Z",
+      "lastActivityAt": null
+    },
+    {
+      "userId": "1829b2f7-dda7-4796-843e-4259b6f8f48d",
+      "code": "participant-12",
+      "number": 12,
+      "createdAt": "2026-09-09T23:35:31.006Z",
+      "lastActivityAt": null
+    },
+    {
+      "userId": "aa872f24-951a-4b14-be1c-7c95c65159f9",
+      "code": "participant-13",
+      "number": 13,
+      "createdAt": "2026-09-09T23:35:31.006Z",
+      "lastActivityAt": null
+    },
+    {
+      "userId": "0523888a-8ce5-43ec-be63-09088a80356f",
+      "code": "participant-14",
+      "number": 14,
+      "createdAt": "2026-09-09T23:35:31.006Z",
+      "lastActivityAt": null
+    },
+    {
+      "userId": "def03c6d-7e5e-41c2-8973-9574d81b0cf5",
+      "code": "participant-15",
+      "number": 15,
+      "createdAt": "2026-09-09T23:35:31.006Z",
+      "lastActivityAt": null
+    }
+  ],
+  "settings": [
+    {
+      "key": "bank_frozen_at",
+      "value": "2026-09-09T23:35:16.762Z",
+      "updatedAt": "2026-09-09T23:35:16.762Z"
+    },
+    {
+      "key": "bank_version",
+      "value": 1,
+      "updatedAt": "2026-09-09T23:35:16.762Z"
+    }
+  ],
+  "attempts": [
+    {
+      "attemptId": "5bbbf840-61c0-48f8-9afb-17d434303fe9",
+      "participantCode": "participant-01",
+      "participantNumber": 1,
+      "assessment": "ta",
+      "attemptNumber": 1,
+      "status": "void",
+      "seed": "99a3092c0bc98c12a50bde69e803f1302f2fb3805f60750625d3899c411abeab",
+      "seedInputs": {
+        "userId": "af9f135a-425b-4511-85e8-6accef345980",
+        "bankVersion": 1,
+        "assessmentId": "ta",
+        "attemptNumber": 1
+      },
+      "bankVersion": 1,
+      "startedAt": "2026-09-09T23:35:32.078Z",
+      "endAt": "2026-09-09T23:45:32.078Z",
+      "submittedAt": null,
+      "submitKind": null,
+      "timeUsedSeconds": null,
+      "sectionScores": null,
+      "prescriptions": null,
+      "voidedAt": "2026-09-09T23:35:32.308Z",
+      "voidReason": "Practice reset performed as part of the go-live checklist.",
+      "statusBeforeVoid": "in_progress",
+      "items": [
+        {
+          "position": 1,
+          "itemId": "ta-04-b",
+          "presentation": {
+            "optionOrder": [
+              "a",
+              "c",
+              "b",
+              "d"
+            ]
+          },
+          "answer": null,
+          "payload": {
+            "id": "ta-04-b",
+            "slot": 4,
+            "stem": "A reference-data service gains a currency-lookup endpoint. Before the suite runs, a short check confirms that the service starts and its main endpoints respond. The suite then runs the existing tests for the account-lookup and branch-lookup endpoints, which the release left unchanged. It also runs a set of tests written for the currency-lookup endpoint and running for the first time. Which classification fits that run of the new tests?",
+            "type": "single",
+            "options": [
+              {
+                "id": "a",
+                "text": "Progression testing",
+                "correct": true
+              },
+              {
+                "id": "b",
+                "text": "Regression testing",
+                "correct": false
+              },
+              {
+                "id": "c",
+                "text": "Smoke testing",
+                "correct": false
+              },
+              {
+                "id": "d",
+                "text": "Confirmation testing",
+                "correct": false
+              }
+            ],
+            "section": "fundamentals",
+            "rationale": "Key a: progression testing is the testing of new functionality, and the stem says these tests were written for the newly added currency-lookup endpoint and are running for the first time. b is wrong because regression testing re-runs existing tests against functionality that the change left alone; in this scenario that describes the run of the existing account-lookup and branch-lookup tests, which the release left unchanged. c is wrong because smoke testing is the short, shallow check that the service starts and its main endpoints respond, and the stem names that check as a separate step taken before the suite runs. d is wrong because confirmation testing re-runs a test that previously failed, to see that its defect is now fixed; the scenario contains no failed test and no defect fix, so nothing in it answers to that description.",
+            "assessment": "ta",
+            "difficulty": "standard",
+            "fixedOrder": false,
+            "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 1 Introduction and objectives for test automation: regression testing versus progression testing"
+          }
+        },
+        {
+          "position": 2,
+          "itemId": "ta-06-b",
+          "presentation": {
+            "optionOrder": [
+              "d",
+              "a",
+              "c",
+              "b"
+            ]
+          },
+          "answer": null,
+          "payload": {
+            "id": "ta-06-b",
+            "slot": 6,
+            "stem": "A data warehouse team keeps a list of checks it could automate next. Each check below states how often it is performed. Which check is the weakest candidate for automation?",
+            "type": "single",
+            "options": [
+              {
+                "id": "a",
+                "text": "Checking once, on the day the warehouse is first brought into service, that three retention periods match the approved settings list.",
+                "correct": true
+              },
+              {
+                "id": "b",
+                "text": "Checking after every nightly load that each row of the source extract has a matching row in the warehouse table.",
+                "correct": false
+              },
+              {
+                "id": "c",
+                "text": "Checking after every schema change that each warehouse column has the name and data type given in the agreed definition.",
+                "correct": false
+              },
+              {
+                "id": "d",
+                "text": "Checking after every nightly load that a record carrying a malformed date is written to the error table.",
+                "correct": false
+              }
+            ],
+            "section": "fundamentals",
+            "rationale": "Every option states its own frequency and every option has a definite expected result, so frequency is what separates them. Key a: the check runs once, on one day, and compares three values against a list a person can read in a minute, so it will never run again and the effort of writing and maintaining a script is never repaid; a check that is executed once is the weakest candidate. b is wrong because a row-for-row comparison repeats after every nightly load and covers far more rows than a person could compare by hand, which makes it the strongest candidate on the list. c is wrong because column names and data types are compared against a fixed definition after every schema change, so the check recurs and its expected result is written down in advance. d is wrong because the routing of a malformed date to the error table is checked after every nightly load and has one definite expected outcome, so it is repeatable and deterministic.",
+            "assessment": "ta",
+            "difficulty": "standard",
+            "fixedOrder": false,
+            "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: what not to automate"
+          }
+        },
+        {
+          "position": 3,
+          "itemId": "ta-01-a",
+          "presentation": {
+            "optionOrder": [
+              "c",
+              "d",
+              "a",
+              "b"
+            ]
+          },
+          "answer": null,
+          "payload": {
+            "id": "ta-01-a",
+            "slot": 1,
+            "stem": "Before each monthly release, a billing team executes a fixed set of regression checks manually. That set has now been automated. The coming release changes the discount rules and adds two new discount bands, and the test plan for it lists four objectives. Which objective does a run of the automated set achieve on its own?",
+            "type": "single",
+            "options": [
+              {
+                "id": "a",
+                "text": "The behaviour that the existing checks cover is confirmed at every release, in an identical way each time.",
+                "correct": true
+              },
+              {
+                "id": "b",
+                "text": "The written discount rules are reviewed against the charging policy to see that they say what was intended.",
+                "correct": false
+              },
+              {
+                "id": "c",
+                "text": "The new discount bands are explored for behaviour that the written requirements do not describe.",
+                "correct": false
+              },
+              {
+                "id": "d",
+                "text": "The parts of the release carrying the most business risk are identified so that effort can be directed at them.",
+                "correct": false
+              }
+            ],
+            "section": "fundamentals",
+            "rationale": "Key a: an automated set of checks executes a predetermined comparison and reports whether it held. Running it delivers exactly one of the four objectives by itself: the behaviour the checks already cover is re-confirmed at every release, and confirmed the same way each time, free of the variation a person introduces when repeating the same steps manually. Consistent, repeatable re-execution of checks that already exist is what automating them buys, and it is the objective the run meets with no further human work. b is wrong because reading the written rules against the charging policy is a static review of a document: there is no running system for a check to exercise and no expected result for it to compare against, so the objective is met by people reading and discussing, whatever is automated elsewhere. c is wrong because exploring a feature for behaviour that no requirement describes is exploratory testing performed by a person: an automated check can only compare against the expected result it was given, and this set predates the discount bands entirely, so nothing in the run can meet this objective. Automation may free time for that exploration, but it does not perform it. d is wrong because judging which parts of a release carry the most business risk is an analysis people carry out before deciding what to test; the automated set executes the checks that such an analysis has already led the team to write, and a run of it produces no ranking of risk.",
+            "assessment": "ta",
+            "difficulty": "standard",
+            "fixedOrder": false,
+            "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 1 Introduction and objectives for test automation: purpose of automation, advantages and limitations, automation versus manual testing"
+          }
+        },
+        {
+          "position": 4,
+          "itemId": "ta-07-b",
+          "presentation": {
+            "optionOrder": [
+              "a",
+              "c",
+              "b",
+              "d"
+            ]
+          },
+          "answer": null,
+          "payload": {
+            "id": "ta-07-b",
+            "slot": 7,
+            "stem": "A team is choosing between two ways of automating the same regression checks. Proposal one takes 10 days to build and 2 days of maintenance per release. Proposal two takes 20 days to build and 1 day of maintenance per release. The checks run for 20 releases and are then retired. Which statement about the total effort over those 20 releases is correct?",
+            "type": "single",
+            "options": [
+              {
+                "id": "a",
+                "text": "Proposal two costs 10 days less in total, because its lower maintenance is paid at every release.",
+                "correct": true
+              },
+              {
+                "id": "b",
+                "text": "Proposal one costs 10 days less in total, because its build takes half as long.",
+                "correct": false
+              },
+              {
+                "id": "c",
+                "text": "Proposal one costs less over these 20 releases, and proposal two would win only over a longer run.",
+                "correct": false
+              },
+              {
+                "id": "d",
+                "text": "The two cost the same in total, because proposal two's extra build effort equals the maintenance it saves.",
+                "correct": false
+              }
+            ],
+            "section": "fundamentals",
+            "rationale": "Key a: proposal one costs 10 + (2 x 20) = 50 days and proposal two costs 20 + (1 x 20) = 40 days, so proposal two costs 10 days less over the period. The principle is that build effort is paid once while maintenance effort is paid at every release, so over a suite's life the maintenance rate decides the total and the cheaper build can be the dearer suite. b is wrong because the 10 days saved on the build are outweighed by the 20 extra days of maintenance that proposal one pays across 20 releases; comparing only the build costs is the error the item tests. c is wrong because proposal two is already the cheaper of the two within this period: the running totals cross at release 11, so no longer run is needed for it to win. d is wrong because the arithmetic does not balance; proposal two's extra build effort is 10 days while the maintenance it saves is 20 days, so the totals differ by 10 days.",
+            "assessment": "ta",
+            "difficulty": "standard",
+            "fixedOrder": false,
+            "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: maintainability; Chapter 8 Continuous improvement: maintenance and improving the solution"
+          }
+        },
+        {
+          "position": 5,
+          "itemId": "ta-08-a",
+          "presentation": {
+            "optionOrder": [
+              "a",
+              "f",
+              "e",
+              "b",
+              "d",
+              "c"
+            ]
+          },
+          "answer": null,
+          "payload": {
+            "id": "ta-08-a",
+            "slot": 8,
+            "stem": "An automated API test for an order-creation endpoint fails during a nightly run. Select all the pieces of information the failure record should contain so that the failure can be investigated later without re-running the test.",
+            "type": "multi",
+            "options": [
+              {
+                "id": "a",
+                "text": "The expected value and the actual value at the step that failed.",
+                "correct": true
+              },
+              {
+                "id": "b",
+                "text": "The identifier of the build under test and the environment it ran in.",
+                "correct": true
+              },
+              {
+                "id": "c",
+                "text": "The log output captured when the test failed, including the response received.",
+                "correct": true
+              },
+              {
+                "id": "d",
+                "text": "The average duration of the suite over the last month.",
+                "correct": false
+              },
+              {
+                "id": "e",
+                "text": "The date the test was added to the suite and the sprint it was written in.",
+                "correct": false
+              },
+              {
+                "id": "f",
+                "text": "The total number of tests in the suite and the number of endpoints it covers.",
+                "correct": false
+              }
+            ],
+            "section": "fundamentals",
+            "rationale": "Key a, b and c: the expected and actual values show what went wrong, the identifier of the build under test and the environment it ran in show which version of the system failed and where it was running, and the log output with the response received shows the state at the moment of failure, which together let an investigator work from the record alone. d is wrong because an average duration is a trend metric about the suite as a whole with no bearing on why this test failed. e is wrong because when the test was written is history about the test's origin, not evidence about the failure. f is wrong because the size and coverage of the suite are static properties with no bearing on why this test failed.",
+            "assessment": "ta",
+            "difficulty": "standard",
+            "fixedOrder": false,
+            "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 6 Test automation reporting and metrics: logging and failure evidence"
+          }
+        },
+        {
+          "position": 6,
+          "itemId": "ta-09-a",
+          "presentation": {
+            "trayOrder": [
+              "t3",
+              "t2",
+              "t4",
+              "t1",
+              "t5"
+            ]
+          },
+          "answer": null,
+          "payload": {
+            "id": "ta-09-a",
+            "slot": 9,
+            "stem": "Place each scenario onto the run trigger that fits it. Every trigger takes at least one scenario.",
+            "type": "matching",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "A unit suite that runs automatically whenever a change is merged into the shared branch.",
+                "bucket": "b1"
+              },
+              {
+                "id": "t2",
+                "text": "A data volume suite that starts at 02:00 every night on the test environment.",
+                "bucket": "b2"
+              },
+              {
+                "id": "t3",
+                "text": "A full regression pack run against the finished build as the final gate before production.",
+                "bucket": "b3"
+              },
+              {
+                "id": "t4",
+                "text": "A targeted rerun a tester starts by hand to reproduce a failure seen yesterday.",
+                "bucket": "b4"
+              },
+              {
+                "id": "t5",
+                "text": "An interface contract suite started by each new change arriving in the code repository.",
+                "bucket": "b1"
+              }
+            ],
+            "buckets": [
+              {
+                "id": "b1",
+                "label": "On commit"
+              },
+              {
+                "id": "b2",
+                "label": "Scheduled"
+              },
+              {
+                "id": "b3",
+                "label": "Pre-release"
+              },
+              {
+                "id": "b4",
+                "label": "On demand"
+              }
+            ],
+            "section": "fundamentals",
+            "rationale": "The item doubles On commit, and the discrimination it tests is that two differently worded repository events are the same trigger class. t1 is On commit: the run starts when a change enters the shared branch and at no other time, so it is not Scheduled (no clock time is named), not Pre-release (no release point is named) and not On demand (nobody asks for it; it runs automatically). t5 is also On commit: it is started by each new change arriving in the repository, which is the same trigger class as t1 even though the wording differs; it is not Scheduled (no time), not Pre-release (no release point) and not On demand (the change starts it, not a person's request for a test run). t2 is Scheduled: it starts at a fixed clock time, 02:00 every night, whether or not anything has changed, so it is not On commit (no change event), not Pre-release (it runs nightly, not at a release point) and not On demand (nobody starts it). t3 is Pre-release: it runs against the finished build as the final gate before production, so its trigger is the approaching release; it is not On commit (a finished build, not a code change, prompts it), not Scheduled (no time is named) and not On demand (it is a fixed gate in the release path, not an ad hoc request). t4 is On demand: a person starts it by hand for one stated purpose, reproducing a failure, so it is not On commit (no change triggers it), not Scheduled (no time) and not Pre-release (no release is involved). The stem states that every trigger takes at least one scenario, which removes the only alternative assignment a participant could argue, namely leaving a bucket empty and placing two tokens elsewhere.",
+            "assessment": "ta",
+            "difficulty": "standard",
+            "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 5 Implementation and deployment strategies: CI/CD pipelines and run triggers"
+          }
+        },
+        {
+          "position": 7,
+          "itemId": "ta-03-b",
+          "presentation": {
+            "optionOrder": [
+              "b",
+              "c",
+              "a",
+              "d"
+            ]
+          },
+          "answer": null,
+          "payload": {
+            "id": "ta-03-b",
+            "slot": 3,
+            "stem": "Before development starts on a refund rule, the team agrees concrete examples of the refund amount expected in each case and automates those examples as checks the developers run while they build the rule. In the agile testing quadrants, which quadrant does this activity belong to?",
+            "type": "single",
+            "options": [
+              {
+                "id": "a",
+                "text": "Technology-facing tests that critique the product",
+                "correct": false
+              },
+              {
+                "id": "b",
+                "text": "Technology-facing tests that support the team",
+                "correct": false
+              },
+              {
+                "id": "c",
+                "text": "Business-facing tests that support the team",
+                "correct": true
+              },
+              {
+                "id": "d",
+                "text": "Business-facing tests that critique the product",
+                "correct": false
+              }
+            ],
+            "section": "fundamentals",
+            "rationale": "Key c: agreed examples of expected business outcomes, automated as functional checks, sit in the business-facing quadrant that supports the team. They are business-facing because each example is stated as a refund amount a business reader understands, and they support the team because they are agreed before development and guide the developers while the rule is built. a is wrong because the technology-facing quadrant that critiques the product holds performance, load and security measurements of a built system, none of which is happening here. b is wrong because the technology-facing quadrant that supports the team holds unit and component tests expressed against the code's internal structure; these checks are expressed as business outcomes and are agreed with the wider team rather than derived from the implementation. d is wrong because the business-facing quadrant that critiques the product holds exploratory, usability and acceptance activities carried out on a product that already exists, whereas these examples are written before the rule is developed and shape what is built.",
+            "assessment": "ta",
+            "difficulty": "standard",
+            "fixedOrder": false,
+            "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 1 Introduction and objectives for test automation and Chapter 4 Implementing test automation: test types and levels, agile testing quadrants"
+          }
+        },
+        {
+          "position": 8,
+          "itemId": "ta-05-a",
+          "presentation": {
+            "optionOrder": [
+              "b",
+              "a",
+              "c",
+              "e",
+              "d"
+            ]
+          },
+          "answer": null,
+          "payload": {
+            "id": "ta-05-a",
+            "slot": 5,
+            "stem": "Select all the factors that strengthen a regression test's case for automation.",
+            "type": "multi",
+            "options": [
+              {
+                "id": "a",
+                "text": "The same check is run again at every release.",
+                "correct": true
+              },
+              {
+                "id": "b",
+                "text": "The functionality it covers has been stable for a year.",
+                "correct": true
+              },
+              {
+                "id": "c",
+                "text": "Its result needs human visual judgement each run.",
+                "correct": false
+              },
+              {
+                "id": "d",
+                "text": "Its requirements change from one sprint to the next.",
+                "correct": false
+              },
+              {
+                "id": "e",
+                "text": "Its expected result is the same on every run.",
+                "correct": true
+              }
+            ],
+            "section": "fundamentals",
+            "rationale": "Key a, b and e. a is right because a check repeated at every release gives the automated version many runs over which to repay the cost of writing it, which is the frequency factor. b is right because functionality that has been stable for a year is unlikely to force the script to be rewritten, so the maintenance cost stays low. e is right because an expected result that is the same on every run gives the script a fixed value to compare the actual result against, which is what makes an automated verdict trustworthy. c is wrong because a verdict that rests on a person looking at the result each run cannot be reduced to a comparison a script can make, so a person is still needed every time and the automation saves nothing. d is wrong because requirements that change from one sprint to the next mean the script is reworked as often as it is run, so the effort is never repaid.",
+            "assessment": "ta",
+            "difficulty": "standard",
+            "fixedOrder": false,
+            "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: when to automate, automation candidacy factors"
+          }
+        },
+        {
+          "position": 9,
+          "itemId": "ta-10-b",
+          "presentation": {
+            "optionOrder": [
+              "d",
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          "answer": null,
+          "payload": {
+            "id": "ta-10-b",
+            "slot": 10,
+            "stem": "An automated check compares the row count of a loaded table with the row count in the file the load reads from. On about one run in twenty the two counts differ and the check fails, and repeating the check straight away gives matching counts and a pass. The check, the file and the load job are unchanged throughout. Which action should the team take first?",
+            "type": "single",
+            "options": [
+              {
+                "id": "a",
+                "text": "Compare the logs and timings recorded for the failing runs with those recorded for the passing runs, to find what differs.",
+                "correct": true
+              },
+              {
+                "id": "b",
+                "text": "Raise a defect against the load job describing the intermittent difference, and hand it to the team that owns the job.",
+                "correct": false
+              },
+              {
+                "id": "c",
+                "text": "Loosen the check so that a small difference between the two counts is recorded as a pass rather than a failure.",
+                "correct": false
+              },
+              {
+                "id": "d",
+                "text": "Measure how often the check has failed across its last two hundred runs, and report that failure rate to the team.",
+                "correct": false
+              }
+            ],
+            "section": "fundamentals",
+            "rationale": "Key a: a check that returns different results for the same check, the same file and the same job is giving a non-deterministic, that is flaky, result, and the first step is to establish what actually differs between the runs that fail and the runs that pass. The runs themselves hold that evidence in what they recorded, so comparing the logs and timings of failing runs against passing runs is what turns a varying symptom into a known cause. It is also the step the other actions depend on: only that comparison shows whether the cause sits in the check, in its environment or in the load job. b is wrong because nothing observed so far shows where the cause lies; a non-deterministic result may come from the check, from the environment it runs in or from the job it exercises, and intermittent faults in each of those are possible. Handing a defect to another team before the failing and passing runs have been compared passes on a symptom without the evidence needed to act on it, and it stops the team investigating the parts they own. c is wrong because widening what counts as a match turns a reconciliation check into one that can no longer report the mismatch it exists to find; it removes the failure report rather than the cause, and a genuine shortfall in the load would then be recorded as a pass. d is wrong because a failure rate counts how often the symptom appears rather than showing what happens differently on the runs that fail; the team already knows it fails on roughly one run in twenty, so measuring that more precisely adds no information about the cause and leaves the investigation where it started.",
+            "assessment": "ta",
+            "difficulty": "standard",
+            "fixedOrder": false,
+            "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 7 Verifying the test automation solution: flaky tests and non-deterministic results"
+          }
+        },
+        {
+          "position": 10,
+          "itemId": "ta-02-b",
+          "presentation": {
+            "initialArrangement": [
+              "e2",
+              "e1",
+              "e3"
+            ]
+          },
+          "answer": null,
+          "payload": {
+            "id": "ta-02-b",
+            "key": [
+              "e1",
+              "e2",
+              "e3"
+            ],
+            "slot": 2,
+            "stem": "Arrange the automated test layers of the test automation pyramid by how fast one test typically runs, from fastest at the top of this list to slowest.",
+            "type": "ordering",
+            "section": "fundamentals",
+            "elements": [
+              {
+                "id": "e1",
+                "text": "Unit tests"
+              },
+              {
+                "id": "e2",
+                "text": "API tests"
+              },
+              {
+                "id": "e3",
+                "text": "UI tests"
+              }
+            ],
+            "rationale": "A unit test runs in memory against one unit with nothing deployed, so it is the fastest. An API test sends a request to a running service and waits for the response, so it takes longer. A UI test drives the whole stack through a rendered interface and waits for pages to load and settle, so it is the slowest. Every other order places a layer that exercises more of the running system above one that exercises less. Taking the five wrong orders in turn, fastest first: unit, UI, API places UI tests above API tests although a UI test drives the same service and the interface above it; API, unit, UI places API tests above unit tests although a unit test needs no service running at all; API, UI, unit makes unit tests the slowest of the three; UI, unit, API makes UI tests the fastest of the three; UI, API, unit is the fully reversed order, treating the slowest layer as the fastest.",
+            "assessment": "ta",
+            "difficulty": "standard",
+            "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: test pyramid and layers"
+          }
+        }
+      ]
+    }
+  ]
+}

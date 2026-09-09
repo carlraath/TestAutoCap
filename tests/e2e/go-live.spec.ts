@@ -166,7 +166,7 @@ test("the go-live checklist, executed and evidenced", async ({ page, context, re
   const files: string[] = [];
   for (const name of ["results.csv", "item-analysis.csv", "audit-log.csv", "archive.json"]) {
     const started = page.waitForEvent("download");
-    await page.getByRole("link", { name: new RegExp(name.replace(".", "\\."), "i") }).first().click();
+    await page.getByTestId(`download-${name}`).click();
     const got = await started;
     const target = `${OUT}/practice-${name}`;
     await got.saveAs(target);

@@ -1,0 +1,8 @@
+at_melbourne,at_iso,actor,actor_role,action,target_type,target,reason,details
+2026-09-10 09:35:15 AEST,2026-09-09T23:35:15.518Z,admin,admin,admin.bootstrap,user,admin,,"{""username"":""admin""}"
+2026-09-10 09:35:27 AEST,2026-09-09T23:35:27.505Z,admin,admin,admin.password_rotated,user,admin,,
+2026-09-10 09:35:31 AEST,2026-09-09T23:35:31.009Z,admin,admin,participants.bulk_created,participants,,,"{""to"":""participant-15"",""from"":""participant-01"",""codes"":[""participant-01"",""participant-02"",""participant-03"",""participant-04"",""participant-05"",""participant-06"",""participant-07"",""participant-08"",""participant-09"",""participant-10"",""participant-11"",""participant-12"",""participant-13"",""participant-14"",""participant-15""],""count"":15}"
+2026-09-10 09:35:32 AEST,2026-09-09T23:35:32.081Z,participant-01,participant,attempt.started,attempt,participant-01 ta attempt 1,,"{""bankVersion"":1,""assessmentId"":""ta"",""attemptNumber"":1,""questionCount"":10}"
+2026-09-10 09:35:32 AEST,2026-09-09T23:35:32.310Z,admin,admin,attempt.reset,attempt,participant-01 ta attempt 1,Practice reset performed as part of the go-live checklist.,"{""userId"":""participant-01"",""assessmentId"":""ta"",""attemptNumber"":1,""statusBeforeVoid"":""in_progress""}"
+2026-09-10 09:35:32 AEST,2026-09-09T23:35:32.520Z,admin,admin,export.created,export,results.csv,,"{""file"":""results.csv"",""rowCount"":45}"
+2026-09-10 09:35:32 AEST,2026-09-09T23:35:32.596Z,admin,admin,export.created,export,item-analysis.csv,,"{""file"":""item-analysis.csv"",""rowCount"":65}"

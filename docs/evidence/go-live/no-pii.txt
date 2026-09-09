@@ -1,0 +1,68 @@
+Schema: 62 columns inspected.
+  attempts.id
+  attempts.user_id
+  attempts.assessment_id
+  attempts.attempt_number
+  attempts.status
+  attempts.seed
+  attempts.seed_inputs
+  attempts.bank_version
+  attempts.served_item_ids
+  attempts.presentation
+  attempts.answers
+  attempts.started_at
+  attempts.end_at
+  attempts.last_saved_at
+  attempts.submitted_at
+  attempts.submit_kind
+  attempts.section_scores
+  attempts.prescriptions
+  attempts.shorthand
+  attempts.time_used_seconds
+  attempts.voided_at
+  attempts.voided_by
+  attempts.void_reason
+  attempts.status_before_void
+  audit_log.id
+  audit_log.at
+  audit_log.actor_user_id
+  audit_log.actor_username
+  audit_log.actor_role
+  audit_log.action
+  audit_log.target_type
+  audit_log.target_id
+  audit_log.reason
+  audit_log.details
+  items.id
+  items.bank_version
+  items.assessment
+  items.section
+  items.slot
+  items.type
+  items.payload
+  items.retired_at
+  items.retired_by
+  items.created_at
+  login_attempts.id
+  login_attempts.username
+  login_attempts.ip
+  login_attempts.at
+  login_attempts.success
+  schema_migrations.name
+  schema_migrations.applied_at
+  settings.key
+  settings.value
+  settings.updated_at
+  users.id
+  users.username
+  users.role
+  users.participant_number
+  users.password_hash
+  users.password_regenerated_at
+  users.created_at
+  users.last_activity_at
+PASS no personal-data columns in the schema.
+PASS docs/evidence/go-live/practice-results.csv: 31 columns, 3729 bytes, nothing personal found.
+PASS docs/evidence/go-live/practice-item-analysis.csv: 14 columns, 5951 bytes, nothing personal found.
+PASS docs/evidence/go-live/practice-audit-log.csv: 9 columns, 1571 bytes, nothing personal found.
+PASS docs/evidence/go-live/practice-archive.json: 34222 bytes, nothing personal found.
