@@ -51,6 +51,13 @@ export interface SampleCohort {
 const RESET_REASON = "Participant reported the browser closing mid-attempt. Verified with delivery management.";
 const UNANSWERED_CHANCE = 0.07;
 
+/**
+ * One slot is answered wrongly by very nearly everyone, so the item analysis
+ * outlier flag has something real to show in a demonstration cohort. Both items
+ * in the slot behave the same way, exactly as a genuinely bad question would.
+ */
+const TROUBLESOME_SLOT: { assessment: AssessmentId; slot: number; abilityFactor: number } = { assessment: "ta", slot: 10, abilityFactor: 0.05 };
+
 /** A PRNG keyed on stable inputs, so the stream never depends on which item the paper drew. */
 function keyedRng(seed: number, ...parts: (string | number)[]): Rng {
   return createRng(createHash("sha256").update(`sample:${seed}:${parts.join(":")}`, "utf8").digest("hex"));
@@ -118,19 +125,24 @@ async function answerAttempt(
   opts: AnswerOptions,
 ): Promise<void> {
   const payloads = await loadPayloads(db, attempt.servedItemIds);
-  const limit = opts.limit ?? attempt.servedItemIds.length;
-  let answered = 0;
-  for (const itemId of attempt.servedItemIds) {
-    if (answered >= limit) break;
-    const item = payloads.get(itemId);
-    if (!item) continue;
-    answered += 1;
-    // Keyed on the position in the paper, never on the drawn item: which item a slot draws
-    // depends on the participant's random user id and so differs between runs.
-    const rng = keyedRng(seed, index, attempt.assessmentId, opts.attemptNumber, answered);
+  const served = attempt.servedItemIds.map((itemId) => payloads.get(itemId)).filter((item) => item !== undefined);
+  const limit = opts.limit ?? served.length;
+  // Both the answered set and the correctness decision are keyed on the slot, which is the same
+  // for every participant. Served order and the item drawn per slot depend on the participant's
+  // random user id, so keying on either would make the cohort differ between runs.
+  const answering = new Set(
+    served
+      .map((item) => item.slot)
+      .sort((a, b) => a - b)
+      .slice(0, limit),
+  );
+  for (const item of served) {
+    if (!answering.has(item.slot)) continue;
+    const rng = keyedRng(seed, index, attempt.assessmentId, opts.attemptNumber, item.slot);
     if (rng.next() < UNANSWERED_CHANCE) continue;
-    const correct = rng.next() < ability;
-    await saveAnswer(db, participant, attempt.id, itemId, answerFor(item, correct, rng));
+    const troublesome = item.assessment === TROUBLESOME_SLOT.assessment && item.slot === TROUBLESOME_SLOT.slot;
+    const correct = rng.next() < ability * (troublesome ? TROUBLESOME_SLOT.abilityFactor : 1);
+    await saveAnswer(db, participant, attempt.id, item.id, answerFor(item, correct, rng));
   }
 }
 
