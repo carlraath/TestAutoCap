@@ -1,0 +1,2341 @@
+{
+  "bankVersion": 1,
+  "items": [
+    {
+      "id": "ta-01-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 1,
+      "type": "single",
+      "stem": "A billing team runs its regression checks by hand before each monthly release and is now automating those existing checks. The next release adds a discount scheme and changes the invoice layout. The team's test plan for that release lists four objectives. Which objective does the automation directly achieve?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The existing checks run the same way each time and return results sooner than by hand.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "The changed invoice layout is judged for how clearly customers can read the amounts on it.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "The new discount scheme is explored for behaviour beyond what its written requirements describe.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "The features carrying the most business risk are identified before testing effort is allocated to them.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Key a: automating an existing set of regression checks makes them run in exactly the same way each time and return their results far sooner than the same checks run by hand. Consistent, repeatable execution with faster feedback is the direct purpose of automating checks that already exist. b is wrong because how clearly a customer can read an invoice is a human judgement with no expected result that a script can compare against, so it stays a manual activity whatever else is automated. c is wrong because an automated check can only compare behaviour against the expected result it was given; the automation here covers the existing checks, which predate the discount scheme, and exploring a feature for behaviour that nobody has specified is exploratory testing carried out by a person. Automation may free time for that exploration, but it does not perform it. d is wrong because deciding which features carry the most business risk is an analysis that people make before checks are chosen; automation executes the checks that this analysis selects and does not make the selection.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 1 Introduction and objectives for test automation: purpose of automation, advantages and limitations, automation versus manual testing"
+    },
+    {
+      "id": "ta-01-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 1,
+      "type": "single",
+      "stem": "A data team loads a reporting database every night. After each load, 60 automated reconciliation checks run against the loaded data, each comparing a total in the database with the matching total in the source files. Tonight's run reports that all 60 checks passed. What can the team conclude from that result?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Tonight's loaded data met the 60 conditions that the scripted checks evaluate.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Tonight's loaded data contains no defects, so no further checking of it is needed.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "The 60 reconciliation rules are themselves correct, because every check built on them passed.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "The result cannot be relied on until a tester has repeated the 60 checks by hand.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Key a: an automated check can report only on the condition it was scripted to evaluate, so a run in which all 60 checks passed establishes exactly that the loaded data met those 60 scripted conditions. It establishes this consistently and without repeated manual effort, which is the purpose of automating a stable set of checks. b is wrong because the run is silent about anything that no scripted check describes; a defect outside the 60 conditions is invisible to it, so a pass cannot show that the data is free of defects or that no further checking is needed. c is wrong because a pass says nothing about whether the rules themselves are right: a rule that is too lenient, or a check that compares the wrong totals, passes in the same way as a correct one, so the correctness of the rules has to be established separately. d is wrong because the automated checks have already evaluated tonight's data; repeating the same deterministic checks by hand adds no information and is precisely the repeated manual effort that automating them removes.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 1 Introduction and objectives for test automation: purpose of automation, advantages and limitations, automation versus manual testing"
+    },
+    {
+      "id": "ta-02-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 2,
+      "type": "ordering",
+      "stem": "Arrange the automated test layers of the test automation pyramid from most numerous at the top of this list to fewest.",
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Unit tests"
+        },
+        {
+          "id": "e2",
+          "text": "API tests"
+        },
+        {
+          "id": "e3",
+          "text": "UI tests"
+        }
+      ],
+      "key": [
+        "e1",
+        "e2",
+        "e3"
+      ],
+      "difficulty": "standard",
+      "rationale": "The pyramid widens toward fast, isolated tests: unit tests run in isolation and are the cheapest to write, run and maintain, so they are the most numerous; API tests need a running service, so there are fewer of them; UI tests drive the whole stack through a rendered interface and are the slowest and most brittle, so they are the fewest. Every other order places a slower, less isolated layer above a faster, more isolated one, which contradicts the pyramid as taught. Taking the five wrong orders in turn, most numerous first: unit, UI, API puts UI tests above API tests; API, unit, UI puts API tests above unit tests; API, UI, unit makes unit tests the fewest, below both API and UI tests; UI, unit, API makes UI tests the most numerous, above both unit and API tests; UI, API, unit is the fully reversed order, the inverted pyramid anti-pattern.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: test pyramid and layers"
+    },
+    {
+      "id": "ta-02-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 2,
+      "type": "ordering",
+      "stem": "Arrange the automated test layers of the test automation pyramid by how quickly one test typically runs, from fastest at the top of this list to slowest.",
+      "elements": [
+        {
+          "id": "e1",
+          "text": "UI tests"
+        },
+        {
+          "id": "e2",
+          "text": "Unit tests"
+        },
+        {
+          "id": "e3",
+          "text": "API tests"
+        }
+      ],
+      "key": [
+        "e2",
+        "e3",
+        "e1"
+      ],
+      "difficulty": "standard",
+      "rationale": "Unit tests run in memory against one unit with no deployed system, so they are the fastest. API tests need a running service and a network call, so they are slower. UI tests drive a browser or screen through the full stack, so they are the slowest. Any other order puts a layer that needs more of the system running above one that needs less, which contradicts the pyramid: placing API tests above unit tests ignores that unit tests need no running service, and placing UI tests above either ignores that UI tests exercise the whole stack through a rendered interface.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: test pyramid and layers"
+    },
+    {
+      "id": "ta-03-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 3,
+      "type": "single",
+      "stem": "A team runs a load test against a web shop's checkout service to measure response times at 500 concurrent users. In the agile testing quadrants, which quadrant does this activity belong to?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Technology-facing tests that critique the product",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Technology-facing tests that support the team",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Business-facing tests that support the team",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Business-facing tests that critique the product",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Key a: performance and load testing is technology-facing (it measures a technical property, response time under load, using tools) and it critiques the product (it evaluates the built system rather than guiding what to build). b is wrong because technology-facing tests that support the team are unit and component tests written to guide development, not measurements of the built system. c is wrong because business-facing tests that support the team are functional and story tests expressed in business terms; response time under load is not a business-facing example. d is wrong because business-facing tests that critique the product are exploratory, usability and acceptance activities, which rely on human judgement rather than tool-driven measurement.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapters 1 and 4: test types and levels, agile testing quadrants"
+    },
+    {
+      "id": "ta-03-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 3,
+      "type": "single",
+      "stem": "A tester spends an afternoon exploring a web shop's new returns screen without a script, trying unusual sequences of actions to learn how it behaves and to find problems. In the agile testing quadrants, which quadrant does this activity belong to?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Technology-facing tests that critique the product",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Technology-facing tests that support the team",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Business-facing tests that support the team",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Business-facing tests that critique the product",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Key d: exploratory testing is business-facing (it evaluates the product from the user's point of view) and it critiques the product (it examines the built system to find problems rather than guiding what to build). a is wrong because technology-facing tests that critique the product are performance, load and security tests driven by tools, not unscripted human exploration. b is wrong because technology-facing tests that support the team are unit and component tests written to guide development. c is wrong because business-facing tests that support the team are functional and story tests defined before or during development to confirm the intended behaviour, whereas exploration examines the finished screen.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapters 1 and 4: test types and levels, agile testing quadrants"
+    },
+    {
+      "id": "ta-04-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 4,
+      "type": "single",
+      "stem": "A payments file import gains a new record type. The team writes new tests for the new record type. One of the new tests finds a defect; after the fix, the team re-runs that one test. The team also re-runs the existing settlement and reconciliation tests for the other record types to see that they still pass. Which classification fits the re-run of the existing settlement and reconciliation tests?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Regression testing",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Progression testing",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Confirmation testing",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Smoke testing",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Key a: regression testing re-runs existing tests on functionality that was not changed, to confirm that a change elsewhere has not broken it; re-running the settlement and reconciliation tests for the other record types is exactly that. b is wrong because progression testing is the testing of new functionality; that describes the new tests written for the new record type, not the re-run of existing tests. c is wrong because confirmation testing re-runs the specific test that previously failed to confirm that its defect has been fixed; that applies only to the re-run of the one test that found the defect, not to the existing tests for the other record types, which never failed. d is wrong because smoke testing is a small, quick check that the main functions work at all, not a re-run of the existing settlement and reconciliation suite.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 1 Introduction and objectives for test automation: regression testing versus progression testing"
+    },
+    {
+      "id": "ta-04-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 4,
+      "type": "single",
+      "stem": "A payments batch gains a new currency-conversion step. The team writes new tests that exercise the conversion step for the first time, and it also re-runs the existing settlement tests to see that they still pass. Which classification fits the new tests for the conversion step?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Regression testing",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Progression testing",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Confirmation testing",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Smoke testing",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Key b: progression testing is the testing of new functionality, and the stem says these tests exercise the newly added conversion step for the first time. a is wrong because regression testing re-runs existing tests on unchanged functionality to confirm that a change elsewhere has not broken it; in the stem that describes the re-run of the existing settlement tests, not the new tests for the conversion step. c is wrong because confirmation testing re-runs a test that previously failed to confirm that a specific defect has been fixed; the stem mentions no earlier failing test and no defect fix. d is wrong because smoke testing is a quick, broad check that the main functions of a build work at all before further testing; the tests in the stem are written specifically for one newly added step, which is testing of new functionality, not a smoke check of the build.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 1 Introduction and objectives for test automation: regression testing versus progression testing"
+    },
+    {
+      "id": "ta-05-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 5,
+      "type": "multi",
+      "stem": "Select all the factors that strengthen a regression test's case for automation.",
+      "options": [
+        {
+          "id": "a",
+          "text": "It runs every release.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "The functionality it covers is stable.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Its result needs human visual judgement each run.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Its requirements change frequently.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Its expected outcome is known in advance and does not vary between runs.",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Key a, b and e: repeated execution, stable functionality and an expected outcome that is known in advance and does not vary between runs (a deterministic outcome) are the candidacy factors; each makes the automated check cheaper to keep and its result trustworthy. c is wrong because a result that needs human visual judgement each run has no expected value a script can compare against, so it weakens the case. d is wrong because frequently changing requirements mean the script would need frequent rework, which weakens the case.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: when to automate, automation candidacy factors"
+    },
+    {
+      "id": "ta-05-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 5,
+      "type": "multi",
+      "stem": "Select all the properties that strengthen the case for automating a check on a nightly data pipeline.",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is repeated after every pipeline run.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "The rule it checks has stayed the same for a year.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Its expected result can be computed from the input data.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "A reviewer decides pass or fail by judging a chart.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "It is needed only once, before the pipeline goes live.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Key a, b and c: a check repeated after every pipeline run gives an automated version many runs over which to repay the effort of scripting it; a rule that has stayed the same for a year is unlikely to force the script to be rewritten; and an expected result computed from the input data gives the script a definite value to compare with the actual result. d is wrong because a verdict that rests on a reviewer's reading of a chart cannot be reduced to a comparison a script can make, so a person would still be needed every run. e is wrong because a check needed only once gives no repeat runs, so the effort of automating it is never repaid.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: when to automate, automation candidacy factors"
+    },
+    {
+      "id": "ta-06-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 6,
+      "type": "single",
+      "stem": "A web shop team lists four checks it wants to add to its suite. Which check is the weakest candidate for automation?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Checking whether the redesigned home page looks appealing to shoppers.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Checking that the order total equals the sum of the line totals for 50 sample baskets.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Checking that a declined card payment leaves the order in the awaiting-payment state.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Checking that the nightly stock export has the same row count as the stock table.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Key a: whether a page looks appealing is a matter of human judgement with no deterministic expected result for a script to compare against, so it is the weakest candidate. b is wrong because a total that must equal a computed sum is deterministic and repeatable, a strong candidate. c is wrong because the resulting order state is a definite value that a script can read and compare, a strong candidate. d is wrong because a row count compared with a table count is deterministic, repeatable and run every night, a strong candidate.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: what not to automate"
+    },
+    {
+      "id": "ta-06-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 6,
+      "type": "single",
+      "stem": "A payments batch team lists four checks it wants to add to its suite. Which check is the weakest candidate for automation?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Checking that a one-off migration copied every account record, after which its script is retired.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Checking that each settled payment appears exactly once in the daily settlement file.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Checking that a payment with an invalid account number is written to the rejects table.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Checking that the end-of-day totals match the ledger totals after each batch run.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Key a: the migration runs once and its script is then retired, so this check will never be needed again; a check that is executed only once cannot repay the effort of scripting it, which makes it the weakest candidate even though its expected result is definite. b is wrong because a settlement file is produced every day and the expected result (each settled payment present exactly once) is definite, so the check is repeatable and deterministic, a strong candidate. c is wrong because the rejects-table rule gives a definite expected outcome and the check belongs to a suite that is run again with every change to the batch, so it is repeatable and deterministic, a strong candidate. d is wrong because totals compared after every batch run are deterministic and highly repeatable, a strong candidate.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: what not to automate"
+    },
+    {
+      "id": "ta-07-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 7,
+      "type": "single",
+      "stem": "The same 100 regression checks have been automated four times against one application, once with each design below. With every release the application's screen layout changes and elements move to new positions, while element identifiers and the API stay the same. Which suite will need the most maintenance effort per release?",
+      "options": [
+        {
+          "id": "a",
+          "text": "UI tests that find each screen element by its position on the screen.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "UI tests that find each screen element by an identifier looked up in one shared list.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "API tests that build each request in full inside the test that sends it.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "API tests that send each request through one shared client library.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Key a: a test that finds elements by screen position is coupled to the layout, and the layout is the one part of the application that changes with every release. Each release moves the elements, the tests no longer find them, and every affected test has to be corrected, so this suite carries the highest maintenance effort per release. The principle is that maintenance cost follows how tightly a suite is coupled to the part of the system that changes most. b is wrong because these tests depend on element identifiers, which stay the same, so a layout change leaves them working; even if an identifier did change later, the shared list would confine the edit to one place. c is wrong because these tests depend on the API, which stays the same, so a layout change has no effect on them; the duplicated request code would cost effort only if the API changed, and the stem says it does not. d is wrong because it depends on the API, which stays the same, and it is the cheapest of the four to maintain, since any future API change would be handled once in the shared library rather than in every test.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: maintainability; Chapter 8 Continuous improvement: refactoring the automation solution"
+    },
+    {
+      "id": "ta-07-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 7,
+      "type": "single",
+      "stem": "Each of the 150 automated API tests in a suite has four values written directly into its own code: the base URL of the test environment it calls, the request body it sends, the response code it expects, and the account number of the test customer it uses. The team is about to run the suite against a second test environment that hosts the same release of the system loaded with the same test data. Which property of the suite means that this move requires an edit in every test?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The base URL of the test environment is written into every test.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "The request body of each call is written into every test.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "The expected response code of each call is written into every test.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "The account number of the test customer is written into every test.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Key a: the base URL is the address of the environment, so it is the one value that is different for a second environment; because each of the 150 tests holds its own copy of it, all 150 tests have to be edited before the suite can run there, and this is the maintainability cost of writing environment-specific values into the tests instead of holding them once in a configuration read at run time, which would make the move a single change. b is wrong because the request body is defined by the API of the release under test; the second environment hosts the same release, so every test sends the same body and no test changes. c is wrong because the expected response code depends on how the release behaves for a given request and data; with the same release and the same test data the expected codes are unchanged. d is wrong because the account number identifies a record in the test data, and the same test data is loaded in the second environment, so the same account exists there and the value stays as it is. A copy of a value in every test costs maintenance only when that value changes, and the environment move changes the base URL alone.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: maintainability; Chapter 5 Implementation and deployment strategies: environments and configuration management"
+    },
+    {
+      "id": "ta-08-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 8,
+      "type": "multi",
+      "stem": "An automated API test for an order-creation endpoint fails during a nightly run. Select all the pieces of information the failure record should contain so that the failure can be investigated later without re-running the test.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The expected value and the actual value at the step that failed.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "The build identifier and environment the test ran against.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "The log output captured when the test failed, including the response received.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "The average duration of the suite over the last month.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "The date the test was added to the suite and the sprint it was written in.",
+          "correct": false
+        },
+        {
+          "id": "f",
+          "text": "The total number of tests in the suite and the number of endpoints it covers.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Key a, b and c: the expected and actual values show what went wrong, the build identifier and environment show which version of the system failed and where it was running, and the log output with the response received shows the state at the moment of failure, which together let an investigator work from the record alone. d is wrong because an average duration is a trend metric about the suite as a whole with no bearing on why this test failed. e is wrong because when the test was written is history about the test's origin, not evidence about the failure. f is wrong because the size and coverage of the suite are static properties with no bearing on why this test failed.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 6 Test automation reporting and metrics: logging and failure evidence"
+    },
+    {
+      "id": "ta-08-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 8,
+      "type": "multi",
+      "stem": "A nightly data pipeline includes a reconciliation check that compares the rows it loaded with the rows in the source. On one night the check reports a failure. The next morning an investigator has only the failure record to work from and cannot re-run the check. Select all the items the record needs to hold for the investigator to establish what went wrong.",
+      "options": [
+        {
+          "id": "a",
+          "text": "The rule that was evaluated and the identifiers of the input data it used.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "The identifier of the pipeline run and the time at which the check failed.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "The rows that did not match, showing the expected and the actual values.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "The name of the team member who wrote the check.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "The average duration of the pipeline over the last month.",
+          "correct": false
+        },
+        {
+          "id": "f",
+          "text": "The planned date of the next change to the pipeline.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Key a, b and c. The rule and the identifiers of its input data tell the investigator what was compared and against which data, so the comparison can be traced back to its inputs. The run identifier and the failure time tie the failure to one specific execution and to the state of the pipeline at that moment. The mismatched rows with their expected and actual values are the direct evidence of what the check found. Together these let the investigator reconstruct the failure from the record without a re-run. d is wrong because the author of the check is a fact about the check's ownership that is the same on every run, so it says nothing about what happened in this run. e is wrong because a monthly average of run duration summarises past runs and carries no detail about the run in which the check failed. f is wrong because a change planned for the future has not yet been made, so it cannot explain a failure that has already occurred.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 6 Test automation reporting and metrics: logging and failure evidence"
+    },
+    {
+      "id": "ta-09-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 9,
+      "type": "matching",
+      "stem": "Place each scenario onto the run trigger that fits it.",
+      "buckets": [
+        {
+          "id": "b1",
+          "label": "On commit"
+        },
+        {
+          "id": "b2",
+          "label": "Scheduled"
+        },
+        {
+          "id": "b3",
+          "label": "Pre-release"
+        },
+        {
+          "id": "b4",
+          "label": "On demand"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "A component test suite that starts automatically each time a change is merged to the shared branch.",
+          "bucket": "b1"
+        },
+        {
+          "id": "t2",
+          "text": "A database reconciliation suite that runs at 06:00 every morning against the test environment.",
+          "bucket": "b2"
+        },
+        {
+          "id": "t3",
+          "text": "A full regression pack that the release pipeline runs against the release candidate as the last gate before it is deployed to production.",
+          "bucket": "b3"
+        },
+        {
+          "id": "t4",
+          "text": "A run that a tester starts by hand to reproduce a failure reported on the test environment.",
+          "bucket": "b4"
+        },
+        {
+          "id": "t5",
+          "text": "An API test suite that the pipeline starts automatically on every push to the shared branch.",
+          "bucket": "b1"
+        }
+      ],
+      "difficulty": "standard",
+      "rationale": "t1 and t5 are On commit: each is started by a change entering the shared branch (a merge in t1, a push in t5) and by nothing else, so neither runs to a clock, at a release point or at a person's request. t2 is Scheduled: it runs at a fixed time (06:00 every morning) whether or not any change, release or request has occurred, so it is not tied to a commit, a release or a person. t3 is Pre-release: it is run by the release pipeline as the last gate before the release candidate is deployed to production, so its trigger is the approaching release, not a commit, a timetable or a person's request. t4 is On demand: it is started by hand by a tester for one specific purpose (reproducing a reported failure), not by a commit, a fixed time or a release step. Every scenario names its trigger's defining property (a merge or push, a fixed time, a deployment about to happen, a person starting one run), so no token fits two buckets.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 5 Implementation and deployment strategies: CI/CD pipelines and run triggers"
+    },
+    {
+      "id": "ta-09-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 9,
+      "type": "matching",
+      "stem": "Place each scenario onto the run trigger that fits it.",
+      "buckets": [
+        {
+          "id": "b1",
+          "label": "On commit"
+        },
+        {
+          "id": "b2",
+          "label": "Scheduled"
+        },
+        {
+          "id": "b3",
+          "label": "Pre-release"
+        },
+        {
+          "id": "b4",
+          "label": "On demand"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "An API test suite triggered by each commit to the main branch.",
+          "bucket": "b1"
+        },
+        {
+          "id": "t2",
+          "text": "A data quality check that runs every weekday at 06:00.",
+          "bucket": "b2"
+        },
+        {
+          "id": "t3",
+          "text": "A full regression run as the final check before release approval.",
+          "bucket": "b3"
+        },
+        {
+          "id": "t4",
+          "text": "A run a tester starts manually to reproduce a reported defect.",
+          "bucket": "b4"
+        },
+        {
+          "id": "t5",
+          "text": "A performance suite that runs every Sunday at 03:00.",
+          "bucket": "b2"
+        }
+      ],
+      "difficulty": "standard",
+      "rationale": "t1 is On commit: it is triggered by a change entering the main branch (each commit) and nothing else; it names no time, no release and no person, so Scheduled, Pre-release and On demand do not fit. t2 and t5 are Scheduled: each runs at a fixed time (every weekday at 06:00, every Sunday at 03:00) regardless of any change or release; neither names a commit, a release or a person, so On commit, Pre-release and On demand do not fit. t3 is Pre-release: it is tied to the release approval point, the last check before a release goes ahead, not to a commit or a clock; it names no commit, no time and no person starting it, so On commit, Scheduled and On demand do not fit. t4 is On demand: it is started by a person for one specific purpose (reproducing a reported defect), not by a commit, a timetable or a release; it names no commit, no time and no release, so On commit, Scheduled and Pre-release do not fit. Each scenario names its trigger's defining property (a commit, a fixed time, a release about to be approved, a person starting one run), so no token fits two buckets.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 5 Implementation and deployment strategies: CI/CD pipelines and run triggers"
+    },
+    {
+      "id": "ta-10-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 10,
+      "type": "single",
+      "stem": "An automated check compares the row totals in a nightly extract against its source table, using a fixed set of test data. The check passes on most runs and fails on about one run in ten. Nothing in the check, the test data or the extract job changes between runs. Which response fits this situation?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Treat the check as unreliable and investigate the cause of the varying result before trusting it.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Delete the check from the suite so that its failures stop interrupting the nightly run.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Configure the nightly run to retry the check until it passes and report the eventual pass.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Raise a defect against the extract job at each failure, treating the failure as a fault in the job.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Key a: a check whose result varies while the check, the test data and the extract job all stay the same is flaky (non-deterministic), and the correct response is to find and fix the cause of the variation (commonly timing, such as reading the extract before the job has finished writing it, or shared state between runs) so that its result can be trusted again. b is wrong because deleting the check discards its coverage permanently and learns nothing about whether the cause lies in the check or in the extract job; stopping the interruptions is not the same as resolving the problem. c is wrong because retrying until a pass and reporting only the pass hides the varying result instead of resolving it, and a genuine intermittent fault in the extract job would be hidden with it. d is wrong because treating every failure as a fault in the job assumes the extract job is at fault without evidence; the cause of a flaky result is often in the check itself, and raising a defect at each failure records the symptom repeatedly without finding the cause.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 7 Verifying the test automation solution: flaky tests and non-deterministic results"
+    },
+    {
+      "id": "ta-10-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 10,
+      "type": "single",
+      "stem": "A data pipeline runs an automated reconciliation check every night. In one week the check fails on Monday, passes on Tuesday and Wednesday, fails on Thursday and passes on Friday. The check, the input data and the pipeline are the same on every night of the week. Which conclusion fits these results?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is a flaky check, and the cause of its inconsistent results must be found before any of them is relied on.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "It has detected a new pipeline defect on Monday and a second new pipeline defect on Thursday.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "It is a passing check, because Friday's run is the most recent result and the most recent result is the one that counts.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "It only needs a retry rule, so the nightly run should run it again after each failure and report the eventual pass.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Key a: a check that gives different results on different nights while the check, the data and the pipeline stay the same is flaky (non-deterministic). Flakiness describes the observed pattern, not where the cause lies; the cause may be in the check, in its environment or in the pipeline, and only investigation can tell, so none of the week's results can be relied on until the cause has been found. b is wrong because nothing in the pipeline changed during the week, so no new defect could have been introduced on Monday or on Thursday, and the same fault cannot be found as new twice; the results give no evidence that the cause lies in the pipeline rather than in the check or its environment, which is exactly what investigation must establish. c is wrong because the most recent pass does not account for the two failures; a check that gives different answers to the same question cannot be trusted on any night until the cause is known, and taking the latest result as the answer would also hide a real intermittent fault in the pipeline. d is wrong because retrying until a pass appears hides the inconsistency instead of resolving it, and a real intermittent fault in the pipeline would be hidden with it; the check's results become trustworthy only when the cause has been found and removed.",
+      "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 7 Verifying the test automation solution: flaky tests and non-deterministic results"
+    },
+    {
+      "id": "sql-01-a",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 1,
+      "type": "single",
+      "stem": "The table `products` holds these rows.\n\n| id | name | category | price |\n|---|---|---|---|\n| 1 | Pen | stationery | 2 |\n| 2 | Desk | furniture | 150 |\n| 3 | Lamp | furniture | 40 |\n| 4 | Chair | furniture | 85 |\n| 5 | Pad | stationery | 5 |\n\nWhich names does `SELECT name FROM products WHERE category = 'furniture' AND price < 100;` return?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Lamp and Chair",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Desk, Lamp and Chair",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Pen, Lamp, Chair and Pad",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Desk",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Both conditions must hold for a row to be returned. Lamp (40) and Chair (85) are furniture priced below 100, so option a is correct. Option b ignores the price condition and includes Desk at 150. Option c ignores the category condition and returns every row priced below 100, including the two stationery items. Option d reads the comparison the wrong way round and returns the only furniture item priced above 100. Verified by running the query against the shown rows.",
+      "sourceAnchor": "Intermediate SQL - data filtering: multiple conditions"
+    },
+    {
+      "id": "sql-01-b",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 1,
+      "type": "single",
+      "stem": "The table `bookings` has three columns: `id`, `guests` and `status`. It holds five rows, written as (id, guests, status): (1, 2, confirmed), (2, 4, cancelled), (3, 3, confirmed), (4, 1, confirmed) and (5, 5, pending).\n\nWhich ids does this query return?\n\n```sql\nSELECT id\nFROM bookings\nWHERE status = 'confirmed' AND guests >= 2;\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 and 3",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "1, 3 and 4",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "1, 2, 3 and 5",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "3",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Both conditions must hold for a row to be returned. Bookings 1 (2 guests) and 3 (3 guests) are confirmed with at least 2 guests, so option a is correct. Option b ignores the guests condition and includes booking 4, which is confirmed but has 1 guest. Option c ignores the status condition and returns every booking with at least 2 guests, including the cancelled booking 2 and the pending booking 5. Option d treats >= as a strict greater-than and drops booking 1, which has exactly 2 guests. Verified by running the query and each distractor's query against the shown rows.",
+      "sourceAnchor": "Intermediate SQL - data filtering: multiple conditions"
+    },
+    {
+      "id": "sql-02-a",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 2,
+      "type": "single",
+      "stem": "The tables `customers` and `orders` hold these rows.\n\n| customers.id |\n|---|\n| 1 |\n| 2 |\n| 3 |\n\n| orders.customer_id |\n|---|\n| 1 |\n| 1 |\n| 3 |\n| 4 |\n\nHow many rows does `SELECT * FROM customers INNER JOIN orders ON customers.id = orders.customer_id` return?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "3",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "4",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "5",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true,
+      "difficulty": "standard",
+      "rationale": "An INNER JOIN returns one row per matching pair. Customer 1 matches two orders and customer 3 matches one, giving 3 rows, so option b is correct. Customer 2 has no orders and the order for customer 4 has no customer, so neither contributes a row. Option a counts only the two distinct customers that have orders, customers 1 and 3, and misses the second order for customer 1. Option c counts every order row, including the unmatched order for customer 4; it is also the row count a LEFT JOIN would give, because that join keeps customer 2 with NULL order columns. Option d adds a row for each unmatched side, customer 2 and the order for customer 4, which only a full outer join would do. Verified by running the query against the shown rows.",
+      "sourceAnchor": "Joining Data in SQL - combining data horizontally: INNER JOIN"
+    },
+    {
+      "id": "sql-02-b",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 2,
+      "type": "single",
+      "stem": "The tables `employees` and `tickets` hold these rows.\n\n| employees.id |\n|---|\n| 10 |\n| 20 |\n| 30 |\n| 40 |\n\n| tickets.employee_id |\n|---|\n| 10 |\n| 30 |\n| 30 |\n| 50 |\n\nHow many rows does `SELECT * FROM employees LEFT JOIN tickets ON employees.id = tickets.employee_id;` return?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "4",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "5",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "6",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true,
+      "difficulty": "standard",
+      "rationale": "A LEFT JOIN keeps every row of the left table. Employee 10 matches one ticket, employee 30 matches two, and employees 20 and 40 each appear once with NULL ticket columns, giving 5 rows, so option c is correct. The ticket for employee 50 has no employee and is dropped because it is on the right side. Option a is the INNER JOIN count, which drops the two unmatched employees. Option b counts one row per employee and misses the second ticket for employee 30. Option d also adds a row for the unmatched ticket, which only a full outer join would do. Verified by running the query against the shown rows.",
+      "sourceAnchor": "Joining Data in SQL - combining data horizontally: LEFT JOIN"
+    },
+    {
+      "id": "sql-02-c",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 2,
+      "type": "single",
+      "stem": "The tables `departments` and `staff` hold these rows.\n\n| departments.id |\n|---|\n| 1 |\n| 2 |\n| 3 |\n\n| staff.dept_id |\n|---|\n| 2 |\n| 2 |\n| 3 |\n| 3 |\n| 5 |\n\nHow many rows does `SELECT * FROM staff LEFT JOIN departments ON staff.dept_id = departments.id;` return?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "4",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "5",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "6",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true,
+      "difficulty": "standard",
+      "rationale": "A LEFT JOIN keeps every row of the left table, which here is staff. The two staff rows for department 2 and the two for department 3 each match one department row, and the staff row for department 5 has no department so it is kept with NULL department columns, giving 5 rows, so option c is correct. Department 1 has no staff and is dropped because it is on the right side. Option a counts the department rows rather than the result rows. Option b is the INNER JOIN count, which drops the unmatched staff row for department 5. Option d also adds a row for the unmatched department 1, which only a full outer join would do. Verified by running the query against the shown rows.",
+      "sourceAnchor": "Joining Data in SQL - combining data horizontally: LEFT JOIN"
+    },
+    {
+      "id": "sql-03-a",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 3,
+      "type": "single",
+      "stem": "The table `orders` holds these rows.\n\n| id | category | amount |\n|---|---|---|\n| 1 | stationery | 40 |\n| 2 | furniture | 35 |\n| 3 | stationery | 60 |\n| 4 | lighting | 30 |\n| 5 | furniture | 20 |\n\nWhich rows does `SELECT category, SUM(amount) AS total FROM orders GROUP BY category HAVING SUM(amount) > 50;` return?",
+      "options": [
+        {
+          "id": "a",
+          "text": "stationery with total 100 and furniture with total 55",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "stationery with total 100, furniture with total 55 and lighting with total 30",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "stationery with total 60",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "stationery with total 100",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "GROUP BY produces one row per category with the summed amount: stationery 100, furniture 55, lighting 30. HAVING then keeps only groups whose sum exceeds 50, which leaves stationery and furniture, so option a is correct. Option b ignores the HAVING clause and keeps lighting. Option c applies the condition to individual rows before grouping, as a WHERE clause would, keeping only the single order of 60. Option d drops furniture, whose total of 55 is above 50. Verified by running the query against the shown rows.",
+      "sourceAnchor": "Intermediate SQL - data aggregation: one grouping column and filtering groups with HAVING"
+    },
+    {
+      "id": "sql-03-b",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 3,
+      "type": "single",
+      "stem": "The table `sales` holds these rows.\n\n| id | region | amount |\n|---|---|---|\n| 1 | North | 120 |\n| 2 | South | 80 |\n| 3 | North | 40 |\n| 4 | East | 200 |\n| 5 | South | 60 |\n\nWhich rows does `SELECT region, AVG(amount) AS average FROM sales GROUP BY region HAVING AVG(amount) >= 80;` return?",
+      "options": [
+        {
+          "id": "a",
+          "text": "North with average 80 and East with average 200",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "North with average 80, South with average 70 and East with average 200",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "North with average 120, South with average 80 and East with average 200",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "East with average 200",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "GROUP BY produces one row per region with the average amount: North (120 + 40) / 2 = 80, South (80 + 60) / 2 = 70, East 200. HAVING then keeps only the groups whose average is at least 80, which leaves North and East, so option a is correct. Option b ignores the HAVING clause and keeps South. Option c applies the condition to individual rows before grouping, as a WHERE clause would, discarding the 40 and 60 rows and then averaging what is left in each region. Option d treats >= as a strict greater-than and drops North, whose average is exactly 80. Some databases display the averages with trailing zeros after the decimal point; the values are exactly 80 and 200. Verified by running the query against the shown rows.",
+      "sourceAnchor": "Intermediate SQL - data aggregation: one grouping column and filtering groups with HAVING"
+    },
+    {
+      "id": "sql-04-a",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 4,
+      "type": "single",
+      "stem": "The table `products` holds these rows.\n\n| id | name | price |\n|---|---|---|\n| 1 | Pen | 2 |\n| 2 | Desk | 150 |\n| 3 | Lamp | 40 |\n| 4 | Chair | 85 |\n| 5 | Pad | 5 |\n\nWhat does `SELECT name FROM products WHERE price > (SELECT AVG(price) FROM products);` return?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Desk and Chair",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Desk",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Pen, Lamp and Pad",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "A single value, 56.4",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "The subquery runs first and returns the average price, 282 divided by 5, which is 56.4. The outer query then returns the names priced above that: Desk (150) and Chair (85), so option a is correct. Option b keeps only the highest price, as if the subquery returned MAX rather than AVG. Option c returns the products priced below the average, reversing the comparison. Option d is the value of the inner subquery, which is used in the comparison and is not what the outer SELECT returns. Verified by running the query against the shown rows.",
+      "sourceAnchor": "Joining Data in SQL - subqueries inside WHERE"
+    },
+    {
+      "id": "sql-04-b",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 4,
+      "type": "single",
+      "stem": "The table `staff` holds these rows.\n\n| id | name | dept | city |\n|---|---|---|---|\n| 1 | Ana | Sales | Leeds |\n| 2 | Ben | Support | York |\n| 3 | Cal | Sales | York |\n| 4 | Dee | Finance | Bath |\n| 5 | Eli | Support | Leeds |\n\nWhat does this query return?\n\n```sql\nSELECT name\nFROM staff\nWHERE dept IN (SELECT dept FROM staff WHERE city = 'Leeds');\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ana, Ben, Cal and Eli",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Ana and Eli",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Sales and Support",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Ana and Cal",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "The subquery runs first and returns the departments that have someone in Leeds: Sales and Support. The outer query then returns every member of those departments, whatever their city: Ana, Ben, Cal and Eli, so option a is correct. Option b returns only the staff based in Leeds, as if the city condition applied to the outer query. Option c is the result of the inner subquery, which feeds the IN list and is not what the outer SELECT returns. Option d uses only the first department from the subquery and misses the Support staff. Verified by running the query against the shown rows.",
+      "sourceAnchor": "Joining Data in SQL - subqueries inside WHERE"
+    },
+    {
+      "id": "sql-05-a",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 5,
+      "type": "single",
+      "stem": "The table `tickets` holds these rows. NULL means no team has been assigned.\n\n| id | team |\n|---|---|\n| 1 | alpha |\n| 2 | beta |\n| 3 | NULL |\n| 4 | NULL |\n| 5 | gamma |\n\nWhat value does `SELECT COUNT(*) FROM tickets WHERE team <> 'alpha';` return?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "2",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "4",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "5",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true,
+      "difficulty": "standard",
+      "rationale": "A comparison with NULL is neither true nor false, so the WHERE clause rejects the two NULL rows. Only beta and gamma compare as different from alpha, giving a count of 2, so option b is correct. Option a counts the single row equal to alpha, reversing the condition. Option c treats the NULL rows as different from alpha and counts them too. Option d counts every row in the table. Verified by running the query against the shown rows.",
+      "sourceAnchor": "Intermediate SQL - data filtering: complex filtering"
+    },
+    {
+      "id": "sql-05-b",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 5,
+      "type": "single",
+      "stem": "The table `items` holds these rows. NULL means the price is missing.\n\n| id | price |\n|---|---|\n| 1 | 15 |\n| 2 | NULL |\n| 3 | 25 |\n| 4 | 10 |\n| 5 | NULL |\n\nWhat value does this query return?\n\n```sql\nSELECT COUNT(*)\nFROM items\nWHERE price < 20;\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "2",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "3",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "4",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "5",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true,
+      "difficulty": "standard",
+      "rationale": "A comparison with NULL is neither true nor false, so the WHERE clause rejects the two NULL rows. Only 15 and 10 are below 20, giving a count of 2, so option a is correct. Option b counts the rows that have a price at all. Option c treats the NULL rows as below 20 and counts them too. Option d counts every row in the table. Verified by running the query against the shown rows.",
+      "sourceAnchor": "Intermediate SQL - data filtering: NULL values in comparisons"
+    },
+    {
+      "id": "sql-06-a",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 6,
+      "type": "single",
+      "stem": "The table `offices` holds these rows.\n\n| id | city |\n|---|---|\n| 1 | Leeds |\n| 2 | York |\n| 3 | Leeds |\n| 4 | Bath |\n| 5 | York |\n\nWhich values does this query return, in the order returned?\n\n```sql\nSELECT DISTINCT city\nFROM offices\nORDER BY city;\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bath, Leeds, York",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Leeds, York, Bath",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Bath, Leeds, Leeds, York, York",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "York, Leeds, Bath",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "DISTINCT removes the repeated cities, leaving Bath, Leeds and York, and ORDER BY city sorts them ascending, so option a is correct. Option b removes the duplicates but lists them in order of first appearance, ignoring the ORDER BY. Option c sorts the rows but keeps the duplicates, ignoring DISTINCT. Option d sorts descending, which the query does not ask for. Verified by running the query against the shown rows.",
+      "sourceAnchor": "Intermediate SQL - data transformation: DISTINCT and ORDER BY"
+    },
+    {
+      "id": "sql-06-b",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 6,
+      "type": "single",
+      "stem": "The table `tickets` holds these rows.\n\n| id | status |\n|---|---|\n| 1 | open |\n| 2 | closed |\n| 3 | open |\n| 4 | pending |\n| 5 | closed |\n\nWhich values does this query return, in the order returned?\n\n```sql\nSELECT DISTINCT status\nFROM tickets\nORDER BY status DESC;\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "pending, open, closed",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "closed, open, pending",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "open, closed, pending",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "pending, open, open, closed, closed",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "DISTINCT removes the repeated statuses, leaving closed, open and pending, and ORDER BY status DESC sorts them descending, so option a is correct. Option b sorts ascending, ignoring DESC. Option c removes the duplicates but lists them in order of first appearance, ignoring the ORDER BY. Option d sorts descending but keeps the duplicates, ignoring DISTINCT. Verified by running the query against the shown rows.",
+      "sourceAnchor": "Intermediate SQL - data transformation: DISTINCT and ORDER BY"
+    },
+    {
+      "id": "sql-07-a",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 7,
+      "type": "single",
+      "stem": "A tester is reconciling two extracts. The tables `source` and `target` each hold an `id` column.\n\n| source.id |\n|---|\n| 101 |\n| 102 |\n| 103 |\n| 104 |\n\n| target.id |\n|---|\n| 102 |\n| 104 |\n| 105 |\n\nWhich query returns the ids that appear in both tables, giving 102 and 104?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SELECT id FROM source INTERSECT SELECT id FROM target",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "SELECT id FROM source UNION SELECT id FROM target",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "SELECT id FROM source EXCEPT SELECT id FROM target",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "SELECT id FROM target EXCEPT SELECT id FROM source",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "INTERSECT returns the rows common to both result sets, which here is 102 and 104, so option a is correct. Option b returns every id from either table, 101 to 105. Option c returns the ids in source that are absent from target, 101 and 103. Option d returns the ids in target that are absent from source, 105. Each query was run against the shown rows and only option a produces 102 and 104.",
+      "sourceAnchor": "SQL for Testers - validating data integrity with set operations (INTERSECT)"
+    },
+    {
+      "id": "sql-07-b",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 7,
+      "type": "single",
+      "stem": "A tester is reconciling two extracts. The tables `source` and `target` each hold an `id` column.\n\n| source.id |\n|---|\n| 201 |\n| 202 |\n| 203 |\n\n| target.id |\n|---|\n| 202 |\n| 203 |\n| 204 |\n| 205 |\n\nWhich query returns every id that appears in either table, listing each id once, giving 201, 202, 203, 204 and 205?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SELECT id FROM source UNION SELECT id FROM target",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "SELECT id FROM source UNION ALL SELECT id FROM target",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "SELECT id FROM source INTERSECT SELECT id FROM target",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "SELECT id FROM source EXCEPT SELECT id FROM target",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "UNION combines both result sets and removes duplicate rows, giving each of the five ids once, so option a is correct. Option b keeps duplicates, so 202 and 203 each appear twice and seven rows are returned. Option c returns only the ids common to both tables, 202 and 203. Option d returns the ids in source that are absent from target, 201. Each query was run against the shown rows and only option a produces the five ids once each.",
+      "sourceAnchor": "SQL for Testers - validating data integrity with set operations (UNION); Joining Data in SQL - combining data vertically"
+    },
+    {
+      "id": "sql-07-c",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 7,
+      "type": "single",
+      "stem": "A tester is reconciling two extracts. The tables `source` and `target` each hold `id` and `amount` columns.\n\n| source.id | source.amount |\n|---|---|\n| 1 | 100 |\n| 2 | 250 |\n| 3 | 75 |\n\n| target.id | target.amount |\n|---|---|\n| 1 | 100 |\n| 2 | 200 |\n| 3 | 75 |\n| 4 | 50 |\n\nWhich query returns the rows whose id and amount are both the same in the two tables, giving (1, 100) and (3, 75)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SELECT id, amount FROM source INTERSECT SELECT id, amount FROM target",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "SELECT id FROM source INTERSECT SELECT id FROM target",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "SELECT s.id, s.amount FROM source s INNER JOIN target t ON s.id = t.id",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "SELECT id, amount FROM source EXCEPT SELECT id, amount FROM target",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "INTERSECT over both columns keeps only the rows that match on id and amount together, which is (1, 100) and (3, 75), so option a is correct. Option b compares ids alone and returns 1, 2 and 3, including id 2 whose amounts differ. Option c joins on id alone and returns all three source rows with their source amounts, again including id 2. Option d returns the source rows that have no exact match in target, (2, 250), which is the opposite of the goal. Each query was run against the shown rows and only option a produces (1, 100) and (3, 75).",
+      "sourceAnchor": "SQL for Testers - validating data integrity with set operations (INTERSECT over several columns)"
+    },
+    {
+      "id": "sql-08-a",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 8,
+      "type": "single",
+      "stem": "A load job copies rows from `source` into `target`. After the run the tables hold these ids.\n\n| source.id |\n|---|\n| 101 |\n| 102 |\n| 103 |\n| 104 |\n\n| target.id |\n|---|\n| 101 |\n| 103 |\n\nWhich query returns the ids present in source but absent from target, giving 102 and 104?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SELECT id FROM source EXCEPT SELECT id FROM target",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "SELECT id FROM source INTERSECT SELECT id FROM target",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "SELECT id FROM source UNION SELECT id FROM target",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "SELECT id FROM target EXCEPT SELECT id FROM source",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "EXCEPT returns the rows of the left query that do not appear in the right query, the reconciliation primitive for finding what failed to arrive, giving 102 and 104, so option a is correct. Option b returns the ids in both tables, 101 and 103, which are the rows that did arrive. Option c returns every id from either table, 101 to 104. Option d is the reversed form and finds the opposite gap, ids in target that are absent from source, which here is nothing. Each query was run against the shown rows and only option a produces 102 and 104.",
+      "sourceAnchor": "SQL for Testers - validating data integrity: finding rows missing from a target (EXCEPT)"
+    },
+    {
+      "id": "sql-08-b",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 8,
+      "type": "single",
+      "stem": "A load job copies orders from `expected` into `loaded`. After the run the tables hold these order ids.\n\n| expected.order_id |\n|---|\n| 501 |\n| 502 |\n| 503 |\n| 504 |\n| 505 |\n\n| loaded.order_id |\n|---|\n| 501 |\n| 503 |\n| 505 |\n\nWhich query returns the order ids present in expected but absent from loaded, giving 502 and 504?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SELECT e.order_id FROM expected e LEFT JOIN loaded l ON e.order_id = l.order_id WHERE l.order_id IS NULL",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "SELECT e.order_id FROM expected e INNER JOIN loaded l ON e.order_id = l.order_id",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "SELECT e.order_id FROM expected e LEFT JOIN loaded l ON e.order_id = l.order_id WHERE l.order_id IS NOT NULL",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "SELECT l.order_id FROM loaded l LEFT JOIN expected e ON l.order_id = e.order_id WHERE e.order_id IS NULL",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "A LEFT JOIN keeps every expected row and fills the loaded columns with NULL where there is no match, so filtering on l.order_id IS NULL isolates the rows that never arrived, 502 and 504, and option a is correct. Option b keeps only the matched rows, 501, 503 and 505, the opposite of the goal. Option c keeps the matched rows too, because IS NOT NULL selects the rows that did find a partner. Option d starts from loaded and looks for loaded rows with no expected partner, which here returns nothing. Each query was run against the shown rows and only option a produces 502 and 504.",
+      "sourceAnchor": "SQL for Testers - validating data integrity: finding rows missing from a target (LEFT JOIN with IS NULL)"
+    },
+    {
+      "id": "sql-08-c",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 8,
+      "type": "single",
+      "stem": "A release job publishes product codes from `staging` into `live`. After the run the tables hold these codes. The code column has no NULL values.\n\n| staging.code |\n|---|\n| A1 |\n| A2 |\n| A3 |\n| A4 |\n\n| live.code |\n|---|\n| A1 |\n| A4 |\n\nWhich query returns the codes present in staging but absent from live, giving A2 and A3?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SELECT code FROM staging WHERE code NOT IN (SELECT code FROM live)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "SELECT code FROM staging WHERE code IN (SELECT code FROM live)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "SELECT code FROM live WHERE code NOT IN (SELECT code FROM staging)",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "SELECT s.code FROM staging s INNER JOIN live l ON s.code = l.code",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "The subquery lists the codes that reached live, and NOT IN keeps the staging codes that are missing from that list, A2 and A3, so option a is correct. Option b keeps the staging codes that did reach live, A1 and A4, the opposite of the goal. Option c is the reversed form and looks for live codes that are absent from staging, which here returns nothing. Option d is an inner join, which also returns only the matched codes A1 and A4. Each query was run against the shown rows and only option a produces A2 and A3.",
+      "sourceAnchor": "SQL for Testers - validating data integrity: finding rows missing from a target (NOT IN subquery)"
+    },
+    {
+      "id": "sql-09-a",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 9,
+      "type": "single",
+      "stem": "A migration copies balances from `source` to `target`. Both tables hold the same four ids and every amount is present.\n\n| source.id | source.amount |\n|---|---|\n| 1 | 100 |\n| 2 | 250 |\n| 3 | 75 |\n| 4 | 300 |\n\n| target.id | target.amount |\n|---|---|\n| 1 | 100 |\n| 2 | 200 |\n| 3 | 75 |\n| 4 | 350 |\n\nWhich query returns the ids whose amount differs between the two tables, giving 2 and 4?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SELECT s.id FROM source s INNER JOIN target t ON s.id = t.id WHERE s.amount <> t.amount",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "SELECT s.id FROM source s INNER JOIN target t ON s.id = t.id WHERE s.amount = t.amount",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "SELECT id FROM source EXCEPT SELECT id FROM target",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "SELECT s.id FROM source s INNER JOIN target t ON s.amount = t.amount",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Joining the two tables on id pairs each source row with its target row, and the WHERE clause keeps the pairs whose amounts differ, 2 and 4, so option a is correct. Option b keeps the pairs whose amounts are equal, 1 and 3, the opposite of the goal. Option c compares ids only, and because both tables hold the same ids it returns nothing. Option d joins on amount rather than id, which pairs rows by coincidence of value and returns 1 and 3 here. Each query was run against the shown rows and only option a produces 2 and 4.",
+      "sourceAnchor": "SQL for Testers - validating data integrity: detecting changed values between source and target (join and compare)"
+    },
+    {
+      "id": "sql-09-b",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 9,
+      "type": "single",
+      "stem": "A synchronisation job copies ticket statuses from `source` to `target`. Both tables hold the same four ids and every status is present.\n\n| source.id | source.status |\n|---|---|\n| 1 | open |\n| 2 | closed |\n| 3 | open |\n| 4 | pending |\n\n| target.id | target.status |\n|---|---|\n| 1 | open |\n| 2 | open |\n| 3 | open |\n| 4 | closed |\n\nWhich query returns the source rows whose status differs from the row with the same id in target, giving (2, closed) and (4, pending)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SELECT id, status FROM source EXCEPT SELECT id, status FROM target",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "SELECT id FROM source EXCEPT SELECT id FROM target",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "SELECT status FROM source EXCEPT SELECT status FROM target",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "SELECT id, status FROM source INTERSECT SELECT id, status FROM target",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "EXCEPT over both columns returns the source rows that have no identical (id, status) row in target. Because every id exists in both tables, those are exactly the rows whose status changed, (2, closed) and (4, pending), so option a is correct. Option b compares ids only and returns nothing, because both tables hold the same ids. Option c compares status values on their own and returns just the value pending, with no ids, because it ignores which row a status belongs to. Option d returns the rows that are identical in both tables, (1, open) and (3, open), the opposite of the goal. Each query was run against the shown rows and only option a produces (2, closed) and (4, pending).",
+      "sourceAnchor": "SQL for Testers - validating data integrity: detecting changed values between source and target (EXCEPT over several columns)"
+    },
+    {
+      "id": "sql-10-a",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 10,
+      "type": "multi",
+      "stem": "An automated test inserted the rows with ids 9001 and 9002 into `customers`. The other three rows are permanent data that must stay. The table now holds these rows.\n\n| id | name | city |\n|---|---|---|\n| 1 | Customer A | Leeds |\n| 2 | Customer B | Hull |\n| 3 | Customer C | York |\n| 9001 | TEST customer one | Leeds |\n| 9002 | TEST customer two | Hull |\n\nWhich statements delete exactly the two inserted rows and leave the three permanent rows in place, when each statement is run on its own against the table shown?",
+      "options": [
+        {
+          "id": "a",
+          "text": "DELETE FROM customers WHERE id IN (9001, 9002);",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "DELETE FROM customers WHERE name LIKE 'TEST%';",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "DELETE FROM customers WHERE id >= 9001;",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "DELETE FROM customers;",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "DELETE FROM customers WHERE id > 2;",
+          "correct": false
+        },
+        {
+          "id": "f",
+          "text": "DELETE FROM customers WHERE city = 'Leeds';",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Test rows should be created with values that identify them beyond doubt so that clean-up can target them precisely. Option a names the two test ids explicitly. Option b matches the TEST prefix that only the two inserted names carry; no permanent name begins with that text in any letter case. Option c uses the reserved id range that only the test rows occupy. Each of these leaves ids 1, 2 and 3 untouched. Option d has no WHERE clause and deletes every row. Option e also deletes the permanent row with id 3. Option f deletes by city, which removes the permanent Leeds row (id 1) and leaves the test row 9002 behind. Each statement was run against the shown rows and the remaining ids checked.",
+      "sourceAnchor": "SQL for Testers - using SQL for data generation: create new entries and delete data; test data hygiene"
+    },
+    {
+      "id": "sql-10-b",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 10,
+      "type": "multi",
+      "stem": "An automated test needs rows in `accounts` that it can find again on every run. The table was created and populated by this script.\n\n```sql\nCREATE TABLE accounts (\n  id INTEGER PRIMARY KEY,\n  ref TEXT NOT NULL UNIQUE,\n  balance INTEGER NOT NULL CHECK (balance >= 0)\n);\nINSERT INTO accounts (id, ref, balance) VALUES (1, 'ACC-001', 120);\nINSERT INTO accounts (id, ref, balance) VALUES (2, 'ACC-002', 40);\n```\n\nWhich of these INSERT statements succeed and add a row, when each statement is run on its own against the table as the script leaves it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "INSERT INTO accounts (id, ref, balance) VALUES (9001, 'TEST-A', 0);",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "INSERT INTO accounts (id, ref, balance) VALUES (1, 'TEST-B', 50);",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "INSERT INTO accounts (id, ref, balance) VALUES (9002, 'ACC-001', 50);",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "INSERT INTO accounts (id, ref, balance) VALUES (9003, 'TEST-C', -10);",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "INSERT INTO accounts (id, ref, balance) VALUES (9004, 'TEST-D', 250);",
+          "correct": true
+        },
+        {
+          "id": "f",
+          "text": "INSERT INTO accounts (id, balance, ref) VALUES (9005, 75, 'TEST-E');",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "A deterministic test row must respect every constraint on the table. Option a uses an unused id, a new reference and a balance of 0, which satisfies balance >= 0. Option e uses an unused id, a new reference and a positive balance. Option f lists the columns in a different order but supplies matching values for each, which is valid. Option b reuses id 1 and is rejected by the primary key. Option c reuses the reference ACC-001 and is rejected by the UNIQUE constraint. Option d supplies a negative balance and is rejected by the CHECK constraint. Each statement was run against the table as the script leaves it and the outcome recorded.",
+      "sourceAnchor": "SQL for Testers - using SQL for data generation: create new entries; testing SQL queries: field constraints"
+    },
+    {
+      "id": "python-01-a",
+      "assessment": "python",
+      "section": "core",
+      "slot": 1,
+      "type": "single",
+      "stem": "What does this code print?\n\n```python\nvalues = [0, 1, \"\", \"no\", [], None]\ncount = 0\nfor v in values:\n    if v:\n        count += 1\nprint(count)\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "1",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "2",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "3",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "4",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true,
+      "difficulty": "standard",
+      "rationale": "The if statement tests each value's truthiness. 1 and \"no\" are truthy; 0, the empty string, the empty list and None are falsy, so count is 2. 1 treats the non-empty string \"no\" as falsy because of the word it holds, but any non-empty string is truthy; only the empty string is falsy. 3 treats one of the empty string, the empty list or None as truthy; all three are falsy. 4 treats only 0 and None as falsy; the empty string and the empty list are falsy too.",
+      "sourceAnchor": "Programming for Everybody - variables and expressions (data types) and conditional code"
+    },
+    {
+      "id": "python-01-b",
+      "assessment": "python",
+      "section": "core",
+      "slot": 1,
+      "type": "single",
+      "stem": "What does this code print?\n\n```python\ncount = \"3\"\ntotal = 0\nif count == 3:\n    total += 1\nif int(count) == 3:\n    total += 10\nif count:\n    total += 100\nprint(total)\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "10",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "100",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "110",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "111",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true,
+      "difficulty": "standard",
+      "rationale": "count holds the string \"3\", not the integer 3, so count == 3 is False and 1 is not added. int(count) converts the string to the integer 3, so 10 is added. A non-empty string is truthy, so 100 is added. The total is 110. 111 assumes a string compares equal to an integer with the same digits; it does not. 100 assumes int(count) == 3 is False; the conversion produces exactly 3. 10 assumes the string \"3\" is falsy; among strings only the empty string is falsy, and \"3\" is non-empty.",
+      "sourceAnchor": "Programming for Everybody - variables and expressions (data types) and conditional code"
+    },
+    {
+      "id": "python-02-a",
+      "assessment": "python",
+      "section": "core",
+      "slot": 2,
+      "type": "single",
+      "stem": "What does this code print?\n\n```python\nvalues = [3, 1, 4, 1]\ntotal = 0\nfor v in values:\n    if v > 1:\n        total += v\nprint(total)\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "4",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "7",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "8",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "9",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true,
+      "difficulty": "standard",
+      "rationale": "Only values greater than 1 are added: 3 and 4, giving 7. 9 is the sum of all four values, which ignores the condition. 8 counts one of the 1 values as passing the condition; 1 > 1 is False. 4 comes from reading the code as counting the elements or keeping the largest value; the code sums the values that pass.",
+      "sourceAnchor": "Programming for Everybody - loops and iteration (definite loops, loop idioms) with conditional code"
+    },
+    {
+      "id": "python-02-b",
+      "assessment": "python",
+      "section": "core",
+      "slot": 2,
+      "type": "single",
+      "stem": "What does this code print?\n\n```python\nscores = [72, 45, 88, 60, 51]\npassed = 0\nfor s in scores:\n    if s >= 60:\n        passed += 1\nprint(passed)\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "2",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "3",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "4",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "5",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true,
+      "difficulty": "standard",
+      "rationale": "72, 88 and 60 satisfy s >= 60, so passed is 3. 2 excludes 60 by reading >= as >; 60 >= 60 is True. 4 includes 51 or 45 by mistake; both are below 60. 5 counts every element, ignoring the condition.",
+      "sourceAnchor": "Programming for Everybody - loops and iteration (definite loops, loop idioms) with conditional code"
+    },
+    {
+      "id": "python-03-a",
+      "assessment": "python",
+      "section": "core",
+      "slot": 3,
+      "type": "single",
+      "stem": "What does this code print?\n\n```python\ndef diff(first, second):\n    return first - second\n\ngap = diff(4, 10)\nprint(diff(gap, 2))\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "-8",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "-4",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "4",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "8",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true,
+      "difficulty": "standard",
+      "rationale": "Arguments bind to parameters by position. In diff(4, 10), first is 4 and second is 10, so the call returns 4 - 10, which is -6, and that value is stored in gap. In diff(gap, 2), first is -6 and second is 2, so the call returns -6 - 2, which is -8, and print shows -8. -4 reads both calls as second minus first: 10 - 4 is 6, then 2 - 6 is -4. 4 treats the first call as the positive difference between 4 and 10, giving 6, then computes 6 - 2 correctly; the first parameter is 4, so the first call returns -6, not 6. 8 traces the first call correctly to -6 but reads the second call as 2 minus gap, giving 2 - (-6); the variable gap is the first argument, so it binds to first and the call returns -6 - 2.",
+      "sourceAnchor": "Programming for Everybody - functions (defining, arguments, return values)"
+    },
+    {
+      "id": "python-03-b",
+      "assessment": "python",
+      "section": "core",
+      "slot": 3,
+      "type": "single",
+      "stem": "What does this code print?\n\n```python\ndef total(values):\n    result = 0\n    for v in values:\n        result += v\n\nprint(total([1, 2, 3]))\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "6",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "None",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "0",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "An error is raised because result is a local variable",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "The function computes result but has no return statement, so the call evaluates to None and print shows None. 6 assumes the computed value is returned; without a return statement the value stays inside the function. 0 assumes the initial value leaks out; local variables are not visible to the caller. Calling a function that has no return statement is not an error; the call simply produces None.",
+      "sourceAnchor": "Programming for Everybody - functions (defining, arguments, return values)"
+    },
+    {
+      "id": "python-04-a",
+      "assessment": "python",
+      "section": "core",
+      "slot": 4,
+      "type": "single",
+      "stem": "What does this code print?\n\n```python\ncounts = {}\nfor word in [\"red\", \"blue\", \"red\", \"green\", \"red\"]:\n    counts[word] = counts.get(word, 0) + 1\nprint(counts[\"red\"], len(counts))\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 3",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "3 5",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "2 3",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "5 3",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "counts.get(word, 0) returns the current count, or 0 for a word not yet seen, so every occurrence is counted. red appears three times, so counts[\"red\"] is 3. The dictionary holds one key per distinct word (red, blue, green), so len(counts) is 3. \"3 5\" takes the length of the list instead of the number of keys. \"2 3\" misses the first occurrence of red; get supplies 0 for a new key so the first occurrence adds 1. \"5 3\" treats counts[\"red\"] as the total number of words rather than the count for red.",
+      "sourceAnchor": "Programming for Everybody - lists and dictionaries (counting with a dictionary)"
+    },
+    {
+      "id": "python-04-b",
+      "assessment": "python",
+      "section": "core",
+      "slot": 4,
+      "type": "single",
+      "stem": "What does this code print?\n\n```python\nitems = [10, 20, 30]\nitems.append(40)\nitems[0] = 5\nprint(items[1:3], len(items))\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "[20, 30] 4",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "[20, 30, 40] 4",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "[5, 20] 4",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "[20, 30] 3",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "After append the list is [10, 20, 30, 40]; assigning items[0] makes it [5, 20, 30, 40]. The slice items[1:3] takes positions 1 and 2 and stops before position 3, giving [20, 30], and len(items) is 4. \"[20, 30, 40] 4\" includes the end position; a slice excludes it. \"[5, 20] 4\" starts the slice at position 0; it starts at position 1. \"[20, 30] 3\" ignores the append; append adds an element to the list in place.",
+      "sourceAnchor": "Programming for Everybody - lists and dictionaries (list indexing, slicing and methods)"
+    },
+    {
+      "id": "python-05-a",
+      "assessment": "python",
+      "section": "core",
+      "slot": 5,
+      "type": "single",
+      "stem": "What does this code print?\n\n```python\ntext = \"invoice-2024-final.csv\"\nparts = text.split(\"-\")\nprint(parts[1], len(parts), text.startswith(\"Invoice\"))\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "2024 3 False",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "2024 3 True",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "invoice 3 False",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "2024 2 False",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "split(\"-\") gives [\"invoice\", \"2024\", \"final.csv\"]. Indexing starts at 0, so parts[1] is \"2024\"; len(parts) is 3; string comparison is case sensitive, so text.startswith(\"Invoice\") is False because the text begins with a lower-case \"invoice\". \"2024 3 True\" treats the comparison as case insensitive; a capital letter does not match a lower-case one. \"invoice 3 False\" assumes indexing starts at 1, which would make parts[1] the first element; it starts at 0. \"2024 2 False\" counts the two separators instead of the three pieces they produce.",
+      "sourceAnchor": "Programming for Everybody - strings (indexing, methods such as split and startswith, case-sensitive comparison)"
+    },
+    {
+      "id": "python-05-b",
+      "assessment": "python",
+      "section": "core",
+      "slot": 5,
+      "type": "single",
+      "stem": "What does this code print?\n\n```python\ncode = \"ab-123-XYZ\"\nresult = code.replace(\"-\", \"\").lower()\nprint(result[5:8], len(result))\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "xyz 8",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "XYZ 8",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "xyz 10",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "3xy 8",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "replace removes both hyphens, giving \"ab123XYZ\", and lower converts every letter to lower case, giving \"ab123xyz\", which has 8 characters. Indexes start at 0, so result[5:8] takes positions 5, 6 and 7: \"xyz\". \"XYZ 8\" ignores lower; lower returns a new string with the letters in lower case, and that string is what result holds. \"xyz 10\" reports the original length; replace removed two hyphens, so result has 8 characters, not 10. \"3xy 8\" counts positions from 1; indexes start at 0, so position 5 of result is \"x\", not \"3\".",
+      "sourceAnchor": "Programming for Everybody - strings (slicing, methods such as replace and lower)"
+    },
+    {
+      "id": "python-06-a",
+      "assessment": "python",
+      "section": "core",
+      "slot": 6,
+      "type": "single",
+      "stem": "A test compares an expected record with the record a service returned. What does this code print?\n\n```python\nexpected = {\"id\": 7, \"status\": \"open\", \"total\": 40}\nactual = {\"id\": 7, \"status\": \"closed\", \"total\": 40, \"note\": \"\"}\nmismatches = []\nfor key in expected:\n    if expected[key] != actual.get(key):\n        mismatches.append(key)\nprint(mismatches)\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "['status']",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "['status', 'note']",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "['note']",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "[]",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "The loop visits only the keys of expected: id, status and total. id and total hold the same values in both records; status differs (open against closed), so mismatches is ['status']. \"['status', 'note']\" assumes keys that exist only in actual are visited; the loop iterates over expected. \"['note']\" treats the extra key as the only difference and misses the changed status. \"[]\" assumes the records match; the status values differ.",
+      "sourceAnchor": "Programming for Everybody - lists and dictionaries with loops and conditional code (reading a short program end to end)"
+    },
+    {
+      "id": "python-06-b",
+      "assessment": "python",
+      "section": "core",
+      "slot": 6,
+      "type": "single",
+      "stem": "A test totals the amount column of a small CSV extract held as a list of lines. What does this code print?\n\n```python\nrows = [\"id,amount\", \"1,25\", \"2,x\", \"3,10\"]\ntotal = 0\nfor row in rows[1:]:\n    parts = row.split(\",\")\n    if parts[1].isdigit():\n        total += int(parts[1])\nprint(total)\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "35",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "25",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "10",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Nothing, because a ValueError is raised",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "rows[1:] skips the header line, so the loop sees \"1,25\", \"2,x\" and \"3,10\". Splitting each on the comma gives parts[1] of \"25\", \"x\" and \"10\". \"25\" and \"10\" pass isdigit and are converted and added, giving 35; \"x\" fails isdigit, so the if body is skipped for that row and nothing is added. \"25\" assumes the loop stops at the non-numeric row; there is no break, so the loop continues to \"3,10\" and adds 10. \"10\" assumes rows[1:] drops the first two lines; the slice drops only the header, so \"1,25\" is included. \"Nothing, because a ValueError is raised\" assumes int() is applied to \"x\"; the isdigit test is false for \"x\", so int() is never reached and the program completes normally.",
+      "sourceAnchor": "Programming for Everybody - strings and lists with loops and conditional code (reading a short program end to end)"
+    },
+    {
+      "id": "python-06-c",
+      "assessment": "python",
+      "section": "core",
+      "slot": 6,
+      "type": "single",
+      "stem": "A test run records each test name together with whether it passed. What does this code print?\n\n```python\nresults = [(\"login\", False), (\"search\", False), (\"export\", False), (\"report\", True)]\nfailed = []\npassed_count = 0\nfor name, passed in results:\n    if passed:\n        passed_count += 1\n    else:\n        failed.append(name)\nprint(passed_count, len(failed), failed[-1])\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 3 export",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "1 3 login",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "3 1 report",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "2 2 export",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "Each pair unpacks into name and passed. login, search and export have passed set to False, so the else branch appends each of them and failed becomes ['login', 'search', 'export']; only report has passed set to True, so passed_count is 1. len(failed) is 3 and failed[-1] is the last element of failed, 'export'. \"1 3 login\" takes the first element of failed; an index of -1 counts from the end of the list. \"3 1 report\" swaps the two branches, counting the False results and collecting the one True name. \"2 2 export\" counts only two failures; three pairs hold False.",
+      "sourceAnchor": "Programming for Everybody - loops and iteration (loop idioms) with conditional code and lists (reading a short program end to end)"
+    },
+    {
+      "id": "python-07-a",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 7,
+      "type": "multi",
+      "stem": "pytest runs with default settings in a folder containing the file `test_orders.py`. The file defines the six functions below at module level. Which of them will pytest collect as tests?",
+      "options": [
+        {
+          "id": "a",
+          "text": "def test_totals():",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "def check_totals():",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "def test_empty_input():",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "def totals_test():",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "def Test_discount():",
+          "correct": false
+        },
+        {
+          "id": "f",
+          "text": "def setup_data():",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "With default settings pytest collects module-level functions whose names begin with the lowercase prefix test, conventionally written test_. test_totals and test_empty_input carry that prefix, so both are collected. check_totals and setup_data do not begin with the prefix, so they are ordinary helper functions and are not collected. totals_test has test at the end; for functions the match is a prefix, not a suffix, so it is not collected. Test_discount begins with a capital T; the prefix match is case-sensitive, and a capitalised Test prefix is the convention for test classes, not for functions, so it is not collected either. Verified by running pytest --collect-only against a module containing all six functions: exactly test_totals and test_empty_input were collected.",
+      "sourceAnchor": "Python Automation Testing With Pytest - assertions and test discovery (test naming and discovery)"
+    },
+    {
+      "id": "python-07-b",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 7,
+      "type": "multi",
+      "stem": "pytest runs with default settings in a folder containing the five files below. Each file contains one function named `test_one` with an assert statement. Which files will pytest collect tests from?",
+      "options": [
+        {
+          "id": "a",
+          "text": "test_login.py",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "check_login.py",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "test_logout.py",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "login_helpers.py",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "login_tests.py",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "With default settings pytest decides which files to look inside by file name: a file whose name starts with test_ is collected as a test module. test_login.py and test_logout.py both start with test_, so pytest collects both and runs their test_one functions. check_login.py and login_helpers.py do not start with test_, so pytest treats them as ordinary modules and never looks inside them, even though each contains a test_one function. login_tests.py also lacks the test_ prefix; it does not qualify under the default suffix pattern either, because that pattern requires the name to end in exactly _test.py and this name ends in _tests.py. Verified by running pytest --collect-only against the five files: only test_login.py::test_one and test_logout.py::test_one were collected.",
+      "sourceAnchor": "Python Automation Testing With Pytest - assertions and test discovery (test naming and discovery)"
+    },
+    {
+      "id": "python-07-c",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 7,
+      "type": "multi",
+      "stem": "pytest runs with default settings in a folder containing `test_cart.py` with the content below. Which of the listed functions and methods will pytest collect as tests?\n\n```python\nclass TestCart:\n    def test_add_item(self):\n        assert True\n    def verify_stock(self):\n        assert True\nclass TestCartChecks:\n    def test_remove_item(self):\n        assert True\ndef test_empty_cart():\n    assert True\ndef checkout_test():\n    assert True\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "TestCart.test_add_item",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "TestCart.verify_stock",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "TestCartChecks.test_remove_item",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "test_empty_cart",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "checkout_test",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "pytest collects functions and methods whose names start with test (the test_ prefix is the conventional form) at module level and inside classes whose names start with Test. Both classes here start with Test, so whether a method is collected depends only on the method's own name. test_add_item and test_remove_item start with test and sit inside TestCart and TestCartChecks, and test_empty_cart is a module-level function starting with test, so all three are collected. verify_stock does not start with test, so it is an ordinary method even though it contains an assert. checkout_test has test at the end; the default rule matches a prefix, not a suffix, so it is not collected.",
+      "sourceAnchor": "Python Automation Testing With Pytest - assertions and test discovery (test naming and discovery)"
+    },
+    {
+      "id": "python-08-a",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 8,
+      "type": "single",
+      "stem": "A test file contains the code below. What does pytest report when it runs `test_get_order`?\n\n```python\ndef get_order(order_id):\n    return {\"id\": order_id, \"status\": \"Shipped\", \"items\": 2}\n\ndef test_get_order():\n    order = get_order(7)\n    assert order[\"status\"] == \"Delivered\"\n    assert order[\"items\"] == 3\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "The test fails at `assert order[\"status\"] == \"Delivered\"`, and the second assert does not run.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "The test fails, and pytest reports both asserts as failed.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "The test passes, because get_order returns a value without raising an exception.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "The test errors, because get_order has no test_ prefix and cannot be called from a test.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "order[\"status\"] is \"Shipped\", so the first assert's comparison is False and the assert raises AssertionError. That exception ends test_get_order immediately, so the second assert is never evaluated, and pytest reports one failed test, showing 'Shipped' == 'Delivered' as the compared values. pytest does not carry on past a failed assert to gather further failures, so it never reports both asserts; only the first failing assert appears in the report. A test passes only when every assert it reaches holds; get_order returning normally does not make the test pass, because it is the assert itself that raises the exception. Functions without the test_ prefix are ordinary functions that a test can call freely; the prefix only decides which functions pytest collects as tests, so no error arises from calling get_order.",
+      "sourceAnchor": "Python Automation Testing With Pytest - assertions and test discovery (assertions); Introduction to Testing in Python - creating tests with pytest"
+    },
+    {
+      "id": "python-08-b",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 8,
+      "type": "single",
+      "stem": "What happens when pytest runs this test?\n\n```python\ndef test_totals():\n    values = [1, 2, 3]\n    assert sum(values) == 6\n    assert len(values) == 4\n    assert max(values) == 3\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "The test fails at `assert len(values) == 4` and the last assert is not executed.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "The test fails at `assert len(values) == 4` and the last assert still runs and passes.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "The test passes, because two of its three asserts hold.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "The test fails at `assert sum(values) == 6`.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "sum(values) is 6, so the first assert holds. len(values) is 3, so the second assert raises AssertionError, which ends the function immediately; the third assert never runs, and pytest reports one failure showing 3 == 4. A failed assert stops the test function, so the last assert does not run. A test passes only when every assert it reaches holds; a majority is not enough. The first assert holds, so the failure is not there.",
+      "sourceAnchor": "Python Automation Testing With Pytest - assertions and test discovery (assertions); Introduction to Testing in Python - creating tests with pytest"
+    },
+    {
+      "id": "python-09-a",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 9,
+      "type": "single",
+      "stem": "A test file contains the code below. What happens when pytest runs `test_new_order_has_no_lines`?\n\n```python\nimport pytest\n\n@pytest.fixture\ndef order():\n    return {\"id\": 42, \"lines\": []}\n\ndef test_new_order_has_no_lines(order):\n    assert order[\"lines\"] == []\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "pytest runs the order fixture function before the test and passes the returned dictionary into the test through the order parameter, and the test passes.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "pytest runs the test once for each key in the dictionary that the order fixture returns, so it is reported twice.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "The test fails with a NameError, because order is used inside the test as a variable that was never assigned.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "pytest collects order as a second test, because the decorator marks it as one, and runs both functions.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "A fixture is a function that pytest runs during test setup, not a function the test calls itself. Naming the fixture as a parameter of the test tells pytest to run the fixture function and supply its return value as that argument, so the test receives the dictionary, order[\"lines\"] is an empty list, and the assertion passes. Option b is wrong because running a test once per value is what parametrisation does; a fixture supplies one value and the test runs once. Option c is wrong because pytest injects the fixture value before the test body runs, so order is bound and no NameError arises. Option d is wrong because the fixture decorator does not make order a test; pytest collects only functions whose names start with test_, so only one test is collected and run.",
+      "sourceAnchor": "Python Automation Testing With Pytest - parameterize and setup and teardown (fixtures); Introduction to Testing in Python - fixtures (data preparation)"
+    },
+    {
+      "id": "python-09-b",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 9,
+      "type": "single",
+      "stem": "A test file contains the code below. How does pytest run `test_square`?\n\n```python\nimport pytest\n\n@pytest.mark.parametrize(\"value, expected\", [(2, 4), (3, 9), (4, 16)])\ndef test_square(value, expected):\n    assert value * value == expected\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "As three separate tests, one per tuple, each reported with its own pass or fail result.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "As one test that runs the assert three times and reports a single result.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "As one test using only the first tuple; the remaining tuples are ignored.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "It does not run, because value and expected are not defined as fixtures.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "parametrize generates one test case per entry in the list, and pytest reports each separately, for example test_square[2-4], test_square[3-9] and test_square[4-16]. It is not a single test with a repeated assert: each case is an independent test with its own outcome, so one failing tuple does not hide the others. Every tuple is used, not only the first. The decorator itself supplies value and expected for each case, so no fixture is needed.",
+      "sourceAnchor": "Python Automation Testing With Pytest - parameterize and setup and teardown (parametrised testing)"
+    },
+    {
+      "id": "python-10-a",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 10,
+      "type": "multi",
+      "stem": "A test compares two extracts of customer rows, `source` and `target`, with the function below. Each extract is a list of dictionaries with the keys `id` and `amount`. The two extracts come from independent queries that give no guarantee of row order, and a row present in one extract can be absent from the other. The source `amount` is stored to two decimal places. The target `amount` is produced by floating point arithmetic during the load, so a correct target amount can differ from the source amount by a rounding error far smaller than 0.01.\n\n```python\ndef find_mismatches(source, target):\n    mismatches = []\n    for source_row, target_row in zip(source, target):\n        if source_row[\"amount\"] != target_row[\"amount\"]:\n            mismatches.append(source_row[\"id\"])\n    return mismatches\n```\n\nWhich of these changes must be made to the function for its result to be trustworthy?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pair each source row with the target row that has the same `id`, instead of pairing rows by their position in the lists.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Report every `id` that is present in one extract and absent from the other.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Compare amounts with an allowance for floating point rounding, such as a small tolerance or rounding both values to two decimal places, instead of by exact equality of the raw values.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Return as soon as the first mismatch is found.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Report a match without comparing any rows whenever the two extracts contain the same number of rows.",
+          "correct": false
+        },
+        {
+          "id": "f",
+          "text": "Compare the amounts as strings instead of as numbers.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "The function pairs rows with zip, so it compares by position, and the stem says the two queries give no guarantee of row order; rows must be paired by id, or a correctly loaded row is reported as a mismatch. Sorting both lists by id before zip is not enough, because a missing row shifts every later pairing. zip stops at the end of the shorter list and never checks ids, so a row present in only one extract is silently ignored; those ids must be reported, because missing rows are a primary defect the comparison exists to find. The target amount carries a floating point rounding error (for example 0.1 + 0.2 is 0.30000000000000004), so != on the raw values reports a mismatch for a correct amount; comparing within a small tolerance or after rounding both values to two decimal places removes those false mismatches, and either is acceptable, which is why the option names both. Returning at the first mismatch is not required and would hide every remaining difference. Equal row counts say nothing about which rows are present or about their values, so reporting a match on that basis is wrong. Comparing the amounts as strings does not remove the rounding difference (str(0.1 + 0.2) is '0.30000000000000004' while str(0.3) is '0.3') and hides type errors, so it is not a required change.",
+      "sourceAnchor": "Introduction to Testing in Python - basic testing types (feature and integration tests over data)"
+    },
+    {
+      "id": "python-10-b",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 10,
+      "type": "multi",
+      "stem": "Two systems each return a list of dictionaries, one row per customer, with the keys `id` and `balance`. The systems give no guarantee of the same row order, and the team has agreed a tolerance for comparing balances. A test compares the two lists with the function below. Apart from what each situation describes, the two lists hold the same rows in the same order. In which of these situations does the function return `False`?\n\n```python\ndef datasets_match(source, target):\n    return source == target\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "Both lists hold the same rows, but in a different order.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "One customer's balance differs between the two lists only by a floating point rounding error smaller than the agreed tolerance.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "The target list has one row fewer than the source list.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Each dictionary in the source list was built with `balance` before `id`, and each dictionary in the target list with `id` before `balance`.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "One customer's balance is the integer `10` in the source list and the float `10.0` in the target list.",
+          "correct": false
+        },
+        {
+          "id": "f",
+          "text": "One customer's balance is `None` in both lists.",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false,
+      "difficulty": "standard",
+      "rationale": "List equality with == requires the same length and compares elements position by position, and dictionary equality compares keys and values. The same rows in a different order put different dictionaries at the same positions, so the lists compare unequal and the function returns False. Two floating point values that differ by a rounding error are unequal under ==, so the dictionaries holding them are unequal and the function returns False; the agreed tolerance plays no part because the function never applies it. Lists of different length are never equal, so a missing row returns False. Dictionary equality ignores the order in which keys were inserted, so dictionaries built with the keys in a different order compare equal and the function returns True. The integer 10 and the float 10.0 compare equal in Python, so the function returns True. None compared with None by == is True, so a balance of None on both sides compares equal and the function returns True. A trustworthy comparison would match rows on id rather than position, report ids present on one side only, and compare balances within the tolerance, none of which a bare == provides.",
+      "sourceAnchor": "Introduction to Testing in Python - basic testing types (feature and integration tests over data)"
+    }
+  ]
+}

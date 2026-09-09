@@ -13,7 +13,7 @@ import path from "node:path";
 
 const port = process.env.E2E_PORT ?? "3100";
 const dataDir = path.resolve(process.env.E2E_DATA_DIR ?? "./data/e2e");
-const bank = process.env.E2E_BANK ?? "bank/dev-sample.json";
+const bank = process.env.E2E_BANK ?? (fs.existsSync("bank/bank.v1.json") ? "bank/bank.v1.json" : "bank/dev-sample.json");
 
 const env: NodeJS.ProcessEnv = {
   ...process.env,

@@ -43,9 +43,19 @@ function duplicates(ids: readonly unknown[]): string[] {
   return Array.from(dupes);
 }
 
+/**
+ * The prose of a stem: fenced code blocks and inline code are removed first, because the ban on
+ * negative stems is about the question's wording, and SQL and Python legitimately contain
+ * keywords like NOT NULL and `is not None` that say nothing about how the question is asked.
+ */
+function stemProse(stem: string): string {
+  return stem.replace(/```[\s\S]*?```/g, " ").replace(/`[^`\n]*`/g, " ");
+}
+
 function checkStemWording(label: string, stem: string, problems: string[]): void {
-  if (/\bNOT\b/.test(stem)) problems.push(`${label}: stem contains "NOT" in capitals (negative stems are banned)`);
-  const lower = stem.toLowerCase();
+  const prose = stemProse(stem);
+  if (/\bNOT\b/.test(prose)) problems.push(`${label}: stem contains "NOT" in capitals (negative stems are banned)`);
+  const lower = prose.toLowerCase();
   for (const phrase of BANNED_PHRASES) {
     if (lower.includes(phrase)) problems.push(`${label}: stem contains the banned phrase "${phrase}"`);
   }

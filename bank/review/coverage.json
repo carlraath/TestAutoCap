@@ -1,0 +1,392 @@
+[
+ [
+  "python-01-a",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "python-01-b",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "python-02-a",
+  3,
+  0,
+  "all lenses pass"
+ ],
+ [
+  "python-02-b",
+  3,
+  0,
+  "all lenses pass"
+ ],
+ [
+  "python-03-a",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "python-03-b",
+  3,
+  0,
+  "all lenses pass"
+ ],
+ [
+  "python-04-a",
+  3,
+  0,
+  "all lenses pass"
+ ],
+ [
+  "python-04-b",
+  3,
+  0,
+  "all lenses pass"
+ ],
+ [
+  "python-05-a",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "python-05-b",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "python-06-a",
+  3,
+  0,
+  "all lenses pass"
+ ],
+ [
+  "python-06-b",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "python-06-c",
+  3,
+  1,
+  "1/3 lenses pass"
+ ],
+ [
+  "python-07-a",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "python-07-b",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "python-07-c",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "python-08-a",
+  3,
+  1,
+  "1/3 lenses pass"
+ ],
+ [
+  "python-08-b",
+  3,
+  1,
+  "1/3 lenses pass"
+ ],
+ [
+  "python-09-a",
+  3,
+  1,
+  "1/3 lenses pass"
+ ],
+ [
+  "python-09-b",
+  3,
+  0,
+  "all lenses pass"
+ ],
+ [
+  "python-10-a",
+  3,
+  1,
+  "0/3 lenses pass"
+ ],
+ [
+  "python-10-b",
+  3,
+  1,
+  "0/3 lenses pass"
+ ],
+ [
+  "sql-01-a",
+  3,
+  1,
+  "1/3 lenses pass"
+ ],
+ [
+  "sql-01-b",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "sql-02-a",
+  3,
+  1,
+  "1/3 lenses pass"
+ ],
+ [
+  "sql-02-b",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "sql-02-c",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "sql-03-a",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "sql-03-b",
+  3,
+  0,
+  "2/3 lenses pass"
+ ],
+ [
+  "sql-04-a",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "sql-04-b",
+  3,
+  0,
+  "2/3 lenses pass"
+ ],
+ [
+  "sql-05-a",
+  3,
+  0,
+  "1/3 lenses pass"
+ ],
+ [
+  "sql-05-b",
+  3,
+  0,
+  "0/3 lenses pass"
+ ],
+ [
+  "sql-06-a",
+  3,
+  0,
+  "1/3 lenses pass"
+ ],
+ [
+  "sql-06-b",
+  3,
+  0,
+  "1/3 lenses pass"
+ ],
+ [
+  "sql-07-a",
+  3,
+  0,
+  "2/3 lenses pass"
+ ],
+ [
+  "sql-07-b",
+  3,
+  0,
+  "all lenses pass"
+ ],
+ [
+  "sql-07-c",
+  3,
+  0,
+  "2/3 lenses pass"
+ ],
+ [
+  "sql-08-a",
+  3,
+  0,
+  "1/3 lenses pass"
+ ],
+ [
+  "sql-08-b",
+  3,
+  0,
+  "all lenses pass"
+ ],
+ [
+  "sql-08-c",
+  3,
+  0,
+  "all lenses pass"
+ ],
+ [
+  "sql-09-a",
+  3,
+  0,
+  "2/3 lenses pass"
+ ],
+ [
+  "sql-09-b",
+  3,
+  0,
+  "1/3 lenses pass"
+ ],
+ [
+  "sql-10-a",
+  3,
+  0,
+  "1/3 lenses pass"
+ ],
+ [
+  "sql-10-b",
+  3,
+  0,
+  "1/3 lenses pass"
+ ],
+ [
+  "ta-01-a",
+  3,
+  2,
+  "2/3 lenses pass"
+ ],
+ [
+  "ta-01-b",
+  3,
+  1,
+  "1/3 lenses pass"
+ ],
+ [
+  "ta-02-a",
+  3,
+  1,
+  "all lenses pass"
+ ],
+ [
+  "ta-02-b",
+  3,
+  1,
+  "all lenses pass"
+ ],
+ [
+  "ta-03-a",
+  3,
+  0,
+  "all lenses pass"
+ ],
+ [
+  "ta-03-b",
+  3,
+  0,
+  "2/3 lenses pass"
+ ],
+ [
+  "ta-04-a",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "ta-04-b",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "ta-05-a",
+  3,
+  1,
+  "1/3 lenses pass"
+ ],
+ [
+  "ta-05-b",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "ta-06-a",
+  3,
+  0,
+  "2/3 lenses pass"
+ ],
+ [
+  "ta-06-b",
+  3,
+  1,
+  "0/3 lenses pass"
+ ],
+ [
+  "ta-07-a",
+  3,
+  1,
+  "all lenses pass"
+ ],
+ [
+  "ta-07-b",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "ta-08-a",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "ta-08-b",
+  3,
+  1,
+  "0/3 lenses pass"
+ ],
+ [
+  "ta-09-a",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "ta-09-b",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "ta-10-a",
+  3,
+  1,
+  "2/3 lenses pass"
+ ],
+ [
+  "ta-10-b",
+  3,
+  1,
+  "0/3 lenses pass"
+ ]
+]

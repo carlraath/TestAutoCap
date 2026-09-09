@@ -1,0 +1,1376 @@
+{
+ "ta-01": {
+  "slot": 1,
+  "assessment": "ta",
+  "items": [
+   {
+    "item": "ta-01-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "The key \"The same 400 checks run in the same way at every release, without the two days of manual effort.\" is the only option that echoes the stem's \"two days\" figure (and one of only two that echo \"400\"), so a test-wise candidate can select it by keyword matching rather than by understanding the purpose of automation.",
+       "The stem \"Which outcome is the direct purpose of that automation?\" reads awkwardly because an outcome is not a purpose; the wording is clumsy rather than ambiguous, but plainer phrasing would match the charter's plain-sentence rule."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Major: ta-01-a duplicates its only sibling ta-01-b with cosmetic changes only. The stems share one template (\"A ... team [runs/checks] N ... by hand [before each release/after every load]. The [cases/rules] stay the same ... and the [run/check] takes ... The team automates the [suite/checks]. Which outcome is the direct purpose of that automation?\"), and the four options map one-to-one: key a \"The same N checks ... in the same way ... without the ... manual effort\", b \"finds defects ... never written to cover\" / \"in rules other than the 60 that were scripted\", c \"no longer needs to judge which ... matter\", d \"A passing run confirms ... no defects, so no further [testing/checking] is needed\". The rationales are near-verbatim copies. The slot therefore has one item in two costumes, which defeats the paper-variation design in docs/03 and gives no genuine second calibrated item for the slot.",
+       "Minor: the three distractors are all over-claims that an experienced professional tester dismisses on sight (\"finds defects in areas that its 400 cases were never written to cover\", \"no longer needs to judge which areas ... carry the most risk\", \"so no further testing is needed\"), so the item sits below the level of a CTAL-TAE graduate and is easier than the docs/04 exemplar for TA slot 5; the sibling shares the same weakness, so interchangeability holds, but the slot as a whole is under-calibrated."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The key \"The same checks run identically on every build, with results back sooner than the manual run.\" is the only option that reuses the stem's own vocabulary (\"regression checks\", \"by hand\", release) and is phrased as an execution outcome rather than as one of the \"four goals for testing the next release\" the stem promises, whereas b, c and d are each phrased as a testing activity; a candidate can therefore pick the key from surface cues alone, which makes ta-01-a easier than its sibling ta-01-b, whose four options are in parallel form and none of which echoes its stem."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "ta-01-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "Option b reads \"The checks find data defects in rules other than the 60 that were scripted.\" and the rationale echoes it with \"defects in other rules are outside its reach\", but defects occur in the loaded data rather than in rules, so the phrase is muddled English even though it does not make b defensible as the key."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Major: ta-01-b is a cosmetic re-skin of ta-01-a rather than an interchangeable alternative - the stem \"A data pipeline team checks 60 reconciliation rules by hand after every daily load. The rules stay the same from one load to the next and the check takes one tester half a day. The team automates the checks. Which outcome is the direct purpose of that automation?\" follows ta-01-a's sentence template word for word with only the nouns and numbers swapped, and all four options (\"The same 60 rules are checked in the same way after every load, without the half day of manual effort.\", \"The checks find data defects in rules other than the 60 that were scripted.\", \"The team no longer needs to judge which rules matter most when the pipeline changes.\", \"A passing run confirms that the loaded data contains no defects, so no further checking is needed.\") map one-to-one onto ta-01-a's options in the same roles with the same phrasing, so a participant who has seen either paper has effectively seen both and the deterministic-variation design in docs/03 gives slot 1 no real variation.",
+       "Minor: the key \"The same 60 rules are checked in the same way after every load, without the half day of manual effort.\" is the only option that repeats the stem's own facts (\"60\", \"stay the same\", \"half a day\"), so it can be identified by lexical overlap with the stem without applying the concept, which makes the item easier than the concept-selection level the blueprint intends (the same weakness exists in ta-01-a, so the siblings are equally easy rather than calibrated to the exemplar bar).",
+       "Minor: the stem sentence \"Which outcome is the direct purpose of that automation?\" conflates an outcome with a purpose, which reads awkwardly and departs from the plain-sentence rule; a clearer form asks what the automation is intended to achieve."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The stem \"Tonight's run reports that all 60 checks passed. What can the team conclude from that result?\" tests the interpretation of a passing run (an automated check reports only on its scripted condition, and a pass does not prove absence of defects), which is a general testing principle every experienced tester already holds rather than the slot 1 blueprint construct \"Purpose of automation vs manual testing - concept selection\"; its sibling ta-01-a asks directly which goal automation delivers versus manual activities, so the two items measure different constructs and ta-01-b is markedly easier for this audience, with the key also identifiable as the most hedged statement without any automation knowledge. [major]",
+       "Option d \"The result cannot be relied on until a tester has repeated the 60 checks by hand.\" is not a plausible choice for a genuinely unsure professional, so the item effectively has three live options while its sibling has four, which further lowers its difficulty relative to ta-01-a. [minor]"
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Major - topic drift from the slot blueprint: the stem \"Tonight's run reports that all 60 checks passed. What can the team conclude from that result?\" tests how to interpret a passing automated run (the limitation that a pass shows only what was scripted, essentially the general 'testing shows presence not absence of defects' principle), whereas the slot 1 blueprint is \"Purpose of automation vs manual testing - concept selection\" and sibling ta-01-a asks which goal automation directly delivers against three manual-testing activities; the two items therefore test different concepts and are not interchangeable in topic, and the 'versus manual' dimension appears in ta-01-b only as distractor d \"repeated the 60 checks by hand\".",
+       "Minor - calibration: the key \"Tonight's loaded data met the 60 conditions that the scripted checks evaluate.\" is a near-restatement of the stem's \"all 60 checks passed\", so a candidate with no test automation knowledge can select it by wording alone, which makes ta-01-b easier than ta-01-a, whose key requires recognising consistency and faster feedback as automation's deliverable."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "Minor topic drift from the slot 1 blueprint (\"Purpose of automation vs manual testing - concept selection\"): the stem \"Tonight's run reports that all 60 checks passed. What can the team conclude from that result?\" tests the limitation of an automated pass (what it does and does not establish) rather than the purpose of automation, so it is not fully interchangeable in topic with sibling ta-01-a, which asks \"Which goal does that automation directly deliver?\"; both anchor to the same chapter, so this is a calibration note, not a dispute risk."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ta-02": {
+  "slot": 2,
+  "assessment": "ta",
+  "items": [
+   {
+    "item": "ta-02-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "The rationale sentence \"putting API or UI tests above unit tests would describe an inverted pyramid, and placing UI tests above API tests would describe the ice-cream cone anti-pattern\" over-generalises: the sequences API, Unit, UI and Unit, UI, API place API above Unit or UI above API yet are neither the inverted pyramid (UI, API, Unit) nor the ice-cream cone, so the dispute record misnames some wrong permutations even though the preceding general clause rejects them correctly."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "ta-02-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The stem \"by the typical execution time of one test, from fastest at the top of this list to slowest\" mixes a time quantity (execution time) with speed adjectives (fastest, slowest); it is not disputable but the criterion should be stated in one consistent measure."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ta-04": {
+  "slot": 4,
+  "assessment": "ta",
+  "items": [
+   {
+    "item": "ta-04-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Item a is markedly easier than sibling b: the stem \"re-runs the existing tests for card and bank-transfer checkout to see that they still pass\" maps to the universally known key \"Regression testing\" with no need to know the term progression testing, whereas b's key \"Progression testing\" is the less familiar ISTQB term, so a candidate is not equally likely to get either sibling right.",
+       "The scenario \"A web shop adds a new gift-card payment option\" is a front-end e-commerce framing, while sibling b (\"A payments batch gains a new currency-conversion step\") and the governing principle in docs/04 target a back-end, data-focused automation use case; the pair is not fully interchangeable in framing."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "ta-04-a is markedly busier than ta-04-b: its stem describes three activities (\"writes new tests\", \"re-runs that one test\" after a fix, and \"re-runs the existing settlement and reconciliation tests\") so the candidate must reject two live distractors (progression and confirmation) drawn from the scenario, whereas ta-04-b describes two activities and has only one live distractor (regression), making a candidate less likely to get ta-04-a right than its sibling.",
+       "ta-04-a and ta-04-b share the same domain and near-identical phrasing (\"A payments file import gains a new record type\" versus \"A payments batch gains a new currency-conversion step\", and both \"re-runs the existing settlement ... tests to see that they still pass\") with an identical option set, so the two items read as one scenario with the asked-about activity swapped rather than two independent classification scenarios.",
+       "ta-04-a's stem is roughly half as long again as ta-04-b's (about 70 words against about 45), so the reading load within the slot is not equalised."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "Difficulty is not equalised with sibling ta-04-b: ta-04-a's stem (69 words, five sentences) adds a third activity, \"One of the new tests finds a defect; after the fix, the team re-runs that one test.\", which makes the Confirmation testing distractor live inside the scenario and requires the candidate to separate regression from confirmation, whereas ta-04-b (46 words, three sentences) presents only two activities and its Confirmation testing distractor has nothing in the scenario to attach to, so ta-04-a is measurably harder and longer to read within the one-minute-per-item budget."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Minor: ta-04-a includes the sentence \"One of the new tests finds a defect; after the fix, the team re-runs that one test.\" which makes confirmation testing a live third decoy and the stem about 74 words, whereas sibling ta-04-b contains no failing test, so its confirmation and smoke options are dead and it reduces to a two-way choice between regression and progression in a 52-word stem; the two items are therefore not equally difficult for an unsure candidate."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "ta-04-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "The rationale rejects option d with \"not a set of tests written to exercise a new step in depth\", but the stem only says the tests \"exercise the conversion step for the first time\" and never says anything about depth, so the dispute record argues from a fact that is not on the page."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Calibration: ta-04-b is easier than ta-04-a because two of its distractors are inert by the stem's own construction, as its rationale admits (\"the stem mentions no earlier failing test and no defect fix\" for Confirmation testing, and Smoke testing does not match \"tests written specifically for one newly added step\"), leaving a two-way choice between Regression and Progression, whereas ta-04-a's scenario contains a defect fix and a single-test re-run so that Regression, Progression and Confirmation are all live choices.",
+       "Interchangeability: ta-04-b reuses ta-04-a's scenario skeleton almost verbatim (\"A payments batch gains a new currency-conversion step. The team writes new tests ... and it also re-runs the existing settlement tests to see that they still pass\" against \"A payments file import gains a new record type. The team writes new tests ... re-runs the existing settlement and reconciliation tests ... to see that they still pass\") with the identical option set, so the pair reads as one scenario asked from two ends rather than two independent scenarios of equal weight; ta-04-b's stem is also roughly two thirds the length of ta-04-a's."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "[minor] Difficulty asymmetry with ta-04-a: the stem \"The team writes new tests that exercise the conversion step for the first time, and it also re-runs the existing settlement tests to see that they still pass\" contains only two activities and no defect-fix re-run, so the distractors \"Confirmation testing\" and \"Smoke testing\" are inert and the item collapses to a two-way choice between regression and progression, whereas ta-04-a's three-activity stem (new tests, a confirmation re-run of one fixed test, and a regression re-run) keeps confirmation as a live distractor; a candidate is not equally likely to get either sibling right.",
+       "[minor] Template duplication with ta-04-a: both items use the same payments/settlement framing (\"A payments batch gains a new currency-conversion step\" versus \"A payments file import gains a new record type\"), the same three-part narrative and an identical option list in identical order (Regression, Progression, Confirmation, Smoke); the only substantive difference is which half of the scenario is asked about, which is close to the same scenario with cosmetic changes.",
+       "[minor] The question \"Which classification fits the new tests for the conversion step?\" classifies the tests themselves rather than a testing activity, while every option names an activity (\"Progression testing\") and the sibling asks about an activity (\"the re-run of the existing settlement and reconciliation tests\"); the category mismatch is small but avoidable."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ta-05": {
+  "slot": 5,
+  "assessment": "ta",
+  "items": [
+   {
+    "item": "ta-05-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The five options of ta-05-a (\"It runs every release.\", \"The functionality it covers is stable.\", \"Its result needs human visual judgement each run.\", \"Its requirements change frequently.\", \"Its expected outcome is deterministic.\") map one-for-one onto the five options of sibling ta-05-b, so the slot holds one item and one re-skin of it rather than two independently calibrated items sampling the candidacy factor set.",
+       "ta-05-a relies on the term of art \"Its expected outcome is deterministic.\" while ta-05-b spells the same factor out as \"Its expected result can be computed exactly from the input data.\", so a candidate who knows the concept but not the word is marginally more likely to miss ta-05-a than its sibling."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Option e \"Its expected outcome is known in advance and does not vary between runs.\" is about twice the length of every other option (4 to 8 words each) and is a key, giving a longest-option cue that ta-05-b does not have, so ta-05-a is marginally easier than its sibling for a test-wise candidate (minor)."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "Option e \"Its expected outcome is known in advance and does not vary between runs.\" is 13 words while options a to d are 4 to 8 words, so the conspicuously longest option is a key and gives a length cue to a test-wise candidate."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Option e \"Its expected outcome is known in advance and does not vary between runs.\" is 13 words against 4 to 8 for the other four options, so the longest option is a correct one and gives a test-wise length cue that its sibling ta-05-b (all options 7 to 10 words) does not give."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "[minor] Option e \"Its expected outcome is known in advance and does not vary between runs.\" is 72 characters against 22 to 49 for the other four options, and it is a key, so its conspicuous length acts as a cue toward the correct set; the sibling ta-05-b keeps all options within 40 to 56 characters."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "ta-05-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Every option in ta-05-b maps one-to-one onto an option in sibling ta-05-a (\"The check is repeated after every load with the same steps.\" = \"It runs every release.\", \"The rule it checks has not changed in the last year.\" = \"The functionality it covers is stable.\", \"Its expected result can be computed exactly from the input data.\" = \"Its expected outcome is deterministic.\", \"Its pass or fail decision depends on a reviewer's judgement of a chart.\" = \"Its result needs human visual judgement each run.\", \"The rule it checks is redefined in most sprints.\" = \"Its requirements change frequently.\"), and the rationale reuses the sibling's wording nearly verbatim (\"each makes the automated check cheaper to keep and its result trustworthy\", \"has no expected value a script can compare against, so it weakens the case\"), so the item reads as the exemplar with a scenario sentence bolted on rather than an independently authored sibling.",
+       "The options in ta-05-b are roughly twice the length of the sibling's (for example \"Its pass or fail decision depends on a reviewer's judgement of a chart.\" against \"Its result needs human visual judgement each run.\") and the stem carries an extra scenario sentence (\"A team is choosing which of the checks it performs on a nightly data pipeline to automate first.\"), so the item is slightly longer to read than its sibling under a 10-minute paper."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Option c \"Its expected result can be computed from the input data.\" states the determinism factor indirectly compared with the sibling ta-05-a option \"Its expected outcome is known in advance and does not vary between runs.\", so a candidate must infer that a computable oracle means a deterministic expected outcome, and could read it as requiring the test to re-implement the pipeline's logic, making this item marginally harder than its sibling."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ta-06": {
+  "slot": 6,
+  "assessment": "ta",
+  "items": [
+   {
+    "item": "ta-06-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "All three distractors lead with a repetition cue (\"Checking every night that\", \"Checking each release that\", \"Checking after every batch run that\") while the key alone leads with \"Checking once that a one-off data migration has completed, after which the migration script is retired\", so a candidate can pick the key by spotting the odd phrasing without reasoning about automation candidacy, which makes ta-06-b marginally easier than ta-06-a, whose key is separated from its distractors by content rather than by a shared surface cue."
+      ]
+     },
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "Major: option a \"Checking that a one-off migration copied every account record, after which its script is retired.\" presupposes the check is scripted, so a candidate can argue the option describes an already automated check and contradicts a stem asking for \"the weakest candidate for automation\".",
+       "Major: \"copied every account record\" describes a full-volume reconciliation that a data-focused tester can defensibly argue is impossible manually and therefore a necessary automation candidate even when run once, and the rationale concedes the tension with \"even though its expected result is definite\", leaving the key open to dispute.",
+       "Minor: sibling ta-06-a keys on a check with no deterministic expected result (\"looks appealing to shoppers\") while ta-06-b keys on a frequency cost-benefit trade-off between two candidacy factors, so the two items are not interchangeable in difficulty within the slot."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "Key option a, \"Checking that a one-off migration copied every account record, after which its script is retired.\", presupposes the check is already scripted, which weakens the premise that it is a poor automation candidate and sits oddly with the stem \"four checks it wants to add to its suite\"; a candidate could argue that verifying every account record is only practical by script and so the option contradicts itself, even though b, c and d remain plainly stronger candidates. (minor)",
+       "Difficulty is not fully interchangeable with sibling ta-06-a: the sibling's key (\"looks appealing to shoppers\") is unautomatable because it has no deterministic oracle, whereas ta-06-b's key relies on the subtler run-frequency factor while all four options are deterministic, so ta-06-b is a noticeably harder discrimination for the same slot. (minor)"
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Key option a, \"Checking that a one-off migration copied every account record, after which its script is retired.\", is disputable because verifying every account record is infeasible by hand and the option itself states that a script exists, so a competent professional can argue it is a strong candidate for scripting even if it is a poor candidate for the suite; the rationale concedes the weakness with \"even though its expected result is definite\".",
+       "The item is markedly harder than sibling ta-06-a: the sibling's key fails candidacy on the most recognisable factor (\"looks appealing to shoppers\", human judgement with no deterministic result) while ta-06-b's key passes determinism and fails only on run frequency, so a candidate is less likely to get ta-06-b right than ta-06-a."
+      ]
+     },
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "Key a \"Checking that a one-off migration copied every account record, after which its script is retired.\" is contestable: verifying that every account record was copied is a full-population reconciliation that a competent professional would say cannot practically be done by hand and is routinely scripted despite being one-off, so the volume of the check gives a defensible argument that it is a strong candidate, and the rationale never addresses that argument (major).",
+       "The stem \"lists four checks it wants to add to its suite\" is inconsistent with option a's \"after which its script is retired\": a check retired after one run cannot be part of a suite, which both makes the scenario incoherent and signposts the key by being the only option that mentions a script at all (minor).",
+       "Option a presupposes the check is already automated (\"its script is retired\"), so it does not describe a candidate for automation in the same terms as b, c and d, which describe checks rather than scripts; this asymmetry is a give-away cue rather than a test of judgement (minor)."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The key option \"Checking that a one-off migration copied every account record, after which its script is retired.\" is disputable because verifying that every account record was copied is a volume-driven check that a competent professional would script precisely because it is infeasible by hand, and the option text itself concedes a script was written, so a candidate can defensibly argue it is a strong one-time candidate for automation rather than the weakest candidate (major).",
+       "The item is markedly harder than its sibling ta-06-a: the sibling's key \"Checking whether the redesigned home page looks appealing to shoppers.\" is a plain human-judgement check with no deterministic result, whereas this item's key asks the candidate to weigh one-off return on effort against a definite, deterministic outcome, so a candidate is not equally likely to get either sibling right (major).",
+       "The rationale for option c states it \"belongs to a suite that is run again with every change to the batch\", but the option text \"Checking that a payment with an invalid account number is written to the rejects table.\" says nothing about repetition, unlike options b and d which state \"daily\" and \"after each batch run\", so the rationale relies on a fact not on the page (minor).",
+       "The stem \"A payments batch team lists four checks it wants to add to its suite. Which check is the weakest candidate for automation?\" is the sibling's stem with only the team name changed; acceptable structurally, but the two items then differ only in which non-automation reason is hidden in the options, which makes the difficulty gap noted above more visible (minor)."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "Option a, \"Checking that a one-off migration copied every account record, after which its script is retired.\", presupposes the check is already scripted, which sits awkwardly against a stem asking which check is the weakest \"candidate for automation\" and against \"four checks it wants to add to its suite\" (a one-off check retired after one run cannot be added to a suite), giving a candidate a foothold to argue the scenario is internally inconsistent.",
+       "The rationale for c asserts \"the check belongs to a suite that is run again with every change to the batch\", a fact that appears nowhere in option c's text (\"Checking that a payment with an invalid account number is written to the rejects table.\"), so the rationale justifies the distractor from an assumption rather than from what the participant can read."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "ta-06-a",
+    "status": "problems-outstanding",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The key \"Checking whether the redesigned home page looks appealing to shoppers.\" is the most obvious textbook case of subjective judgement and can be identified by common sense without any course exposure, whereas sibling ta-06-b's key (\"a one-off migration ... after which its script is retired\") requires weighing a definite expected result against zero repeatability, so ta-06-a is somewhat easier than its sibling and the two are not fully interchangeable in difficulty."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ta-07": {
+  "slot": 7,
+  "assessment": "ta",
+  "items": [
+   {
+    "item": "ta-07-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "Option b \"Keep a copy of each identifier in every test so that each test stays self-contained.\" restates the suite's existing design, whereas the stem asks \"Which change to the suite's design reduces the effort\", so b is not a change at all and is a weaker distractor than it could be (the key remains uniquely defensible)."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "Option b, \"Keep a copy of each identifier in every test so that each test stays self-contained.\", is the existing design the stem has already blamed for the 120 edits, and the stem asks for a \"change\", so it is not a plausible wrong answer an unsure candidate would pick; it is eliminated by the stem's own wording (charter: distractors must be plausible, never filler).",
+       "Option c, \"Add more tests that use each identifier so that a rename is noticed sooner.\", answers a detection question rather than the effort question the stem asks, and proposing to add tests to reduce editing effort is close to absurd, so it is a weak distractor (charter: distractors must be plausible wrong answers a genuinely unsure person might pick)."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "ta-07-a duplicates its sibling ta-07-b too closely: the stem \"A suite of 300 automated UI tests ... each test holds its own copy ... Which change to the suite's design reduces the effort of the next such rename?\" is the same template as ta-07-b's \"A suite of 200 automated API tests ... written out in full inside every test ... Which change to the suite's design reduces the effort of the next such change?\", option b (\"Keep a copy of each identifier in every test so that each test stays self-contained.\") and option d (\"Re-record the affected tests with a capture and replay tool after each rename.\") mirror ta-07-b's b and d word for word apart from the nouns, and the rationale is the same paragraph with 120 substituted for 200, so the two items are one scenario with cosmetic changes rather than two calibrated variants of the maintenance-cost concept (severity: minor)."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "ta-07-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "Option b \"Keep the sequence written out in every test so that each change can be checked test by test.\" is not a \"change to the suite's design\" as the stem asks, so it is eliminable from the stem's wording alone rather than from knowledge of maintainability, making it a weak distractor.",
+       "The stem's measure \"reduces the effort of the next such change\" is absolute rather than tied to a countable quantity, which leaves option d \"Re-record the login sequence in each test with a capture and replay tool after each change.\" open to the argument that re-recording is quicker per test than hand-editing and therefore also reduces effort, even though it still touches all 200 tests."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "Stem sentence \"A suite of 200 automated API tests each begins with the same eight-step login sequence, written out in full inside every test.\" has a subject-verb mismatch: the grammatical subject is \"A suite\" but \"each begins\" refers to the tests, which breaks the charter's plain-sentence rule and makes the reader re-parse the opening sentence."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The stem \"A suite of 200 automated API tests each begins with the same eight-step login sequence, written out in full inside every test. The login sequence changes and all 200 tests have to be edited. Which change to the suite's design reduces the effort of the next such change?\" is the sibling ta-07-a's scenario (\"A suite of 300 automated UI tests ... each test holds its own copy of every identifier ... all 120 tests have to be edited. Which change to the suite's design reduces the effort of the next such rename?\") with only the nouns and numbers changed, so the two items are not independent draws for the slot and a retake participant would effectively see the same item twice. [major]",
+       "The key \"Move the login sequence into one shared function that every test calls.\" and distractors \"Keep the sequence written out in every test ...\" and \"Re-record the login sequence in each test with a capture and replay tool after each change.\" reproduce the sibling's option set (\"Hold each identifier in one shared place ...\", \"Keep a copy of each identifier in every test ...\", \"Re-record the affected tests with a capture and replay tool after each rename.\") one for one, so the slot tests only the single sub-concept of removing duplication rather than the blueprint's broader \"Maintenance cost of automation - concept\". [major]",
+       "The rationale \"with the sequence held once and called from everywhere, a change becomes one edit instead of 200, which is the maintainability principle of removing duplication from the automation solution ... d is wrong because capture and replay reproduces the duplication in recorded form\" is a near-verbatim copy of ta-07-a's rationale, which confirms the item was produced by cosmetic substitution rather than written as a distinct calibrated item. [major]",
+       "Distractor c \"Split each test into several smaller tests, each with its own copy of the sequence.\" announces its own flaw in the phrase \"each with its own copy\", so it is eliminable on wording alone and is not a plausible pick for a genuinely unsure candidate. [minor]"
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Major: the question \"Which property of the suite means that this move requires an edit in every test?\" is answerable from the stem alone, because the stem labels option a as \"the base URL of the test environment it calls\" and then says the team will \"run the suite against a second test environment\", so a candidate needs no knowledge of maintenance cost to pick the key; this makes ta-07-b markedly easier than ta-07-a, which requires reasoning about which of four designs is coupled to the part of the application that changes, so the two items are not interchangeable in difficulty as docs/03 and docs/04 require.",
+       "Minor: the discriminating knowledge tested is which of four values differs between two environments (configuration management, chapter 5) rather than the slot 7 blueprint topic \"Maintenance cost of automation - single - concept\"; the maintenance-cost principle (\"A copy of a value in every test costs maintenance only when that value changes\") is stated only in the rationale and is never what the candidate has to apply.",
+       "Minor: distractor d, \"The account number of the test customer is written into every test.\", leaves a dispute route open because experienced testers know account identifiers are often generated on load and differ between environments; the stem's \"loaded with the same test data\" does not explicitly close this, so a candidate could defend d.",
+       "Minor: the stem of ta-07-b is roughly 85 words against roughly 55 for ta-07-a, so the item takes noticeably longer to read within a 10-minute paper."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ta-08": {
+  "slot": 8,
+  "assessment": "ta",
+  "items": [
+   {
+    "item": "ta-08-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "Option d \"The number of tests that passed in the same run.\" can be argued by a competent candidate as useful investigation context (it shows whether the failure was isolated or environment-wide), so its exclusion from the key is contestable under the stem's criterion \"so that the failure can be investigated later without re-running the test\"."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Minor alignment drift: the scenario \"An automated checkout test fails during a nightly run of a web shop's suite\" with key option \"The log output and screenshot captured at the moment of failure\" frames a UI-level test, whereas docs/04's governing principle targets the programme's back-end, data-focused automation use case and the sibling ta-08-b is framed around a data pipeline reconciliation check, so the two items are not fully interchangeable in framing (a candidate from a UI-automation background is more at home with ta-08-a than with ta-08-b)."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "Structural cue: all three keyed options are compound two-part clauses of 64 to 76 characters (\"The expected value and the actual value at the step that failed.\", \"The build identifier of the system under test and the environment it ran in.\", \"The log output and screenshot captured at the moment of failure.\") while all three distractors are short single-fact clauses of 39 to 48 characters (\"The number of tests that passed in the same run.\", \"The total number of tests in the suite.\", \"The sprint in which the test was first written.\"), so a test-wise candidate can select the key set by option shape alone, which weakens the charter requirement that distractors be plausible picks for a genuinely unsure person.",
+       "Scenario framing: the stem \"An automated checkout test fails during a nightly run of a web shop's suite\" and the keyed option \"The log output and screenshot captured at the moment of failure\" describe a UI web-shop test, whereas docs/04's governing principle anchors items to the programme's back-end, data-focused automation use case and the sibling ta-08-b uses a data pipeline check, so the two items in the slot are not fully interchangeable in topic."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Distractor d, \"The average duration of the suite over the last month.\", is substantively the same distractor as sibling ta-08-b's option e, \"The average duration of the pipeline over the last month.\", and combined with the identical framing in both stems (a nightly run fails, the failure is investigated later without re-running, what must the record hold) the two items differ only cosmetically in scenario and option pattern, which weakens their independence as interchangeable draws for the slot (minor)."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "ta-08-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The item is a template clone of sibling ta-08-a rather than an independently written alternative: the stem \"fails during a scheduled run of a data pipeline. Select all the pieces of information the failure record should contain so that the failure can be investigated later without re-running the check.\" reproduces ta-08-a's stem word for word apart from the scenario nouns, and distractors d \"The number of checks that passed in the same run.\" and f \"The total number of checks in the suite.\" are ta-08-a's d and e with \"tests\" replaced by \"checks\", with the rationale sentences for d and f also copied, so the two items in the slot differ only cosmetically in their wrong-answer set and a participant who has discussed one item with a colleague has effectively seen the other."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Option e \"The average duration of the pipeline over the last month.\" is a near-verbatim reuse of sibling ta-08-a's distractor \"The average duration of the suite over the last month.\", so the two items share a distractor with only a cosmetic word change rather than being independently written.",
+       "Option f \"The planned date of the next change to the pipeline.\" is weaker than every distractor in sibling ta-08-a because it refers to something that has not yet happened, so it reads as filler that an unsure candidate would not pick, making ta-08-b marginally easier than ta-08-a.",
+       "The stem runs to four sentences (\"A nightly data pipeline includes ... On one night ... The next morning ... Select all the items ...\") against ta-08-a's two-sentence stem, so the two siblings are not matched in length."
+      ]
+     },
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "Key option b, \"The identifier of the pipeline run and the time at which the check failed.\", is contestable under the stem wording \"has only the failure record to work from\" and \"the items the record needs to hold ... to establish what went wrong\", because a run identifier and timestamp are pointers to other systems' logs the investigator is stated not to have, and the failing night is already given, so a competent candidate can defensibly exclude b as context rather than necessary evidence and lose the all-or-nothing point.",
+       "The rationale rejects d with \"a fact about the check's ownership that is the same on every run\", yet option a's \"The rule that was evaluated\" is also the same on every run (the stem itself fixes the rule as comparing loaded rows with source rows), so the rationale's own test undermines part of the key and would not hold up as a dispute record.",
+       "Distractor f, \"The planned date of the next change to the pipeline.\", is near-absurd filler that no genuinely unsure candidate would pick, which weakens the item against the charter's plausibility requirement."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The stem's wording \"Select all the items the record needs to hold for the investigator to establish what went wrong\" sets a strict necessity test that a candidate could use to dispute option b (\"The identifier of the pipeline run and the time at which the check failed\"), arguing that run identity and time aid traceability but are not strictly needed to establish what went wrong once the rule, its input identifiers and the mismatched rows are recorded."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Minor: option e \"The average duration of the pipeline over the last month.\" is a near-verbatim copy of sibling ta-08-a's option d \"The average duration of the suite over the last month.\", so the two items share a distractor rather than being independently calibrated.",
+       "Minor: option f \"The planned date of the next change to the pipeline.\" is closer to absurd filler than a plausible wrong answer, because a future event obviously cannot explain a past failure (the rationale itself says so), which makes ta-08-b marginally easier than ta-08-a whose distractors are all present-tense suite metadata an unsure person might include.",
+       "Minor: the stem frames the failing artefact as \"a reconciliation check\" in \"a nightly data pipeline\" rather than an automated test, and at roughly 60 words it is about half as long again as the sibling's 40-word stem, so the item drifts slightly from the slot's automated-test framing and is longer than its sibling."
+      ]
+     },
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "Option b \"The identifier of the pipeline run and the time at which the check failed.\" is contestable as a required item because the stem restricts the goal to \"establish what went wrong\" while stating the investigator \"has only the failure record to work from\", so a candidate can defensibly argue that a and c alone establish what went wrong and that a run identifier is only useful for cross-referencing records the investigator does not have (major).",
+       "Option a \"The rule that was evaluated and the identifiers of the input data it used.\" bundles a run-invariant fact (the rule) with a run-specific one, and the rationale for d rejects the author precisely because it \"is the same on every run\", so a candidate can apply the item's own reasoning to argue the rule need not be in the record (major).",
+       "Option e \"The average duration of the pipeline over the last month.\" is a near-verbatim copy of sibling ta-08-a option d \"The average duration of the suite over the last month.\", so a participant who is reset and served the sibling sees a recycled distractor (minor)."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ta-09": {
+  "slot": 9,
+  "assessment": "ta",
+  "items": [
+   {
+    "item": "ta-09-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Duplication with sibling (minor): four of the five scenarios in ta-09-a (\"A fast unit suite guarding every merge.\", \"A nightly full regression across environments.\", \"A full smoke run immediately before a production deployment.\", \"A rerun to verify one specific defect fix.\") reappear in ta-09-b as cosmetic rewrites (\"A quick unit suite that starts automatically every time a developer pushes a change to the shared branch.\", \"A full regression of the payments batch that runs every night at 02:00.\", \"A final end-to-end run of the release candidate immediately before it is promoted to production.\", \"A run started by a tester to confirm that one reported defect has been fixed.\"), so the slot is one scenario set in two wordings rather than two interchangeable items.",
+       "Calibration drift (minor): every ta-09-b token states the initiating event explicitly (\"starts automatically every time a developer pushes\", \"runs every night at 02:00\", \"started by a tester\") whereas ta-09-a's tokens are shorter and leave the initiator to inference, most notably \"A rerun to verify one specific defect fix.\" which names no person or event starting it, so ta-09-a is marginally harder and shorter than its sibling.",
+       "Topic edge (minor): token t5 \"A static analysis check that starts automatically on every push to the shared branch.\" describes a pipeline quality gate rather than an automated test run, a small drift from the blueprint's \"Run triggers\" which concern when automated tests execute."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Four of the five tokens duplicate sibling ta-09-b with only cosmetic changes: \"An API test suite that the pipeline starts automatically on every push to the shared branch\" mirrors b's \"An API test suite triggered by each commit to the main branch\", \"A database reconciliation suite that runs at 06:00 every morning\" mirrors b's \"A data quality check that runs every weekday at 06:00\", \"A full regression pack ... as the last gate before it is deployed to production\" mirrors b's \"A full regression run as the final check before release approval\", and \"A run that a tester starts by hand to reproduce a failure\" mirrors b's \"A run a tester starts manually to reproduce a reported defect\", so a reset participant would effectively see the same item again (minor).",
+       "The item is roughly twice the reading load of its sibling (about 92 words of token text against about 51 in ta-09-b), with \"A full regression pack that the release pipeline runs against the release candidate as the last gate before it is deployed to production.\" alone at 26 words, which is a length mismatch within a one-minute-per-item drag and drop slot (minor).",
+       "The two On commit tokens are near-duplicates of each other, \"starts automatically each time a change is merged to the shared branch\" and \"starts automatically on every push to the shared branch\", so the doubled bucket adds reading without adding discrimination, whereas the sibling doubles Scheduled with two genuinely different schedules (minor)."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "ta-09-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Tokens t1 to t4 (\"A quick unit suite that starts automatically every time a developer pushes a change to the shared branch.\", \"A full regression of the payments batch that runs every night at 02:00.\", \"A final end-to-end run of the release candidate immediately before it is promoted to production.\", \"A run started by a tester to confirm that one reported defect has been fixed.\") are one-to-one paraphrases of sibling ta-09-a's t1 to t4 (unit suite guarding every merge, nightly full regression, smoke run immediately before production deployment, rerun to verify one defect fix), so the item duplicates its sibling with cosmetic changes and adds no independent bank depth.",
+       "Token length is not calibrated with the sibling: ta-09-b's t1 \"A quick unit suite that starts automatically every time a developer pushes a change to the shared branch.\" is 18 words against ta-09-a's equivalent \"A fast unit suite guarding every merge.\" at 7 words, and the same roughly two-to-one ratio holds across all five tokens, so the reading load differs between interchangeable items.",
+       "Token t2 \"A full regression of the payments batch that runs every night at 02:00.\" names a specific system (\"the payments batch\") in a financial domain, which is unnecessary for the trigger being tested and drifts from the generic framing the sibling uses (\"A nightly full regression across environments.\")."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Tokens t2, t3 and t4 (\"A data quality check that runs every weekday at 06:00.\", \"A full regression run as the final check before release approval.\", \"A run a tester starts manually to reproduce a reported defect.\") reproduce sibling ta-09-a's scenarios with cosmetic rewording (a: \"runs at 06:00 every morning\", \"the last gate before it is deployed to production\", \"a tester starts by hand to reproduce a failure\"), so the two items differ only in which bucket is doubled and a retake paper could serve what is effectively the same item.",
+       "Token t1 \"An API test suite triggered by each commit to the main branch.\" contains the bucket label word \"commit\", giving a lexical cue that sibling ta-09-a withholds (\"merged to the shared branch\", \"on every push\"), which makes this item marginally easier than its sibling; the tokens are also about half the length of the sibling's, so the items are not fully interchangeable in length."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Major: ta-09-b duplicates its sibling ta-09-a with cosmetic changes only: identical stem and buckets, and four of five tokens are the same scenarios reworded, namely \"An API test suite triggered by each commit to the main branch.\" (ta-09-a t5: \"An API test suite that the pipeline starts automatically on every push to the shared branch.\"), \"A data quality check that runs every weekday at 06:00.\" (ta-09-a t2: \"A database reconciliation suite that runs at 06:00 every morning\"), \"A full regression run as the final check before release approval.\" (ta-09-a t3: \"A full regression pack that the release pipeline runs ... as the last gate before it is deployed to production.\") and \"A run a tester starts manually to reproduce a reported defect.\" (ta-09-a t4: \"A run that a tester starts by hand to reproduce a failure reported on the test environment.\"); the only real difference is which bucket receives the doubled token, so the two items are not independent draws and a participant who has seen one has effectively seen the other.",
+       "Minor: ta-09-b's tokens are markedly shorter and barer than ta-09-a's (for example \"A full regression run as the final check before release approval.\" at 11 words against the sibling's 25-word equivalent that names the pipeline, the release candidate and the production deployment), so the two items differ in reading load and in how much context supports the classification.",
+       "Minor: ta-09-b tokens echo the bucket label wording more directly than the sibling does, notably \"triggered by each commit\" against the bucket \"On commit\" and \"before release approval\" against \"Pre-release\", which makes ta-09-b slightly easier to match by word-spotting than ta-09-a, whose tokens use \"merged\", \"push\" and \"deployed to production\" instead."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ta-10": {
+  "slot": 10,
+  "assessment": "ta",
+  "items": [
+   {
+    "item": "ta-10-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "Option b \"Remove the test from the suite, because a test that fails intermittently has no value.\" pairs an action that overlaps the recognised practice of quarantining a flaky test from the regular run (named in the anchored chapter 7 topic) with a wrong justification, so a candidate who knows the quarantine practice can argue the action half of the option is legitimate and that only the attached reasoning was being tested."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The scenario \"An automated checkout test in a web shop's suite\" frames the item around a UI e-commerce test, whereas the governing principle in docs/04 targets a back-end, data-focused automation use case and the sibling ta-10-b is set in \"a data pipeline's nightly run\", so the two items differ in domain framing even though they match in topic and difficulty."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "Option d \"Raise a defect against the checkout feature at each failure without investigating the test.\" carries its own rebuttal: the clause \"without investigating the test\" is the direct negation of the key's \"investigate the cause\", so a candidate can identify the key by contrast rather than by knowing the concept, which makes the distractor self-disqualifying filler rather than a plausible wrong answer.",
+       "Option b \"Remove the test from the suite, because a test that fails intermittently has no value.\" appends an absurd justification (\"has no value\") that no genuinely unsure professional would endorse, so the distractor is weakened to filler; the removal action alone is the plausible mistake, the stated reason is not.",
+       "The scenario \"An automated checkout test in a web shop's suite\" is a UI-flavoured e-commerce setting, while docs/04's governing principle targets the programme's back-end, data-focused use case and the sibling ta-10-b uses a data pipeline check; the two items are interchangeable in difficulty but the framing of ta-10-a is less aligned with the stated use case."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Minor: the key \"Treat the check as unreliable and investigate the cause of the varying result before trusting it.\" places the presumed fault in the check, while distractor d is marked wrong in the rationale precisely because it \"assumes the extract job is at fault without evidence\"; the sibling ta-10-b avoids this asymmetry by keying on the results being unreliable (\"the cause of its inconsistent results must be found before any of them is relied on\"), and a candidate who reasons that the check may be correctly detecting an intermittent fault in the job could argue the key is as presumptuous as d.",
+       "Minor: the item is structurally very close to its sibling ta-10-b, with the same scenario frame (a nightly automated data check that intermittently fails while \"Nothing in the check, the test data or the extract job changes between runs\") and two of its three distractors sharing the same wrong idea as the sibling's (\"retry the check until it passes and report the eventual pass\" mirrors b's \"run it again after each failure and report the eventual pass\", and \"Raise a defect against the extract job at each failure\" mirrors b's \"detected a new pipeline defect on Monday and a second new pipeline defect on Thursday\"), so the two items differ mainly in the failure pattern described rather than in scenario.",
+       "Minor: the blueprint for slot 10 is \"recognise the concept and the correct response\", and the sibling's key names the concept (\"It is a flaky check\") while this item's key does not, so the two items are not quite equal in what they ask the candidate to recognise; a candidate who knows the term has a slightly easier task on ta-10-b than on ta-10-a."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "ta-10-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "The rationale's refutation of b, \"a genuine defect in an unchanged pipeline with unchanged data would fail every night, not on two nights out of five\", overclaims because intermittent defects in an unchanged system (race conditions, resource contention) do exist, so a disputing candidate could attack the written record even though option b remains wrong on the stronger ground that a \"new defect\" cannot appear in a pipeline that does not change.",
+       "The key text \"its result varies with no change to the check or the pipeline\" restates the stem sentence \"Nothing in the check, the input data or the pipeline changes during the week\" almost verbatim, giving a surface cue that lets a candidate pick the key by wording match rather than by recognising the concept, and it appends a directive (\"so the cause must be found before it is trusted\") although the stem asks only \"Which description fits this check?\"."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The key option \"It is flaky: its result varies with no change to the check or the pipeline, so the cause must be found before it is trusted.\" restates the stem's own premise (\"Nothing in the check, the input data or the pipeline changes during the week\") almost word for word and is the only option that names the concept, so a candidate can pick it by matching wording to the stem rather than by recognising flakiness, which makes ta-10-b markedly easier than sibling ta-10-a, whose key (\"Treat the test as unreliable and investigate the cause of the varying result before trusting it.\") carries no such echo and sits among three responses teams genuinely take.",
+       "Distractors c \"It is a passing check, because it passed on more days than it failed, so the failures can be ignored.\" and d \"It is a failing check, because any failure during the week means the pipeline is broken.\" are not answers an experienced professional tester would plausibly choose, leaving b as the only real competitor to the key, whereas ta-10-a's distractors (remove the test, retry until it passes, raise a defect each time) are all common real-world responses; the two items are therefore not interchangeable in difficulty as docs/03 and docs/04 require."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "Major: the rationale for b states that \"a genuine defect in an unchanged pipeline with unchanged data would fail every night, not on two nights out of five\", which is factually contestable because intermittent defects in the system under test (race conditions, resource exhaustion, timing) are a recognised cause of non-deterministic results, so a candidate who chose b could attack the dispute record on that ground; the sibling ta-10-a correctly says \"the cause may be in the test itself, and only investigation can tell\".",
+       "Minor: key a echoes the stem's own premise (\"its result varies with no change to the check or the pipeline\" restates \"Nothing in the check, the input data or the pipeline changes\") and is the only option carrying a two-part justification with a colon, giving a stem-echo and longest-option cue that makes this item easier than sibling ta-10-a and weakens slot interchangeability.",
+       "Minor: distractor c ends \"so the failures can be ignored\", which no genuinely unsure professional would pick, so it reads as absurd filler rather than a plausible wrong answer.",
+       "Minor: distractor b combines a true classification (\"It is a regression check\", which a nightly check on unchanged functionality is) with a false claim (\"found a new defect ... on Monday and again on Thursday\"), so a candidate can argue the first clause is a correct description of the check; the wrong part should carry the whole option."
+      ]
+     },
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "Minor: the key labels the situation \"It is a flaky check\" while the rationale concedes \"the cause may be in the check, in its environment or in the pipeline\"; a candidate who understands flakiness as a property of the test rather than of the system could hesitate over attributing the flakiness to the check, although none of b, c or d is defensible (b requires a changed pipeline, which the stem rules out; c ignores two failures; d's \"only needs a retry rule\" hides rather than resolves the inconsistency), so the key remains the sole defensible option."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "ta-10-b reuses the sibling ta-10-a scenario skeleton with cosmetic changes: both describe a nightly data check that intermittently fails while \"The check, the input data and the pipeline are the same\" (ta-10-a: \"Nothing in the check, the test data or the extract job changes between runs\"), both key on \"flaky, find the cause before trusting\", and both carry the same distractor \"run it again after each failure and report the eventual pass\" (ta-10-a: \"retry the check until it passes and report the eventual pass\").",
+       "Option c, \"It is a passing check, because Friday's run is the most recent result and the most recent result is the one that counts.\", is weaker than the other distractors because its trailing clause reads as filler rather than a wrong answer a genuinely unsure professional might pick."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "Option b \"It has detected a new pipeline defect on Monday and a second new pipeline defect on Thursday.\" is close to filler because the stem has just stated that the pipeline is the same every night, so the word \"new\" (twice) lets a candidate eliminate it without understanding flakiness; it is less plausible than the equivalent distractor in sibling ta-10-a (\"Raise a defect against the extract job at each failure\").",
+       "Option c \"It is a passing check, because Friday's run is the most recent result and the most recent result is the one that counts.\" carries a self-refuting tail (\"and the most recent result is the one that counts\") that reads as a strawman rather than a wrong answer a genuinely unsure person would pick."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "python-01": {
+  "slot": 1,
+  "assessment": "python",
+  "items": [
+   {
+    "item": "python-01-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Calibration: the list `values = [0, 1, \"\", \"no\", [], [0], None]` requires five separate falsy/truthy judgements (0, \"\", [], [0], None) each of which maps to a listed distractor, whereas sibling python-01-b requires only three judgements (\"3\" == 3, int(\"3\") == 3, \"3\" is truthy) that are each a direct Programming for Everybody lesson, so a candidate with one isolated misconception is more likely to fail python-01-a than python-01-b.",
+       "Calibration: the element `[0]` (a non-empty list whose only member is falsy) tests a rule about list truthiness depending on length rather than contents that goes a step beyond the data types and conditional code material a Programming for Everybody graduate would hold, and no comparable edge case appears in python-01-b."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "python-01-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The rationale sentence \"10 assumes the string \\\"3\\\" is falsy; only the empty string is falsy.\" is literally false as written, because 0, None, [] and other values are also falsy in Python, so the dispute-handling record contains an inaccurate statement even though the intended meaning (among strings, only the empty string is falsy) is clear from context."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "python-03": {
+  "slot": 3,
+  "assessment": "python",
+  "items": [
+   {
+    "item": "python-03-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The stem's signature \"def scale(value, factor=2):\" makes the key depend on default parameter values, a feature the anchor course's functions unit (\"functions (defining, arguments, return values)\" in docs/plan/course-syllabi.md, PY4E chapter 4: parameters and arguments, fruitful and void functions) does not teach, whereas sibling python-03-b (\"no return statement, so the call evaluates to None\") is anchored squarely to that unit, so a course graduate is less equally placed across the two items than the slot requires.",
+       "The distractor \"9\", explained in the rationale as \"keeps only the second call's value and drops the first\", does not correspond to a reading mistake a genuinely unsure reader would make, so the item effectively offers three live options and is marginally easier than its sibling, whose four options each map to a real misconception."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "python-05": {
+  "slot": 5,
+  "assessment": "python",
+  "items": [
+   {
+    "item": "python-05-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "In python-05-a the distractor \"2024 3 False\" is not a plausible error because the printed check text.endswith(\".csv\") has no trap (the rationale can only say it \"assumes endswith returns False here\"), so the item effectively has three working distractors against four in sibling python-05-b and is marginally easier."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "python-05-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The call `.lower()` in `result = code.replace(\"-\", \"\").lower()` has no effect on anything the item measures (the slice `result[2:5]` is the digits \"123\" and the length is unchanged by case), and no distractor exploits case, so it is inert reading load that the sibling python-05-a does not carry; every method in the sibling's snippet contributes to its printed output."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "python-06": {
+  "slot": 6,
+  "assessment": "python",
+  "items": [
+   {
+    "item": "python-06-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Minor calibration drift: the snippet in python-06-b is 10 lines and chains four operations (\"rows[1:]\", \"row.split(\",\")\", \"parts[1].isdigit()\", \"int(parts[1])\") while tracking two accumulators (\"total\" and \"skipped\"), whereas python-06-a (7 lines, one accumulator, one dict lookup) and python-06-c (6 lines, one accumulator, tuple unpacking) each give a candidate fewer places to slip, so this item is slightly longer and denser than its slot siblings rather than fully interchangeable."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "python-06-c",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The sourceAnchor \"Programming for Everybody - lists and tuples with loops and conditional code (reading a short program end to end)\" names \"tuples\", a topic that does not appear anywhere in docs/plan/course-syllabi.md for PY-1 (which lists variables and expressions, conditional code, functions, loops and iteration, and strings, lists and dictionaries), so the anchor names coverage the syllabus record does not list."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The snippet \"for name, passed in results:\\n    if not passed:\\n        failed.append(name)\" is a single boolean filter over three tuples with no data transformation, whereas sibling python-06-a requires dict key iteration plus .get on an absent key and python-06-b requires header slicing, split, isdigit and two counters, so a candidate is more likely to get this item right than either sibling.",
+       "The sourceAnchor \"Programming for Everybody - lists and tuples with loops and conditional code\" names tuples, which docs/plan/course-syllabi.md does not list for PY-1 (it lists strings, lists and dictionaries), so the anchor cites a topic outside the recorded syllabus."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "python-07": {
+  "slot": 7,
+  "assessment": "python",
+  "items": [
+   {
+    "item": "python-07-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Calibration: python-07-a tests only the single rule 'names start with test_' (key: `def test_totals():` and `def test_empty_input():`), whereas sibling python-07-b requires knowing both file patterns (`login_test.py` collected) and the conftest.py exception, and python-07-c requires the additional class rule (`CartChecks.test_remove_item` not collected), so a candidate who knows just the function prefix rule is more likely to score on 07-a than on either sibling, which breaks slot interchangeability."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "python-07-c",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Difficulty is a step above sibling python-07-a: the distractor \"CartChecks.test_remove_item\" requires a second discovery rule (classes must be named Test*) that sibling a never tests, so a candidate who knows only the test_ function prefix would get a right but c wrong; c is calibrated closer to b than to a.",
+       "The rationale states \"pytest collects test_-prefixed functions at module level and test_-prefixed methods\", but pytest's default python_functions prefix is \"test\" (an underscore is not required), so the dispute record is imprecise even though no option in this item exposes the difference."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "python-07-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Difficulty is markedly above its siblings: the key set depends on knowing the suffix file pattern behind \"login_test.py\" (\"By default pytest collects files named test_*.py or *_test.py\"), whereas python-07-a and python-07-c both resolve from the test_ prefix rule alone, so a candidate who holds only the prefix rule scores 1 on a and c but 0 on b under all-or-nothing multi scoring; python-07-a even trains that candidate to reject the suffix form via its \"def totals_test():\" distractor.",
+       "The option \"conftest.py\" under a stem saying \"Each file defines a function named `test_one` that contains an assert\" is a contrived scenario that tests a reserved-file exception rather than the naming convention the slot targets, pushing the item towards tool trivia instead of pattern reading.",
+       "Two distractors, \"testlogin.py\" and \"login_tests.py\", differ from the keys by a single character (a missing underscore, an extra s), so the item rewards character-level pattern spotting more than its siblings do and reads as trick wording."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "python-08": {
+  "slot": 8,
+  "assessment": "python",
+  "items": [
+   {
+    "item": "python-08-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "Option d, \"The test is skipped, because the assert compares two string values rather than numbers.\", is closer to absurd filler than a plausible wrong answer: no mental model of pytest links an assert's operand types to a skip outcome, so it violates the charter rule that distractors must be wrong answers a genuinely unsure person might pick (severity: minor)."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The discriminating knowledge in python-08-a is Python core string comparison rather than pytest assert semantics: the key \"The test fails, because \\\"Shipped\\\" and \\\"shipped\\\" are different strings and the assert compares them exactly.\" is answerable by anyone who knows == is case-sensitive, whereas sibling python-08-b requires knowing that a failing assert stops the test function and that later asserts do not run, so the two items are not interchangeable in difficulty or in what they test (severity: major).",
+       "Distractor d, \"The test is skipped, because the assert compares two string values rather than numbers.\", is not a belief a genuinely unsure candidate would hold, so python-08-a effectively offers three live options while python-08-b offers four plausible ones, making a markedly easier than its sibling (severity: minor)."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "python-08-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "The stem asks \"What does pytest report when it runs this test?\" but the key \"the last assert is not executed\" and distractor \"the last assert still runs and passes\" describe execution behaviour rather than anything pytest literally reports, so the question and the options are framed on slightly different things (minor)."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The stem asks \"What does pytest report when it runs this test?\" but the clause that distinguishes the key from option b, \"the last assert is not executed\", describes execution behaviour that pytest's report does not itself state, so the stem wording does not quite match what the options ask the candidate to decide."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "python-09": {
+  "slot": 9,
+  "assessment": "python",
+  "items": [
+   {
+    "item": "python-09-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "The stem asks \"What does the fixture do when pytest runs `test_new_order_has_no_lines`?\" but the key and every distractor describe what pytest or the decorator does (\"pytest calls order()...\", \"pytest runs the test once...\", \"The test fails...\", \"The decorator marks order as a test...\"), so the question wording does not match the form of the answers.",
+       "The key text \"pytest calls order() before the test\" reads as if the decorated name is called directly, which pytest actively forbids (\"Fixtures are not meant to be called directly\"); the intended meaning is that pytest runs the fixture function, and a pedantic reader could find the wording imprecise even though the key remains the only correct option."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The stem asks \"What does the fixture do when pytest runs `test_new_order_has_no_lines`?\" but options c (\"The test fails with a NameError, because order is used as a variable without being assigned.\") and d (\"The decorator marks order as a test, so it is collected and run alongside test_new_order_has_no_lines.\") answer a different question (what happens to the test, what the decorator does), so the options are not parallel and option a is the only one phrased as an action the fixture performs, a slight cue towards the key."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "python-10": {
+  "slot": 10,
+  "assessment": "python",
+  "items": [
+   {
+    "item": "python-10-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "[major] Keyed option c, \"Compare amounts within an agreed tolerance rather than by exact equality.\", is disputable because the stem only says the amount is \"stored to two decimal places in the source and as a floating point number in the target\" and never establishes that an agreed tolerance exists or that target values carry rounding differences; a competent professional could argue that rounding the target value to two decimal places and comparing exactly is a trustworthy alternative, so tolerance is not something the comparison \"must include\" and the key set is not beyond argument (the sibling python-10-b avoids this by stating \"the agreed tolerance\" in its stem).",
+       "[minor] The stem asks \"Which checks must the comparison include\" but keyed options a and c describe comparison methods (\"Match rows by id rather than by list position\", \"Compare amounts within an agreed tolerance\") rather than checks, and distractor e (\"Treat the extracts as matching when both contain the same number of rows\") is a conclusion rather than a check, so the options are not parallel with the stem's noun.",
+       "[minor] Options a, d and f embed their own justification (\"because the two queries give no guarantee of the same row order\", \"so that the failure report stays short\", \"so that differences in type are ignored\"), which makes the keyed option a self-cueing and the distractors self-refuting; options b, c and e carry no such clause, so the option set is uneven in style."
+      ]
+     },
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "Option c \"Compare amounts within an agreed tolerance rather than by exact equality.\" is contestable as a \"must\": the stem only says the amount is \"stored to two decimal places in the source and as a floating point number in the target\", and a directly loaded 2 dp value round-trips exactly (float(Decimal('12.34')) == 12.34 is True, round(12.34, 2) == 12.34 is True), so a competent professional can argue the trustworthy check is to normalise both sides to two decimal places (or to Decimal) and compare exactly, with no tolerance required, and would then omit c and lose the mark.",
+       "Minor: the stem \"Which checks must the comparison include for its result to be trustworthy?\" is a judgement-of-necessity stem while options a and c describe matching strategies rather than checks, and the sibling python-10-b is a read-the-code-and-predict item, so the two items in the slot differ in cognitive style."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Option c reads \"Compare amounts within an agreed tolerance rather than by exact equality.\" but the stem never states that a tolerance has been agreed, so a candidate who would round the target's floating point amount to two decimal places and compare exactly can argue that a tolerance is not a check the comparison \"must\" include, whereas sibling python-10-b anchors the same concept with \"the agreed tolerance\" in its stem."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "python-10-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "Option a, \"Both lists hold the same rows, but in a different order.\", is keyed as a false mismatch, but the stem (\"Two systems each return a list of dictionaries, one row per customer with the keys `id` and `balance`\") never states that row order is not significant to the agreed equivalence, so a candidate can argue that two lists in different order are not \"equivalent\" data and that only b is the key; the sibling python-10-a avoids this by stating \"the two queries give no guarantee of the same row order.\""
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "Minor: the stem refers to \"the agreed tolerance\" (\"even though the data is equivalent within the agreed tolerance\") before any tolerance has been introduced, so the definite article points at something the stem never states; the key does not depend on its value, but the sentence is not plain on first reading.",
+       "Minor: the stem formats the keys inconsistently, writing \"the keys `id` and `balance`\" in code font and then \"where balance is a floating point number\" in plain text."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Minor: the stem qualifier \"even though the data is equivalent within the agreed tolerance\" lets a candidate discard options c (\"The target list has one row fewer than the source list.\") and d (\"differs from the source by more than the agreed tolerance\") from the wording alone, without reading the function, so the live decision collapses to three options and the item is noticeably easier than python-10-a, where all six options require judgement.",
+       "Minor: the blueprint facet \"missing rows\" is present only as the stem-excluded distractor \"The target list has one row fewer than the source list.\", so unlike python-10-a (which keys \"Report every id that appears in one extract and not in the other\") this item never tests whether the candidate knows a comparison must surface rows present on one side only, weakening topic interchangeability within the slot.",
+       "Minor: the distractor \"Both lists are empty.\" is weak filler that a genuinely unsure person is unlikely to pick as a false mismatch, so it does not pull its weight against the two keys."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "sql-01": {
+  "slot": 1,
+  "assessment": "sql",
+  "items": [
+   {
+    "item": "sql-01-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The stem carries two visual elements, a five-row pipe table of `products` followed by a fenced block \"```sql\\nSELECT name\\nFROM products\\nWHERE category = 'furniture' AND price < 100;\\n```\", which exceeds the charter's limit of one visual element per item; the only permitted exception is two tiny tables for a join, and the docs/04 SQL slot 2 exemplar shows the intended form, with the tables shown and the query written inline in the question sentence."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The query `SELECT name FROM products WHERE category = 'furniture' AND price < 100;` is presented as inline backticked code rather than in a fenced ```sql block, which sits in tension with the charter line \"Code in fenced blocks\" (it does match the docs/04 slot 2 exemplar pattern of an inline query beside a table, and keeps to one visual element, so this is a style inconsistency with sibling sql-01-b rather than a defect that a candidate could dispute)."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "[minor] The query is presented inline in the stem as `SELECT name FROM products WHERE category = 'furniture' AND price < 100;` rather than in a fenced ```sql block as the authoring rules require and as sibling sql-01-b does, so the two siblings differ in presentation form (table plus inline query versus prose rows plus fenced query) even though they are otherwise interchangeable.",
+       "[minor] Sibling sql-01-b tests a boundary value (\"guests >= 2\" with a row holding exactly 2 guests, and distractor d \"3\" exploiting it), whereas sql-01-a has no price at or near 100 and its distractor d \"Desk\" (reading `<` as `>`) is a weaker lure, making sql-01-a marginally easier than its sibling."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "sql-01-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The stem of bank/drafts/sql/sql-01-b.json contains two visual elements, a pipe table (\"| id | room | guests | status |\") and a fenced code block (\"```sql\\nSELECT id\\nFROM bookings ...\"), which breaks the charter rule \"one visual element per item at most\"; the sibling bank/drafts/sql/sql-01-a.json has the same table-plus-code shape, so the whole slot needs one consistent treatment."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The rows are shown as positional prose tuples, \"written as (id, guests, status): (1, 2, confirmed), (2, 4, cancelled), ...\", rather than the \"shown table\" the slot 1 blueprint names, and sibling sql-01-a presents its data as a pipe table, so this item carries extra parsing load (mapping each tuple position back to a column name) that its sibling does not, which makes the two items less than fully interchangeable in reading difficulty. Severity: minor."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "sql-02": {
+  "slot": 2,
+  "assessment": "sql",
+  "items": [
+   {
+    "item": "sql-02-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The stem of C:/Projects/Test Automation Cap Build/bank/drafts/sql/sql-02-a.json contains three visual elements (the two pipe tables \"| customers.id |\" and \"| orders.customer_id |\" plus the fenced block \"```sql\\nSELECT *\\nFROM customers\\nINNER JOIN orders ON customers.id = orders.customer_id;\\n```\"), which exceeds the charter limit of one visual element per item, or two tiny tables only for a join item in the form the docs/04 exemplar shows, where the query is written inline in the question sentence rather than as a separate code block."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "sql-02-a and sibling sql-02-c are the same scenario with cosmetic changes: both are `INNER JOIN` between a 3-row left table and a right table that carries duplicate keys, one unmatched left row and one unmatched right row (a: customers 1,2,3 / orders 1,1,3,4; c: departments 1,2,3 / staff 2,2,3,3,5), and both use the same distractor architecture where the key-plus-one option is the right-table row count and also the LEFT JOIN count, and the key-plus-two option is the full outer join count, so two of the three items in this slot test one identical pattern while only sql-02-b tests LEFT JOIN.",
+       "The rationale for sql-02-a explains option c (\"4\") only as \"counts every order row, including the unmatched order for customer 4\" and omits that 4 is also the LEFT JOIN row count (customer 2 with NULLs plus the 3 matched rows), which is the INNER-versus-LEFT confusion this slot exists to detect and is the most likely reason a candidate picks it; sibling sql-02-c's rationale does state this equivalence."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The item reproduces the docs/04 slot 2 exemplar verbatim (customers 1, 2, 3; orders 1, 1, 3, 4; INNER JOIN; options 2, 3, 4, 5; key 3), so the calibration bar and a live bank item are the same question rather than the item being calibrated against it; minor.",
+       "Within the slot, item a asks only for the INNER JOIN count (matched pairs) while siblings b and c ask for a LEFT JOIN count (matched pairs plus unmatched left rows), which is one reasoning step more, so a is marginally the easiest of the three; minor.",
+       "The query in the stem, \"SELECT * FROM customers INNER JOIN orders ON customers.id = orders.customer_id\", has no trailing semicolon whereas both siblings end their query with \";\"; minor."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The query in the stem of bank/drafts/sql/sql-02-a.json ends without a semicolon (`... ON customers.id = orders.customer_id`) while both siblings sql-02-b and sql-02-c end their queries with one (`... = tickets.employee_id;` and `... = departments.id;`), so items in the same slot present SQL in two different styles."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "sql-02-b",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The stem carries three visual elements (the `employees.id` pipe table, the `tickets.employee_id` pipe table and the fenced ```sql block starting \"SELECT *\\nFROM employees\\nLEFT JOIN tickets\"), which exceeds the charter's \"one visual element per item at most\" and the join allowance of two tiny tables only; the docs/04 slot 2 exemplar keeps the query in the prose of the question sentence rather than in a third block. Severity: minor (style only; the item is otherwise correct, the key of 5 rows, the INNER JOIN distractor of 3 and the full outer join distractor of 6 were verified against PGlite, and the layout is identical in sql-02-a and sql-02-c, so the item cannot be disputed by a candidate)."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Minor: sql-02-b and sql-02-c share an identical option set (\"3\", \"4\", \"5\", \"6\") and the identical key \"5\" for the same LEFT JOIN concept, so two of the three interchangeable items in the slot converge on one answer value and the slot carries only one INNER JOIN item against the blueprint \"INNER vs LEFT JOIN\"; the reasoning shapes differ (unmatched left rows kept versus the many-side placed on the left) so this is not a full duplicate, but the overlap weakens the independence of the slot.",
+       "Minor: the query in the stem ends with a semicolon, \"SELECT * FROM employees LEFT JOIN tickets ON employees.id = tickets.employee_id;\", whereas sibling sql-02-a presents its query without one, a cosmetic inconsistency across items that are meant to be interchangeable."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "sql-02-c",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The stem contains three visual elements (the `| departments.id |` table, the `| staff.dept_id |` table and the fenced ```sql block), which exceeds the charter rule of one visual element per item at most, with the join exemplar in docs/04 allowing only the two tiny tables and stating the query inline in prose; siblings sql-02-a and sql-02-b share the same structure (severity: minor)."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "sql-02-c duplicates sql-02-a with cosmetic changes only: both stems use an INNER JOIN over a one-side table with one unmatched row and a many-side table with duplicate keys and one orphan (\"SELECT *\\nFROM departments\\nINNER JOIN staff ON departments.id = staff.dept_id;\" versus \"SELECT *\\nFROM customers\\nINNER JOIN orders ON customers.id = orders.customer_id;\"), and the distractor logic is identical in both rationales (count of left rows, count of right rows, full outer join count), so in a contested slot whose blueprint is \"INNER vs LEFT JOIN\" the third item adds no distinct coverage while sql-02-b alone carries the LEFT JOIN half."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Minor: sql-02-c and its sibling sql-02-b share the identical fixed option list \"3\", \"4\", \"5\", \"6\" and the identical key \"5\" (option c in both), so two of the three items in the slot resolve to the same displayed answer, which weakens the intended variation between papers and retakes after a reset.",
+       "Minor: because departments.id is unique and staff is the left table, the key for \"SELECT * FROM staff LEFT JOIN departments ON staff.dept_id = departments.id\" equals the left table's own row count (5), so a candidate who only counts the staff rows scores without reasoning about matching, whereas sql-02-a and sql-02-b both defeat that shortcut (customers count 3 and employees count 4 are wrong answers there), making sql-02-c slightly more forgiving than its siblings."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "sql-03": {
+  "slot": 3,
+  "assessment": "sql",
+  "items": [
+   {
+    "item": "sql-03-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "The key is confirmed correct by execution in PGlite (Ann 100, Ben 55) and no alternative is defensible, but the stem's customer values \"Ann\", \"Ben\" and \"Cara\" are person names, which the absolute rule \"no client, company, product or person names\" forbids, and the sibling sql-03-b avoids names entirely by grouping on regions."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The customer column holds first names (\"| 1 | Ann | 40 |\", \"| 2 | Ben | 35 |\", \"| 4 | Cara | 30 |\") and the options repeat them (\"Ann with total 100 and Ben with total 55\"), which brushes against the rule that items carry no person names; the sibling sql-03-b avoids this by grouping on region values (North, South, East), so the two items are not equally generic."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The stem contains two visual elements, a pipe table (\"| id | customer | amount |\") and a fenced code block (\"```sql\\nSELECT customer, SUM(amount) AS total ...\"), but the charter allows one visual element per item at most and the SQL slot 2 exemplar keeps the table as the only visual by writing the query inline in the question sentence (the sibling sql-03-b has the same defect).",
+       "The table uses person names as data values (\"Ann\", \"Ben\", \"Cara\"), which conflicts with the rule of no client, company, product or person names; the exemplar uses ids only and the sibling sql-03-b uses region values."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Difficulty is slightly below the sibling sql-03-b: sql-03-a uses SUM with a strict `HAVING SUM(amount) > 50` where no group total sits on or near the threshold (100, 55, 30), whereas sql-03-b uses AVG with `HAVING AVG(amount) >= 80` and a group whose average is exactly 80, so the sibling demands both a division and a boundary judgement that this item never asks for (minor).",
+       "Distractor d, \"stationery with total 100\", does not correspond to any recognisable misreading of GROUP BY or HAVING (furniture's total of 55 is clearly above 50), so it is weaker than the sibling's distractor d, which captures the plausible confusion of >= with > at an exact boundary (minor).",
+       "The sourceAnchor \"Intermediate SQL - data aggregation: one grouping column and filtering groups with HAVING\" places HAVING under Chapter 1 data aggregation, but in the syllabus listed in docs/plan/course-syllabi.md filtering with HAVING sits under Chapter 3 data filtering (complex filtering); the sibling carries the same imprecision (minor)."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "sql-03-b",
+    "status": "problems-outstanding",
+    "findings": [
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The stem contains two visual elements, a five-row pipe table (\"| id | region | amount |\") and a fenced code block (\"```sql\\nSELECT region, COUNT(*) AS sales_made ...\"), which exceeds the charter limit of \"one visual element per item at most\" and the review rule of \"at most one visual element (one code block or one table ...) per item\"; the sibling sql-03-a has the identical structure, so any fix must be applied to both to keep the slot interchangeable. Severity: minor.",
+       "Distractor d \"North with 2\" has no clear misconception path: a candidate who ignores HAVING gets option b, one who confuses COUNT with SUM gets option c, and one who misreads >= as > gets no rows at all, so nothing in the query leads an unsure person to drop South alone and the option functions as filler rather than a plausible wrong answer. Severity: minor."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Distractor c, \"North with 160 and South with 140\", is eliminated by reading `COUNT(*)` alone and does not probe HAVING at all, whereas in sibling sql-03-a all three distractors model a HAVING misreading (ignore HAVING, apply it per row like WHERE, drop a qualifying group), so sql-03-b gives a candidate shaky on HAVING one tempting wrong option instead of three and is marginally easier than its sibling."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "sql-04": {
+  "slot": 4,
+  "assessment": "sql",
+  "items": [
+   {
+    "item": "sql-04-a",
+    "status": "revised-not-reverified",
+    "findings": [
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The stem contains two visual elements, a pipe table (\"| id | name | price |\") followed by a fenced code block (\"```sql\\nSELECT name\\nFROM products\\nWHERE price > (SELECT AVG(price) FROM products);\\n```\"), which exceeds the charter limit of one visual element per item; note this is the bank-wide pattern for every predict-the-result SQL item (slots 1 to 6 and sql-10-b all pair one table with one code block), so it is a convention decision rather than a defect unique to sql-04-a."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "sql-04-b",
+    "status": "problems-outstanding",
+    "findings": [
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "Minor: the stem contains two visual elements, a 5-row pipe table of `staff` and a fenced block starting \"```sql\\nSELECT name\\nFROM staff\", which exceeds a strict reading of \"one visual element per item at most\"; note that sibling sql-04-a and every SQL foundations item (sql-01 to sql-06) use the same table-plus-query layout, and the slot blueprint (\"predict the result\" against a shown table) cannot be met without both, so this is a ruling to make for the slot rather than a defect in this item alone.",
+       "Minor: the row data uses person-like first names \"Ana\", \"Ben\", \"Cal\", \"Dee\" and \"Eli\" and the options repeat them (\"Ana, Ben, Cal and Eli\"), which touches the \"no person names\" rule; the names are clearly synthetic three-letter placeholders and sibling sql-03-a uses \"Ann\", \"Ben\", \"Cara\" in the same way, so this is a bank-wide convention, not a real-person reference."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "ta-03": {
+  "slot": 3,
+  "assessment": "ta",
+  "items": [
+   {
+    "item": "ta-03-b",
+    "status": "problems-outstanding",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "The stem phrase \"trying unusual sequences of actions to learn how it behaves and to find problems\" gives a candidate a small foothold to argue the activity is robustness or security probing (technology-facing, critique the product) rather than exploratory testing; the key d is still canonical, but the wording is unnecessary to reach it."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "sql-05": {
+  "slot": 5,
+  "assessment": "sql",
+  "items": [
+   {
+    "item": "sql-05-a",
+    "status": "problems-outstanding",
+    "findings": [
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The stem carries two visual elements, a pipe table (\"| id | assignee |\") and a fenced code block (\"```sql\\nSELECT COUNT(*)\\nFROM tickets\\nWHERE assignee <> 'ana';\\n```\"), whereas the charter allows one visual element per item at most and the SQL slot 2 exemplar puts the query inline in the sentence; minor, and identical in shape to sql-01-a and sql-05-b, so treat it as a bank-wide convention decision rather than a defect unique to this item.",
+       "The assignee values \"ana\", \"ben\" and \"cat\" are person first names, and the rules prohibit person names in items; minor, since they are lowercase placeholder data and not identifiable people.",
+       "The sourceAnchor \"Intermediate SQL - data filtering: NULL values in comparisons\" names a sub-lesson that does not appear in docs/plan/course-syllabi.md, which lists Chapter 3 Data filtering as basic filtering, multiple conditions and complex filtering; minor, because the course and the chapter topic do exist and sibling sql-01-a anchors to a listed lesson (\"multiple conditions\")."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The assignee values `ana`, `ben` and `cat` in the stem table and the filter `WHERE assignee <> 'ana'` are person first names, which the absolute rules list alongside client, company and product names as content to avoid, whereas the sibling sql-05-b uses neutral numeric values."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "sql-05-b",
+    "status": "problems-outstanding",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "Key defensibility holds: executing the shown rows in PGlite returns COUNT(*) = 2 and no alternative (3, 4 or 5) is defensible under SQL three-valued logic in any mainstream DBMS.",
+       "The stem contains two visual elements, the pipe table \"| id | price |\" and the fenced block \"```sql\\nSELECT COUNT(*)\\nFROM items\\nWHERE price < 20;\\n```\", which exceeds the charter's limit of one visual element per item (the sibling sql-05-a has the same layout, so this is a slot-wide convention)."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The stem contains two visual elements, a 5-row pipe table (\"| id | price |\") and a fenced code block (\"```sql\\nSELECT COUNT(*)\\nFROM items\\nWHERE price < 20;\\n```\"), which breaks the absolute rule of at most one visual element per item (one code block or one table); severity major because it is an explicit charter rule, and the docs/04 SQL slot 2 exemplar shows the compliant form of a table plus the query written inline in the question sentence.",
+       "The sourceAnchor \"Intermediate SQL - data filtering: NULL values in comparisons\" names a sub-topic that does not appear in docs/plan/course-syllabi.md, where Chapter 3 Data filtering lists only \"basic filtering, multiple conditions, complex filtering\"; severity minor because the course and the chapter topic do exist."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "sql-05-b is a template clone of sql-05-a rather than a distinct scenario: both show a 5-row table with exactly two NULL rows, both ask \"What value does this query return?\" for a `SELECT COUNT(*)` with a single comparison, both key to the same value 2, both use the same distractor logic (one option that counts the NULL rows as matching, one option \"5\" that counts every row), and the rationales share the near-verbatim opening \"A comparison with NULL is neither true nor false, so the WHERE clause rejects the two NULL rows\", so the slot has no real variety and its answer is effectively constant across papers.",
+       "sql-05-b is likely easier than its sibling because a candidate who does not know three-valued logic still tends to exclude a missing price from \"WHERE price < 20\" by intuition (the missing value does not feel \"below 20\"), whereas sql-05-a's \"WHERE assignee <> 'ana'\" runs against intuition (a missing assignee \"is not ana\"), so a guesser is more likely to land on the key in b than in a."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "sql-06": {
+  "slot": 6,
+  "assessment": "sql",
+  "items": [
+   {
+    "item": "sql-06-a",
+    "status": "problems-outstanding",
+    "findings": [
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The stem contains two visual elements, a pipe table (\"| id | city |\" with five data rows) and a fenced code block (\"```sql\\nSELECT DISTINCT city\\nFROM offices\\nORDER BY city;\\n```\"), whereas the charter allows \"one visual element per item at most\" and the SQL slot 2 exemplar states the table contents in prose (\"customers(id: 1, 2, 3)\") rather than as a second element; the same pattern appears in the sibling sql-06-b and in every slot 1 to 6 draft, so this is a bank-wide convention rather than an isolated slip, but it is still a deviation from the written rule."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The item is a near-clone of sibling sql-06-b: both use a 5-row two-column table with the identical duplicate pattern (rows 1 and 3 repeat, rows 2 and 5 repeat, row 4 is unique) and the identical distractor recipe (first-appearance order, sorted-with-duplicates, reversed direction), so the only substantive differences are the words and \"ORDER BY city;\" versus \"ORDER BY status DESC;\".",
+       "The item relies on recall of the default sort direction where the sibling puts the direction on the page: sql-06-a writes \"ORDER BY city;\" and offers \"York, Leeds, Bath\" as a distractor, so a candidate must remember that ORDER BY defaults to ascending, whereas sql-06-b writes \"ORDER BY status DESC\" explicitly, a small asymmetry in what each item asks the candidate to know.",
+       "The stem carries two visual elements, the pipe table of offices and the fenced ```sql block, against the one-visual-element rule; the sibling sql-06-b does exactly the same, so interchangeability is unaffected, but the rule tension between \"code in fenced blocks\" and \"one visual element\" should be settled for the slot rather than left to the reviewer."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "sql-06-b",
+    "status": "problems-outstanding",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "The stem contains both a pipe table (\"| id | status |\") and a fenced code block (\"```sql\\nSELECT DISTINCT status\"), which is two visual elements against the rule of at most one visual element per item; the key itself is fully defensible (PGlite returns pending, open, closed) and every distractor is refuted by explicit text in the query."
+      ]
+     },
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "The stem contains two visual elements, a five-row pipe table of `tickets` rows and a fenced code block \"```sql\\nSELECT DISTINCT status\\nFROM tickets\\nORDER BY status DESC;\\n```\", which breaks the charter rule \"one visual element per item at most\" (minor; the sibling sql-06-a has the same construction)."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "sql-07": {
+  "slot": 7,
+  "assessment": "sql",
+  "items": [
+   {
+    "item": "sql-07-a",
+    "status": "problems-outstanding",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Cross-slot near-duplicate: the four options of sql-07-a (\"SELECT id FROM source INTERSECT SELECT id FROM target\", \"SELECT id FROM source UNION SELECT id FROM target\", \"SELECT id FROM source EXCEPT SELECT id FROM target\", \"SELECT id FROM target EXCEPT SELECT id FROM source\") and its source ids 101 to 104 are verbatim the same as sql-08-a, so a paper that draws both serves the same option list twice with only the key changed, and the second item is answerable by elimination, which makes that paper easier than one drawing sql-07-c with sql-08-b. [minor]",
+       "Difficulty drift within the slot: sql-07-a is the easiest sibling because its goal phrase \"the ids that appear in both tables\" is a direct gloss of INTERSECT and each distractor is a different operator whose result visibly differs from \"102 and 104\" on the first row, whereas sql-07-b requires the UNION versus UNION ALL distinction (\"listing each id once\") and sql-07-c requires the two-column versus single-column and INNER JOIN distinctions, so a candidate is not equally likely to get each sibling right. [minor]"
+      ]
+     }
+    ]
+   },
+   {
+    "item": "sql-07-c",
+    "status": "problems-outstanding",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Major: the item drifts into slot 9's territory and cues its neighbours, because its tables (\"| 1 | 100 |\", \"| 2 | 250 |\", \"| 3 | 75 |\" against \"| 1 | 100 |\", \"| 2 | 200 |\", \"| 3 | 75 |\") reproduce sql-09-a's data verbatim for ids 1 to 3, and its key and distractor pair (\"SELECT id, amount FROM source INTERSECT SELECT id, amount FROM target\" versus \"SELECT id, amount FROM source EXCEPT SELECT id, amount FROM target\") is the exact complement of sql-09-b's key and distractor, so a paper serving sql-07-c with sql-09-a or sql-09-b lets one item give away the other (sql-09-a's key shows that a join on id alone ignores amount, eliminating option c here; sql-09-b's key shows that two-column set operations compare whole rows).",
+       "Minor: the item is harder and longer than its siblings, because sql-07-a and sql-07-b ask the candidate to pick the single-column set operator matching a goal with all four options being set operations, whereas this item adds two-column row comparison and a join distractor (\"SELECT s.id, s.amount FROM source s INNER JOIN target t ON s.id = t.id\") that requires reasoning about join versus set semantics outside the slot's stated topic, so a candidate who gets a or b right is less likely to get c right."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "sql-08": {
+  "slot": 8,
+  "assessment": "sql",
+  "items": [
+   {
+    "item": "sql-08-a",
+    "status": "problems-outstanding",
+    "findings": [
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "Not a charter violation, but a cross-slot cueing risk: sql-08-a and bank/drafts/sql/sql-07-a.json use the same table names `source` and `target`, overlapping ids (101, 102, 103, 104) and the identical four option strings \"SELECT id FROM source EXCEPT SELECT id FROM target\", \"SELECT id FROM source INTERSECT SELECT id FROM target\", \"SELECT id FROM source UNION SELECT id FROM target\" and \"SELECT id FROM target EXCEPT SELECT id FROM source\", so a paper that draws both items lets the candidate use one stem to eliminate options in the other (sql-07-a establishes INTERSECT as the both-tables query, leaving sql-08-a a choice between the two EXCEPT forms)."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The stem tables `source.id` 101, 102, 103, 104 with `target`, the four options \"SELECT id FROM source EXCEPT SELECT id FROM target\", \"... INTERSECT ...\", \"... UNION ...\", \"SELECT id FROM target EXCEPT SELECT id FROM source\" and the closing phrase \"giving 102 and 104\" are identical to sql-07-a (which differs only in the target rows and in keying INTERSECT), so a paper drawing both serves two items with the same option list and the same stated output, one leaking the other and making the slot 8 item indistinguishable in form from the slot 7 set-operations item.",
+       "Two of the three distractors, \"SELECT id FROM source INTERSECT SELECT id FROM target\" and \"SELECT id FROM source UNION SELECT id FROM target\", are eliminable from the operator name alone, leaving only the reversed EXCEPT as a working distractor, so this item is lighter than sibling sql-08-b, whose LEFT JOIN, INNER JOIN, IS NOT NULL and reversed-join options each need join and NULL reasoning and are roughly twice the length."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "sql-09": {
+  "slot": 9,
+  "assessment": "sql",
+  "items": [
+   {
+    "item": "sql-09-a",
+    "status": "problems-outstanding",
+    "findings": [
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The source and target tables in sql-09-a (ids 1 to 3 with amounts 100, 250, 75 and target amount 200 for id 2) are the same rows as sql-07-c's tables, so a paper that draws sql-07-c and sql-09-a shows the candidate near-identical data twice in adjacent applied slots, and the earlier item's rationale-free reading of \"(2, 200)\" carries over into this one rather than each item standing on its own (minor).",
+       "Distractor d, \"SELECT s.id FROM source s INNER JOIN target t ON s.amount = t.amount\", is noticeably weaker than the other three and than every distractor in sibling sql-09-b, because joining on the compared value rather than the key is not a shape an unsure tester would reach for, which leaves sql-09-a effectively a three-option item and slightly easier than its sibling (minor)."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "sql-09-b",
+    "status": "problems-outstanding",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "The precondition \"every status is present\" is ambiguous: it is meant to rule out NULL statuses (mirroring the sibling's \"every amount is present\"), but for a text column it can be read as \"every status value appears in both tables\", which the shown data contradicts because pending appears only in source; the key is unaffected since all four queries were executed in PGlite and only option a yields (2, closed) and (4, pending)."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Minor (calibration): sql-09-b reuses sql-09-a's scenario almost verbatim (\"copies ... from `source` to `target`. Both tables hold the same four ids and every ... is present.\", ids 1 to 4 with rows 2 and 4 differing, and the tail \"giving (2, closed) and (4, pending)\" mirroring \"giving 2 and 4\"), so the two siblings read as one template with the values swapped rather than two independently authored items.",
+       "Minor (interchangeability): sql-09-b's key \"SELECT id, status FROM source EXCEPT SELECT id, status FROM target\" and distractors \"SELECT id FROM source EXCEPT SELECT id FROM target\" and \"... INTERSECT ...\" exercise only the set-operation primitives already gated by slots 7 and 8, whereas sibling sql-09-a exercises join-on-id with \"WHERE s.amount <> t.amount\", so a participant strong on joins but weak on set operations is not equally likely to get both siblings right, and a paper drawing sql-09-b tests EXCEPT for a third time while one drawing sql-09-a does not."
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "sql-10": {
+  "slot": 10,
+  "assessment": "sql",
+  "items": [
+   {
+    "item": "sql-10-a",
+    "status": "problems-outstanding",
+    "findings": [
+     {
+      "lens": "Charter compliance",
+      "problems": [
+       "Distractor d, \"DELETE FROM customers;\", is close to absurd filler under the charter's plausibility rule because the stem has just said \"The other three rows are permanent data that must stay\", so a genuinely unsure candidate has no reason to pick a statement with no WHERE clause at all.",
+       "The rationale sentence \"Option c uses the reserved id range that only the test rows occupy\" relies on a fact the stem never states (nothing in the item declares 9001 upward to be reserved), so the dispute record justifies option c on grounds a candidate cannot see; it should justify c from the shown rows alone."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "Difficulty is below sibling sql-10-b: the whole item is decided by evaluating simple single-column predicates (\"WHERE id IN (9001, 9002)\", \"WHERE id > 2\", \"WHERE city = 'Leeds'\") against five visible rows, which is foundations slot 1 skill, whereas sql-10-b requires reading PRIMARY KEY, UNIQUE and CHECK constraints and recognising a reordered column list, so a candidate is markedly more likely to score on this item than on its sibling under all-or-nothing multi scoring.",
+       "Distractor \"DELETE FROM customers;\" is close to absurd filler rather than a plausible wrong answer a genuinely unsure person might pick, which further lowers the item's demand relative to its sibling.",
+       "sourceAnchor \"using SQL for data generation: create new entries and delete data; test data hygiene\" names \"create new entries\" although the item exercises only deletion, and \"test data hygiene\" is blueprint wording rather than a lesson title from docs/plan/course-syllabi.md."
+      ]
+     }
+    ]
+   },
+   {
+    "item": "sql-10-b",
+    "status": "problems-outstanding",
+    "findings": [
+     {
+      "lens": "Key defensibility",
+      "problems": [
+       "Minor: for option d \"INSERT INTO accounts (id, ref, balance) VALUES (9003, 'TEST-C', -10);\" the stem never states that the database enforces the CHECK constraint, and a candidate familiar with engines that parse but ignore CHECK could argue the row is added; every other aspect of the key (a, e, f succeed; b, c, d fail) was confirmed by executing each statement in PGlite against the table as the script leaves it."
+      ]
+     },
+     {
+      "lens": "Calibration and alignment",
+      "problems": [
+       "The opening sentence \"An automated test needs rows in `accounts` that it can find again on every run.\" sets up a determinism criterion that plays no part in the key (every option is judged purely on constraint compliance), and \"on every run\" can be read as implying repeated execution of the same INSERT, which would make option a fail on the primary key at the second run; the later clause \"run on its own against the table as the script leaves it\" resolves this, but the framing adds noise that the sibling sql-10-a does not carry.",
+       "The key for option d \"INSERT INTO accounts (id, ref, balance) VALUES (9003, 'TEST-C', -10);\" depends on the CHECK constraint being enforced, and the stem does not say which database or that constraints are enforced; a candidate familiar with an engine that historically parsed but ignored CHECK could dispute that d is rejected, which brings engine-specific behaviour into an item that should rest only on facts on the page."
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}
