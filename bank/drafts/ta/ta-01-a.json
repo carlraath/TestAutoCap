@@ -4,31 +4,31 @@
   "section": "fundamentals",
   "slot": 1,
   "type": "single",
-  "stem": "A web shop team tests each release candidate by hand and is now automating its existing regression checks. It has set four goals for testing the next release. Which goal does that automation directly deliver?",
+  "stem": "A billing team runs its regression checks by hand before each monthly release and is now automating those existing checks. The next release adds a discount scheme and changes the invoice layout. The team's test plan for that release lists four objectives. Which objective does the automation directly achieve?",
   "options": [
     {
       "id": "a",
-      "text": "The same checks run identically on every build, with results back sooner than the manual run.",
+      "text": "The existing checks run the same way each time and return results sooner than by hand.",
       "correct": true
     },
     {
       "id": "b",
-      "text": "The redesigned checkout page is judged for how easy first-time shoppers find it to use.",
+      "text": "The changed invoice layout is judged for how clearly customers can read the amounts on it.",
       "correct": false
     },
     {
       "id": "c",
-      "text": "The new loyalty scheme is explored for behaviour that its written requirements do not describe.",
+      "text": "The new discount scheme is explored for behaviour beyond what its written requirements describe.",
       "correct": false
     },
     {
       "id": "d",
-      "text": "The features that carry the most business risk are identified before testing effort is allocated.",
+      "text": "The features carrying the most business risk are identified before testing effort is allocated to them.",
       "correct": false
     }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Key a: automating an existing set of checks makes them run identically on every build and return their results far sooner than a manual run, which is the direct objective of test automation: consistent, repeatable execution with fast feedback. b is wrong because how easy a page is to use is a human judgement with no expected result that a script can compare against, so it remains a manual testing activity. c is wrong because an automated check can only compare behaviour against the expected result it was given; exploring a feature for behaviour that nobody has specified is exploratory testing performed by a person, and although automation may free time for it, it does not perform it. d is wrong because identifying which features carry the most business risk is an analysis made by people before checks are chosen; automation executes the checks that this judgement selects, it does not make the judgement.",
+  "rationale": "Key a: automating an existing set of regression checks makes them run in exactly the same way each time and return their results far sooner than the same checks run by hand. Consistent, repeatable execution with faster feedback is the direct purpose of automating checks that already exist. b is wrong because how clearly a customer can read an invoice is a human judgement with no expected result that a script can compare against, so it stays a manual activity whatever else is automated. c is wrong because an automated check can only compare behaviour against the expected result it was given; the automation here covers the existing checks, which predate the discount scheme, and exploring a feature for behaviour that nobody has specified is exploratory testing carried out by a person. Automation may free time for that exploration, but it does not perform it. d is wrong because deciding which features carry the most business risk is an analysis that people make before checks are chosen; automation executes the checks that this analysis selects and does not make the selection.",
   "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 1 Introduction and objectives for test automation: purpose of automation, advantages and limitations, automation versus manual testing"
 }

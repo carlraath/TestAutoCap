@@ -3,9 +3,13 @@ import type { Db } from "@/db/client";
 import { attempts, users } from "@/db/schema";
 import { ASSESSMENT_IDS } from "@/engine/structure";
 import type { AssessmentId, AttemptStatus } from "@/engine/types";
+import { finaliseExpired } from "./attempts";
 import { audit, type AuditActor } from "./audit";
+import { participantCode, participantDisplayName } from "./codes";
 import { toCsv } from "./csv";
 import { generatePassword, hashPassword } from "./passwords";
+
+export { participantCode, participantDisplayName };
 
 export const MAX_BULK_CREATE = 200;
 
@@ -26,16 +30,6 @@ export interface ParticipantSummary {
 
 /** The Allocation Register headers, exactly as exported. */
 export const REGISTER_HEADERS = ["Participant code", "Initial password", "Allocated to"];
-
-/** "Participant 7" style display name for a participant number. */
-export function participantDisplayName(number: number): string {
-  return `Participant ${number}`;
-}
-
-/** "participant-07" for numbers up to 99, "participant-100" beyond. */
-export function participantCode(number: number): string {
-  return `participant-${number < 100 ? String(number).padStart(2, "0") : String(number)}`;
-}
 
 /** Renders the one-time Allocation Register CSV. The "Allocated to" column is left empty for offline completion. */
 export function registerCsv(credentials: Credential[]): string {
@@ -96,6 +90,10 @@ function isAssessment(value: string): value is AssessmentId {
 
 /** Every participant with per-assessment status, reset count and last activity, ordered by number. */
 export async function listParticipants(db: Db): Promise<ParticipantSummary[]> {
+  // Finalise anything whose timer has run out, so the administrator never sees an abandoned
+  // attempt sitting at In progress for the rest of the week (docs/02: a sweep or on-request
+  // check finalises expired attempts so results never sit open).
+  await finaliseExpired(db);
   const people = await db.select().from(users).where(eq(users.role, "participant")).orderBy(users.participantNumber);
   if (people.length === 0) return [];
   const ids = people.map((p) => p.id);

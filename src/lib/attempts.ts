@@ -8,7 +8,7 @@ import { ASSESSMENT_IDS, ASSESSMENTS, isAssessmentId } from "@/engine/structure"
 import type { Answer, Answers, AssessmentId, AttemptStatus, BankItem, Paper, ServedItem, TrainingPlan } from "@/engine/types";
 import { audit, type AuditActor } from "./audit";
 import { getActiveItems, getBankVersion } from "./bank-loader";
-import { participantDisplayName } from "./participants";
+import { participantDisplayName } from "./codes";
 import { computeTrainingPlan, gatedPrescriptions } from "./plan";
 
 /**
@@ -286,20 +286,29 @@ export async function submitAttempt(
   const timeUsedSeconds = Math.max(0, Math.round((effectiveEnd - attempt.startedAt.getTime()) / 1000));
 
   const payloads = await loadServedItems(db, attempt);
-  const sectionScores = scoreSections(assessmentId, payloads, attempt.answers);
-  const prescriptions = gatedPrescriptions(assessmentId, sectionScores);
 
-  const [updated] = await db
+  // Close the attempt FIRST and score the answers the close itself returns. Scoring a snapshot
+  // read earlier would silently drop an autosave that landed in between: the answer would be
+  // stored and acknowledged as saved, yet excluded from the score.
+  const [closed] = await db
     .update(attempts)
-    .set({ status: "submitted", submittedAt, submitKind: effectiveKind, sectionScores, prescriptions, shorthand: null, timeUsedSeconds })
+    .set({ status: "submitted", submittedAt, submitKind: effectiveKind, timeUsedSeconds })
     .where(and(eq(attempts.id, attempt.id), eq(attempts.status, "in_progress")))
     .returning();
-  if (!updated) {
+  if (!closed) {
     // Lost a race with another submit or a reset. Report what stands now.
     const current = await loadAttempt(db, attempt.id);
     if (current.status === "submitted") return current;
     throw new AttemptError("not_allowed", "This attempt has been reset and can no longer be submitted.");
   }
+
+  const sectionScores = scoreSections(assessmentId, payloads, closed.answers);
+  const prescriptions = gatedPrescriptions(assessmentId, sectionScores);
+  const [updated] = await db
+    .update(attempts)
+    .set({ sectionScores, prescriptions, shorthand: null })
+    .where(eq(attempts.id, attempt.id))
+    .returning();
 
   let actor: AuditActor;
   if (user) {
@@ -446,17 +455,25 @@ export async function getParticipantOverview(db: Db, user: Participant): Promise
  * Throws when the reason is empty or the assessment has not been started.
  */
 export async function resetAttempt(db: Db, admin: AuditActor, userId: string, assessmentId: AssessmentId, reason: string): Promise<{ attemptId: string }> {
+  if (admin.role !== "admin") throw new Error("Only an administrator can reset an attempt.");
   const trimmed = reason.trim();
   if (!trimmed) throw new Error("A reason is required to reset an attempt.");
+  // Finalise first, so an attempt whose timer ran out is archived with its scores rather than
+  // as a scoreless in_progress row.
+  await finaliseExpired(db, userId);
   const current = await db.query.attempts.findFirst({
     where: and(eq(attempts.userId, userId), eq(attempts.assessmentId, assessmentId), inArray(attempts.status, ["in_progress", "submitted"])),
   });
   if (!current) throw new Error("This assessment has not been started, so there is nothing to reset.");
   const now = new Date();
-  await db
+  const [voided] = await db
     .update(attempts)
     .set({ status: "void", voidedAt: now, voidedBy: admin.userId, voidReason: trimmed, statusBeforeVoid: current.status })
-    .where(eq(attempts.id, current.id));
+    .where(and(eq(attempts.id, current.id), inArray(attempts.status, ["in_progress", "submitted"])))
+    .returning({ id: attempts.id });
+  // A second, concurrent reset of the same attempt finds it already void and stops here, so the
+  // audit log records one reset rather than two.
+  if (!voided) return { attemptId: current.id };
   await audit(db, admin, "attempt.reset", {
     targetType: "attempt",
     targetId: current.id,

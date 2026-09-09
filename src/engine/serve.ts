@@ -44,15 +44,20 @@ export function toServedItem(item: BankItem, presentation: ItemPresentation): Se
       }));
       return { id: item.id, type: item.type, slot: item.slot, stem: item.stem, options };
     }
-    case "ordering":
+    case "ordering": {
+      const initialArrangement = safeArrangement(item, presentation.initialArrangement);
+      // Elements are listed in the shuffled arrangement, never in authored order: items are
+      // commonly authored with the elements already in key order, so authored order would
+      // hand the participant the key.
       return {
         id: item.id,
         type: "ordering",
         slot: item.slot,
         stem: item.stem,
-        elements: item.elements.map((element) => ({ id: element.id, text: element.text })),
-        initialArrangement: safeArrangement(item, presentation.initialArrangement),
+        elements: orderBy(item.elements, initialArrangement).map((element) => ({ id: element.id, text: element.text })),
+        initialArrangement,
       };
+    }
     case "matching": {
       const tokens: ServedOption[] = orderBy(item.tokens, presentation.trayOrder).map((token) => ({ id: token.id, text: token.text }));
       return {

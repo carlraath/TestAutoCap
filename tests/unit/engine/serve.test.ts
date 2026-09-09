@@ -45,7 +45,7 @@ describe("toServedItem", () => {
     expect(served.options.map((o) => o.id)).toEqual(["o1", "o2", "o3", "o4"]);
   });
 
-  it("ordering: strips the key, keeps authored elements for labels and uses the stored arrangement", () => {
+  it("ordering: strips the key and lists the elements in the shuffled arrangement, never in authored order", () => {
     const served = toServedItem(ordering, { initialArrangement: ["e3", "e1", "e2"] });
     expect(served).toEqual({
       id: "ta-02-a",
@@ -53,13 +53,29 @@ describe("toServedItem", () => {
       slot: 2,
       stem: "Ordering stem",
       elements: [
+        { id: "e3", text: "UI tests" },
         { id: "e1", text: "Unit tests" },
         { id: "e2", text: "API tests" },
-        { id: "e3", text: "UI tests" },
       ],
       initialArrangement: ["e3", "e1", "e2"],
     });
     expectNoLeak(served);
+  });
+
+  it("ordering: the element list never reveals the key, whatever the arrangement", () => {
+    // Items are commonly authored with the elements already in key order (the docs/04 exemplar
+    // is), so serving authored order would hand the participant the answer.
+    for (const arrangement of [
+      ["e3", "e1", "e2"],
+      ["e2", "e3", "e1"],
+      ["e3", "e2", "e1"],
+    ]) {
+      const served = toServedItem(ordering, { initialArrangement: arrangement });
+      if (served.type !== "ordering") throw new Error("expected ordering");
+      expect(served.elements.map((element) => element.id)).toEqual(arrangement);
+      expect(served.elements.map((element) => element.id)).not.toEqual(ordering.key);
+      expect(served.initialArrangement).not.toEqual(ordering.key);
+    }
   });
 
   it("matching: tokens carry only id and text, in tray order, and buckets carry no assignment", () => {
