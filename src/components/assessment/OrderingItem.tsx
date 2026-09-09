@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import {
   DndContext,
+  type DragOverEvent,
   DragOverlay,
   KeyboardSensor,
   PointerSensor,
@@ -60,6 +61,7 @@ export function OrderingItem({ item, value, onChange, disabled = false }: Orderi
   const position = (id: string | number) => arrangement.indexOf(String(id)) + 1;
 
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [overId, setOverId] = useState<string | null>(null);
   const [announcement, setAnnouncement] = useState<{ text: string; n: number }>({ text: "", n: 0 });
   const buttons = useRef(new Map<string, HTMLButtonElement | null>());
   const pendingFocus = useRef<PendingFocus | null>(null);
@@ -96,10 +98,16 @@ export function OrderingItem({ item, value, onChange, disabled = false }: Orderi
 
   function handleDragStart({ active }: DragStartEvent) {
     setActiveId(String(active.id));
+    setOverId(String(active.id));
+  }
+
+  function handleDragOver({ over }: DragOverEvent) {
+    setOverId(over ? String(over.id) : null);
   }
 
   function handleDragEnd({ active, over }: DragEndEvent) {
     setActiveId(null);
+    setOverId(null);
     if (!over || active.id === over.id) return;
     const from = arrangement.indexOf(String(active.id));
     const to = arrangement.indexOf(String(over.id));
@@ -109,7 +117,19 @@ export function OrderingItem({ item, value, onChange, disabled = false }: Orderi
 
   function handleDragCancel() {
     setActiveId(null);
+    setOverId(null);
   }
+
+  // While a card is being dragged it is translated over its neighbours, so its committed index
+  // no longer matches where it appears. The badges are numbered from the projected order instead,
+  // otherwise they read out of sequence for the whole drag.
+  const projected = (() => {
+    if (!activeId || !overId || activeId === overId) return arrangement;
+    const from = arrangement.indexOf(activeId);
+    const to = arrangement.indexOf(overId);
+    if (from < 0 || to < 0) return arrangement;
+    return arrayMove(arrangement, from, to);
+  })();
 
   const announcements: Announcements = {
     onDragStart: ({ active }) =>
@@ -130,6 +150,7 @@ export function OrderingItem({ item, value, onChange, disabled = false }: Orderi
         modifiers={[restrictToVerticalAxis]}
         accessibility={{ announcements, screenReaderInstructions }}
         onDragStart={handleDragStart}
+        onDragOver={handleDragOver}
         onDragEnd={handleDragEnd}
         onDragCancel={handleDragCancel}
       >
@@ -141,6 +162,7 @@ export function OrderingItem({ item, value, onChange, disabled = false }: Orderi
                 id={id}
                 text={label(id)}
                 index={index}
+                badge={projected.indexOf(id) + 1}
                 total={total}
                 disabled={disabled}
                 onMoveUp={() => moveBy(index, -1)}
@@ -165,6 +187,8 @@ interface SortableCardProps {
   id: string;
   text: string;
   index: number;
+  /** Position to display: where this card would land if dropped now. */
+  badge: number;
   total: number;
   disabled: boolean;
   onMoveUp: () => void;
@@ -172,7 +196,7 @@ interface SortableCardProps {
   registerButton: (direction: "up" | "down", el: HTMLButtonElement | null) => void;
 }
 
-function SortableCard({ id, text, index, total, disabled, onMoveUp, onMoveDown, registerButton }: SortableCardProps) {
+function SortableCard({ id, text, index, badge, total, disabled, onMoveUp, onMoveDown, registerButton }: SortableCardProps) {
   const { attributes, listeners, setNodeRef, setActivatorNodeRef, transform, transition, isDragging } = useSortable({ id, disabled });
   const style = { transform: CSS.Translate.toString(transform), transition };
   const shell = isDragging
@@ -193,7 +217,7 @@ function SortableCard({ id, text, index, total, disabled, onMoveUp, onMoveDown, 
           {...listeners}
           disabled={disabled}
           data-testid={`ordering-handle-${id}`}
-          aria-label={`${text}, position ${index + 1} of ${total}. Drag to reorder.`}
+          aria-label={`${text}, position ${badge} of ${total}. Drag to reorder.`}
           className={`flex w-12 shrink-0 touch-none items-center justify-center rounded-l-card border-r border-line text-ink-600 ${disabled ? "cursor-not-allowed" : "cursor-grab hover:bg-tint-100 hover:text-brand-600 active:cursor-grabbing"}`}
         >
           <GripIcon className="h-5 w-5" />
@@ -202,7 +226,7 @@ function SortableCard({ id, text, index, total, disabled, onMoveUp, onMoveDown, 
           aria-hidden="true"
           className="ml-3 mt-4 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-tint-200 text-xs font-semibold tabular-nums text-brand-600"
         >
-          {index + 1}
+          {badge}
         </span>
         <span className="min-w-0 flex-1 py-3.5 pl-3 pr-2 text-base leading-relaxed text-ink-900">{text}</span>
         <span className="flex shrink-0 items-center gap-1 pr-2">

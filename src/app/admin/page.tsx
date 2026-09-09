@@ -36,10 +36,11 @@ export default async function AdminOverviewPage() {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <StatCard label="Participants" value={report.participants} hint="Anonymous codes. The allocation register lives offline." />
+        <StatCard label="Participants" value={report.participants} testId="stat-participants" hint="Anonymous codes. The allocation register lives offline." />
         <StatCard
           label="All three complete"
           value={report.allThreeComplete}
+          testId="stat-all-three"
           hint={report.participants > 0 ? `${report.participants - report.allThreeComplete} still to finish.` : "No participants yet."}
         />
         <StatCard
@@ -50,6 +51,7 @@ export default async function AdminOverviewPage() {
         <StatCard
           label="Exercise"
           value={closed ? "Closed" : "Open"}
+          testId="stat-exercise"
           hint={closed && report.exerciseClosedAt ? `Closed ${formatMelbourne(report.exerciseClosedAt)}. No new attempts can start.` : "Participants can start their attempts."}
         />
       </div>
@@ -65,11 +67,11 @@ export default async function AdminOverviewPage() {
       ) : (
         <div className="grid gap-4 lg:grid-cols-3">
           {report.assessments.map((assessment) => (
-            <Card key={assessment.assessment}>
+            <Card key={assessment.assessment} data-testid={`assessment-${assessment.assessment}`}>
               <CardHeader title={assessment.title} />
               <div className="space-y-4 px-6 py-4">
                 <p className="text-3xl font-bold leading-none tracking-tight text-ink-900">
-                  {assessment.submitted}
+                  <span data-testid={`submitted-${assessment.assessment}`}>{assessment.submitted}</span>
                   <span className="ml-2 text-sm font-normal text-ink-600">of {report.participants} submitted</span>
                 </p>
                 <CompletionBar submitted={assessment.submitted} inProgress={assessment.inProgress} notStarted={assessment.notStarted} />

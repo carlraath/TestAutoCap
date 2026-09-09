@@ -1,0 +1,46 @@
+participant_code,assessment,assessment_title,status,attempt_number,reset_count,section_1_title,section_1_score,section_1_served,section_1_threshold,section_1_met,section_2_title,section_2_score,section_2_served,section_2_threshold,section_2_met,TA-1,SQL-1,SQL-2,PY-1,PY-2a,PY-2b,GIT-1,shorthand,time_used_seconds,time_used_mmss,seed,bank_version,submit_kind,submitted_at_melbourne,submitted_at_iso
+participant-01,ta,Test Automation Fundamentals,Not started,,1,,,,,,,,,,,,,,,,,,,,,,,,,
+participant-01,sql,SQL,Submitted,1,0,foundations,1,6,5,No,applied,2,4,3,No,,Prescribed,Prescribed,,,,,,204,03:24,163fec4d472550b80f0d91e4de38c9f4a3c938dd6ee1f982497d96c35384eff0,0,manual,2026-09-10 05:43:39 AEST,2026-09-09T19:43:39.946Z
+participant-01,python,Python,Submitted,1,0,core,2,6,5,No,testing,3,4,3,Yes,,,,Prescribed,Prescribed,Prescribed,,,227,03:47,a6842faa84560e44344345d00a057c710c72a579e625995bbfde7ca7c3967693,0,manual,2026-09-10 05:43:39 AEST,2026-09-09T19:43:39.974Z
+participant-02,ta,Test Automation Fundamentals,Submitted,2,1,fundamentals,9,10,8,Yes,,,,,,Evidence review,,,,,,,P2,359,05:59,d100361bbde96df3f4e8a4b67c774de97880a8120aad36cbabe908e3eaba166d,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.030Z
+participant-02,sql,SQL,Submitted,1,0,foundations,6,6,5,Yes,applied,4,4,3,Yes,,Credited,Credited,,,,,P2,235,03:55,efe858ba353618d4eb46869feded0905e9e79c825a25171ab5a2b91506fd76a0,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.055Z
+participant-02,python,Python,Submitted,1,0,core,4,6,5,No,testing,4,4,3,Yes,,,,Prescribed,Prescribed,Prescribed,,P2,201,03:21,2615b1ebf6bc77c4db72c18fbac913b12ce1c9d4be25f203c6c95cbb2ed06d2c,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.082Z
+participant-03,ta,Test Automation Fundamentals,Submitted,1,0,fundamentals,2,10,8,No,,,,,,Prescribed,,,,,,,P2,486,08:06,79193e520191a038dbd8ea1465d27c1981c57e9095640bcc0120318bd301dd68,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.109Z
+participant-03,sql,SQL,Submitted,1,0,foundations,5,6,5,Yes,applied,2,4,3,No,,Credited,Prescribed,,,,,P2,191,03:11,8b8eaeb0dcfc484aaa27bbd84fb0d8fc67fee6e5417a5edc01d9a1412fd3b166,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.135Z
+participant-03,python,Python,Submitted,1,0,core,2,6,5,No,testing,1,4,3,No,,,,Prescribed,Prescribed,Prescribed,,P2,599,09:59,1e495b77543e053f8b966288c6ee1a19db02c0c5dd15fe09c2e57716983b20ba,0,expired,2026-09-10 05:43:39 AEST,2026-09-09T19:43:39.153Z
+participant-04,ta,Test Automation Fundamentals,Submitted,1,0,fundamentals,2,10,8,No,,,,,,Prescribed,,,,,,,P1,346,05:46,e4e85270065f600726617ccb546d2029bcca93dfbb96ff8535fcb33bc907997f,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.175Z
+participant-04,sql,SQL,Submitted,1,0,foundations,4,6,5,No,applied,3,4,3,Yes,,Prescribed,Prescribed,,,,,P1,209,03:29,b1f3fc867cc45c264e1e197ce8bcdf155acd3f3a8bfb6a9fa1828370ff182e39,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.198Z
+participant-04,python,Python,Submitted,1,0,core,2,6,5,No,testing,0,4,3,No,,,,Prescribed,Prescribed,Prescribed,,P1,539,08:59,6a3175bf3cfed43cf909fdafcad44b9282906ccf53eae03c91ab997181a81fe7,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.222Z
+participant-05,ta,Test Automation Fundamentals,Submitted,1,0,fundamentals,4,10,8,No,,,,,,Prescribed,,,,,,,P2,343,05:43,7a0cd33fbb8eab82c8f7e8c4b3667f129dda366a2acba1522a152fcd99d9ec7e,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.246Z
+participant-05,sql,SQL,Submitted,1,0,foundations,5,6,5,Yes,applied,4,4,3,Yes,,Credited,Credited,,,,,P2,181,03:01,c053b8bce0b46b8a97e5b75a1096b326ef091812051c9ad1c12acc01de77b474,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.268Z
+participant-05,python,Python,Submitted,1,0,core,4,6,5,No,testing,2,4,3,No,,,,Prescribed,Prescribed,Prescribed,,P2,256,04:16,c19ecff0ed9f08ec9cfd6b63ce5b30e16a5382295f6fedb22fbbaf3e7c95931d,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.290Z
+participant-06,ta,Test Automation Fundamentals,Submitted,1,0,fundamentals,6,10,8,No,,,,,,Prescribed,,,,,,,P2,475,07:55,61b1863a6429b6ba0ad803728528c4aa9e14e8252ce986a873d596e68f7b7abe,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.313Z
+participant-06,sql,SQL,Submitted,1,0,foundations,6,6,5,Yes,applied,1,4,3,No,,Credited,Prescribed,,,,,P2,474,07:54,2816019823b470e8279fecad7b1b48bb3f21e4932a0f5406ba6c6f7e357ef7fc,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.335Z
+participant-06,python,Python,Submitted,1,0,core,3,6,5,No,testing,4,4,3,Yes,,,,Prescribed,Prescribed,Prescribed,,P2,346,05:46,c134be9a5327d7de10bfc0f88a0c85b7fc8f19ea3055a8df051166fcc5a27e4e,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.358Z
+participant-07,ta,Test Automation Fundamentals,Submitted,1,0,fundamentals,4,10,8,No,,,,,,Prescribed,,,,,,,P1,492,08:12,e895005716fa735cda81313f97f00c2fda71ca28684e27dfbb8c541a3535f65f,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.380Z
+participant-07,sql,SQL,Submitted,1,0,foundations,1,6,5,No,applied,1,4,3,No,,Prescribed,Prescribed,,,,,P1,471,07:51,98b507e6395c285e6bfb299b6de1622fb7c34c8b220b1a58f78200fa5f384f26,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.402Z
+participant-07,python,Python,Submitted,1,0,core,3,6,5,No,testing,1,4,3,No,,,,Prescribed,Prescribed,Prescribed,,P1,309,05:09,c072febd764fe8f32e1b405ddf012454f429e8ca6420048db589c1b5ff04fdcc,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.424Z
+participant-08,ta,Test Automation Fundamentals,Submitted,1,0,fundamentals,3,10,8,No,,,,,,Prescribed,,,,,,,P3,546,09:06,6734ba6600cbbb558e83a12532397398e8d65b44f50de4767e372771145fb044,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.445Z
+participant-08,sql,SQL,Submitted,1,0,foundations,5,6,5,Yes,applied,3,4,3,Yes,,Credited,Credited,,,,,P3,397,06:37,e89b39d7369fa30c25d21651da9213c3c1be0bb3a9fdd1e26c8995d7e1f90add,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.468Z
+participant-08,python,Python,Submitted,1,0,core,5,6,5,Yes,testing,3,4,3,Yes,,,,Credited,Evidence review,Evidence review,,P3,385,06:25,f7b1a1cae01cdbcd4335454b6d1ea15c4f7f772f03956f7c0e90e613d79c5dbf,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.489Z
+participant-09,ta,Test Automation Fundamentals,Submitted,1,0,fundamentals,5,10,8,No,,,,,,Prescribed,,,,,,,P2,365,06:05,46168c6ce990de937b3d0b0a410aed845b32065665554d916877712a1e9d122d,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.509Z
+participant-09,sql,SQL,Submitted,1,0,foundations,5,6,5,Yes,applied,3,4,3,Yes,,Credited,Credited,,,,,P2,506,08:26,ca41143f78bdf32af0dcd25f8be507b932e49a003fc399fb7c65cba31334f898,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.528Z
+participant-09,python,Python,Submitted,1,0,core,3,6,5,No,testing,3,4,3,Yes,,,,Prescribed,Prescribed,Prescribed,,P2,445,07:25,19d0c08e7715623aa976ff1786292de5e2652dc204ddfaefedb7c85c27936d79,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.550Z
+participant-10,ta,Test Automation Fundamentals,Not started,,0,,,,,,,,,,,,,,,,,,,,,,,,,
+participant-10,sql,SQL,Submitted,1,0,foundations,4,6,5,No,applied,3,4,3,Yes,,Prescribed,Prescribed,,,,,,286,04:46,80830aee84b38c4fe775c7d7737c34cff538690626dc983aa2a3b37f8400efcc,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.571Z
+participant-10,python,Python,Submitted,1,0,core,4,6,5,No,testing,2,4,3,No,,,,Prescribed,Prescribed,Prescribed,,,271,04:31,985aa77bc744aea693720e61fc1898d3e970c348497545eb52d87bb7380b6e9b,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.592Z
+participant-11,ta,Test Automation Fundamentals,Submitted,1,0,fundamentals,8,10,8,Yes,,,,,,Evidence review,,,,,,,,396,06:36,a7b10064ac054cd967a5aa7ed615e8ce4596b8cfb52ef0ac009d2fe7a08966bf,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.614Z
+participant-11,sql,SQL,Not started,,0,,,,,,,,,,,,,,,,,,,,,,,,,
+participant-11,python,Python,Submitted,1,0,core,6,6,5,Yes,testing,4,4,3,Yes,,,,Credited,Evidence review,Evidence review,,,298,04:58,cdf81ef3e4b7ee8bdb5e7f32de8de3d2322e2f040fa55db40381e28c3a55df56,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.636Z
+participant-12,ta,Test Automation Fundamentals,Submitted,1,0,fundamentals,6,10,8,No,,,,,,Prescribed,,,,,,,,453,07:33,c1491609808c87c8f677d1d6b68fefec4ebccc4f44c199aeaa3ae40129e8c4b9,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.656Z
+participant-12,sql,SQL,Submitted,1,0,foundations,5,6,5,Yes,applied,3,4,3,Yes,,Credited,Credited,,,,,,517,08:37,3ac4d35f139ed377d5d8c3e5cb7c23c07533202f357266b3cfae229188aa2fd5,0,manual,2026-09-10 05:43:40 AEST,2026-09-09T19:43:40.676Z
+participant-12,python,Python,Not started,,0,,,,,,,,,,,,,,,,,,,,,,,,,
+participant-13,ta,Test Automation Fundamentals,In progress,1,0,,,,,,,,,,,,,,,,,,,,,a9b699dae687ab859c7deba2bd95d3c7e559a67596a42875218f86c71979abc2,0,,,
+participant-13,sql,SQL,Not started,,0,,,,,,,,,,,,,,,,,,,,,,,,,
+participant-13,python,Python,Not started,,0,,,,,,,,,,,,,,,,,,,,,,,,,
+participant-14,ta,Test Automation Fundamentals,Not started,,0,,,,,,,,,,,,,,,,,,,,,,,,,
+participant-14,sql,SQL,In progress,1,0,,,,,,,,,,,,,,,,,,,,,ddeacc62e57f01834761be6730e8c53911a9266dd40cc5eceffb766d3681ac97,0,,,
+participant-14,python,Python,Not started,,0,,,,,,,,,,,,,,,,,,,,,,,,,
+participant-15,ta,Test Automation Fundamentals,Not started,,0,,,,,,,,,,,,,,,,,,,,,,,,,
+participant-15,sql,SQL,Not started,,0,,,,,,,,,,,,,,,,,,,,,,,,,
+participant-15,python,Python,Not started,,0,,,,,,,,,,,,,,,,,,,,,,,,,

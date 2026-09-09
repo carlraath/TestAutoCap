@@ -48,6 +48,7 @@ async function centre(locator: Locator): Promise<{ x: number; y: number }> {
  * lift, because lifting an element can move the page underneath it.
  */
 async function dragTo(page: Page, from: Locator, to: () => Promise<{ x: number; y: number }>): Promise<void> {
+  await from.scrollIntoViewIfNeeded();
   const box = await from.boundingBox();
   if (!box) throw new Error("The drag source has no bounding box.");
   const x = box.x + Math.min(20, box.width / 2);
@@ -62,8 +63,23 @@ async function dragTo(page: Page, from: Locator, to: () => Promise<{ x: number; 
   await page.waitForTimeout(250);
 }
 
-/** Moves forward through the paper until a question of the given type is on screen. */
+/** Nudges the held pointer until the drop zone reports the pointer is over it. */
+async function settleOver(page: Page, zone: Locator): Promise<void> {
+  for (let i = 0; i < 12; i += 1) {
+    if ((await zone.getAttribute("data-over")) === "true") return;
+    const point = await centre(zone);
+    await page.mouse.move(point.x + (i % 2 === 0 ? 1 : -1), point.y, { steps: 2 });
+    await page.waitForTimeout(120);
+  }
+}
+
+/**
+ * Opens the first question of the given type. The paper is shuffled per
+ * participant, so this starts at question one and walks forward.
+ */
 async function goToType(page: Page, type: QuestionType): Promise<void> {
+  await page.goto("/assessment/ta/attempt?q=1");
+  await expect(page.getByTestId("question-card")).toBeVisible();
   for (let step = 0; step < 10; step += 1) {
     if ((await currentType(page)) === type) return;
     if ((await currentQuestion(page)) >= 10) break;
@@ -90,10 +106,10 @@ test("ordering and matching by keyboard only", async ({ page, browserName }) => 
   await startAssessment(page, "ta");
 
   const card = page.getByTestId("question-card");
-  let saves = await saveCount(page);
 
   // ---------- Ordering, by keyboard ----------
   await goToType(page, "ordering");
+  let saves = await saveCount(page);
   const startOrder = await orderingIds(page);
   expect(startOrder.length).toBeGreaterThanOrEqual(3);
 
@@ -144,6 +160,7 @@ test("ordering and matching by keyboard only", async ({ page, browserName }) => 
 
   // ---------- Matching, by keyboard only ----------
   await goToType(page, "matching");
+  saves = await saveCount(page);
   const tokenIds = await card
     .locator('[data-testid^="matching-token-"]')
     .evaluateAll((nodes) => nodes.map((node) => (node.getAttribute("data-testid") ?? "").replace("matching-token-", "")));
@@ -156,29 +173,32 @@ test("ordering and matching by keyboard only", async ({ page, browserName }) => 
   const count = card.locator('[data-testid^="matching-count-"]');
   await expect(count).toHaveText(`0 of ${tokenIds.length} placed`);
 
-  for (const tokenId of tokenIds) {
+  // Spread the tokens across the buckets: one Arrow press per step down the list.
+  for (const [i, tokenId] of tokenIds.entries()) {
+    const wanted = i % bucketIds.length;
     const select = card.getByTestId(`matching-select-${tokenId}`);
+    await select.scrollIntoViewIfNeeded();
     await select.focus();
     expect(await focusedTestId(page)).toBe(`matching-select-${tokenId}`);
-    await press(page, "ArrowDown");
-    await press(page, "Enter");
-    await expect(card.getByTestId(`matching-token-${tokenId}`)).toHaveAttribute("data-location", bucketIds[0]);
+    for (let step = 0; step <= wanted; step += 1) await press(page, "ArrowDown", 120);
+    await press(page, "Enter", 120);
+    await expect(card.getByTestId(`matching-token-${tokenId}`)).toHaveAttribute("data-location", bucketIds[wanted]);
   }
   await expect(count).toHaveText(`${tokenIds.length} of ${tokenIds.length} placed`);
   saves = await expectSaved(page, saves);
   await shot(page, browserName, "phase3-keyboard-matching.png");
 
   // ---------- Matching, by mouse ----------
-  const lastBucket = bucketIds[bucketIds.length - 1];
+  const targetBucket = bucketIds[1];
   const dragged = tokenIds[0];
-  const bucket = card.getByTestId(`matching-bucket-${lastBucket}`);
-  await bucket.scrollIntoViewIfNeeded();
+  const bucket = card.getByTestId(`matching-bucket-${targetBucket}`);
   await dragTo(page, card.getByTestId(`matching-drag-${dragged}`), () => centre(bucket));
+  await settleOver(page, bucket);
   await expect(bucket).toHaveAttribute("data-over", "true");
   if (browserName === "chromium") await page.screenshot({ path: "docs/evidence/phase3-drag-matching.png" });
   await page.mouse.up();
   await page.waitForTimeout(400);
-  await expect(card.getByTestId(`matching-token-${dragged}`)).toHaveAttribute("data-location", lastBucket);
+  await expect(card.getByTestId(`matching-token-${dragged}`)).toHaveAttribute("data-location", targetBucket);
   await expect(count).toHaveText(`${tokenIds.length} of ${tokenIds.length} placed`);
   await expectSaved(page, saves);
 });

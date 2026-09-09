@@ -3,7 +3,6 @@ import { getDb } from "@/db/client";
 import { DownloadIcon } from "@/components/admin/icons";
 import { buttonClasses } from "@/components/ui/Button";
 import { Card, CardHeader } from "@/components/ui/Card";
-import { Notice } from "@/components/ui/Notice";
 import { TITLE_DEVICE } from "@/engine/structure";
 import { overview } from "@/lib/reports";
 import { formatMelbourne } from "@/lib/time";
@@ -59,9 +58,6 @@ export default async function ExportPage() {
             Close the exercise at the end of the live week. Closing stops new attempts from starting and records the closure with its time. Hand the four
             files to the owner, confirm receipt, then tear the deployment down.
           </p>
-          {closed && report.exerciseClosedAt ? (
-            <Notice tone="info">The exercise was closed on {formatMelbourne(report.exerciseClosedAt)}. No new attempts can start.</Notice>
-          ) : null}
           <CloseAndExport alreadyClosed={closed} closedAtLabel={report.exerciseClosedAt ? formatMelbourne(report.exerciseClosedAt) : null} />
         </div>
       </Card>

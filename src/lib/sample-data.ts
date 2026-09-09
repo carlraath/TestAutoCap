@@ -157,6 +157,14 @@ async function runAssessment(
 ): Promise<AttemptRow> {
   const attempt = await startAttempt(db, participant, assessmentId);
   await answerAttempt(db, participant, attempt, seed, index, ability, { attemptNumber: attempt.attemptNumber });
+  // A sample cohort answers in milliseconds, which would record every attempt as taking no time
+  // at all. Backdate the start so the recorded time used is a believable three to nine minutes.
+  // endAt is left where it was, so the attempt is still inside its window and submits manually.
+  const usedSeconds = 180 + keyedRng(seed, "time", index, assessmentId, attempt.attemptNumber).nextInt(380);
+  await db
+    .update(attempts)
+    .set({ startedAt: new Date(Date.now() - usedSeconds * 1000) })
+    .where(eq(attempts.id, attempt.id));
   return submitAttempt(db, participant, attempt.id, "manual");
 }
 

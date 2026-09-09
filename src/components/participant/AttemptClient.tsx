@@ -56,6 +56,7 @@ export function AttemptClient({ view, initialIndex }: AttemptClientProps) {
 
   const item: ServedItem | undefined = view.items[index];
   const flags = useMemo(() => answeredFlags(view.items, answers), [view.items, answers]);
+  const hasAnswered = autosave.saves > 0 || Object.keys(view.answers).length > 0;
 
   // Mirror the current question into the URL without adding history entries, so
   // a refresh lands on the same question.
@@ -138,8 +139,10 @@ export function AttemptClient({ view, initialIndex }: AttemptClientProps) {
         </div>
       </section>
 
+      {/* The indicator appears once there is something to report. Saying "Saved"
+          over an untouched paper would be a claim about work nobody has done. */}
       <div className="flex h-8 items-center justify-end" data-testid="save-status" data-saves={autosave.saves}>
-        <SavedIndicator state={autosave.state} savedAt={autosave.savedAt} />
+        {hasAnswered || autosave.state !== "saved" ? <SavedIndicator state={autosave.state} savedAt={autosave.savedAt} /> : null}
       </div>
 
       <NavButtons

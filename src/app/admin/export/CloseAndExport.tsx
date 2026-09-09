@@ -5,7 +5,9 @@ import { Button } from "@/components/ui/Button";
 import { Dialog } from "@/components/ui/Dialog";
 import { Notice } from "@/components/ui/Notice";
 import { formatMelbourne } from "@/lib/time";
-import { closeAndExportAction, CLOSE_INITIAL, type CloseState } from "./actions";
+import { closeAndExportAction, type CloseState } from "./actions";
+
+const CLOSE_INITIAL: CloseState = { error: null, closedAt: null, files: [] };
 
 /**
  * Close and export: a confirmation dialog that says plainly what closing does,

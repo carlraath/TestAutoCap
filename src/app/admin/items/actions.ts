@@ -14,8 +14,6 @@ export interface RetireState {
   itemId: string | null;
 }
 
-export const RETIRE_INITIAL: RetireState = { error: null, done: false, itemId: null };
-
 /** Retires one item after the slot-depth guard. A refusal is returned verbatim so the reason is plain. */
 export async function retireAction(_prev: RetireState, formData: FormData): Promise<RetireState> {
   const admin = await requireAdmin();

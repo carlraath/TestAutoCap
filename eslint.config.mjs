@@ -12,6 +12,14 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Generated output and local state, none of it ours to lint.
+    "playwright-report/**",
+    "test-results/**",
+    "data/**",
+    "exports/**",
+    "certs/**",
+    ".scratch/**",
+    "docs/evidence/**",
   ]),
 ]);
 

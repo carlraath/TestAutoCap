@@ -5,7 +5,9 @@ import { Button } from "@/components/ui/Button";
 import { Dialog } from "@/components/ui/Dialog";
 import { Field, Textarea } from "@/components/ui/Field";
 import { Notice } from "@/components/ui/Notice";
-import { retireAction, RETIRE_INITIAL, type RetireState } from "./actions";
+import { retireAction, type RetireState } from "./actions";
+
+const RETIRE_INITIAL: RetireState = { error: null, done: false, itemId: null };
 
 export interface RetireButtonProps {
   itemId: string;

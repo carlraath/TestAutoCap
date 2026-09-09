@@ -12,8 +12,6 @@ export interface CloseState {
   files: { name: string; rowCount: number }[];
 }
 
-export const CLOSE_INITIAL: CloseState = { error: null, closedAt: null, files: [] };
-
 /** Closes the exercise and produces all four export files. Idempotent: the first closure time stands. */
 export async function closeAndExportAction(_prev: CloseState, formData: FormData): Promise<CloseState> {
   const admin = await requireAdmin();
