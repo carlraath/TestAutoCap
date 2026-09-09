@@ -30,4 +30,4 @@ export {
   type QuestionType,
 } from "./attempt";
 
-export { answerCorrectly } from "./dev-bank";
+export { answerCorrectly, currentItem } from "./answer-key";

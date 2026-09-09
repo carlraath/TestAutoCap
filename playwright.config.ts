@@ -29,6 +29,7 @@ export default defineConfig({
     ? undefined
     : {
         command: "npm run e2e:server",
+        env: { E2E_SAMPLE_DATA: "1" },
         url: `${baseURL}/api/health`,
         reuseExistingServer: false,
         timeout: 180_000,

@@ -41,6 +41,11 @@ function run(label: string, args: string[]): void {
 run("migrate", ["tsx", "scripts/migrate.ts"]);
 run("seed", ["tsx", "scripts/seed.ts"]);
 run("load-bank", ["tsx", "scripts/load-bank.ts", bank, "--freeze"]);
+// The administrator's reports need a cohort to report on. Seeding it here, before the server
+// starts, keeps every run on a database built the same way from nothing.
+if (process.env.E2E_SAMPLE_DATA === "1") {
+  run("sample-data", ["tsx", "scripts/seed-sample-data.ts", "--participants=15", "--seed=7", "--force"]);
+}
 
 const child = spawn(process.platform === "win32" ? "npx.cmd" : "npx", ["next", "start", "-p", port, "-H", "127.0.0.1"], {
   stdio: "inherit",

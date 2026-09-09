@@ -89,12 +89,19 @@ export function findPiiIdentifiers(identifiers: string[]): string[] {
   return offenders;
 }
 
-/** Scans free text (an export body) for things that look like email addresses or phone numbers. */
+/**
+ * Scans free text (an export body) for things that look like email addresses or phone numbers.
+ *
+ * The lookbehind matters: question stems legitimately contain Python decorators, and in a JSON
+ * export the escape before one reads as `\n@pytest.mark.parametrize`, whose tail looks exactly
+ * like an address. Refusing to start a match immediately after a backslash or another local-part
+ * character keeps that out without weakening the check on real text.
+ */
 export function findPiiInText(text: string): string[] {
   const findings: string[] = [];
-  const emails = text.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi);
+  const emails = text.match(/(?<![\\A-Z0-9._%+-])[A-Z0-9._%+-]{2,}@[A-Z0-9-]+(?:\.[A-Z0-9-]+)*\.[A-Z]{2,24}\b/gi);
   if (emails) findings.push(...emails.map((e) => `email-like: ${e}`));
-  const phones = text.match(/(?:\+?61|0)[2-478](?:[ -]?\d){8}\b/g);
+  const phones = text.match(/(?<![\d-])(?:\+?61[ -]?|0)[2-478](?:[ -]?\d){8}(?![\d-])/g);
   if (phones) findings.push(...phones.map((p) => `phone-like: ${p}`));
   return findings;
 }
