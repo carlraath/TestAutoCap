@@ -30,8 +30,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files. The example is committed on purpose: the Hosting Guide starts by copying it.
 .env*
+!.env.example
 
 # vercel
 .vercel
