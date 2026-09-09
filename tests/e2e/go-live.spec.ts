@@ -107,7 +107,10 @@ test("the go-live checklist, executed and evidenced", async ({ page, context, re
   expect(cookie?.secure).toBe(true);
   note(`   Session cookie cp_session: httpOnly ${String(cookie?.httpOnly)}, secure ${String(cookie?.secure)}, sameSite ${String(cookie?.sameSite)}.`);
 
-  const rateLimited = await context.newPage();
+  // A fresh context: signing in from the administrator's own context would be redirected away
+  // from the sign-in page, because that session is already signed in.
+  const anonymous = await context.browser()!.newContext({ ignoreHTTPSErrors: true });
+  const rateLimited = await anonymous.newPage();
   for (let attempt = 1; attempt <= 10; attempt += 1) {
     await signIn(rateLimited, firstCode, "definitely-not-the-password");
     await expect(rateLimited.getByText("That participant code and password do not match.")).toBeVisible();
@@ -117,22 +120,34 @@ test("the go-live checklist, executed and evidenced", async ({ page, context, re
   note("5. Rate limiting live: after ten failed attempts the correct password is refused, with the same generic message.");
   await rateLimited.screenshot({ path: `${OUT}/04-rate-limited.png`, fullPage: true });
   await rateLimited.close();
+  await anonymous.close();
 
   // ---------- Timezone ----------
   await page.goto("/admin/audit");
   const audit = await page.locator("main").innerText();
   const stamp = /\d{1,2} \w{3} \d{4}, \d{2}:\d{2}/.exec(audit)?.[0] ?? "(none)";
-  const melbourne = new Intl.DateTimeFormat("en-AU", {
-    timeZone: "Australia/Melbourne",
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  }).format(new Date());
-  note(`6. Times display in Melbourne time. Audit log shows "${stamp}"; the clock in Australia/Melbourne reads "${melbourne}".`);
-  expect(stamp.slice(0, 11)).toBe(melbourne.slice(0, 11));
+  // Compare the parts, not the rendering: the application spells the month with its own three
+  // letter table, while Node's locale data writes "Sept".
+  const parts = Object.fromEntries(
+    new Intl.DateTimeFormat("en-AU", {
+      timeZone: "Australia/Melbourne",
+      day: "numeric",
+      month: "numeric",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    })
+      .formatToParts(new Date())
+      .map((part) => [part.type, part.value]),
+  ) as Record<string, string>;
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const melbourne = `${Number(parts.day)} ${MONTHS[Number(parts.month) - 1]} ${parts.year}`;
+  note(`6. Times display in Melbourne time. Audit log shows "${stamp}"; the clock in Australia/Melbourne reads "${melbourne}, ${parts.hour}:${parts.minute}".`);
+  expect(stamp).toContain(melbourne);
+  const shownMinutes = Number(/(\d{2}):(\d{2})$/.exec(stamp)?.[1]) * 60 + Number(/(\d{2}):(\d{2})$/.exec(stamp)?.[2]);
+  const nowMinutes = Number(parts.hour) * 60 + Number(parts.minute);
+  expect(Math.abs(nowMinutes - shownMinutes)).toBeLessThanOrEqual(5);
   await page.screenshot({ path: `${OUT}/05-audit-melbourne.png`, fullPage: true });
 
   // ---------- Practice reset ----------
