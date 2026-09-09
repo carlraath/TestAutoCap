@@ -1,0 +1,18 @@
+{
+  "id": "sql-03-b",
+  "assessment": "sql",
+  "section": "foundations",
+  "slot": 3,
+  "type": "single",
+  "stem": "The table `sales` holds these rows.\n\n| id | region | amount |\n|---|---|---|\n| 1 | North | 120 |\n| 2 | South | 80 |\n| 3 | North | 40 |\n| 4 | East | 200 |\n| 5 | South | 60 |\n\nWhich rows does `SELECT region, AVG(amount) AS average FROM sales GROUP BY region HAVING AVG(amount) >= 80;` return?",
+  "options": [
+    { "id": "a", "text": "North with average 80 and East with average 200", "correct": true },
+    { "id": "b", "text": "North with average 80, South with average 70 and East with average 200", "correct": false },
+    { "id": "c", "text": "North with average 120, South with average 80 and East with average 200", "correct": false },
+    { "id": "d", "text": "East with average 200", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "GROUP BY produces one row per region with the average amount: North (120 + 40) / 2 = 80, South (80 + 60) / 2 = 70, East 200. HAVING then keeps only the groups whose average is at least 80, which leaves North and East, so option a is correct. Option b ignores the HAVING clause and keeps South. Option c applies the condition to individual rows before grouping, as a WHERE clause would, discarding the 40 and 60 rows and then averaging what is left in each region. Option d treats >= as a strict greater-than and drops North, whose average is exactly 80. Some databases display the averages with trailing zeros after the decimal point; the values are exactly 80 and 200. Verified by running the query against the shown rows.",
+  "sourceAnchor": "Intermediate SQL - data aggregation: one grouping column and filtering groups with HAVING"
+}

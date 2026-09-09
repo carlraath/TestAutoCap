@@ -1,0 +1,34 @@
+{
+  "id": "ta-06-b",
+  "assessment": "ta",
+  "section": "fundamentals",
+  "slot": 6,
+  "type": "single",
+  "stem": "A payments batch team lists four checks it wants to add to its suite. Which check is the weakest candidate for automation?",
+  "options": [
+    {
+      "id": "a",
+      "text": "Checking that a one-off migration copied every account record, after which its script is retired.",
+      "correct": true
+    },
+    {
+      "id": "b",
+      "text": "Checking that each settled payment appears exactly once in the daily settlement file.",
+      "correct": false
+    },
+    {
+      "id": "c",
+      "text": "Checking that a payment with an invalid account number is written to the rejects table.",
+      "correct": false
+    },
+    {
+      "id": "d",
+      "text": "Checking that the end-of-day totals match the ledger totals after each batch run.",
+      "correct": false
+    }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "Key a: the migration runs once and its script is then retired, so this check will never be needed again; a check that is executed only once cannot repay the effort of scripting it, which makes it the weakest candidate even though its expected result is definite. b is wrong because a settlement file is produced every day and the expected result (each settled payment present exactly once) is definite, so the check is repeatable and deterministic, a strong candidate. c is wrong because the rejects-table rule gives a definite expected outcome and the check belongs to a suite that is run again with every change to the batch, so it is repeatable and deterministic, a strong candidate. d is wrong because totals compared after every batch run are deterministic and highly repeatable, a strong candidate.",
+  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: what not to automate"
+}

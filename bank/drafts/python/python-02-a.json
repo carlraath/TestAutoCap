@@ -1,0 +1,18 @@
+{
+  "id": "python-02-a",
+  "assessment": "python",
+  "section": "core",
+  "slot": 2,
+  "type": "single",
+  "stem": "What does this code print?\n\n```python\nvalues = [3, 1, 4, 1]\ntotal = 0\nfor v in values:\n    if v > 1:\n        total += v\nprint(total)\n```",
+  "options": [
+    { "id": "a", "text": "4", "correct": false },
+    { "id": "b", "text": "7", "correct": true },
+    { "id": "c", "text": "8", "correct": false },
+    { "id": "d", "text": "9", "correct": false }
+  ],
+  "fixedOrder": true,
+  "difficulty": "standard",
+  "rationale": "Only values greater than 1 are added: 3 and 4, giving 7. 9 is the sum of all four values, which ignores the condition. 8 counts one of the 1 values as passing the condition; 1 > 1 is False. 4 comes from reading the code as counting the elements or keeping the largest value; the code sums the values that pass.",
+  "sourceAnchor": "Programming for Everybody - loops and iteration (definite loops, loop idioms) with conditional code"
+}

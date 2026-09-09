@@ -1,0 +1,18 @@
+{
+  "id": "sql-02-c",
+  "assessment": "sql",
+  "section": "foundations",
+  "slot": 2,
+  "type": "single",
+  "stem": "The tables `departments` and `staff` hold these rows.\n\n| departments.id |\n|---|\n| 1 |\n| 2 |\n| 3 |\n\n| staff.dept_id |\n|---|\n| 2 |\n| 2 |\n| 3 |\n| 3 |\n| 5 |\n\nHow many rows does `SELECT * FROM staff LEFT JOIN departments ON staff.dept_id = departments.id;` return?",
+  "options": [
+    { "id": "a", "text": "3", "correct": false },
+    { "id": "b", "text": "4", "correct": false },
+    { "id": "c", "text": "5", "correct": true },
+    { "id": "d", "text": "6", "correct": false }
+  ],
+  "fixedOrder": true,
+  "difficulty": "standard",
+  "rationale": "A LEFT JOIN keeps every row of the left table, which here is staff. The two staff rows for department 2 and the two for department 3 each match one department row, and the staff row for department 5 has no department so it is kept with NULL department columns, giving 5 rows, so option c is correct. Department 1 has no staff and is dropped because it is on the right side. Option a counts the department rows rather than the result rows. Option b is the INNER JOIN count, which drops the unmatched staff row for department 5. Option d also adds a row for the unmatched department 1, which only a full outer join would do. Verified by running the query against the shown rows.",
+  "sourceAnchor": "Joining Data in SQL - combining data horizontally: LEFT JOIN"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "python-06-b",
+  "assessment": "python",
+  "section": "core",
+  "slot": 6,
+  "type": "single",
+  "stem": "A test totals the amount column of a small CSV extract held as a list of lines. What does this code print?\n\n```python\nrows = [\"id,amount\", \"1,25\", \"2,x\", \"3,10\"]\ntotal = 0\nfor row in rows[1:]:\n    parts = row.split(\",\")\n    if parts[1].isdigit():\n        total += int(parts[1])\nprint(total)\n```",
+  "options": [
+    { "id": "a", "text": "35", "correct": true },
+    { "id": "b", "text": "25", "correct": false },
+    { "id": "c", "text": "10", "correct": false },
+    { "id": "d", "text": "Nothing, because a ValueError is raised", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "rows[1:] skips the header line, so the loop sees \"1,25\", \"2,x\" and \"3,10\". Splitting each on the comma gives parts[1] of \"25\", \"x\" and \"10\". \"25\" and \"10\" pass isdigit and are converted and added, giving 35; \"x\" fails isdigit, so the if body is skipped for that row and nothing is added. \"25\" assumes the loop stops at the non-numeric row; there is no break, so the loop continues to \"3,10\" and adds 10. \"10\" assumes rows[1:] drops the first two lines; the slice drops only the header, so \"1,25\" is included. \"Nothing, because a ValueError is raised\" assumes int() is applied to \"x\"; the isdigit test is false for \"x\", so int() is never reached and the program completes normally.",
+  "sourceAnchor": "Programming for Everybody - strings and lists with loops and conditional code (reading a short program end to end)"
+}

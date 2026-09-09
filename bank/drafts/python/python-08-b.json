@@ -1,0 +1,18 @@
+{
+  "id": "python-08-b",
+  "assessment": "python",
+  "section": "testing",
+  "slot": 8,
+  "type": "single",
+  "stem": "What happens when pytest runs this test?\n\n```python\ndef test_totals():\n    values = [1, 2, 3]\n    assert sum(values) == 6\n    assert len(values) == 4\n    assert max(values) == 3\n```",
+  "options": [
+    { "id": "a", "text": "The test fails at `assert len(values) == 4` and the last assert is not executed.", "correct": true },
+    { "id": "b", "text": "The test fails at `assert len(values) == 4` and the last assert still runs and passes.", "correct": false },
+    { "id": "c", "text": "The test passes, because two of its three asserts hold.", "correct": false },
+    { "id": "d", "text": "The test fails at `assert sum(values) == 6`.", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "sum(values) is 6, so the first assert holds. len(values) is 3, so the second assert raises AssertionError, which ends the function immediately; the third assert never runs, and pytest reports one failure showing 3 == 4. A failed assert stops the test function, so the last assert does not run. A test passes only when every assert it reaches holds; a majority is not enough. The first assert holds, so the failure is not there.",
+  "sourceAnchor": "Python Automation Testing With Pytest - assertions and test discovery (assertions); Introduction to Testing in Python - creating tests with pytest"
+}

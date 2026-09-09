@@ -1,0 +1,39 @@
+{
+  "id": "ta-05-b",
+  "assessment": "ta",
+  "section": "fundamentals",
+  "slot": 5,
+  "type": "multi",
+  "stem": "Select all the properties that strengthen the case for automating a check on a nightly data pipeline.",
+  "options": [
+    {
+      "id": "a",
+      "text": "It is repeated after every pipeline run.",
+      "correct": true
+    },
+    {
+      "id": "b",
+      "text": "The rule it checks has stayed the same for a year.",
+      "correct": true
+    },
+    {
+      "id": "c",
+      "text": "Its expected result can be computed from the input data.",
+      "correct": true
+    },
+    {
+      "id": "d",
+      "text": "A reviewer decides pass or fail by judging a chart.",
+      "correct": false
+    },
+    {
+      "id": "e",
+      "text": "It is needed only once, before the pipeline goes live.",
+      "correct": false
+    }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "Key a, b and c: a check repeated after every pipeline run gives an automated version many runs over which to repay the effort of scripting it; a rule that has stayed the same for a year is unlikely to force the script to be rewritten; and an expected result computed from the input data gives the script a definite value to compare with the actual result. d is wrong because a verdict that rests on a reviewer's reading of a chart cannot be reduced to a comparison a script can make, so a person would still be needed every run. e is wrong because a check needed only once gives no repeat runs, so the effort of automating it is never repaid.",
+  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: when to automate, automation candidacy factors"
+}

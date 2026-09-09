@@ -1,0 +1,19 @@
+{
+  "id": "python-07-b",
+  "assessment": "python",
+  "section": "testing",
+  "slot": 7,
+  "type": "multi",
+  "stem": "pytest runs with default settings in a folder containing the five files below. Each file contains one function named `test_one` with an assert statement. Which files will pytest collect tests from?",
+  "options": [
+    { "id": "a", "text": "test_login.py", "correct": true },
+    { "id": "b", "text": "check_login.py", "correct": false },
+    { "id": "c", "text": "test_logout.py", "correct": true },
+    { "id": "d", "text": "login_helpers.py", "correct": false },
+    { "id": "e", "text": "login_tests.py", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "With default settings pytest decides which files to look inside by file name: a file whose name starts with test_ is collected as a test module. test_login.py and test_logout.py both start with test_, so pytest collects both and runs their test_one functions. check_login.py and login_helpers.py do not start with test_, so pytest treats them as ordinary modules and never looks inside them, even though each contains a test_one function. login_tests.py also lacks the test_ prefix; it does not qualify under the default suffix pattern either, because that pattern requires the name to end in exactly _test.py and this name ends in _tests.py. Verified by running pytest --collect-only against the five files: only test_login.py::test_one and test_logout.py::test_one were collected.",
+  "sourceAnchor": "Python Automation Testing With Pytest - assertions and test discovery (test naming and discovery)"
+}

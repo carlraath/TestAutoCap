@@ -1,0 +1,18 @@
+{
+  "id": "sql-03-a",
+  "assessment": "sql",
+  "section": "foundations",
+  "slot": 3,
+  "type": "single",
+  "stem": "The table `orders` holds these rows.\n\n| id | category | amount |\n|---|---|---|\n| 1 | stationery | 40 |\n| 2 | furniture | 35 |\n| 3 | stationery | 60 |\n| 4 | lighting | 30 |\n| 5 | furniture | 20 |\n\nWhich rows does `SELECT category, SUM(amount) AS total FROM orders GROUP BY category HAVING SUM(amount) > 50;` return?",
+  "options": [
+    { "id": "a", "text": "stationery with total 100 and furniture with total 55", "correct": true },
+    { "id": "b", "text": "stationery with total 100, furniture with total 55 and lighting with total 30", "correct": false },
+    { "id": "c", "text": "stationery with total 60", "correct": false },
+    { "id": "d", "text": "stationery with total 100", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "GROUP BY produces one row per category with the summed amount: stationery 100, furniture 55, lighting 30. HAVING then keeps only groups whose sum exceeds 50, which leaves stationery and furniture, so option a is correct. Option b ignores the HAVING clause and keeps lighting. Option c applies the condition to individual rows before grouping, as a WHERE clause would, keeping only the single order of 60. Option d drops furniture, whose total of 55 is above 50. Verified by running the query against the shown rows.",
+  "sourceAnchor": "Intermediate SQL - data aggregation: one grouping column and filtering groups with HAVING"
+}

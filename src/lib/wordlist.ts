@@ -1,0 +1,42 @@
+/**
+ * Plain, everyday English words of five to eight letters, lower case, used to
+ * build memorable generated passwords (three words plus digits). No proper
+ * nouns, nothing offensive, nothing that names an organisation.
+ */
+export const WORDLIST: readonly string[] = [
+  "harbour", "copper", "lantern", "meadow", "willow", "timber", "marble", "pebble", "river", "forest",
+  "garden", "orchard", "valley", "summit", "canyon", "island", "coast", "beach", "cliff", "ridge",
+  "bridge", "tunnel", "castle", "tower", "cabin", "cottage", "window", "ladder", "basket", "bottle",
+  "candle", "carpet", "curtain", "cushion", "pillow", "blanket", "kettle", "teapot", "saucer", "spoon",
+  "butter", "cheese", "pepper", "ginger", "honey", "lemon", "orange", "apple", "cherry", "grape",
+  "melon", "peach", "berry", "walnut", "almond", "pecan", "cocoa", "coffee", "sugar", "flour",
+  "bread", "toast", "pasta", "salad", "olive", "carrot", "onion", "potato", "tomato", "radish",
+  "celery", "spinach", "parsley", "basil", "thyme", "clover", "daisy", "tulip", "violet", "orchid",
+  "lilac", "poppy", "maple", "birch", "cedar", "spruce", "aspen", "alder", "hazel", "rowan",
+  "laurel", "bamboo", "cotton", "linen", "velvet", "denim", "leather", "canvas", "ribbon", "button",
+  "pocket", "jacket", "mitten", "scarf", "sandal", "helmet", "saddle", "wagon", "bicycle", "engine",
+  "rocket", "planet", "comet", "meteor", "galaxy", "nebula", "orbit", "saturn", "lunar", "solar",
+  "aurora", "sunrise", "sunset", "morning", "evening", "twilight", "shadow", "breeze", "zephyr", "thunder",
+  "storm", "cloud", "frost", "glacier", "iceberg", "puddle", "stream", "brook", "lagoon", "harvest",
+  "autumn", "winter", "spring", "summer", "season", "monday", "friday", "sunday", "holiday", "journey",
+  "voyage", "compass", "anchor", "harpoon", "paddle", "canoe", "kayak", "yacht", "ferry", "cargo",
+  "crate", "barrel", "bucket", "hammer", "chisel", "wrench", "pliers", "spanner", "anvil", "forge",
+  "ember", "flame", "spark", "torch", "beacon", "signal", "whistle", "trumpet", "violin", "guitar",
+  "piano", "cello", "banjo", "cymbal", "melody", "rhythm", "chorus", "ballad", "novel", "story",
+  "chapter", "letter", "pencil", "crayon", "marker", "paper", "folder", "binder", "stapler", "ruler",
+  "eraser", "abacus", "puzzle", "riddle", "domino", "marbles", "balloon", "bubble", "feather", "pebbles",
+  "seashell", "coral", "pearl", "amber", "topaz", "garnet", "quartz", "crystal", "granite", "basalt",
+  "slate", "gravel", "cobble", "mortar", "brick", "plaster", "shingle", "gable", "porch", "veranda",
+  "balcony", "terrace", "pergola", "gazebo", "fountain", "statue", "pedestal", "archway", "corridor", "hallway",
+  "kitchen", "pantry", "cellar", "attic", "chimney", "hearth", "mantel", "sconce", "match", "flint",
+  "tinder", "otter", "badger", "beaver", "rabbit", "squirrel", "hedgehog", "dolphin", "penguin", "pelican",
+  "heron", "sparrow", "swallow", "finch", "robin", "magpie", "falcon", "kestrel", "osprey", "puffin",
+  "gannet", "salmon", "trout", "marlin", "minnow", "turtle", "lizard", "gecko", "koala", "wombat",
+  "wallaby", "kangaroo", "possum", "echidna", "platypus", "cockatoo", "lorikeet", "rosella", "galah", "wander",
+  "gather", "sprint", "stroll", "whisper", "murmur", "chuckle", "giggle", "gentle", "bright", "mellow",
+  "tender", "sturdy", "steady", "nimble", "clever", "humble", "honest", "cheerful", "merry", "jolly",
+  "lively", "quiet", "serene", "placid", "tranquil", "peaceful", "golden", "silver", "bronze", "ivory",
+  "ebony", "scarlet", "crimson", "indigo", "emerald", "saffron", "mustard", "azure", "cobalt", "maroon",
+  "pumpkin", "chestnut", "hazelnut", "peanut", "cashew", "sesame", "vanilla", "caramel", "toffee", "biscuit",
+  "muffin", "waffle", "pancake", "pretzel", "bagel", "crumpet", "scone", "trifle", "custard",
+];

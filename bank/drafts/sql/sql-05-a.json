@@ -1,0 +1,18 @@
+{
+  "id": "sql-05-a",
+  "assessment": "sql",
+  "section": "foundations",
+  "slot": 5,
+  "type": "single",
+  "stem": "The table `tickets` holds these rows. NULL means no team has been assigned.\n\n| id | team |\n|---|---|\n| 1 | alpha |\n| 2 | beta |\n| 3 | NULL |\n| 4 | NULL |\n| 5 | gamma |\n\nWhat value does `SELECT COUNT(*) FROM tickets WHERE team <> 'alpha';` return?",
+  "options": [
+    { "id": "a", "text": "1", "correct": false },
+    { "id": "b", "text": "2", "correct": true },
+    { "id": "c", "text": "4", "correct": false },
+    { "id": "d", "text": "5", "correct": false }
+  ],
+  "fixedOrder": true,
+  "difficulty": "standard",
+  "rationale": "A comparison with NULL is neither true nor false, so the WHERE clause rejects the two NULL rows. Only beta and gamma compare as different from alpha, giving a count of 2, so option b is correct. Option a counts the single row equal to alpha, reversing the condition. Option c treats the NULL rows as different from alpha and counts them too. Option d counts every row in the table. Verified by running the query against the shown rows.",
+  "sourceAnchor": "Intermediate SQL - data filtering: complex filtering"
+}

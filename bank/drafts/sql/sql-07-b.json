@@ -1,0 +1,18 @@
+{
+  "id": "sql-07-b",
+  "assessment": "sql",
+  "section": "applied",
+  "slot": 7,
+  "type": "single",
+  "stem": "A tester is reconciling two extracts. The tables `source` and `target` each hold an `id` column.\n\n| source.id |\n|---|\n| 201 |\n| 202 |\n| 203 |\n\n| target.id |\n|---|\n| 202 |\n| 203 |\n| 204 |\n| 205 |\n\nWhich query returns every id that appears in either table, listing each id once, giving 201, 202, 203, 204 and 205?",
+  "options": [
+    { "id": "a", "text": "SELECT id FROM source UNION SELECT id FROM target", "correct": true },
+    { "id": "b", "text": "SELECT id FROM source UNION ALL SELECT id FROM target", "correct": false },
+    { "id": "c", "text": "SELECT id FROM source INTERSECT SELECT id FROM target", "correct": false },
+    { "id": "d", "text": "SELECT id FROM source EXCEPT SELECT id FROM target", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "UNION combines both result sets and removes duplicate rows, giving each of the five ids once, so option a is correct. Option b keeps duplicates, so 202 and 203 each appear twice and seven rows are returned. Option c returns only the ids common to both tables, 202 and 203. Option d returns the ids in source that are absent from target, 201. Each query was run against the shown rows and only option a produces the five ids once each.",
+  "sourceAnchor": "SQL for Testers - validating data integrity with set operations (UNION); Joining Data in SQL - combining data vertically"
+}

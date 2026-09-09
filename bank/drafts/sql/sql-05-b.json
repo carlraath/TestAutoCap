@@ -1,0 +1,18 @@
+{
+  "id": "sql-05-b",
+  "assessment": "sql",
+  "section": "foundations",
+  "slot": 5,
+  "type": "single",
+  "stem": "The table `items` holds these rows. NULL means the price is missing.\n\n| id | price |\n|---|---|\n| 1 | 15 |\n| 2 | NULL |\n| 3 | 25 |\n| 4 | 10 |\n| 5 | NULL |\n\nWhat value does this query return?\n\n```sql\nSELECT COUNT(*)\nFROM items\nWHERE price < 20;\n```",
+  "options": [
+    { "id": "a", "text": "2", "correct": true },
+    { "id": "b", "text": "3", "correct": false },
+    { "id": "c", "text": "4", "correct": false },
+    { "id": "d", "text": "5", "correct": false }
+  ],
+  "fixedOrder": true,
+  "difficulty": "standard",
+  "rationale": "A comparison with NULL is neither true nor false, so the WHERE clause rejects the two NULL rows. Only 15 and 10 are below 20, giving a count of 2, so option a is correct. Option b counts the rows that have a price at all. Option c treats the NULL rows as below 20 and counts them too. Option d counts every row in the table. Verified by running the query against the shown rows.",
+  "sourceAnchor": "Intermediate SQL - data filtering: NULL values in comparisons"
+}

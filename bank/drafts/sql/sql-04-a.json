@@ -1,0 +1,18 @@
+{
+  "id": "sql-04-a",
+  "assessment": "sql",
+  "section": "foundations",
+  "slot": 4,
+  "type": "single",
+  "stem": "The table `products` holds these rows.\n\n| id | name | price |\n|---|---|---|\n| 1 | Pen | 2 |\n| 2 | Desk | 150 |\n| 3 | Lamp | 40 |\n| 4 | Chair | 85 |\n| 5 | Pad | 5 |\n\nWhat does `SELECT name FROM products WHERE price > (SELECT AVG(price) FROM products);` return?",
+  "options": [
+    { "id": "a", "text": "Desk and Chair", "correct": true },
+    { "id": "b", "text": "Desk", "correct": false },
+    { "id": "c", "text": "Pen, Lamp and Pad", "correct": false },
+    { "id": "d", "text": "A single value, 56.4", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "The subquery runs first and returns the average price, 282 divided by 5, which is 56.4. The outer query then returns the names priced above that: Desk (150) and Chair (85), so option a is correct. Option b keeps only the highest price, as if the subquery returned MAX rather than AVG. Option c returns the products priced below the average, reversing the comparison. Option d is the value of the inner subquery, which is used in the comparison and is not what the outer SELECT returns. Verified by running the query against the shown rows.",
+  "sourceAnchor": "Joining Data in SQL - subqueries inside WHERE"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "sql-01-a",
+  "assessment": "sql",
+  "section": "foundations",
+  "slot": 1,
+  "type": "single",
+  "stem": "The table `products` holds these rows.\n\n| id | name | category | price |\n|---|---|---|---|\n| 1 | Pen | stationery | 2 |\n| 2 | Desk | furniture | 150 |\n| 3 | Lamp | furniture | 40 |\n| 4 | Chair | furniture | 85 |\n| 5 | Pad | stationery | 5 |\n\nWhich names does `SELECT name FROM products WHERE category = 'furniture' AND price < 100;` return?",
+  "options": [
+    { "id": "a", "text": "Lamp and Chair", "correct": true },
+    { "id": "b", "text": "Desk, Lamp and Chair", "correct": false },
+    { "id": "c", "text": "Pen, Lamp, Chair and Pad", "correct": false },
+    { "id": "d", "text": "Desk", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "Both conditions must hold for a row to be returned. Lamp (40) and Chair (85) are furniture priced below 100, so option a is correct. Option b ignores the price condition and includes Desk at 150. Option c ignores the category condition and returns every row priced below 100, including the two stationery items. Option d reads the comparison the wrong way round and returns the only furniture item priced above 100. Verified by running the query against the shown rows.",
+  "sourceAnchor": "Intermediate SQL - data filtering: multiple conditions"
+}

@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "description": "Avec / Capability Placement - anonymous placement assessment producing deterministic training plans",
-  "engines": { "node": ">=20.9.0" },
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -21,7 +23,9 @@
     "db:load-bank": "tsx scripts/load-bank.ts",
     "db:teardown": "tsx scripts/teardown.ts",
     "verify:no-pii": "tsx scripts/no-pii-check.ts",
-    "cert:dev": "bash scripts/gen-cert.sh"
+    "cert:dev": "bash scripts/gen-cert.sh",
+    "e2e:server": "tsx scripts/e2e-server.ts",
+    "test:e2e:chromium": "playwright test --project=chromium"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

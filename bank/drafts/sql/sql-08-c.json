@@ -1,0 +1,18 @@
+{
+  "id": "sql-08-c",
+  "assessment": "sql",
+  "section": "applied",
+  "slot": 8,
+  "type": "single",
+  "stem": "A release job publishes product codes from `staging` into `live`. After the run the tables hold these codes. The code column has no NULL values.\n\n| staging.code |\n|---|\n| A1 |\n| A2 |\n| A3 |\n| A4 |\n\n| live.code |\n|---|\n| A1 |\n| A4 |\n\nWhich query returns the codes present in staging but absent from live, giving A2 and A3?",
+  "options": [
+    { "id": "a", "text": "SELECT code FROM staging WHERE code NOT IN (SELECT code FROM live)", "correct": true },
+    { "id": "b", "text": "SELECT code FROM staging WHERE code IN (SELECT code FROM live)", "correct": false },
+    { "id": "c", "text": "SELECT code FROM live WHERE code NOT IN (SELECT code FROM staging)", "correct": false },
+    { "id": "d", "text": "SELECT s.code FROM staging s INNER JOIN live l ON s.code = l.code", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "The subquery lists the codes that reached live, and NOT IN keeps the staging codes that are missing from that list, A2 and A3, so option a is correct. Option b keeps the staging codes that did reach live, A1 and A4, the opposite of the goal. Option c is the reversed form and looks for live codes that are absent from staging, which here returns nothing. Option d is an inner join, which also returns only the matched codes A1 and A4. Each query was run against the shown rows and only option a produces A2 and A3.",
+  "sourceAnchor": "SQL for Testers - validating data integrity: finding rows missing from a target (NOT IN subquery)"
+}

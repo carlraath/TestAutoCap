@@ -1,0 +1,20 @@
+{
+  "id": "sql-10-a",
+  "assessment": "sql",
+  "section": "applied",
+  "slot": 10,
+  "type": "multi",
+  "stem": "An automated test inserted the rows with ids 9001 and 9002 into `customers`. The other three rows are permanent data that must stay. The table now holds these rows.\n\n| id | name | city |\n|---|---|---|\n| 1 | Customer A | Leeds |\n| 2 | Customer B | Hull |\n| 3 | Customer C | York |\n| 9001 | TEST customer one | Leeds |\n| 9002 | TEST customer two | Hull |\n\nWhich statements delete exactly the two inserted rows and leave the three permanent rows in place, when each statement is run on its own against the table shown?",
+  "options": [
+    { "id": "a", "text": "DELETE FROM customers WHERE id IN (9001, 9002);", "correct": true },
+    { "id": "b", "text": "DELETE FROM customers WHERE name LIKE 'TEST%';", "correct": true },
+    { "id": "c", "text": "DELETE FROM customers WHERE id >= 9001;", "correct": true },
+    { "id": "d", "text": "DELETE FROM customers;", "correct": false },
+    { "id": "e", "text": "DELETE FROM customers WHERE id > 2;", "correct": false },
+    { "id": "f", "text": "DELETE FROM customers WHERE city = 'Leeds';", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "Test rows should be created with values that identify them beyond doubt so that clean-up can target them precisely. Option a names the two test ids explicitly. Option b matches the TEST prefix that only the two inserted names carry; no permanent name begins with that text in any letter case. Option c uses the reserved id range that only the test rows occupy. Each of these leaves ids 1, 2 and 3 untouched. Option d has no WHERE clause and deletes every row. Option e also deletes the permanent row with id 3. Option f deletes by city, which removes the permanent Leeds row (id 1) and leaves the test row 9002 behind. Each statement was run against the shown rows and the remaining ids checked.",
+  "sourceAnchor": "SQL for Testers - using SQL for data generation: create new entries and delete data; test data hygiene"
+}

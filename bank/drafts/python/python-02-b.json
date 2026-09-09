@@ -1,0 +1,18 @@
+{
+  "id": "python-02-b",
+  "assessment": "python",
+  "section": "core",
+  "slot": 2,
+  "type": "single",
+  "stem": "What does this code print?\n\n```python\nscores = [72, 45, 88, 60, 51]\npassed = 0\nfor s in scores:\n    if s >= 60:\n        passed += 1\nprint(passed)\n```",
+  "options": [
+    { "id": "a", "text": "2", "correct": false },
+    { "id": "b", "text": "3", "correct": true },
+    { "id": "c", "text": "4", "correct": false },
+    { "id": "d", "text": "5", "correct": false }
+  ],
+  "fixedOrder": true,
+  "difficulty": "standard",
+  "rationale": "72, 88 and 60 satisfy s >= 60, so passed is 3. 2 excludes 60 by reading >= as >; 60 >= 60 is True. 4 includes 51 or 45 by mistake; both are below 60. 5 counts every element, ignoring the condition.",
+  "sourceAnchor": "Programming for Everybody - loops and iteration (definite loops, loop idioms) with conditional code"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "python-04-a",
+  "assessment": "python",
+  "section": "core",
+  "slot": 4,
+  "type": "single",
+  "stem": "What does this code print?\n\n```python\ncounts = {}\nfor word in [\"red\", \"blue\", \"red\", \"green\", \"red\"]:\n    counts[word] = counts.get(word, 0) + 1\nprint(counts[\"red\"], len(counts))\n```",
+  "options": [
+    { "id": "a", "text": "3 3", "correct": true },
+    { "id": "b", "text": "3 5", "correct": false },
+    { "id": "c", "text": "2 3", "correct": false },
+    { "id": "d", "text": "5 3", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "counts.get(word, 0) returns the current count, or 0 for a word not yet seen, so every occurrence is counted. red appears three times, so counts[\"red\"] is 3. The dictionary holds one key per distinct word (red, blue, green), so len(counts) is 3. \"3 5\" takes the length of the list instead of the number of keys. \"2 3\" misses the first occurrence of red; get supplies 0 for a new key so the first occurrence adds 1. \"5 3\" treats counts[\"red\"] as the total number of words rather than the count for red.",
+  "sourceAnchor": "Programming for Everybody - lists and dictionaries (counting with a dictionary)"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "python-10-b",
+  "assessment": "python",
+  "section": "testing",
+  "slot": 10,
+  "type": "multi",
+  "stem": "Two systems each return a list of dictionaries, one row per customer, with the keys `id` and `balance`. The systems give no guarantee of the same row order, and the team has agreed a tolerance for comparing balances. A test compares the two lists with the function below. Apart from what each situation describes, the two lists hold the same rows in the same order. In which of these situations does the function return `False`?\n\n```python\ndef datasets_match(source, target):\n    return source == target\n```",
+  "options": [
+    { "id": "a", "text": "Both lists hold the same rows, but in a different order.", "correct": true },
+    { "id": "b", "text": "One customer's balance differs between the two lists only by a floating point rounding error smaller than the agreed tolerance.", "correct": true },
+    { "id": "c", "text": "The target list has one row fewer than the source list.", "correct": true },
+    { "id": "d", "text": "Each dictionary in the source list was built with `balance` before `id`, and each dictionary in the target list with `id` before `balance`.", "correct": false },
+    { "id": "e", "text": "One customer's balance is the integer `10` in the source list and the float `10.0` in the target list.", "correct": false },
+    { "id": "f", "text": "One customer's balance is `None` in both lists.", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "List equality with == requires the same length and compares elements position by position, and dictionary equality compares keys and values. The same rows in a different order put different dictionaries at the same positions, so the lists compare unequal and the function returns False. Two floating point values that differ by a rounding error are unequal under ==, so the dictionaries holding them are unequal and the function returns False; the agreed tolerance plays no part because the function never applies it. Lists of different length are never equal, so a missing row returns False. Dictionary equality ignores the order in which keys were inserted, so dictionaries built with the keys in a different order compare equal and the function returns True. The integer 10 and the float 10.0 compare equal in Python, so the function returns True. None compared with None by == is True, so a balance of None on both sides compares equal and the function returns True. A trustworthy comparison would match rows on id rather than position, report ids present on one side only, and compare balances within the tolerance, none of which a bare == provides.",
+  "sourceAnchor": "Introduction to Testing in Python - basic testing types (feature and integration tests over data)"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "sql-06-b",
+  "assessment": "sql",
+  "section": "foundations",
+  "slot": 6,
+  "type": "single",
+  "stem": "The table `tickets` holds these rows.\n\n| id | status |\n|---|---|\n| 1 | open |\n| 2 | closed |\n| 3 | open |\n| 4 | pending |\n| 5 | closed |\n\nWhich values does this query return, in the order returned?\n\n```sql\nSELECT DISTINCT status\nFROM tickets\nORDER BY status DESC;\n```",
+  "options": [
+    { "id": "a", "text": "pending, open, closed", "correct": true },
+    { "id": "b", "text": "closed, open, pending", "correct": false },
+    { "id": "c", "text": "open, closed, pending", "correct": false },
+    { "id": "d", "text": "pending, open, open, closed, closed", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "DISTINCT removes the repeated statuses, leaving closed, open and pending, and ORDER BY status DESC sorts them descending, so option a is correct. Option b sorts ascending, ignoring DESC. Option c removes the duplicates but lists them in order of first appearance, ignoring the ORDER BY. Option d sorts descending but keeps the duplicates, ignoring DISTINCT. Verified by running the query against the shown rows.",
+  "sourceAnchor": "Intermediate SQL - data transformation: DISTINCT and ORDER BY"
+}

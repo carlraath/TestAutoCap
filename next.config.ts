@@ -11,6 +11,8 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
+  // Next 16 otherwise appends an auto-generated block to CLAUDE.md on every "next dev".
+  agentRules: false,
   serverExternalPackages: ["@electric-sql/pglite", "pg"],
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];

@@ -1,0 +1,18 @@
+{
+  "id": "sql-06-a",
+  "assessment": "sql",
+  "section": "foundations",
+  "slot": 6,
+  "type": "single",
+  "stem": "The table `offices` holds these rows.\n\n| id | city |\n|---|---|\n| 1 | Leeds |\n| 2 | York |\n| 3 | Leeds |\n| 4 | Bath |\n| 5 | York |\n\nWhich values does this query return, in the order returned?\n\n```sql\nSELECT DISTINCT city\nFROM offices\nORDER BY city;\n```",
+  "options": [
+    { "id": "a", "text": "Bath, Leeds, York", "correct": true },
+    { "id": "b", "text": "Leeds, York, Bath", "correct": false },
+    { "id": "c", "text": "Bath, Leeds, Leeds, York, York", "correct": false },
+    { "id": "d", "text": "York, Leeds, Bath", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "DISTINCT removes the repeated cities, leaving Bath, Leeds and York, and ORDER BY city sorts them ascending, so option a is correct. Option b removes the duplicates but lists them in order of first appearance, ignoring the ORDER BY. Option c sorts the rows but keeps the duplicates, ignoring DISTINCT. Option d sorts descending, which the query does not ask for. Verified by running the query against the shown rows.",
+  "sourceAnchor": "Intermediate SQL - data transformation: DISTINCT and ORDER BY"
+}

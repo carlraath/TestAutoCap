@@ -1,0 +1,18 @@
+{
+  "id": "sql-04-b",
+  "assessment": "sql",
+  "section": "foundations",
+  "slot": 4,
+  "type": "single",
+  "stem": "The table `staff` holds these rows.\n\n| id | name | dept | city |\n|---|---|---|---|\n| 1 | Ana | Sales | Leeds |\n| 2 | Ben | Support | York |\n| 3 | Cal | Sales | York |\n| 4 | Dee | Finance | Bath |\n| 5 | Eli | Support | Leeds |\n\nWhat does this query return?\n\n```sql\nSELECT name\nFROM staff\nWHERE dept IN (SELECT dept FROM staff WHERE city = 'Leeds');\n```",
+  "options": [
+    { "id": "a", "text": "Ana, Ben, Cal and Eli", "correct": true },
+    { "id": "b", "text": "Ana and Eli", "correct": false },
+    { "id": "c", "text": "Sales and Support", "correct": false },
+    { "id": "d", "text": "Ana and Cal", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "The subquery runs first and returns the departments that have someone in Leeds: Sales and Support. The outer query then returns every member of those departments, whatever their city: Ana, Ben, Cal and Eli, so option a is correct. Option b returns only the staff based in Leeds, as if the city condition applied to the outer query. Option c is the result of the inner subquery, which feeds the IN list and is not what the outer SELECT returns. Option d uses only the first department from the subquery and misses the Support staff. Verified by running the query against the shown rows.",
+  "sourceAnchor": "Joining Data in SQL - subqueries inside WHERE"
+}

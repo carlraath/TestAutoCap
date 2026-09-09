@@ -1,0 +1,44 @@
+{
+  "id": "ta-08-b",
+  "assessment": "ta",
+  "section": "fundamentals",
+  "slot": 8,
+  "type": "multi",
+  "stem": "A nightly data pipeline includes a reconciliation check that compares the rows it loaded with the rows in the source. On one night the check reports a failure. The next morning an investigator has only the failure record to work from and cannot re-run the check. Select all the items the record needs to hold for the investigator to establish what went wrong.",
+  "options": [
+    {
+      "id": "a",
+      "text": "The rule that was evaluated and the identifiers of the input data it used.",
+      "correct": true
+    },
+    {
+      "id": "b",
+      "text": "The identifier of the pipeline run and the time at which the check failed.",
+      "correct": true
+    },
+    {
+      "id": "c",
+      "text": "The rows that did not match, showing the expected and the actual values.",
+      "correct": true
+    },
+    {
+      "id": "d",
+      "text": "The name of the team member who wrote the check.",
+      "correct": false
+    },
+    {
+      "id": "e",
+      "text": "The average duration of the pipeline over the last month.",
+      "correct": false
+    },
+    {
+      "id": "f",
+      "text": "The planned date of the next change to the pipeline.",
+      "correct": false
+    }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "Key a, b and c. The rule and the identifiers of its input data tell the investigator what was compared and against which data, so the comparison can be traced back to its inputs. The run identifier and the failure time tie the failure to one specific execution and to the state of the pipeline at that moment. The mismatched rows with their expected and actual values are the direct evidence of what the check found. Together these let the investigator reconstruct the failure from the record without a re-run. d is wrong because the author of the check is a fact about the check's ownership that is the same on every run, so it says nothing about what happened in this run. e is wrong because a monthly average of run duration summarises past runs and carries no detail about the run in which the check failed. f is wrong because a change planned for the future has not yet been made, so it cannot explain a failure that has already occurred.",
+  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 6 Test automation reporting and metrics: logging and failure evidence"
+}

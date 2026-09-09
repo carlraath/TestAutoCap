@@ -1,0 +1,34 @@
+{
+  "id": "ta-04-b",
+  "assessment": "ta",
+  "section": "fundamentals",
+  "slot": 4,
+  "type": "single",
+  "stem": "A payments batch gains a new currency-conversion step. The team writes new tests that exercise the conversion step for the first time, and it also re-runs the existing settlement tests to see that they still pass. Which classification fits the new tests for the conversion step?",
+  "options": [
+    {
+      "id": "a",
+      "text": "Regression testing",
+      "correct": false
+    },
+    {
+      "id": "b",
+      "text": "Progression testing",
+      "correct": true
+    },
+    {
+      "id": "c",
+      "text": "Confirmation testing",
+      "correct": false
+    },
+    {
+      "id": "d",
+      "text": "Smoke testing",
+      "correct": false
+    }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "Key b: progression testing is the testing of new functionality, and the stem says these tests exercise the newly added conversion step for the first time. a is wrong because regression testing re-runs existing tests on unchanged functionality to confirm that a change elsewhere has not broken it; in the stem that describes the re-run of the existing settlement tests, not the new tests for the conversion step. c is wrong because confirmation testing re-runs a test that previously failed to confirm that a specific defect has been fixed; the stem mentions no earlier failing test and no defect fix. d is wrong because smoke testing is a quick, broad check that the main functions of a build work at all before further testing; the tests in the stem are written specifically for one newly added step, which is testing of new functionality, not a smoke check of the build.",
+  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 1 Introduction and objectives for test automation: regression testing versus progression testing"
+}

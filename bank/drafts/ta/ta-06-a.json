@@ -1,0 +1,34 @@
+{
+  "id": "ta-06-a",
+  "assessment": "ta",
+  "section": "fundamentals",
+  "slot": 6,
+  "type": "single",
+  "stem": "A web shop team lists four checks it wants to add to its suite. Which check is the weakest candidate for automation?",
+  "options": [
+    {
+      "id": "a",
+      "text": "Checking whether the redesigned home page looks appealing to shoppers.",
+      "correct": true
+    },
+    {
+      "id": "b",
+      "text": "Checking that the order total equals the sum of the line totals for 50 sample baskets.",
+      "correct": false
+    },
+    {
+      "id": "c",
+      "text": "Checking that a declined card payment leaves the order in the awaiting-payment state.",
+      "correct": false
+    },
+    {
+      "id": "d",
+      "text": "Checking that the nightly stock export has the same row count as the stock table.",
+      "correct": false
+    }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "Key a: whether a page looks appealing is a matter of human judgement with no deterministic expected result for a script to compare against, so it is the weakest candidate. b is wrong because a total that must equal a computed sum is deterministic and repeatable, a strong candidate. c is wrong because the resulting order state is a definite value that a script can read and compare, a strong candidate. d is wrong because a row count compared with a table count is deterministic, repeatable and run every night, a strong candidate.",
+  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: what not to automate"
+}

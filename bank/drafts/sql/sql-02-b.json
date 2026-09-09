@@ -1,0 +1,18 @@
+{
+  "id": "sql-02-b",
+  "assessment": "sql",
+  "section": "foundations",
+  "slot": 2,
+  "type": "single",
+  "stem": "The tables `employees` and `tickets` hold these rows.\n\n| employees.id |\n|---|\n| 10 |\n| 20 |\n| 30 |\n| 40 |\n\n| tickets.employee_id |\n|---|\n| 10 |\n| 30 |\n| 30 |\n| 50 |\n\nHow many rows does `SELECT * FROM employees LEFT JOIN tickets ON employees.id = tickets.employee_id;` return?",
+  "options": [
+    { "id": "a", "text": "3", "correct": false },
+    { "id": "b", "text": "4", "correct": false },
+    { "id": "c", "text": "5", "correct": true },
+    { "id": "d", "text": "6", "correct": false }
+  ],
+  "fixedOrder": true,
+  "difficulty": "standard",
+  "rationale": "A LEFT JOIN keeps every row of the left table. Employee 10 matches one ticket, employee 30 matches two, and employees 20 and 40 each appear once with NULL ticket columns, giving 5 rows, so option c is correct. The ticket for employee 50 has no employee and is dropped because it is on the right side. Option a is the INNER JOIN count, which drops the two unmatched employees. Option b counts one row per employee and misses the second ticket for employee 30. Option d also adds a row for the unmatched ticket, which only a full outer join would do. Verified by running the query against the shown rows.",
+  "sourceAnchor": "Joining Data in SQL - combining data horizontally: LEFT JOIN"
+}

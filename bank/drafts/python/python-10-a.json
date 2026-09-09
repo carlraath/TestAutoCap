@@ -1,0 +1,20 @@
+{
+  "id": "python-10-a",
+  "assessment": "python",
+  "section": "testing",
+  "slot": 10,
+  "type": "multi",
+  "stem": "A test compares two extracts of customer rows, `source` and `target`, with the function below. Each extract is a list of dictionaries with the keys `id` and `amount`. The two extracts come from independent queries that give no guarantee of row order, and a row present in one extract can be absent from the other. The source `amount` is stored to two decimal places. The target `amount` is produced by floating point arithmetic during the load, so a correct target amount can differ from the source amount by a rounding error far smaller than 0.01.\n\n```python\ndef find_mismatches(source, target):\n    mismatches = []\n    for source_row, target_row in zip(source, target):\n        if source_row[\"amount\"] != target_row[\"amount\"]:\n            mismatches.append(source_row[\"id\"])\n    return mismatches\n```\n\nWhich of these changes must be made to the function for its result to be trustworthy?",
+  "options": [
+    { "id": "a", "text": "Pair each source row with the target row that has the same `id`, instead of pairing rows by their position in the lists.", "correct": true },
+    { "id": "b", "text": "Report every `id` that is present in one extract and absent from the other.", "correct": true },
+    { "id": "c", "text": "Compare amounts with an allowance for floating point rounding, such as a small tolerance or rounding both values to two decimal places, instead of by exact equality of the raw values.", "correct": true },
+    { "id": "d", "text": "Return as soon as the first mismatch is found.", "correct": false },
+    { "id": "e", "text": "Report a match without comparing any rows whenever the two extracts contain the same number of rows.", "correct": false },
+    { "id": "f", "text": "Compare the amounts as strings instead of as numbers.", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "The function pairs rows with zip, so it compares by position, and the stem says the two queries give no guarantee of row order; rows must be paired by id, or a correctly loaded row is reported as a mismatch. Sorting both lists by id before zip is not enough, because a missing row shifts every later pairing. zip stops at the end of the shorter list and never checks ids, so a row present in only one extract is silently ignored; those ids must be reported, because missing rows are a primary defect the comparison exists to find. The target amount carries a floating point rounding error (for example 0.1 + 0.2 is 0.30000000000000004), so != on the raw values reports a mismatch for a correct amount; comparing within a small tolerance or after rounding both values to two decimal places removes those false mismatches, and either is acceptable, which is why the option names both. Returning at the first mismatch is not required and would hide every remaining difference. Equal row counts say nothing about which rows are present or about their values, so reporting a match on that basis is wrong. Comparing the amounts as strings does not remove the rounding difference (str(0.1 + 0.2) is '0.30000000000000004' while str(0.3) is '0.3') and hides type errors, so it is not a required change.",
+  "sourceAnchor": "Introduction to Testing in Python - basic testing types (feature and integration tests over data)"
+}

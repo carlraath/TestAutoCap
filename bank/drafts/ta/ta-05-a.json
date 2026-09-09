@@ -1,0 +1,39 @@
+{
+  "id": "ta-05-a",
+  "assessment": "ta",
+  "section": "fundamentals",
+  "slot": 5,
+  "type": "multi",
+  "stem": "Select all the factors that strengthen a regression test's case for automation.",
+  "options": [
+    {
+      "id": "a",
+      "text": "It runs every release.",
+      "correct": true
+    },
+    {
+      "id": "b",
+      "text": "The functionality it covers is stable.",
+      "correct": true
+    },
+    {
+      "id": "c",
+      "text": "Its result needs human visual judgement each run.",
+      "correct": false
+    },
+    {
+      "id": "d",
+      "text": "Its requirements change frequently.",
+      "correct": false
+    },
+    {
+      "id": "e",
+      "text": "Its expected outcome is known in advance and does not vary between runs.",
+      "correct": true
+    }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "Key a, b and e: repeated execution, stable functionality and an expected outcome that is known in advance and does not vary between runs (a deterministic outcome) are the candidacy factors; each makes the automated check cheaper to keep and its result trustworthy. c is wrong because a result that needs human visual judgement each run has no expected value a script can compare against, so it weakens the case. d is wrong because frequently changing requirements mean the script would need frequent rework, which weakens the case.",
+  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: when to automate, automation candidacy factors"
+}

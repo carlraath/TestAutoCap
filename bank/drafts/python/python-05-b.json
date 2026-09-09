@@ -1,0 +1,18 @@
+{
+  "id": "python-05-b",
+  "assessment": "python",
+  "section": "core",
+  "slot": 5,
+  "type": "single",
+  "stem": "What does this code print?\n\n```python\ncode = \"ab-123-XYZ\"\nresult = code.replace(\"-\", \"\").lower()\nprint(result[5:8], len(result))\n```",
+  "options": [
+    { "id": "a", "text": "xyz 8", "correct": true },
+    { "id": "b", "text": "XYZ 8", "correct": false },
+    { "id": "c", "text": "xyz 10", "correct": false },
+    { "id": "d", "text": "3xy 8", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "replace removes both hyphens, giving \"ab123XYZ\", and lower converts every letter to lower case, giving \"ab123xyz\", which has 8 characters. Indexes start at 0, so result[5:8] takes positions 5, 6 and 7: \"xyz\". \"XYZ 8\" ignores lower; lower returns a new string with the letters in lower case, and that string is what result holds. \"xyz 10\" reports the original length; replace removed two hyphens, so result has 8 characters, not 10. \"3xy 8\" counts positions from 1; indexes start at 0, so position 5 of result is \"x\", not \"3\".",
+  "sourceAnchor": "Programming for Everybody - strings (slicing, methods such as replace and lower)"
+}

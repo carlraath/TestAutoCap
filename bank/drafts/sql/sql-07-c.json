@@ -1,0 +1,18 @@
+{
+  "id": "sql-07-c",
+  "assessment": "sql",
+  "section": "applied",
+  "slot": 7,
+  "type": "single",
+  "stem": "A tester is reconciling two extracts. The tables `source` and `target` each hold `id` and `amount` columns.\n\n| source.id | source.amount |\n|---|---|\n| 1 | 100 |\n| 2 | 250 |\n| 3 | 75 |\n\n| target.id | target.amount |\n|---|---|\n| 1 | 100 |\n| 2 | 200 |\n| 3 | 75 |\n| 4 | 50 |\n\nWhich query returns the rows whose id and amount are both the same in the two tables, giving (1, 100) and (3, 75)?",
+  "options": [
+    { "id": "a", "text": "SELECT id, amount FROM source INTERSECT SELECT id, amount FROM target", "correct": true },
+    { "id": "b", "text": "SELECT id FROM source INTERSECT SELECT id FROM target", "correct": false },
+    { "id": "c", "text": "SELECT s.id, s.amount FROM source s INNER JOIN target t ON s.id = t.id", "correct": false },
+    { "id": "d", "text": "SELECT id, amount FROM source EXCEPT SELECT id, amount FROM target", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "INTERSECT over both columns keeps only the rows that match on id and amount together, which is (1, 100) and (3, 75), so option a is correct. Option b compares ids alone and returns 1, 2 and 3, including id 2 whose amounts differ. Option c joins on id alone and returns all three source rows with their source amounts, again including id 2. Option d returns the source rows that have no exact match in target, (2, 250), which is the opposite of the goal. Each query was run against the shown rows and only option a produces (1, 100) and (3, 75).",
+  "sourceAnchor": "SQL for Testers - validating data integrity with set operations (INTERSECT over several columns)"
+}

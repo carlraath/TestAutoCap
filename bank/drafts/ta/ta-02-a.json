@@ -1,0 +1,30 @@
+{
+  "id": "ta-02-a",
+  "assessment": "ta",
+  "section": "fundamentals",
+  "slot": 2,
+  "type": "ordering",
+  "stem": "Arrange the automated test layers of the test automation pyramid from most numerous at the top of this list to fewest.",
+  "elements": [
+    {
+      "id": "e1",
+      "text": "Unit tests"
+    },
+    {
+      "id": "e2",
+      "text": "API tests"
+    },
+    {
+      "id": "e3",
+      "text": "UI tests"
+    }
+  ],
+  "key": [
+    "e1",
+    "e2",
+    "e3"
+  ],
+  "difficulty": "standard",
+  "rationale": "The pyramid widens toward fast, isolated tests: unit tests run in isolation and are the cheapest to write, run and maintain, so they are the most numerous; API tests need a running service, so there are fewer of them; UI tests drive the whole stack through a rendered interface and are the slowest and most brittle, so they are the fewest. Every other order places a slower, less isolated layer above a faster, more isolated one, which contradicts the pyramid as taught. Taking the five wrong orders in turn, most numerous first: unit, UI, API puts UI tests above API tests; API, unit, UI puts API tests above unit tests; API, UI, unit makes unit tests the fewest, below both API and UI tests; UI, unit, API makes UI tests the most numerous, above both unit and API tests; UI, API, unit is the fully reversed order, the inverted pyramid anti-pattern.",
+  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: test pyramid and layers"
+}

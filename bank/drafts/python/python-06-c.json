@@ -1,0 +1,18 @@
+{
+  "id": "python-06-c",
+  "assessment": "python",
+  "section": "core",
+  "slot": 6,
+  "type": "single",
+  "stem": "A test run records each test name together with whether it passed. What does this code print?\n\n```python\nresults = [(\"login\", False), (\"search\", False), (\"export\", False), (\"report\", True)]\nfailed = []\npassed_count = 0\nfor name, passed in results:\n    if passed:\n        passed_count += 1\n    else:\n        failed.append(name)\nprint(passed_count, len(failed), failed[-1])\n```",
+  "options": [
+    { "id": "a", "text": "1 3 export", "correct": true },
+    { "id": "b", "text": "1 3 login", "correct": false },
+    { "id": "c", "text": "3 1 report", "correct": false },
+    { "id": "d", "text": "2 2 export", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "Each pair unpacks into name and passed. login, search and export have passed set to False, so the else branch appends each of them and failed becomes ['login', 'search', 'export']; only report has passed set to True, so passed_count is 1. len(failed) is 3 and failed[-1] is the last element of failed, 'export'. \"1 3 login\" takes the first element of failed; an index of -1 counts from the end of the list. \"3 1 report\" swaps the two branches, counting the False results and collecting the one True name. \"2 2 export\" counts only two failures; three pairs hold False.",
+  "sourceAnchor": "Programming for Everybody - loops and iteration (loop idioms) with conditional code and lists (reading a short program end to end)"
+}

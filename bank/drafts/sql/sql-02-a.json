@@ -1,0 +1,18 @@
+{
+  "id": "sql-02-a",
+  "assessment": "sql",
+  "section": "foundations",
+  "slot": 2,
+  "type": "single",
+  "stem": "The tables `customers` and `orders` hold these rows.\n\n| customers.id |\n|---|\n| 1 |\n| 2 |\n| 3 |\n\n| orders.customer_id |\n|---|\n| 1 |\n| 1 |\n| 3 |\n| 4 |\n\nHow many rows does `SELECT * FROM customers INNER JOIN orders ON customers.id = orders.customer_id` return?",
+  "options": [
+    { "id": "a", "text": "2", "correct": false },
+    { "id": "b", "text": "3", "correct": true },
+    { "id": "c", "text": "4", "correct": false },
+    { "id": "d", "text": "5", "correct": false }
+  ],
+  "fixedOrder": true,
+  "difficulty": "standard",
+  "rationale": "An INNER JOIN returns one row per matching pair. Customer 1 matches two orders and customer 3 matches one, giving 3 rows, so option b is correct. Customer 2 has no orders and the order for customer 4 has no customer, so neither contributes a row. Option a counts only the two distinct customers that have orders, customers 1 and 3, and misses the second order for customer 1. Option c counts every order row, including the unmatched order for customer 4; it is also the row count a LEFT JOIN would give, because that join keeps customer 2 with NULL order columns. Option d adds a row for each unmatched side, customer 2 and the order for customer 4, which only a full outer join would do. Verified by running the query against the shown rows.",
+  "sourceAnchor": "Joining Data in SQL - combining data horizontally: INNER JOIN"
+}

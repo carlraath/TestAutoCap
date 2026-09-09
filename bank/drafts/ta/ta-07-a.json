@@ -1,0 +1,34 @@
+{
+  "id": "ta-07-a",
+  "assessment": "ta",
+  "section": "fundamentals",
+  "slot": 7,
+  "type": "single",
+  "stem": "The same 100 regression checks have been automated four times against one application, once with each design below. With every release the application's screen layout changes and elements move to new positions, while element identifiers and the API stay the same. Which suite will need the most maintenance effort per release?",
+  "options": [
+    {
+      "id": "a",
+      "text": "UI tests that find each screen element by its position on the screen.",
+      "correct": true
+    },
+    {
+      "id": "b",
+      "text": "UI tests that find each screen element by an identifier looked up in one shared list.",
+      "correct": false
+    },
+    {
+      "id": "c",
+      "text": "API tests that build each request in full inside the test that sends it.",
+      "correct": false
+    },
+    {
+      "id": "d",
+      "text": "API tests that send each request through one shared client library.",
+      "correct": false
+    }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "Key a: a test that finds elements by screen position is coupled to the layout, and the layout is the one part of the application that changes with every release. Each release moves the elements, the tests no longer find them, and every affected test has to be corrected, so this suite carries the highest maintenance effort per release. The principle is that maintenance cost follows how tightly a suite is coupled to the part of the system that changes most. b is wrong because these tests depend on element identifiers, which stay the same, so a layout change leaves them working; even if an identifier did change later, the shared list would confine the edit to one place. c is wrong because these tests depend on the API, which stays the same, so a layout change has no effect on them; the duplicated request code would cost effort only if the API changed, and the stem says it does not. d is wrong because it depends on the API, which stays the same, and it is the cheapest of the four to maintain, since any future API change would be handled once in the shared library rather than in every test.",
+  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: maintainability; Chapter 8 Continuous improvement: refactoring the automation solution"
+}

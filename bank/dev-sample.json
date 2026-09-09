@@ -1,0 +1,2332 @@
+{
+  "bankVersion": 0,
+  "items": [
+    {
+      "id": "ta-01-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 1,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-01-a. Choose the option marked correct. In this development bank the marked option is Option B.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "ta-01-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 1,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-01-b. How many rows does the table below contain?\n\n| id |\n|---|\n| 1 |\n| 2 |\n| 3 |",
+      "options": [
+        {
+          "id": "o1",
+          "text": "1 row",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "2 rows",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "3 rows",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "4 rows",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true
+    },
+    {
+      "id": "ta-02-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 2,
+      "type": "ordering",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-02-a. Arrange the steps from first to last, in ascending order of the number in each label.",
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Step 1"
+        },
+        {
+          "id": "e2",
+          "text": "Step 2"
+        },
+        {
+          "id": "e3",
+          "text": "Step 3"
+        }
+      ],
+      "key": [
+        "e1",
+        "e2",
+        "e3"
+      ]
+    },
+    {
+      "id": "ta-02-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 2,
+      "type": "ordering",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-02-b. Arrange the steps from first to last, in ascending order of the number in each label.",
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Step 1"
+        },
+        {
+          "id": "e2",
+          "text": "Step 2"
+        },
+        {
+          "id": "e3",
+          "text": "Step 3"
+        },
+        {
+          "id": "e4",
+          "text": "Step 4"
+        }
+      ],
+      "key": [
+        "e1",
+        "e2",
+        "e3",
+        "e4"
+      ]
+    },
+    {
+      "id": "ta-03-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 3,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-03-a. Choose the option marked correct. In this development bank the marked option is Option D.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "ta-03-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 3,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-03-b. Choose the option marked correct. In this development bank the marked option is Option A.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "ta-04-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 4,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-04-a. Choose the option marked correct. In this development bank the marked option is Option A.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "ta-04-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 4,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-04-b. How many rows does the table below contain?\n\n| id |\n|---|\n| 1 |\n| 2 |",
+      "options": [
+        {
+          "id": "o1",
+          "text": "1 row",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "2 rows",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "3 rows",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "4 rows",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true
+    },
+    {
+      "id": "ta-05-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 5,
+      "type": "multi",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-05-a. Select every option marked correct. In this development bank the marked options are Option A, Option C.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        },
+        {
+          "id": "o5",
+          "text": "Option E",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "ta-05-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 5,
+      "type": "multi",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-05-b. Select every option marked correct. In this development bank the marked options are Option A, Option C, Option E.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        },
+        {
+          "id": "o5",
+          "text": "Option E",
+          "correct": true
+        },
+        {
+          "id": "o6",
+          "text": "Option F",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "ta-06-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 6,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-06-a. Choose the option marked correct. In this development bank the marked option is Option C.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "ta-06-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 6,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-06-b. Choose the option marked correct. In this development bank the marked option is Option D.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "ta-07-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 7,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-07-a. Choose the option marked correct. In this development bank the marked option is Option D.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "ta-07-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 7,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-07-b. How many rows does the table below contain?\n\n| id |\n|---|\n| 1 |",
+      "options": [
+        {
+          "id": "o1",
+          "text": "1 row",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "2 rows",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "3 rows",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "4 rows",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true
+    },
+    {
+      "id": "ta-08-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 8,
+      "type": "multi",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-08-a. Select every option marked correct. In this development bank the marked options are Option A, Option D.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": true
+        },
+        {
+          "id": "o5",
+          "text": "Option E",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "ta-08-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 8,
+      "type": "multi",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-08-b. Select every option marked correct. In this development bank the marked options are Option B, Option D, Option F.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": true
+        },
+        {
+          "id": "o5",
+          "text": "Option E",
+          "correct": false
+        },
+        {
+          "id": "o6",
+          "text": "Option F",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "ta-09-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 9,
+      "type": "matching",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-09-a. Place each token onto the bucket its label names.",
+      "buckets": [
+        {
+          "id": "b1",
+          "label": "Bucket 1"
+        },
+        {
+          "id": "b2",
+          "label": "Bucket 2"
+        },
+        {
+          "id": "b3",
+          "label": "Bucket 3"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "Token 1, belongs to Bucket 1",
+          "bucket": "b1"
+        },
+        {
+          "id": "t2",
+          "text": "Token 2, belongs to Bucket 2",
+          "bucket": "b2"
+        },
+        {
+          "id": "t3",
+          "text": "Token 3, belongs to Bucket 3",
+          "bucket": "b3"
+        },
+        {
+          "id": "t4",
+          "text": "Token 4, belongs to Bucket 1",
+          "bucket": "b1"
+        }
+      ]
+    },
+    {
+      "id": "ta-09-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 9,
+      "type": "matching",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-09-b. Place each token onto the bucket its label names.",
+      "buckets": [
+        {
+          "id": "b1",
+          "label": "Bucket 1"
+        },
+        {
+          "id": "b2",
+          "label": "Bucket 2"
+        },
+        {
+          "id": "b3",
+          "label": "Bucket 3"
+        },
+        {
+          "id": "b4",
+          "label": "Bucket 4"
+        }
+      ],
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "Token 1, belongs to Bucket 1",
+          "bucket": "b1"
+        },
+        {
+          "id": "t2",
+          "text": "Token 2, belongs to Bucket 2",
+          "bucket": "b2"
+        },
+        {
+          "id": "t3",
+          "text": "Token 3, belongs to Bucket 3",
+          "bucket": "b3"
+        },
+        {
+          "id": "t4",
+          "text": "Token 4, belongs to Bucket 4",
+          "bucket": "b4"
+        },
+        {
+          "id": "t5",
+          "text": "Token 5, belongs to Bucket 1",
+          "bucket": "b1"
+        },
+        {
+          "id": "t6",
+          "text": "Token 6, belongs to Bucket 2",
+          "bucket": "b2"
+        }
+      ]
+    },
+    {
+      "id": "ta-10-a",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 10,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-10-a. Choose the option marked correct. In this development bank the marked option is Option C.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "ta-10-b",
+      "assessment": "ta",
+      "section": "fundamentals",
+      "slot": 10,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item ta-10-b. How many rows does the table below contain?\n\n| id |\n|---|\n| 1 |\n| 2 |\n| 3 |\n| 4 |",
+      "options": [
+        {
+          "id": "o1",
+          "text": "1 row",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "2 rows",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "3 rows",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "4 rows",
+          "correct": true
+        }
+      ],
+      "fixedOrder": true
+    },
+    {
+      "id": "sql-01-a",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 1,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-01-a. Choose the option marked correct. In this development bank the marked option is Option B.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-01-b",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 1,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-01-b. How many rows does the table below contain?\n\n| id |\n|---|\n| 1 |\n| 2 |\n| 3 |",
+      "options": [
+        {
+          "id": "o1",
+          "text": "1 row",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "2 rows",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "3 rows",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "4 rows",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true
+    },
+    {
+      "id": "sql-02-a",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 2,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-02-a. Choose the option marked correct. In this development bank the marked option is Option C.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-02-b",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 2,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-02-b. Choose the option marked correct. In this development bank the marked option is Option D.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-02-c",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 2,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-02-c. Choose the option marked correct. In this development bank the marked option is Option A.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-03-a",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 3,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-03-a. Choose the option marked correct. In this development bank the marked option is Option D.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-03-b",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 3,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-03-b. Choose the option marked correct. In this development bank the marked option is Option A.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-04-a",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 4,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-04-a. Choose the option marked correct. In this development bank the marked option is Option A.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-04-b",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 4,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-04-b. How many rows does the table below contain?\n\n| id |\n|---|\n| 1 |\n| 2 |",
+      "options": [
+        {
+          "id": "o1",
+          "text": "1 row",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "2 rows",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "3 rows",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "4 rows",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true
+    },
+    {
+      "id": "sql-05-a",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 5,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-05-a. Choose the option marked correct. In this development bank the marked option is Option B.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-05-b",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 5,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-05-b. Choose the option marked correct. In this development bank the marked option is Option C.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-06-a",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 6,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-06-a. Choose the option marked correct. In this development bank the marked option is Option C.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-06-b",
+      "assessment": "sql",
+      "section": "foundations",
+      "slot": 6,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-06-b. Choose the option marked correct. In this development bank the marked option is Option D.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-07-a",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 7,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-07-a. Choose the option marked correct. In this development bank the marked option is Option D.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-07-b",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 7,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-07-b. How many rows does the table below contain?\n\n| id |\n|---|\n| 1 |",
+      "options": [
+        {
+          "id": "o1",
+          "text": "1 row",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "2 rows",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "3 rows",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "4 rows",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true
+    },
+    {
+      "id": "sql-07-c",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 7,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-07-c. Choose the option marked correct. In this development bank the marked option is Option B.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-08-a",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 8,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-08-a. Choose the option marked correct. In this development bank the marked option is Option A.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-08-b",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 8,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-08-b. Choose the option marked correct. In this development bank the marked option is Option B.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-08-c",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 8,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-08-c. Choose the option marked correct. In this development bank the marked option is Option C.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-09-a",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 9,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-09-a. Choose the option marked correct. In this development bank the marked option is Option B.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-09-b",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 9,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-09-b. Choose the option marked correct. In this development bank the marked option is Option C.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-10-a",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 10,
+      "type": "multi",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-10-a. Select every option marked correct. In this development bank the marked options are Option A, Option C.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        },
+        {
+          "id": "o5",
+          "text": "Option E",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "sql-10-b",
+      "assessment": "sql",
+      "section": "applied",
+      "slot": 10,
+      "type": "multi",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item sql-10-b. Select every option marked correct. In this development bank the marked options are Option B, Option D, Option F.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": true
+        },
+        {
+          "id": "o5",
+          "text": "Option E",
+          "correct": false
+        },
+        {
+          "id": "o6",
+          "text": "Option F",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-01-a",
+      "assessment": "python",
+      "section": "core",
+      "slot": 1,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-01-a. Choose the option marked correct. In this development bank the marked option is Option B.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-01-b",
+      "assessment": "python",
+      "section": "core",
+      "slot": 1,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-01-b. How many rows does the table below contain?\n\n| id |\n|---|\n| 1 |\n| 2 |\n| 3 |",
+      "options": [
+        {
+          "id": "o1",
+          "text": "1 row",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "2 rows",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "3 rows",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "4 rows",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true
+    },
+    {
+      "id": "python-02-a",
+      "assessment": "python",
+      "section": "core",
+      "slot": 2,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-02-a. Choose the option marked correct. In this development bank the marked option is Option C.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-02-b",
+      "assessment": "python",
+      "section": "core",
+      "slot": 2,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-02-b. Choose the option marked correct. In this development bank the marked option is Option D.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-03-a",
+      "assessment": "python",
+      "section": "core",
+      "slot": 3,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-03-a. Choose the option marked correct. In this development bank the marked option is Option D.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-03-b",
+      "assessment": "python",
+      "section": "core",
+      "slot": 3,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-03-b. Choose the option marked correct. In this development bank the marked option is Option A.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-04-a",
+      "assessment": "python",
+      "section": "core",
+      "slot": 4,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-04-a. Choose the option marked correct. In this development bank the marked option is Option A.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-04-b",
+      "assessment": "python",
+      "section": "core",
+      "slot": 4,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-04-b. How many rows does the table below contain?\n\n| id |\n|---|\n| 1 |\n| 2 |",
+      "options": [
+        {
+          "id": "o1",
+          "text": "1 row",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "2 rows",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "3 rows",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "4 rows",
+          "correct": false
+        }
+      ],
+      "fixedOrder": true
+    },
+    {
+      "id": "python-05-a",
+      "assessment": "python",
+      "section": "core",
+      "slot": 5,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-05-a. Choose the option marked correct. In this development bank the marked option is Option B.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-05-b",
+      "assessment": "python",
+      "section": "core",
+      "slot": 5,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-05-b. Choose the option marked correct. In this development bank the marked option is Option C.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-06-a",
+      "assessment": "python",
+      "section": "core",
+      "slot": 6,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-06-a. Choose the option marked correct. In this development bank the marked option is Option C.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-06-b",
+      "assessment": "python",
+      "section": "core",
+      "slot": 6,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-06-b. Choose the option marked correct. In this development bank the marked option is Option D.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-06-c",
+      "assessment": "python",
+      "section": "core",
+      "slot": 6,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-06-c. Choose the option marked correct. In this development bank the marked option is Option A.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-07-a",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 7,
+      "type": "multi",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-07-a. Select every option marked correct. In this development bank the marked options are Option C, Option E.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        },
+        {
+          "id": "o5",
+          "text": "Option E",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-07-b",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 7,
+      "type": "multi",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-07-b. Select every option marked correct. In this development bank the marked options are Option A, Option C, Option E.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        },
+        {
+          "id": "o5",
+          "text": "Option E",
+          "correct": true
+        },
+        {
+          "id": "o6",
+          "text": "Option F",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-07-c",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 7,
+      "type": "multi",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-07-c. Select every option marked correct. In this development bank the marked options are Option B, Option D, Option E.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": true
+        },
+        {
+          "id": "o5",
+          "text": "Option E",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-08-a",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 8,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-08-a. Choose the option marked correct. In this development bank the marked option is Option A.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-08-b",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 8,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-08-b. Choose the option marked correct. In this development bank the marked option is Option B.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-09-a",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 9,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-09-a. Choose the option marked correct. In this development bank the marked option is Option B.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-09-b",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 9,
+      "type": "single",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-09-b. Choose the option marked correct. In this development bank the marked option is Option C.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-10-a",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 10,
+      "type": "multi",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-10-a. Select every option marked correct. In this development bank the marked options are Option A, Option C.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": false
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": true
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": false
+        },
+        {
+          "id": "o5",
+          "text": "Option E",
+          "correct": false
+        }
+      ],
+      "fixedOrder": false
+    },
+    {
+      "id": "python-10-b",
+      "assessment": "python",
+      "section": "testing",
+      "slot": 10,
+      "type": "multi",
+      "difficulty": "standard",
+      "rationale": "Development item. The key is the option, sequence or assignment that the item text itself names.",
+      "sourceAnchor": "Development sample bank, no course anchor.",
+      "stem": "Development item python-10-b. Select every option marked correct. In this development bank the marked options are Option B, Option D, Option F.",
+      "options": [
+        {
+          "id": "o1",
+          "text": "Option A",
+          "correct": false
+        },
+        {
+          "id": "o2",
+          "text": "Option B",
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": "Option C",
+          "correct": false
+        },
+        {
+          "id": "o4",
+          "text": "Option D",
+          "correct": true
+        },
+        {
+          "id": "o5",
+          "text": "Option E",
+          "correct": false
+        },
+        {
+          "id": "o6",
+          "text": "Option F",
+          "correct": true
+        }
+      ],
+      "fixedOrder": false
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "python-08-a",
+  "assessment": "python",
+  "section": "testing",
+  "slot": 8,
+  "type": "single",
+  "stem": "A test file contains the code below. What does pytest report when it runs `test_get_order`?\n\n```python\ndef get_order(order_id):\n    return {\"id\": order_id, \"status\": \"Shipped\", \"items\": 2}\n\ndef test_get_order():\n    order = get_order(7)\n    assert order[\"status\"] == \"Delivered\"\n    assert order[\"items\"] == 3\n```",
+  "options": [
+    { "id": "a", "text": "The test fails at `assert order[\"status\"] == \"Delivered\"`, and the second assert does not run.", "correct": true },
+    { "id": "b", "text": "The test fails, and pytest reports both asserts as failed.", "correct": false },
+    { "id": "c", "text": "The test passes, because get_order returns a value without raising an exception.", "correct": false },
+    { "id": "d", "text": "The test errors, because get_order has no test_ prefix and cannot be called from a test.", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "order[\"status\"] is \"Shipped\", so the first assert's comparison is False and the assert raises AssertionError. That exception ends test_get_order immediately, so the second assert is never evaluated, and pytest reports one failed test, showing 'Shipped' == 'Delivered' as the compared values. pytest does not carry on past a failed assert to gather further failures, so it never reports both asserts; only the first failing assert appears in the report. A test passes only when every assert it reaches holds; get_order returning normally does not make the test pass, because it is the assert itself that raises the exception. Functions without the test_ prefix are ordinary functions that a test can call freely; the prefix only decides which functions pytest collects as tests, so no error arises from calling get_order.",
+  "sourceAnchor": "Python Automation Testing With Pytest - assertions and test discovery (assertions); Introduction to Testing in Python - creating tests with pytest"
+}

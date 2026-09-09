@@ -1,0 +1,18 @@
+{
+  "id": "python-09-a",
+  "assessment": "python",
+  "section": "testing",
+  "slot": 9,
+  "type": "single",
+  "stem": "A test file contains the code below. What happens when pytest runs `test_new_order_has_no_lines`?\n\n```python\nimport pytest\n\n@pytest.fixture\ndef order():\n    return {\"id\": 42, \"lines\": []}\n\ndef test_new_order_has_no_lines(order):\n    assert order[\"lines\"] == []\n```",
+  "options": [
+    { "id": "a", "text": "pytest runs the order fixture function before the test and passes the returned dictionary into the test through the order parameter, and the test passes.", "correct": true },
+    { "id": "b", "text": "pytest runs the test once for each key in the dictionary that the order fixture returns, so it is reported twice.", "correct": false },
+    { "id": "c", "text": "The test fails with a NameError, because order is used inside the test as a variable that was never assigned.", "correct": false },
+    { "id": "d", "text": "pytest collects order as a second test, because the decorator marks it as one, and runs both functions.", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "A fixture is a function that pytest runs during test setup, not a function the test calls itself. Naming the fixture as a parameter of the test tells pytest to run the fixture function and supply its return value as that argument, so the test receives the dictionary, order[\"lines\"] is an empty list, and the assertion passes. Option b is wrong because running a test once per value is what parametrisation does; a fixture supplies one value and the test runs once. Option c is wrong because pytest injects the fixture value before the test body runs, so order is bound and no NameError arises. Option d is wrong because the fixture decorator does not make order a test; pytest collects only functions whose names start with test_, so only one test is collected and run.",
+  "sourceAnchor": "Python Automation Testing With Pytest - parameterize and setup and teardown (fixtures); Introduction to Testing in Python - fixtures (data preparation)"
+}

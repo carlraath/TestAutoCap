@@ -1,0 +1,18 @@
+{
+  "id": "python-09-b",
+  "assessment": "python",
+  "section": "testing",
+  "slot": 9,
+  "type": "single",
+  "stem": "A test file contains the code below. How does pytest run `test_square`?\n\n```python\nimport pytest\n\n@pytest.mark.parametrize(\"value, expected\", [(2, 4), (3, 9), (4, 16)])\ndef test_square(value, expected):\n    assert value * value == expected\n```",
+  "options": [
+    { "id": "a", "text": "As three separate tests, one per tuple, each reported with its own pass or fail result.", "correct": true },
+    { "id": "b", "text": "As one test that runs the assert three times and reports a single result.", "correct": false },
+    { "id": "c", "text": "As one test using only the first tuple; the remaining tuples are ignored.", "correct": false },
+    { "id": "d", "text": "It does not run, because value and expected are not defined as fixtures.", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "parametrize generates one test case per entry in the list, and pytest reports each separately, for example test_square[2-4], test_square[3-9] and test_square[4-16]. It is not a single test with a repeated assert: each case is an independent test with its own outcome, so one failing tuple does not hide the others. Every tuple is used, not only the first. The decorator itself supplies value and expected for each case, so no fixture is needed.",
+  "sourceAnchor": "Python Automation Testing With Pytest - parameterize and setup and teardown (parametrised testing)"
+}

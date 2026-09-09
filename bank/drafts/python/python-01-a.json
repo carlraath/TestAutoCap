@@ -1,0 +1,18 @@
+{
+  "id": "python-01-a",
+  "assessment": "python",
+  "section": "core",
+  "slot": 1,
+  "type": "single",
+  "stem": "What does this code print?\n\n```python\nvalues = [0, 1, \"\", \"no\", [], None]\ncount = 0\nfor v in values:\n    if v:\n        count += 1\nprint(count)\n```",
+  "options": [
+    { "id": "a", "text": "1", "correct": false },
+    { "id": "b", "text": "2", "correct": true },
+    { "id": "c", "text": "3", "correct": false },
+    { "id": "d", "text": "4", "correct": false }
+  ],
+  "fixedOrder": true,
+  "difficulty": "standard",
+  "rationale": "The if statement tests each value's truthiness. 1 and \"no\" are truthy; 0, the empty string, the empty list and None are falsy, so count is 2. 1 treats the non-empty string \"no\" as falsy because of the word it holds, but any non-empty string is truthy; only the empty string is falsy. 3 treats one of the empty string, the empty list or None as truthy; all three are falsy. 4 treats only 0 and None as falsy; the empty string and the empty list are falsy too.",
+  "sourceAnchor": "Programming for Everybody - variables and expressions (data types) and conditional code"
+}

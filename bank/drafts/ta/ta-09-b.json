@@ -1,0 +1,56 @@
+{
+  "id": "ta-09-b",
+  "assessment": "ta",
+  "section": "fundamentals",
+  "slot": 9,
+  "type": "matching",
+  "stem": "Place each scenario onto the run trigger that fits it.",
+  "buckets": [
+    {
+      "id": "b1",
+      "label": "On commit"
+    },
+    {
+      "id": "b2",
+      "label": "Scheduled"
+    },
+    {
+      "id": "b3",
+      "label": "Pre-release"
+    },
+    {
+      "id": "b4",
+      "label": "On demand"
+    }
+  ],
+  "tokens": [
+    {
+      "id": "t1",
+      "text": "An API test suite triggered by each commit to the main branch.",
+      "bucket": "b1"
+    },
+    {
+      "id": "t2",
+      "text": "A data quality check that runs every weekday at 06:00.",
+      "bucket": "b2"
+    },
+    {
+      "id": "t3",
+      "text": "A full regression run as the final check before release approval.",
+      "bucket": "b3"
+    },
+    {
+      "id": "t4",
+      "text": "A run a tester starts manually to reproduce a reported defect.",
+      "bucket": "b4"
+    },
+    {
+      "id": "t5",
+      "text": "A performance suite that runs every Sunday at 03:00.",
+      "bucket": "b2"
+    }
+  ],
+  "difficulty": "standard",
+  "rationale": "t1 is On commit: it is triggered by a change entering the main branch (each commit) and nothing else; it names no time, no release and no person, so Scheduled, Pre-release and On demand do not fit. t2 and t5 are Scheduled: each runs at a fixed time (every weekday at 06:00, every Sunday at 03:00) regardless of any change or release; neither names a commit, a release or a person, so On commit, Pre-release and On demand do not fit. t3 is Pre-release: it is tied to the release approval point, the last check before a release goes ahead, not to a commit or a clock; it names no commit, no time and no person starting it, so On commit, Scheduled and On demand do not fit. t4 is On demand: it is started by a person for one specific purpose (reproducing a reported defect), not by a commit, a timetable or a release; it names no commit, no time and no release, so On commit, Scheduled and Pre-release do not fit. Each scenario names its trigger's defining property (a commit, a fixed time, a release about to be approved, a person starting one run), so no token fits two buckets.",
+  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 5 Implementation and deployment strategies: CI/CD pipelines and run triggers"
+}

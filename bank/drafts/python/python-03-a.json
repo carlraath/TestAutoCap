@@ -1,0 +1,18 @@
+{
+  "id": "python-03-a",
+  "assessment": "python",
+  "section": "core",
+  "slot": 3,
+  "type": "single",
+  "stem": "What does this code print?\n\n```python\ndef diff(first, second):\n    return first - second\n\ngap = diff(4, 10)\nprint(diff(gap, 2))\n```",
+  "options": [
+    { "id": "a", "text": "-8", "correct": true },
+    { "id": "b", "text": "-4", "correct": false },
+    { "id": "c", "text": "4", "correct": false },
+    { "id": "d", "text": "8", "correct": false }
+  ],
+  "fixedOrder": true,
+  "difficulty": "standard",
+  "rationale": "Arguments bind to parameters by position. In diff(4, 10), first is 4 and second is 10, so the call returns 4 - 10, which is -6, and that value is stored in gap. In diff(gap, 2), first is -6 and second is 2, so the call returns -6 - 2, which is -8, and print shows -8. -4 reads both calls as second minus first: 10 - 4 is 6, then 2 - 6 is -4. 4 treats the first call as the positive difference between 4 and 10, giving 6, then computes 6 - 2 correctly; the first parameter is 4, so the first call returns -6, not 6. 8 traces the first call correctly to -6 but reads the second call as 2 minus gap, giving 2 - (-6); the variable gap is the first argument, so it binds to first and the call returns -6 - 2.",
+  "sourceAnchor": "Programming for Everybody - functions (defining, arguments, return values)"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "python-05-a",
+  "assessment": "python",
+  "section": "core",
+  "slot": 5,
+  "type": "single",
+  "stem": "What does this code print?\n\n```python\ntext = \"invoice-2024-final.csv\"\nparts = text.split(\"-\")\nprint(parts[1], len(parts), text.startswith(\"Invoice\"))\n```",
+  "options": [
+    { "id": "a", "text": "2024 3 False", "correct": true },
+    { "id": "b", "text": "2024 3 True", "correct": false },
+    { "id": "c", "text": "invoice 3 False", "correct": false },
+    { "id": "d", "text": "2024 2 False", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "split(\"-\") gives [\"invoice\", \"2024\", \"final.csv\"]. Indexing starts at 0, so parts[1] is \"2024\"; len(parts) is 3; string comparison is case sensitive, so text.startswith(\"Invoice\") is False because the text begins with a lower-case \"invoice\". \"2024 3 True\" treats the comparison as case insensitive; a capital letter does not match a lower-case one. \"invoice 3 False\" assumes indexing starts at 1, which would make parts[1] the first element; it starts at 0. \"2024 2 False\" counts the two separators instead of the three pieces they produce.",
+  "sourceAnchor": "Programming for Everybody - strings (indexing, methods such as split and startswith, case-sensitive comparison)"
+}

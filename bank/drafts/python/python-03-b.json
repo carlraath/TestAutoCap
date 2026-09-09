@@ -1,0 +1,18 @@
+{
+  "id": "python-03-b",
+  "assessment": "python",
+  "section": "core",
+  "slot": 3,
+  "type": "single",
+  "stem": "What does this code print?\n\n```python\ndef total(values):\n    result = 0\n    for v in values:\n        result += v\n\nprint(total([1, 2, 3]))\n```",
+  "options": [
+    { "id": "a", "text": "6", "correct": false },
+    { "id": "b", "text": "None", "correct": true },
+    { "id": "c", "text": "0", "correct": false },
+    { "id": "d", "text": "An error is raised because result is a local variable", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "The function computes result but has no return statement, so the call evaluates to None and print shows None. 6 assumes the computed value is returned; without a return statement the value stays inside the function. 0 assumes the initial value leaks out; local variables are not visible to the caller. Calling a function that has no return statement is not an error; the call simply produces None.",
+  "sourceAnchor": "Programming for Everybody - functions (defining, arguments, return values)"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "ta-03-a",
+  "assessment": "ta",
+  "section": "fundamentals",
+  "slot": 3,
+  "type": "single",
+  "stem": "A team runs a load test against a web shop's checkout service to measure response times at 500 concurrent users. In the agile testing quadrants, which quadrant does this activity belong to?",
+  "options": [
+    {
+      "id": "a",
+      "text": "Technology-facing tests that critique the product",
+      "correct": true
+    },
+    {
+      "id": "b",
+      "text": "Technology-facing tests that support the team",
+      "correct": false
+    },
+    {
+      "id": "c",
+      "text": "Business-facing tests that support the team",
+      "correct": false
+    },
+    {
+      "id": "d",
+      "text": "Business-facing tests that critique the product",
+      "correct": false
+    }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "Key a: performance and load testing is technology-facing (it measures a technical property, response time under load, using tools) and it critiques the product (it evaluates the built system rather than guiding what to build). b is wrong because technology-facing tests that support the team are unit and component tests written to guide development, not measurements of the built system. c is wrong because business-facing tests that support the team are functional and story tests expressed in business terms; response time under load is not a business-facing example. d is wrong because business-facing tests that critique the product are exploratory, usability and acceptance activities, which rely on human judgement rather than tool-driven measurement.",
+  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapters 1 and 4: test types and levels, agile testing quadrants"
+}

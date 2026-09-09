@@ -1,0 +1,18 @@
+{
+  "id": "sql-09-a",
+  "assessment": "sql",
+  "section": "applied",
+  "slot": 9,
+  "type": "single",
+  "stem": "A migration copies balances from `source` to `target`. Both tables hold the same four ids and every amount is present.\n\n| source.id | source.amount |\n|---|---|\n| 1 | 100 |\n| 2 | 250 |\n| 3 | 75 |\n| 4 | 300 |\n\n| target.id | target.amount |\n|---|---|\n| 1 | 100 |\n| 2 | 200 |\n| 3 | 75 |\n| 4 | 350 |\n\nWhich query returns the ids whose amount differs between the two tables, giving 2 and 4?",
+  "options": [
+    { "id": "a", "text": "SELECT s.id FROM source s INNER JOIN target t ON s.id = t.id WHERE s.amount <> t.amount", "correct": true },
+    { "id": "b", "text": "SELECT s.id FROM source s INNER JOIN target t ON s.id = t.id WHERE s.amount = t.amount", "correct": false },
+    { "id": "c", "text": "SELECT id FROM source EXCEPT SELECT id FROM target", "correct": false },
+    { "id": "d", "text": "SELECT s.id FROM source s INNER JOIN target t ON s.amount = t.amount", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "Joining the two tables on id pairs each source row with its target row, and the WHERE clause keeps the pairs whose amounts differ, 2 and 4, so option a is correct. Option b keeps the pairs whose amounts are equal, 1 and 3, the opposite of the goal. Option c compares ids only, and because both tables hold the same ids it returns nothing. Option d joins on amount rather than id, which pairs rows by coincidence of value and returns 1 and 3 here. Each query was run against the shown rows and only option a produces 2 and 4.",
+  "sourceAnchor": "SQL for Testers - validating data integrity: detecting changed values between source and target (join and compare)"
+}

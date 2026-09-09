@@ -1,0 +1,56 @@
+{
+  "id": "ta-09-a",
+  "assessment": "ta",
+  "section": "fundamentals",
+  "slot": 9,
+  "type": "matching",
+  "stem": "Place each scenario onto the run trigger that fits it.",
+  "buckets": [
+    {
+      "id": "b1",
+      "label": "On commit"
+    },
+    {
+      "id": "b2",
+      "label": "Scheduled"
+    },
+    {
+      "id": "b3",
+      "label": "Pre-release"
+    },
+    {
+      "id": "b4",
+      "label": "On demand"
+    }
+  ],
+  "tokens": [
+    {
+      "id": "t1",
+      "text": "A component test suite that starts automatically each time a change is merged to the shared branch.",
+      "bucket": "b1"
+    },
+    {
+      "id": "t2",
+      "text": "A database reconciliation suite that runs at 06:00 every morning against the test environment.",
+      "bucket": "b2"
+    },
+    {
+      "id": "t3",
+      "text": "A full regression pack that the release pipeline runs against the release candidate as the last gate before it is deployed to production.",
+      "bucket": "b3"
+    },
+    {
+      "id": "t4",
+      "text": "A run that a tester starts by hand to reproduce a failure reported on the test environment.",
+      "bucket": "b4"
+    },
+    {
+      "id": "t5",
+      "text": "An API test suite that the pipeline starts automatically on every push to the shared branch.",
+      "bucket": "b1"
+    }
+  ],
+  "difficulty": "standard",
+  "rationale": "t1 and t5 are On commit: each is started by a change entering the shared branch (a merge in t1, a push in t5) and by nothing else, so neither runs to a clock, at a release point or at a person's request. t2 is Scheduled: it runs at a fixed time (06:00 every morning) whether or not any change, release or request has occurred, so it is not tied to a commit, a release or a person. t3 is Pre-release: it is run by the release pipeline as the last gate before the release candidate is deployed to production, so its trigger is the approaching release, not a commit, a timetable or a person's request. t4 is On demand: it is started by hand by a tester for one specific purpose (reproducing a reported failure), not by a commit, a fixed time or a release step. Every scenario names its trigger's defining property (a merge or push, a fixed time, a deployment about to happen, a person starting one run), so no token fits two buckets.",
+  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 5 Implementation and deployment strategies: CI/CD pipelines and run triggers"
+}

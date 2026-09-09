@@ -1,0 +1,20 @@
+{
+  "id": "python-07-a",
+  "assessment": "python",
+  "section": "testing",
+  "slot": 7,
+  "type": "multi",
+  "stem": "pytest runs with default settings in a folder containing the file `test_orders.py`. The file defines the six functions below at module level. Which of them will pytest collect as tests?",
+  "options": [
+    { "id": "a", "text": "def test_totals():", "correct": true },
+    { "id": "b", "text": "def check_totals():", "correct": false },
+    { "id": "c", "text": "def test_empty_input():", "correct": true },
+    { "id": "d", "text": "def totals_test():", "correct": false },
+    { "id": "e", "text": "def Test_discount():", "correct": false },
+    { "id": "f", "text": "def setup_data():", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "With default settings pytest collects module-level functions whose names begin with the lowercase prefix test, conventionally written test_. test_totals and test_empty_input carry that prefix, so both are collected. check_totals and setup_data do not begin with the prefix, so they are ordinary helper functions and are not collected. totals_test has test at the end; for functions the match is a prefix, not a suffix, so it is not collected. Test_discount begins with a capital T; the prefix match is case-sensitive, and a capitalised Test prefix is the convention for test classes, not for functions, so it is not collected either. Verified by running pytest --collect-only against a module containing all six functions: exactly test_totals and test_empty_input were collected.",
+  "sourceAnchor": "Python Automation Testing With Pytest - assertions and test discovery (test naming and discovery)"
+}

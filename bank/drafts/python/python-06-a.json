@@ -1,0 +1,18 @@
+{
+  "id": "python-06-a",
+  "assessment": "python",
+  "section": "core",
+  "slot": 6,
+  "type": "single",
+  "stem": "A test compares an expected record with the record a service returned. What does this code print?\n\n```python\nexpected = {\"id\": 7, \"status\": \"open\", \"total\": 40}\nactual = {\"id\": 7, \"status\": \"closed\", \"total\": 40, \"note\": \"\"}\nmismatches = []\nfor key in expected:\n    if expected[key] != actual.get(key):\n        mismatches.append(key)\nprint(mismatches)\n```",
+  "options": [
+    { "id": "a", "text": "['status']", "correct": true },
+    { "id": "b", "text": "['status', 'note']", "correct": false },
+    { "id": "c", "text": "['note']", "correct": false },
+    { "id": "d", "text": "[]", "correct": false }
+  ],
+  "fixedOrder": false,
+  "difficulty": "standard",
+  "rationale": "The loop visits only the keys of expected: id, status and total. id and total hold the same values in both records; status differs (open against closed), so mismatches is ['status']. \"['status', 'note']\" assumes keys that exist only in actual are visited; the loop iterates over expected. \"['note']\" treats the extra key as the only difference and misses the changed status. \"[]\" assumes the records match; the status values differ.",
+  "sourceAnchor": "Programming for Everybody - lists and dictionaries with loops and conditional code (reading a short program end to end)"
+}
