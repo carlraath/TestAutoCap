@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+/* Inter, self-hosted (variable font, 300 to 700). No runtime font CDN. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/fonts/inter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/fonts/inter-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF,
+    U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Avec brand tokens, derived from avecglobal.com. See docs/plan/brand-tokens.md. */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Consolas, "Liberation Mono", monospace;
+
+  --color-brand-300: #aa87d4;
+  --color-brand-400: #8e5fc6;
+  --color-brand-500: #7237b8;
+  --color-brand-600: #5b2c93;
+  --color-ink-900: #1d2436;
+  --color-ink-800: #252d41;
+  --color-ink-600: #4b5468;
+  --color-tint-200: #eee1fe;
+  --color-tint-100: #f6f1fd;
+  --color-surface: #fafafa;
+  --color-line: #e2e2e2;
+
+  --color-success: #2e7d32;
+  --color-attention: #b26a00;
+  --color-danger: #b3261e;
+
+  --radius-card: 0.5rem;
+  --shadow-card: 0 1px 2px rgb(114 55 184 / 0.06), 0 4px 16px rgb(114 55 184 / 0.08);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  background: var(--color-surface);
+}
+
+body {
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+
+/* Brand gradient backdrop, served locally. */
+.brand-gradient {
+  background-color: var(--color-brand-500);
+  background-image: url("/brand/avec-gradient-3.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Rendered markdown inside question stems. */
+.stem :where(p) {
+  margin: 0 0 0.75rem;
+}
+.stem :where(p:last-child) {
+  margin-bottom: 0;
+}
+.stem :where(pre) {
+  margin: 0.75rem 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre;
+}
+.stem :where(code):not(pre code) {
+  font-family: var(--font-mono);
+  font-size: 0.9375em;
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 0.25rem;
+  padding: 0.05rem 0.3rem;
+}
+.stem :where(table) {
+  margin: 0.75rem 0;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.stem :where(th) {
+  background: var(--color-brand-500);
+  color: #fff;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--color-brand-500);
+}
+.stem :where(td) {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--color-line);
+  background: #fff;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff;
+  }
+  .print-hidden {
+    display: none !important;
+  }
+  @page {
+    size: A4;
+    margin: 16mm;
+  }
+}
