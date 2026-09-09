@@ -4,31 +4,31 @@
   "section": "fundamentals",
   "slot": 6,
   "type": "single",
-  "stem": "A web shop team lists four checks it wants to add to its suite. Which check is the weakest candidate for automation?",
+  "stem": "A web shop team performs the four checks below by hand on every release and wants to automate them. Which check is the weakest candidate for automation?",
   "options": [
     {
       "id": "a",
-      "text": "Checking whether the redesigned home page looks appealing to shoppers.",
+      "text": "Confirming that the redesigned checkout page reads clearly to a shopper using it for the first time.",
       "correct": true
     },
     {
       "id": "b",
-      "text": "Checking that the order total equals the sum of the line totals for 50 sample baskets.",
+      "text": "Confirming that the displayed order total equals the sum of the line totals for 500 baskets built from a fixed data set.",
       "correct": false
     },
     {
       "id": "c",
-      "text": "Checking that a declined card payment leaves the order in the awaiting-payment state.",
+      "text": "Confirming that an order whose card payment is declined is left in the awaiting-payment state.",
       "correct": false
     },
     {
       "id": "d",
-      "text": "Checking that the nightly stock export has the same row count as the stock table.",
+      "text": "Confirming that the stock export file holds one row for every item in the stock table.",
       "correct": false
     }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Key a: whether a page looks appealing is a matter of human judgement with no deterministic expected result for a script to compare against, so it is the weakest candidate. b is wrong because a total that must equal a computed sum is deterministic and repeatable, a strong candidate. c is wrong because the resulting order state is a definite value that a script can read and compare, a strong candidate. d is wrong because a row count compared with a table count is deterministic, repeatable and run every night, a strong candidate.",
+  "rationale": "The stem fixes all four checks at the same frequency, every release, so repetition cannot separate them and the only remaining question is whether a script can decide the result. Key a: whether a page reads clearly to a first-time shopper has no fixed expected result to compare against, so two reviewers can reach different conclusions about the same page and a script has nothing to assert; the check therefore stays with a person and is the weakest candidate. b is wrong because the expected total of each basket is computed from its own line totals, so every one of the 500 baskets has a definite expected result, and the volume is an argument for automating rather than against it. c is wrong because the awaiting-payment state is a definite recorded value that a script can read back and compare after driving a declined payment. d is wrong because the number of rows in an export file compared with the number of items in the stock table is a definite comparison with a single expected result.",
   "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: what not to automate"
 }

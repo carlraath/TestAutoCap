@@ -4,27 +4,27 @@
   "section": "fundamentals",
   "slot": 2,
   "type": "ordering",
-  "stem": "Arrange the automated test layers of the test automation pyramid by how quickly one test typically runs, from fastest at the top of this list to slowest.",
+  "stem": "Arrange the automated test layers of the test automation pyramid by how fast one test typically runs, from fastest at the top of this list to slowest.",
   "elements": [
     {
       "id": "e1",
-      "text": "UI tests"
-    },
-    {
-      "id": "e2",
       "text": "Unit tests"
     },
     {
-      "id": "e3",
+      "id": "e2",
       "text": "API tests"
+    },
+    {
+      "id": "e3",
+      "text": "UI tests"
     }
   ],
   "key": [
+    "e1",
     "e2",
-    "e3",
-    "e1"
+    "e3"
   ],
   "difficulty": "standard",
-  "rationale": "Unit tests run in memory against one unit with no deployed system, so they are the fastest. API tests need a running service and a network call, so they are slower. UI tests drive a browser or screen through the full stack, so they are the slowest. Any other order puts a layer that needs more of the system running above one that needs less, which contradicts the pyramid: placing API tests above unit tests ignores that unit tests need no running service, and placing UI tests above either ignores that UI tests exercise the whole stack through a rendered interface.",
+  "rationale": "A unit test runs in memory against one unit with nothing deployed, so it is the fastest. An API test sends a request to a running service and waits for the response, so it takes longer. A UI test drives the whole stack through a rendered interface and waits for pages to load and settle, so it is the slowest. Every other order places a layer that exercises more of the running system above one that exercises less. Taking the five wrong orders in turn, fastest first: unit, UI, API places UI tests above API tests although a UI test drives the same service and the interface above it; API, unit, UI places API tests above unit tests although a unit test needs no service running at all; API, UI, unit makes unit tests the slowest of the three; UI, unit, API makes UI tests the fastest of the three; UI, API, unit is the fully reversed order, treating the slowest layer as the fastest.",
   "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: test pyramid and layers"
 }

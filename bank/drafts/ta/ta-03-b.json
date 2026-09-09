@@ -4,7 +4,7 @@
   "section": "fundamentals",
   "slot": 3,
   "type": "single",
-  "stem": "A tester spends an afternoon exploring a web shop's new returns screen without a script, trying unusual sequences of actions to learn how it behaves and to find problems. In the agile testing quadrants, which quadrant does this activity belong to?",
+  "stem": "Before development starts on a refund rule, the team agrees concrete examples of the refund amount expected in each case and automates those examples as checks the developers run while they build the rule. In the agile testing quadrants, which quadrant does this activity belong to?",
   "options": [
     {
       "id": "a",
@@ -19,16 +19,16 @@
     {
       "id": "c",
       "text": "Business-facing tests that support the team",
-      "correct": false
+      "correct": true
     },
     {
       "id": "d",
       "text": "Business-facing tests that critique the product",
-      "correct": true
+      "correct": false
     }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Key d: exploratory testing is business-facing (it evaluates the product from the user's point of view) and it critiques the product (it examines the built system to find problems rather than guiding what to build). a is wrong because technology-facing tests that critique the product are performance, load and security tests driven by tools, not unscripted human exploration. b is wrong because technology-facing tests that support the team are unit and component tests written to guide development. c is wrong because business-facing tests that support the team are functional and story tests defined before or during development to confirm the intended behaviour, whereas exploration examines the finished screen.",
-  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapters 1 and 4: test types and levels, agile testing quadrants"
+  "rationale": "Key c: agreed examples of expected business outcomes, automated as functional checks, sit in the business-facing quadrant that supports the team. They are business-facing because each example is stated as a refund amount a business reader understands, and they support the team because they are agreed before development and guide the developers while the rule is built. a is wrong because the technology-facing quadrant that critiques the product holds performance, load and security measurements of a built system, none of which is happening here. b is wrong because the technology-facing quadrant that supports the team holds unit and component tests expressed against the code's internal structure; these checks are expressed as business outcomes and are agreed with the wider team rather than derived from the implementation. d is wrong because the business-facing quadrant that critiques the product holds exploratory, usability and acceptance activities carried out on a product that already exists, whereas these examples are written before the rule is developed and shape what is built.",
+  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 1 Introduction and objectives for test automation and Chapter 4 Implementing test automation: test types and levels, agile testing quadrants"
 }

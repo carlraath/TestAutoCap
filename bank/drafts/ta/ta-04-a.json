@@ -4,7 +4,7 @@
   "section": "fundamentals",
   "slot": 4,
   "type": "single",
-  "stem": "A payments file import gains a new record type. The team writes new tests for the new record type. One of the new tests finds a defect; after the fix, the team re-runs that one test. The team also re-runs the existing settlement and reconciliation tests for the other record types to see that they still pass. Which classification fits the re-run of the existing settlement and reconciliation tests?",
+  "stem": "A stock-movement import job gains a new movement type. The team writes tests for the new movement type. One of those tests finds a defect, and after the fix the team runs that test again. The team then runs the existing tests for the movement types the job already handled, to see that they still pass. Which classification fits that run of the existing tests?",
   "options": [
     {
       "id": "a",
@@ -29,6 +29,6 @@
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Key a: regression testing re-runs existing tests on functionality that was not changed, to confirm that a change elsewhere has not broken it; re-running the settlement and reconciliation tests for the other record types is exactly that. b is wrong because progression testing is the testing of new functionality; that describes the new tests written for the new record type, not the re-run of existing tests. c is wrong because confirmation testing re-runs the specific test that previously failed to confirm that its defect has been fixed; that applies only to the re-run of the one test that found the defect, not to the existing tests for the other record types, which never failed. d is wrong because smoke testing is a small, quick check that the main functions work at all, not a re-run of the existing settlement and reconciliation suite.",
+  "rationale": "Key a: regression testing re-runs existing tests against functionality that the change left alone, to see that a change elsewhere has broken nothing; the run of the existing tests for the movement types the job already handled is exactly that. b is wrong because progression testing is the testing of new functionality, which in this scenario is the set of tests written for the new movement type, not the existing tests. c is wrong because confirmation testing re-runs the specific test that failed, to see that its defect is now fixed; this scenario does contain such a re-run, but it is the second run of the one test that found the defect, and the existing tests for the other movement types never failed. d is wrong because smoke testing is a short, shallow check that a build's main functions work at all before deeper testing, whereas the run described is the full existing test set for the movement types the job already handled.",
   "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 1 Introduction and objectives for test automation: regression testing versus progression testing"
 }

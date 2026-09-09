@@ -4,31 +4,31 @@
   "section": "fundamentals",
   "slot": 6,
   "type": "single",
-  "stem": "A payments batch team lists four checks it wants to add to its suite. Which check is the weakest candidate for automation?",
+  "stem": "A data warehouse team keeps a list of checks it could automate next. Each check below states how often it is performed. Which check is the weakest candidate for automation?",
   "options": [
     {
       "id": "a",
-      "text": "Checking that a one-off migration copied every account record, after which its script is retired.",
+      "text": "Checking once, on the day the warehouse is first brought into service, that three retention periods match the approved settings list.",
       "correct": true
     },
     {
       "id": "b",
-      "text": "Checking that each settled payment appears exactly once in the daily settlement file.",
+      "text": "Checking after every nightly load that each row of the source extract has a matching row in the warehouse table.",
       "correct": false
     },
     {
       "id": "c",
-      "text": "Checking that a payment with an invalid account number is written to the rejects table.",
+      "text": "Checking after every schema change that each warehouse column has the name and data type given in the agreed definition.",
       "correct": false
     },
     {
       "id": "d",
-      "text": "Checking that the end-of-day totals match the ledger totals after each batch run.",
+      "text": "Checking after every nightly load that a record carrying a malformed date is written to the error table.",
       "correct": false
     }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Key a: the migration runs once and its script is then retired, so this check will never be needed again; a check that is executed only once cannot repay the effort of scripting it, which makes it the weakest candidate even though its expected result is definite. b is wrong because a settlement file is produced every day and the expected result (each settled payment present exactly once) is definite, so the check is repeatable and deterministic, a strong candidate. c is wrong because the rejects-table rule gives a definite expected outcome and the check belongs to a suite that is run again with every change to the batch, so it is repeatable and deterministic, a strong candidate. d is wrong because totals compared after every batch run are deterministic and highly repeatable, a strong candidate.",
+  "rationale": "Every option states its own frequency and every option has a definite expected result, so frequency is what separates them. Key a: the check runs once, on one day, and compares three values against a list a person can read in a minute, so it will never run again and the effort of writing and maintaining a script is never repaid; a check that is executed once is the weakest candidate. b is wrong because a row-for-row comparison repeats after every nightly load and covers far more rows than a person could compare by hand, which makes it the strongest candidate on the list. c is wrong because column names and data types are compared against a fixed definition after every schema change, so the check recurs and its expected result is written down in advance. d is wrong because the routing of a malformed date to the error table is checked after every nightly load and has one definite expected outcome, so it is repeatable and deterministic.",
   "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: what not to automate"
 }

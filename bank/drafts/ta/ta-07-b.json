@@ -4,31 +4,31 @@
   "section": "fundamentals",
   "slot": 7,
   "type": "single",
-  "stem": "Each of the 150 automated API tests in a suite has four values written directly into its own code: the base URL of the test environment it calls, the request body it sends, the response code it expects, and the account number of the test customer it uses. The team is about to run the suite against a second test environment that hosts the same release of the system loaded with the same test data. Which property of the suite means that this move requires an edit in every test?",
+  "stem": "A team is choosing between two ways of automating the same regression checks. Proposal one takes 10 days to build and 2 days of maintenance per release. Proposal two takes 20 days to build and 1 day of maintenance per release. The checks run for 20 releases and are then retired. Which statement about the total effort over those 20 releases is correct?",
   "options": [
     {
       "id": "a",
-      "text": "The base URL of the test environment is written into every test.",
+      "text": "Proposal two costs 10 days less in total, because its lower maintenance is paid at every release.",
       "correct": true
     },
     {
       "id": "b",
-      "text": "The request body of each call is written into every test.",
+      "text": "Proposal one costs 10 days less in total, because its build takes half as long.",
       "correct": false
     },
     {
       "id": "c",
-      "text": "The expected response code of each call is written into every test.",
+      "text": "Proposal one costs less over these 20 releases, and proposal two would win only over a longer run.",
       "correct": false
     },
     {
       "id": "d",
-      "text": "The account number of the test customer is written into every test.",
+      "text": "The two cost the same in total, because proposal two's extra build effort equals the maintenance it saves.",
       "correct": false
     }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Key a: the base URL is the address of the environment, so it is the one value that is different for a second environment; because each of the 150 tests holds its own copy of it, all 150 tests have to be edited before the suite can run there, and this is the maintainability cost of writing environment-specific values into the tests instead of holding them once in a configuration read at run time, which would make the move a single change. b is wrong because the request body is defined by the API of the release under test; the second environment hosts the same release, so every test sends the same body and no test changes. c is wrong because the expected response code depends on how the release behaves for a given request and data; with the same release and the same test data the expected codes are unchanged. d is wrong because the account number identifies a record in the test data, and the same test data is loaded in the second environment, so the same account exists there and the value stays as it is. A copy of a value in every test costs maintenance only when that value changes, and the environment move changes the base URL alone.",
-  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: maintainability; Chapter 5 Implementation and deployment strategies: environments and configuration management"
+  "rationale": "Key a: proposal one costs 10 + (2 x 20) = 50 days and proposal two costs 20 + (1 x 20) = 40 days, so proposal two costs 10 days less over the period. The principle is that build effort is paid once while maintenance effort is paid at every release, so over a suite's life the maintenance rate decides the total and the cheaper build can be the dearer suite. b is wrong because the 10 days saved on the build are outweighed by the 20 extra days of maintenance that proposal one pays across 20 releases; comparing only the build costs is the error the item tests. c is wrong because proposal two is already the cheaper of the two within this period: the running totals cross at release 11, so no longer run is needed for it to win. d is wrong because the arithmetic does not balance; proposal two's extra build effort is 10 days while the maintenance it saves is 20 days, so the totals differ by 10 days.",
+  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: maintainability; Chapter 8 Continuous improvement: maintenance and improving the solution"
 }

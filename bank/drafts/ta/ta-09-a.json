@@ -4,7 +4,7 @@
   "section": "fundamentals",
   "slot": 9,
   "type": "matching",
-  "stem": "Place each scenario onto the run trigger that fits it.",
+  "stem": "Place each scenario onto the run trigger that fits it. Every trigger takes at least one scenario.",
   "buckets": [
     {
       "id": "b1",
@@ -26,31 +26,31 @@
   "tokens": [
     {
       "id": "t1",
-      "text": "A component test suite that starts automatically each time a change is merged to the shared branch.",
+      "text": "A unit suite that runs automatically whenever a change is merged into the shared branch.",
       "bucket": "b1"
     },
     {
       "id": "t2",
-      "text": "A database reconciliation suite that runs at 06:00 every morning against the test environment.",
+      "text": "A data volume suite that starts at 02:00 every night on the test environment.",
       "bucket": "b2"
     },
     {
       "id": "t3",
-      "text": "A full regression pack that the release pipeline runs against the release candidate as the last gate before it is deployed to production.",
+      "text": "A full regression pack run against the finished build as the final gate before production.",
       "bucket": "b3"
     },
     {
       "id": "t4",
-      "text": "A run that a tester starts by hand to reproduce a failure reported on the test environment.",
+      "text": "A targeted rerun a tester starts by hand to reproduce a failure seen yesterday.",
       "bucket": "b4"
     },
     {
       "id": "t5",
-      "text": "An API test suite that the pipeline starts automatically on every push to the shared branch.",
+      "text": "An interface contract suite started by each new change arriving in the code repository.",
       "bucket": "b1"
     }
   ],
   "difficulty": "standard",
-  "rationale": "t1 and t5 are On commit: each is started by a change entering the shared branch (a merge in t1, a push in t5) and by nothing else, so neither runs to a clock, at a release point or at a person's request. t2 is Scheduled: it runs at a fixed time (06:00 every morning) whether or not any change, release or request has occurred, so it is not tied to a commit, a release or a person. t3 is Pre-release: it is run by the release pipeline as the last gate before the release candidate is deployed to production, so its trigger is the approaching release, not a commit, a timetable or a person's request. t4 is On demand: it is started by hand by a tester for one specific purpose (reproducing a reported failure), not by a commit, a fixed time or a release step. Every scenario names its trigger's defining property (a merge or push, a fixed time, a deployment about to happen, a person starting one run), so no token fits two buckets.",
+  "rationale": "The item doubles On commit, and the discrimination it tests is that two differently worded repository events are the same trigger class. t1 is On commit: the run starts when a change enters the shared branch and at no other time, so it is not Scheduled (no clock time is named), not Pre-release (no release point is named) and not On demand (nobody asks for it; it runs automatically). t5 is also On commit: it is started by each new change arriving in the repository, which is the same trigger class as t1 even though the wording differs; it is not Scheduled (no time), not Pre-release (no release point) and not On demand (the change starts it, not a person's request for a test run). t2 is Scheduled: it starts at a fixed clock time, 02:00 every night, whether or not anything has changed, so it is not On commit (no change event), not Pre-release (it runs nightly, not at a release point) and not On demand (nobody starts it). t3 is Pre-release: it runs against the finished build as the final gate before production, so its trigger is the approaching release; it is not On commit (a finished build, not a code change, prompts it), not Scheduled (no time is named) and not On demand (it is a fixed gate in the release path, not an ad hoc request). t4 is On demand: a person starts it by hand for one stated purpose, reproducing a failure, so it is not On commit (no change triggers it), not Scheduled (no time) and not Pre-release (no release is involved). The stem states that every trigger takes at least one scenario, which removes the only alternative assignment a participant could argue, namely leaving a bucket empty and placing two tokens elsewhere.",
   "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 5 Implementation and deployment strategies: CI/CD pipelines and run triggers"
 }

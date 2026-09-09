@@ -10,6 +10,7 @@ import { audit, type AuditActor } from "./audit";
 import { getActiveItems, getBankVersion } from "./bank-loader";
 import { participantDisplayName } from "./codes";
 import { computeTrainingPlan, gatedPrescriptions } from "./plan";
+import { isExerciseClosed } from "./settings";
 
 /**
  * Attempt lifecycle service: start, view (resume), autosave, submit, expiry
@@ -200,6 +201,8 @@ export async function getAssessmentStatuses(db: Db, userId: string): Promise<Rec
  */
 export async function startAttempt(db: Db, user: Participant, assessmentId: AssessmentId): Promise<AttemptRow> {
   const definition = ASSESSMENTS[assessmentId];
+  // Once the administrator has closed the exercise, no new attempt may start (docs/02 close and export).
+  if (await isExerciseClosed(db)) throw new AttemptError("not_allowed", "The exercise is closed, so no new attempts can be started.");
   const live = await db.query.attempts.findFirst({
     where: and(eq(attempts.userId, user.userId), eq(attempts.assessmentId, assessmentId), inArray(attempts.status, ["in_progress", "submitted"])),
   });

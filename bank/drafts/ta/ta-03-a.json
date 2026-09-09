@@ -4,7 +4,7 @@
   "section": "fundamentals",
   "slot": 3,
   "type": "single",
-  "stem": "A team runs a load test against a web shop's checkout service to measure response times at 500 concurrent users. In the agile testing quadrants, which quadrant does this activity belong to?",
+  "stem": "An automation engineer runs a load test against a released order service to measure how its response times change as concurrent requests rise to 500, and reports the point at which the service slows down. In the agile testing quadrants, which quadrant does this activity belong to?",
   "options": [
     {
       "id": "a",
@@ -29,6 +29,6 @@
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Key a: performance and load testing is technology-facing (it measures a technical property, response time under load, using tools) and it critiques the product (it evaluates the built system rather than guiding what to build). b is wrong because technology-facing tests that support the team are unit and component tests written to guide development, not measurements of the built system. c is wrong because business-facing tests that support the team are functional and story tests expressed in business terms; response time under load is not a business-facing example. d is wrong because business-facing tests that critique the product are exploratory, usability and acceptance activities, which rely on human judgement rather than tool-driven measurement.",
-  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapters 1 and 4: test types and levels, agile testing quadrants"
+  "rationale": "Key a: performance and load testing sits in the technology-facing quadrant that critiques the product. It is technology-facing because it measures a technical property of the system, response time under concurrency, using a tool rather than a business rule, and it critiques the product because it evaluates a service that has already been built instead of guiding what to build. b is wrong because the technology-facing quadrant that supports the team holds unit and component tests written alongside the code to guide development; this measurement is taken after the service is released and changes no design decision as it is written. c is wrong because the business-facing quadrant that supports the team holds functional and story tests expressed in business terms and agreed before development; a concurrency measurement is not stated in business terms and does not define the intended behaviour of a feature. d is wrong because the business-facing quadrant that critiques the product holds exploratory, usability and acceptance activities that rely on human judgement of the product from a user's point of view, whereas this activity is a tool-driven measurement of a technical property.",
+  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 1 Introduction and objectives for test automation and Chapter 4 Implementing test automation: test types and levels, agile testing quadrants"
 }
