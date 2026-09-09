@@ -4,41 +4,41 @@
   "section": "fundamentals",
   "slot": 8,
   "type": "multi",
-  "stem": "A nightly data pipeline includes a reconciliation check that compares the rows it loaded with the rows in the source. On one night the check reports a failure. The next morning an investigator has only the failure record to work from and cannot re-run the check. Select all the items the record needs to hold for the investigator to establish what went wrong.",
+  "stem": "An automated test applies a set of reconciliation rules to a table loaded overnight, and one rule reports a mismatch. Select all the details the failure record must hold for the mismatch to be traced to its cause without repeating the run.",
   "options": [
     {
       "id": "a",
-      "text": "The rule that was evaluated and the identifiers of the input data it used.",
+      "text": "The identifier of the rule that reported the mismatch and the columns it compared.",
       "correct": true
     },
     {
       "id": "b",
-      "text": "The identifier of the pipeline run and the time at which the check failed.",
+      "text": "The rows that failed, with the source value and the loaded value for each.",
       "correct": true
     },
     {
       "id": "c",
-      "text": "The rows that did not match, showing the expected and the actual values.",
+      "text": "The environment the test ran in and the identifier of the load it examined.",
       "correct": true
     },
     {
       "id": "d",
-      "text": "The name of the team member who wrote the check.",
+      "text": "Where the test's results are published and how often that display refreshes.",
       "correct": false
     },
     {
       "id": "e",
-      "text": "The average duration of the pipeline over the last month.",
+      "text": "The escalation route the alert follows and the channel it is sent on.",
       "correct": false
     },
     {
       "id": "f",
-      "text": "The planned date of the next change to the pipeline.",
+      "text": "The retention period set for the test's output and the format it is kept in.",
       "correct": false
     }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Key a, b and c. The rule and the identifiers of its input data tell the investigator what was compared and against which data, so the comparison can be traced back to its inputs. The run identifier and the failure time tie the failure to one specific execution and to the state of the pipeline at that moment. The mismatched rows with their expected and actual values are the direct evidence of what the check found. Together these let the investigator reconstruct the failure from the record without a re-run. d is wrong because the author of the check is a fact about the check's ownership that is the same on every run, so it says nothing about what happened in this run. e is wrong because a monthly average of run duration summarises past runs and carries no detail about the run in which the check failed. f is wrong because a change planned for the future has not yet been made, so it cannot explain a failure that has already occurred.",
+  "rationale": "Key a, b and c. The stem says a set of rules was applied and one of them reported a mismatch, so a records which rule fired on this run and the columns it compared, without which the reported mismatch cannot be interpreted. b is the direct evidence of the mismatch itself, because a difference is only meaningful when both the source value and the loaded value are held side by side for each failing row. c names the environment and the identifier of the load that produced the table, which is what allows the investigator to trace the mismatch back from the values to the load that created them; without it the record shows a difference but gives no route to its cause. Each of the three is run-specific: it could have been different on the previous night. d is wrong because where results are published and how often that display refreshes is configuration about presenting results, identical on every run, and it tells the investigator nothing about the values that differed. e is wrong because alert routing and the channel used describe how a failure is announced rather than what the failing run found, and it is the same on every run. f is wrong because a retention period and storage format are a housekeeping policy for the output; they govern how long the record survives, not what the record shows about this mismatch.",
   "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 6 Test automation reporting and metrics: logging and failure evidence"
 }

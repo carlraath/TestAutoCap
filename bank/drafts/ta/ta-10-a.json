@@ -4,31 +4,31 @@
   "section": "fundamentals",
   "slot": 10,
   "type": "single",
-  "stem": "An automated check compares the row totals in a nightly extract against its source table, using a fixed set of test data. The check passes on most runs and fails on about one run in ten. Nothing in the check, the test data or the extract job changes between runs. Which response fits this situation?",
+  "stem": "An automated check on a reference table passes every time it is run on its own. Inside the nightly suite, which runs its checks one after another in a different order each night, the same check fails on some nights and passes on others. The team finds that several checks in the suite, including this one, create and delete rows in that same table. Which response fits this check?",
   "options": [
     {
       "id": "a",
-      "text": "Treat the check as unreliable and investigate the cause of the varying result before trusting it.",
+      "text": "Give the check its own rows, created and removed by the check itself, so that other checks cannot affect its result.",
       "correct": true
     },
     {
       "id": "b",
-      "text": "Delete the check from the suite so that its failures stop interrupting the nightly run.",
+      "text": "Fix the order of the checks in the suite so that this check always runs in the same position each night.",
       "correct": false
     },
     {
       "id": "c",
-      "text": "Configure the nightly run to retry the check until it passes and report the eventual pass.",
+      "text": "Rerun the check on its own whenever the suite reports it as failed, and record the result of that separate run.",
       "correct": false
     },
     {
       "id": "d",
-      "text": "Raise a defect against the extract job at each failure, treating the failure as a fault in the job.",
+      "text": "Add a wait at the start of the check so that the checks that run before it have time to finish.",
       "correct": false
     }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Key a: a check whose result varies while the check, the test data and the extract job all stay the same is flaky (non-deterministic), and the correct response is to find and fix the cause of the variation (commonly timing, such as reading the extract before the job has finished writing it, or shared state between runs) so that its result can be trusted again. b is wrong because deleting the check discards its coverage permanently and learns nothing about whether the cause lies in the check or in the extract job; stopping the interruptions is not the same as resolving the problem. c is wrong because retrying until a pass and reporting only the pass hides the varying result instead of resolving it, and a genuine intermittent fault in the extract job would be hidden with it. d is wrong because treating every failure as a fault in the job assumes the extract job is at fault without evidence; the cause of a flaky result is often in the check itself, and raising a defect at each failure records the symptom repeatedly without finding the cause.",
+  "rationale": "Key a: a check whose result varies while the check and the system under test stay the same is flaky, that is non-deterministic. The stem supplies the evidence for the cause: the check is reliable alone, varies only inside a suite whose order changes each night, and shares one table with other checks, so its result depends on the rows those other checks happen to have left behind. Making the check create and remove the rows it needs removes that dependence, which is the response the flaky-test topic asks for: find the source of the non-determinism and remove it, so the check's result can be trusted again. b is wrong because pinning the run order does not remove the dependence on other checks, it only holds one arrangement of it steady: the check still relies on the state another check leaves, so it fails again as soon as a check is added, changed or removed, or the suite is run in parallel, and the shared-state cause remains in place. c is wrong because the check is already known to pass on its own, so a separate solo run answers a question nobody is asking and tells the team nothing about the suite run; recording that result reports a pass over an unresolved varying result, and any real fault that the interaction exposes is hidden with it. d is wrong because the suite runs its checks one after another, so the checks that run before this one have already finished when it starts; waiting longer cannot undo the rows they have left in the shared table, so the check would keep varying and the team would have spent run time for no gain.",
   "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 7 Verifying the test automation solution: flaky tests and non-deterministic results"
 }

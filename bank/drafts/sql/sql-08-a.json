@@ -4,15 +4,15 @@
   "section": "applied",
   "slot": 8,
   "type": "single",
-  "stem": "A load job copies rows from `source` into `target`. After the run the tables hold these ids.\n\n| source.id |\n|---|\n| 101 |\n| 102 |\n| 103 |\n| 104 |\n\n| target.id |\n|---|\n| 101 |\n| 103 |\n\nWhich query returns the ids present in source but absent from target, giving 102 and 104?",
+  "stem": "A submission job copies reference codes from `submitted` into `accepted`. After the run the tables hold these codes.\n\n| submitted.ref_code |\n|---|\n| R-11 |\n| R-12 |\n| R-13 |\n| R-14 |\n\n| accepted.ref_code |\n|---|\n| R-11 |\n| R-13 |\n| R-20 |\n\nWhich query returns the codes present in submitted but absent from accepted, giving R-12 and R-14?",
   "options": [
-    { "id": "a", "text": "SELECT id FROM source EXCEPT SELECT id FROM target", "correct": true },
-    { "id": "b", "text": "SELECT id FROM source INTERSECT SELECT id FROM target", "correct": false },
-    { "id": "c", "text": "SELECT id FROM source UNION SELECT id FROM target", "correct": false },
-    { "id": "d", "text": "SELECT id FROM target EXCEPT SELECT id FROM source", "correct": false }
+    { "id": "a", "text": "SELECT ref_code FROM submitted EXCEPT SELECT ref_code FROM accepted", "correct": true },
+    { "id": "b", "text": "SELECT ref_code FROM accepted EXCEPT SELECT ref_code FROM submitted", "correct": false },
+    { "id": "c", "text": "SELECT ref_code FROM submitted INTERSECT SELECT ref_code FROM accepted", "correct": false },
+    { "id": "d", "text": "SELECT s.ref_code FROM submitted s LEFT JOIN accepted a ON s.ref_code = a.ref_code", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "EXCEPT returns the rows of the left query that do not appear in the right query, the reconciliation primitive for finding what failed to arrive, giving 102 and 104, so option a is correct. Option b returns the ids in both tables, 101 and 103, which are the rows that did arrive. Option c returns every id from either table, 101 to 104. Option d is the reversed form and finds the opposite gap, ids in target that are absent from source, which here is nothing. Each query was run against the shown rows and only option a produces 102 and 104.",
-  "sourceAnchor": "SQL for Testers - validating data integrity: finding rows missing from a target (EXCEPT)"
+  "rationale": "EXCEPT returns the rows of the left query that do not appear in the right query, so reading submitted first and accepted second isolates the codes that never arrived, R-12 and R-14, and option a is correct. Option b reverses the two sides and finds the opposite gap, the code held by accepted with no counterpart in submitted, returning R-20. Option c returns the codes held by both tables, R-11 and R-13, which are the ones that did arrive. Option d keeps every submitted row whether or not it matched, because a LEFT JOIN without a filter on the right-hand column returns all four codes R-11 to R-14. Each of the four queries was run in PGlite against the shown rows and only option a returns R-12 and R-14.",
+  "sourceAnchor": "SQL for Testers - validating data integrity: finding rows missing from a target (EXCEPT); Joining Data in SQL - set operations"
 }

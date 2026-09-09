@@ -4,15 +4,15 @@
   "section": "foundations",
   "slot": 1,
   "type": "single",
-  "stem": "The table `products` holds these rows.\n\n| id | name | category | price |\n|---|---|---|---|\n| 1 | Pen | stationery | 2 |\n| 2 | Desk | furniture | 150 |\n| 3 | Lamp | furniture | 40 |\n| 4 | Chair | furniture | 85 |\n| 5 | Pad | stationery | 5 |\n\nWhich names does `SELECT name FROM products WHERE category = 'furniture' AND price < 100;` return?",
+  "stem": "The table `catalogue` holds these rows.\n\n| id | code | category | price |\n|---|---|---|---|\n| 1 | C11 | fixings | 12 |\n| 2 | C12 | fixings | 33 |\n| 3 | C13 | fixings | 40 |\n| 4 | C14 | fixings | 58 |\n| 5 | C15 | tooling | 25 |\n\nWhich codes does `SELECT code FROM catalogue WHERE category = 'fixings' AND price < 40;` return?",
   "options": [
-    { "id": "a", "text": "Lamp and Chair", "correct": true },
-    { "id": "b", "text": "Desk, Lamp and Chair", "correct": false },
-    { "id": "c", "text": "Pen, Lamp, Chair and Pad", "correct": false },
-    { "id": "d", "text": "Desk", "correct": false }
+    { "id": "a", "text": "C11 and C12", "correct": true },
+    { "id": "b", "text": "C11, C12 and C13", "correct": false },
+    { "id": "c", "text": "C11, C12 and C15", "correct": false },
+    { "id": "d", "text": "C13 and C14", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Both conditions must hold for a row to be returned. Lamp (40) and Chair (85) are furniture priced below 100, so option a is correct. Option b ignores the price condition and includes Desk at 150. Option c ignores the category condition and returns every row priced below 100, including the two stationery items. Option d reads the comparison the wrong way round and returns the only furniture item priced above 100. Verified by running the query against the shown rows.",
+  "rationale": "Both conditions must hold for a row to be returned. C11 at 12 and C12 at 33 are the only fixings rows priced below 40, so option a is correct. Option b treats `<` as `<=` and adds C13, which is priced at exactly 40 and so fails a strict less-than comparison. Option c drops the category condition and returns every row priced below 40, which pulls in the tooling row C15. Option d reverses the comparison and returns the fixings rows priced at 40 or above. Verified in PostgreSQL against the shown rows: the key query returns C11 and C12, and each distractor was reproduced by running the misread query it represents.",
   "sourceAnchor": "Intermediate SQL - data filtering: multiple conditions"
 }

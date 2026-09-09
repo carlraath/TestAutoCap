@@ -4,15 +4,15 @@
   "section": "foundations",
   "slot": 3,
   "type": "single",
-  "stem": "The table `sales` holds these rows.\n\n| id | region | amount |\n|---|---|---|\n| 1 | North | 120 |\n| 2 | South | 80 |\n| 3 | North | 40 |\n| 4 | East | 200 |\n| 5 | South | 60 |\n\nWhich rows does `SELECT region, AVG(amount) AS average FROM sales GROUP BY region HAVING AVG(amount) >= 80;` return?",
+  "stem": "The table `readings` holds these rows.\n\n| id | meter_ref | value |\n|---|---|---|\n| 1 | M-01 | 30 |\n| 2 | M-01 | 20 |\n| 3 | M-02 | 45 |\n| 4 | M-03 | 25 |\n| 5 | M-03 | 10 |\n\nWhich rows does `SELECT meter_ref, COUNT(*) AS readings_taken FROM readings GROUP BY meter_ref HAVING SUM(value) > 40;` return?",
   "options": [
-    { "id": "a", "text": "North with average 80 and East with average 200", "correct": true },
-    { "id": "b", "text": "North with average 80, South with average 70 and East with average 200", "correct": false },
-    { "id": "c", "text": "North with average 120, South with average 80 and East with average 200", "correct": false },
-    { "id": "d", "text": "East with average 200", "correct": false }
+    { "id": "a", "text": "M-01 with a count of 2 and M-02 with a count of 1", "correct": true },
+    { "id": "b", "text": "M-01 with a count of 2, M-02 with a count of 1 and M-03 with a count of 2", "correct": false },
+    { "id": "c", "text": "M-02 with a count of 1", "correct": false },
+    { "id": "d", "text": "M-01 with a count of 2 and M-03 with a count of 2", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "GROUP BY produces one row per region with the average amount: North (120 + 40) / 2 = 80, South (80 + 60) / 2 = 70, East 200. HAVING then keeps only the groups whose average is at least 80, which leaves North and East, so option a is correct. Option b ignores the HAVING clause and keeps South. Option c applies the condition to individual rows before grouping, as a WHERE clause would, discarding the 40 and 60 rows and then averaging what is left in each region. Option d treats >= as a strict greater-than and drops North, whose average is exactly 80. Some databases display the averages with trailing zeros after the decimal point; the values are exactly 80 and 200. Verified by running the query against the shown rows.",
-  "sourceAnchor": "Intermediate SQL - data aggregation: one grouping column and filtering groups with HAVING"
+  "rationale": "The select list reports the number of rows in each group while the HAVING clause tests a different aggregate, the summed value. The group sums are M-01 30 + 20 = 50, M-02 45 and M-03 25 + 10 = 35, so HAVING SUM(value) > 40 keeps M-01 and M-02, and the counts reported for those two groups are 2 and 1, which makes option a correct. Option b is the result of ignoring the HAVING clause and reporting every group. Option c is the result of filtering individual rows before grouping, as a WHERE clause would, which leaves only the single reading of 45. Option d is the result of testing the counted rows rather than the summed value and keeping the groups holding more than one reading, which drops M-02 and admits M-03, whose sum of 35 is below the threshold. The query has no ORDER BY, so the options describe the set of rows returned rather than their order. Verified by executing the query and each misreading against the shown rows in PGlite: the key returns M-01 with 2 and M-02 with 1, ignoring HAVING returns all three groups, filtering rows first returns M-02 with 1, and testing the count returns M-01 with 2 and M-03 with 2.",
+  "sourceAnchor": "Intermediate SQL - data aggregation (summary values, one grouping column) and data filtering (complex filtering with HAVING)"
 }

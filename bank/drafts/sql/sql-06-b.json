@@ -4,15 +4,15 @@
   "section": "foundations",
   "slot": 6,
   "type": "single",
-  "stem": "The table `tickets` holds these rows.\n\n| id | status |\n|---|---|\n| 1 | open |\n| 2 | closed |\n| 3 | open |\n| 4 | pending |\n| 5 | closed |\n\nWhich values does this query return, in the order returned?\n\n```sql\nSELECT DISTINCT status\nFROM tickets\nORDER BY status DESC;\n```",
+  "stem": "The table `runs` holds these rows.\n\n| id | suite | outcome |\n|---|---|---|\n| 1 | S1 | pass |\n| 2 | S1 | pass |\n| 3 | S2 | pass |\n| 4 | S1 | fail |\n| 5 | S2 | pass |\n\nWhich rows does `SELECT DISTINCT suite, outcome FROM runs ORDER BY suite ASC, outcome ASC;` return, in the order returned?",
   "options": [
-    { "id": "a", "text": "pending, open, closed", "correct": true },
-    { "id": "b", "text": "closed, open, pending", "correct": false },
-    { "id": "c", "text": "open, closed, pending", "correct": false },
-    { "id": "d", "text": "pending, open, open, closed, closed", "correct": false }
+    { "id": "a", "text": "(S1, fail), (S1, pass), (S2, pass)", "correct": true },
+    { "id": "b", "text": "(S1, pass), (S2, pass), (S1, fail)", "correct": false },
+    { "id": "c", "text": "(S1, fail), (S1, pass), (S1, pass), (S2, pass), (S2, pass)", "correct": false },
+    { "id": "d", "text": "(S1, pass), (S2, pass)", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "DISTINCT removes the repeated statuses, leaving closed, open and pending, and ORDER BY status DESC sorts them descending, so option a is correct. Option b sorts ascending, ignoring DESC. Option c removes the duplicates but lists them in order of first appearance, ignoring the ORDER BY. Option d sorts descending but keeps the duplicates, ignoring DISTINCT. Verified by running the query against the shown rows.",
-  "sourceAnchor": "Intermediate SQL - data transformation: DISTINCT and ORDER BY"
+  "rationale": "DISTINCT applies to the whole selected row, so the five rows reduce to the three separate pairs (S1, pass), (S2, pass) and (S1, fail). ORDER BY suite ASC, outcome ASC then sorts on suite first and on outcome within a suite, giving (S1, fail), (S1, pass), (S2, pass), so option a is correct. Option b holds the right three pairs but in the order they first appear in the table, ignoring the ORDER BY clause. Option c sorts correctly but keeps every row, ignoring DISTINCT. Option d treats DISTINCT as applying to suite alone and keeps the first outcome seen for each suite, so it loses the (S1, fail) row. Verified in PostgreSQL against the shown rows: the query returns (S1, fail), (S1, pass), (S2, pass), the same query without DISTINCT returns all five rows in that sort order, and deduplicating on suite alone returns only (S1, pass) and (S2, pass).",
+  "sourceAnchor": "Intermediate SQL - data transformation: complex transformations (DISTINCT over several columns with ORDER BY)"
 }

@@ -4,36 +4,36 @@
   "section": "fundamentals",
   "slot": 5,
   "type": "multi",
-  "stem": "Select all the properties that strengthen the case for automating a check on a nightly data pipeline.",
+  "stem": "Select all the properties of a nightly manual data check that strengthen its case for automation.",
   "options": [
     {
       "id": "a",
-      "text": "It is repeated after every pipeline run.",
+      "text": "The same steps repeat for two hundred region codes.",
       "correct": true
     },
     {
       "id": "b",
-      "text": "The rule it checks has stayed the same for a year.",
+      "text": "It takes an hour of repetitive comparison each night.",
       "correct": true
     },
     {
       "id": "c",
-      "text": "Its expected result can be computed from the input data.",
-      "correct": true
-    },
-    {
-      "id": "d",
-      "text": "A reviewer decides pass or fail by judging a chart.",
+      "text": "The layout of the file it reads changes without warning.",
       "correct": false
     },
     {
+      "id": "d",
+      "text": "The data it checks can be queried directly by a script.",
+      "correct": true
+    },
+    {
       "id": "e",
-      "text": "It is needed only once, before the pipeline goes live.",
+      "text": "It will be run once only, before a one-off data migration.",
       "correct": false
     }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Key a, b and c: a check repeated after every pipeline run gives an automated version many runs over which to repay the effort of scripting it; a rule that has stayed the same for a year is unlikely to force the script to be rewritten; and an expected result computed from the input data gives the script a definite value to compare with the actual result. d is wrong because a verdict that rests on a reviewer's reading of a chart cannot be reduced to a comparison a script can make, so a person would still be needed every run. e is wrong because a check needed only once gives no repeat runs, so the effort of automating it is never repaid.",
-  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: when to automate, automation candidacy factors"
+  "rationale": "Key a, b and d. a is right because one set of steps applied to two hundred region codes is volume a script handles at almost no extra cost per code, while a person pays the full cost each time. b is right because an hour of repetitive comparison every night is a large recurring manual cost, and cost that recurs is exactly what automating removes. d is right because data a script can query directly means the check is technically feasible to automate and cheap to build, with no need to drive a screen. c is wrong because a file layout that changes without warning breaks the script repeatedly, so the maintenance cost rises with every change and weakens the case. e is wrong because a check run once only gives no repeat runs, so the effort of writing the automated version is never repaid.",
+  "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: when to automate, automation candidacy factors; Chapter 2 Preparing for test automation: design for testability"
 }

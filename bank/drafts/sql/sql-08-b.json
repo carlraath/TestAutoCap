@@ -4,15 +4,15 @@
   "section": "applied",
   "slot": 8,
   "type": "single",
-  "stem": "A load job copies orders from `expected` into `loaded`. After the run the tables hold these order ids.\n\n| expected.order_id |\n|---|\n| 501 |\n| 502 |\n| 503 |\n| 504 |\n| 505 |\n\n| loaded.order_id |\n|---|\n| 501 |\n| 503 |\n| 505 |\n\nWhich query returns the order ids present in expected but absent from loaded, giving 502 and 504?",
+  "stem": "A load job copies order rows from `expected` into `loaded`. After the run the tables hold these ids.\n\n| expected.id |\n|---|\n| 501 |\n| 502 |\n| 503 |\n| 504 |\n| 505 |\n\n| loaded.id |\n|---|\n| 501 |\n| 503 |\n| 505 |\n| 507 |\n\nWhich query returns the ids present in expected but absent from loaded, giving 502 and 504?",
   "options": [
-    { "id": "a", "text": "SELECT e.order_id FROM expected e LEFT JOIN loaded l ON e.order_id = l.order_id WHERE l.order_id IS NULL", "correct": true },
-    { "id": "b", "text": "SELECT e.order_id FROM expected e INNER JOIN loaded l ON e.order_id = l.order_id", "correct": false },
-    { "id": "c", "text": "SELECT e.order_id FROM expected e LEFT JOIN loaded l ON e.order_id = l.order_id WHERE l.order_id IS NOT NULL", "correct": false },
-    { "id": "d", "text": "SELECT l.order_id FROM loaded l LEFT JOIN expected e ON l.order_id = e.order_id WHERE e.order_id IS NULL", "correct": false }
+    { "id": "a", "text": "SELECT e.id FROM expected e LEFT JOIN loaded l ON e.id = l.id WHERE l.id IS NULL", "correct": true },
+    { "id": "b", "text": "SELECT e.id FROM expected e LEFT JOIN loaded l ON e.id = l.id WHERE l.id IS NOT NULL", "correct": false },
+    { "id": "c", "text": "SELECT e.id FROM expected e INNER JOIN loaded l ON e.id = l.id WHERE l.id IS NULL", "correct": false },
+    { "id": "d", "text": "SELECT l.id FROM loaded l LEFT JOIN expected e ON l.id = e.id WHERE e.id IS NULL", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "A LEFT JOIN keeps every expected row and fills the loaded columns with NULL where there is no match, so filtering on l.order_id IS NULL isolates the rows that never arrived, 502 and 504, and option a is correct. Option b keeps only the matched rows, 501, 503 and 505, the opposite of the goal. Option c keeps the matched rows too, because IS NOT NULL selects the rows that did find a partner. Option d starts from loaded and looks for loaded rows with no expected partner, which here returns nothing. Each query was run against the shown rows and only option a produces 502 and 504.",
-  "sourceAnchor": "SQL for Testers - validating data integrity: finding rows missing from a target (LEFT JOIN with IS NULL)"
+  "rationale": "A LEFT JOIN keeps every row of the left table and fills the right-hand columns with NULL where no match exists, so keeping the rows whose l.id is NULL isolates the expected ids that never arrived, 502 and 504, and option a is correct. Option b keeps the rows that did find a partner and returns 501, 503 and 505, the opposite of the goal. Option c looks similar but uses an INNER JOIN, which drops unmatched rows before the filter runs and so can never produce a NULL on the right; it returns no rows at all. Option d reads from the other side and finds the loaded id with no counterpart in expected, returning 507. Each of the four queries was run in PGlite against the shown rows and only option a returns 502 and 504.",
+  "sourceAnchor": "SQL for Testers - validating data integrity: finding rows missing from a target (LEFT JOIN with IS NULL); Joining Data in SQL - combining data horizontally: keeping all rows with LEFT JOIN"
 }

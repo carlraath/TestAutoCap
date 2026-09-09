@@ -1,0 +1,301 @@
+[
+ {
+  "slot": "python-01",
+  "changed": 1,
+  "concerns": [
+   "No validation problems were reported for any slot, so there is nothing to hand to other agents on that front. One count observation for a human: the assembler reports 65 items (ta 20, sql 23, python 22) whereas docs/04-q",
+   "Cross-slot shape overlap beyond my remit: python-02-a and python-02-b are themselves close siblings (loop over a list of numbers, one comparison in the condition, increment or add, print the accumulator, four small ascen",
+   "python-01-a was rewritten rather than patched, so it has never been seen by the SME in this form. It should be read fresh at the docs/04 step 3 sign-off rather than skimmed as a previously reviewed item.",
+   "Judgement call worth a second opinion: I treated the recorded calibration finding against python-01-a as real but secondary, and the unrecorded template duplication with slot 2 as the decisive reason to rewrite. A review"
+  ]
+ },
+ {
+  "slot": "python-03",
+  "changed": 1,
+  "concerns": [
+   "python-03-b option d (\"An error, because there is no return statement\") is much longer than the three short options beside it. It is a distractor, so the usual longest-option cue points away from the key rather than towa",
+   "Calibration between the two items is close but not identical: python-03-a asks for two chained calls and signed arithmetic, python-03-b asks for one call and one conceptual fact. I judge both standard for a PY-1 graduate",
+   "The whole-bank assembly reports 65 items (ta 20, sql 23, python 22) while docs/04 section 'Generation and review workflow' states 66 items total. The arithmetic of 2 per slot plus 1 extra for each of the five contested s",
+   "The validator reported no problems for any slot in this run, so I have nothing to hand back to other slot owners."
+  ]
+ },
+ {
+  "slot": "python-05",
+  "changed": 1,
+  "concerns": [
+   "Bank item count: the assembler reports 65 items (ta 20, sql 23, python 22), but docs/04-question-authoring.md step 1 of the generation workflow states 66 items total. Either the doc's arithmetic is off by one or a contes",
+   "Cross-slot shape echo, not a rule breach: python-04-b prints a slice alongside len(...) in a single print, and both python-05 items also print a positional value alongside a length. Within my slot the two items are now c",
+   "python-05-b's snippet depends on a string literal with two leading and two trailing spaces. I confirmed the stem renderer preserves them (react-markdown fenced block plus white-space: pre in globals.css), and the key is ",
+   "Both python-05 items still share the zero-versus-one indexing misconception as one distractor each. I judged this acceptable and unavoidable because it is the defining misconception of the string-operations slot, and eve"
+  ]
+ },
+ {
+  "slot": "python-06",
+  "changed": 1,
+  "concerns": [
+   "python-06-b remains the densest item in the slot: it chains a slice, split, isdigit and int within seven lines, against a's dictionary lookup and c's single comparison. I judged it inside tolerance and left it, but a hum",
+   "python-06-a uses dict.get, and python-04-a (another agent's slot) also uses counts.get within a loop. They are different questions and different slots, but a participant's paper serves both, so a reviewer may wish to con",
+   "The assembled bank totals 65 items (ta 20, sql 23, python 22), while docs/04-question-authoring.md states 66 as the target. The per-slot arithmetic in the blueprints yields 65, so the discrepancy looks like a stale figur",
+   "No validation problems were reported against any slot, so nothing was left for other agents' slots."
+  ]
+ },
+ {
+  "slot": "python-07",
+  "changed": 1,
+  "concerns": [
+   "python-07-c is longer than its siblings because the class facet needs a code block (stem 439 characters against 185 and 197), although its option texts are shorter, so total reading load is close. A human reviewer may wa",
+   "python-07-b keeps the distractor login_tests.py, which differs from the default *_test.py suffix pattern by one character. Both reasoning routes (knowing only the test_ prefix, or knowing both default patterns) reach 'no",
+   "python-07-a keeps the distractor Test_discount, which turns on the case sensitivity of the function prefix and on Test* applying to classes rather than functions. It is mechanically verified and defensible, but it is the",
+   "The assembler reports 65 items (ta 20, sql 23, python 22), while docs/04 step 1 of the generation workflow states 66 items total. That is a documentation arithmetic point outside this slot, not a validation failure.",
+   "The validator reported no problems for any slot, so there is nothing to hand back to other slot owners. Other draft files under bank/drafts/python were modified concurrently by other agents during my run; I did not read "
+  ]
+ },
+ {
+  "slot": "python-08",
+  "changed": 2,
+  "concerns": [
+   "The assembler reports 65 items (ta 20, sql 23, python 22) while docs/04-question-authoring.md states the bank should be 66 items. The per-slot arithmetic implied by the blueprints and the contested-slot markings gives ex",
+   "python-08-b assumes familiarity with pytest.raises. That is explicitly listed in the PY-2b syllabus (Chapter 1, creating tests with pytest) and is within the 'pytest basics' allowance, but it is the only item in the slot",
+   "python-08-a now offers three options that all end in a failing test and differ only in which assert is reported. This is deliberate, since the discrimination is on mechanism rather than on verdict, but it does mean a can"
+  ]
+ },
+ {
+  "slot": "python-09",
+  "changed": 2,
+  "concerns": [
+   "The assembled bank currently holds 65 items (ta 20, sql 23, python 22), while docs/04 section 'Generation and review workflow' states 66 items total. The arithmetic of the blueprints gives 65 (30 slots x 2, plus one extr",
+   "python-09-b now shows a deliberately incorrect expected value (4 squared compared against 15) so that one parametrised case fails. This is the mechanism of the item and the failure is the point, but a reviewer skimming t",
+   "Both items in this slot name pytest and use its decorators. That is inside the blueprint (slot 9 is fixtures and parameterisation, anchored to the pytest course) and within the 'pytest basics' allowance, but it is the to",
+   "Validation covers structure only. The interchangeability judgement between python-09-a and python-09-b (fixture injection versus parametrised case reporting, matched for length and difficulty) is mine and would benefit f"
+  ]
+ },
+ {
+  "slot": "python-10",
+  "changed": 2,
+  "concerns": [
+   "The assembler reported no validation problems for any slot, so there is nothing to hand back to the other agents from the validator's point of view.",
+   "Item count arithmetic: docs/04 step 1 states 66 items total, but 2 per slot with 3 for the five contested slots (SQL 2, 7, 8 and Python 6, 7) gives 65, which is what the assembler reports (ta 20, sql 23, python 22). A hu",
+   "Item python-10-a's stem is 131 words with a seven-line function against 85 words and a two-line function for python-10-b. Every sentence in the longer stem is load-bearing for key defensibility (it is what establishes or",
+   "Key c of python-10-a deliberately keys the idea (allow for floating point rounding) rather than one mechanism, naming both a small tolerance and rounding both values to two decimal places, so that a candidate who would n",
+   "Both items in the slot carry the same sourceAnchor, \"Introduction to Testing in Python - basic testing types (feature and integration tests over data)\", which matches PY-2b chapter 3 and the blueprint alignment line in d"
+  ]
+ },
+ {
+  "slot": "sql-01",
+  "changed": 2,
+  "concerns": [
+   "The assembler reports 65 items (ta 20, sql 23, python 22), while docs/04 states 66 items total. The per-slot arithmetic (30 slots at 2 items, plus one extra each for the five contested slots) gives 65, so the 66 in docs/",
+   "sql-01-b tests BETWEEN. The SQL-1 syllabus covers Chapter 3 data filtering (basic filtering, multiple conditions, complex filtering) but does not name BETWEEN explicitly, so the anchor is at the chapter topic level. A re",
+   "sql-01-b's `region` column is shown but not referenced by the query. This is deliberate realism and creates no ambiguity, but a reviewer who prefers every shown column to participate may want it noted.",
+   "No validation problems were reported against any other slot in this assembly run, so I have no findings to hand off to the other slot owners."
+  ]
+ },
+ {
+  "slot": "sql-02",
+  "changed": 3,
+  "concerns": [
+   "Calibration judgement on sql-02-c: it is marginally the heaviest of the three because one left key (I2) expands against two right rows in addition to the two unmatched left rows, so it has one more counting step than sql",
+   "sql-02-c shows price_history with two rows for item I2, which is deliberate (a price history naturally holds more than one row per item) and is visible on the page rather than assumed. A reviewer should confirm the singl",
+   "The docs/04 slot 2 exemplar (customers 1,2,3 / orders 1,1,3,4, key 3) is no longer duplicated by a live item. It now exists only as the calibration bar in the documentation; confirm that is the intended arrangement.",
+   "The assembled bank contains 65 items (ta 20, sql 23, python 22) whereas the docs/04 workflow states 66. This follows from the contested slots actually marked in the blueprints (sql 2, 7, 8 and python 6, 7, with none in t",
+   "The scratch assembly reported no validation problems for any slot, so there are no other agents' machine-detected problems to hand on."
+  ]
+ },
+ {
+  "slot": "sql-03",
+  "changed": 2,
+  "concerns": [
+   "Human check on the sql-03-b distractor d path: it models a candidate who applies the HAVING threshold to the counted rows rather than the summed value and so keeps the groups with more than one reading. That is a real co",
+   "sql-03-b now filters on SUM(value) while projecting COUNT(*). This is squarely GROUP BY and HAVING per the blueprint, but a reviewer should confirm they are happy that the item requires the candidate to hold two aggregat",
+   "Other agents are editing sibling SQL drafts concurrently. A rescan of bank/drafts/sql at the end of my pass showed no remaining item with both a pipe table and a fenced code block and no person or product names in any SQ",
+   "The assembled scratch bank holds 65 items rather than the 66 named in docs/04 section 'Generation and review workflow'. Validation reports no depth problems, so every slot meets its required depth, but a human may want t"
+  ]
+ },
+ {
+  "slot": "sql-04",
+  "changed": 2,
+  "concerns": [
+   "Both items carry a shape-mismatched distractor (sql-04-a option d 'A single value, 13' and sql-04-b option c 'assembly and packing'): they state the inner subquery's own result rather than a ref list, so a test-wise cand",
+   "sql-06-a and sql-06-b (another agent's slot) still pair a pipe table with a fenced query block, which is the two-visual-element pattern I was asked to remove from sql-04. They are the only remaining SQL drafts with that ",
+   "The 'pipe tables of at most 5 rows' rule is being read across the SQL bank as five data rows plus the header and separator lines; my two tables follow that convention. If the intended reading is five lines total, every S",
+   "In PostgreSQL the AVG in sql-04-a returns numeric 13.0000000000000000; sql-04-a option d prints it as '13'. That is only a distractor and the mean is exactly thirteen, so no key is affected.",
+   "The full assembled bank contains 65 items while docs/04 step 1 anticipates 66; validation reports no depth problems, so this is a docs-versus-bank count to confirm rather than a defect in this slot."
+  ]
+ },
+ {
+  "slot": "sql-05",
+  "changed": 2,
+  "concerns": [
+   "sql-05-b keys to the standard three-valued-logic result that `WHERE value = NULL` matches nothing. This is the behaviour of every mainstream database in its default configuration and is what PGlite returned, but a review",
+   "Whether option d of sql-05-b ('The database rejects the query and reports an error') reads as a fair distractor rather than a trick is a judgement call worth a second opinion. I kept it because believing that a compariso",
+   "Not my slot, listed rather than fixed: sql-06-a and sql-06-b each still carry two visual elements, a five-row pipe table plus a fenced SQL block, which is the same one-visual-element breach that was raised against this s",
+   "Not my slot, listed rather than fixed: sql-06-a uses UK place names as data values (Leeds, York, Bath). These are not person, organisation or product names so they are within the rules as written, but if the bank convent",
+   "The assemble step reports 65 items in total, whereas docs/04 states the generated bank should be 66 items. The 65 figure is what the blueprint arithmetic actually produces (60 base items plus one extra for each of the fi"
+  ]
+ },
+ {
+  "slot": "sql-06",
+  "changed": 2,
+  "concerns": [
+   "Two of the distractor lines are shared in kind across the slot (order of first appearance, and duplicates kept) because those are the only two honest misconceptions about DISTINCT and ORDER BY; the scenarios, tables and ",
+   "sql-06-b asks slightly more work than sql-06-a: it deduplicates over two columns and sorts on a compound key, where sql-06-a deduplicates one column and reverses the sort. Both are single-inference predictions against a ",
+   "The sourceAnchors were changed from the blueprint wording (\"data transformation: DISTINCT and ORDER BY\") to the chapter sub-topics that actually appear in the syllabi file (\"basic transformations\", \"complex transformatio",
+   "The explicit ORDER BY suite ASC, outcome ASC in sql-06-b is deliberately verbose to remove the default-direction recall asymmetry the review recorded. If the owner would rather the items read as idiomatic SQL, the ASC ke",
+   "Whole-bank assembly reports 65 items (ta 20, sql 23, python 22) with no validation problems anywhere, but docs/04 states the bank is 66 items. The blueprint arithmetic (10 TA slots with no contested slot, 10 SQL slots wi",
+   "No validation problems were reported against any other slot, so there is nothing from other agents' items to hand back."
+  ]
+ },
+ {
+  "slot": "sql-07",
+  "changed": 3,
+  "concerns": [
+   "Cross-slot concept sharing that cannot be designed away: slot 7 and slot 8 both rest on EXCEPT being left-minus-right (sql-07-c keys on downstream EXCEPT upstream, sql-08-a on source EXCEPT target). The wording, tables, ",
+   "sql-07-b keeps UNION ALL as a distractor against a UNION key. I judged this a genuine semantic discrimination rather than a near-synonym, because the two queries return demonstrably different result sets (five rows versu",
+   "sql-09-a and sql-09-b were being edited by another agent while I worked. My rewrite of sql-07-c removes all amount and status columns and all two-column set operations from slot 7, so it should stay clear of whatever slo",
+   "The assemble-bank validation run reported no problems anywhere in the bank at the time I ran it, so there are no outstanding machine-validated problems belonging to other slots to hand back. The bank currently assembles "
+  ]
+ },
+ {
+  "slot": "sql-08",
+  "changed": 3,
+  "concerns": [
+   "Residual cross-slot cueing, slot 7 is another agent's: sql-07-a and sql-07-c both key INTERSECT, so a candidate served slot 7 can eliminate the INTERSECT distractor in sql-08-a. It is only one of three distractors and th",
+   "sql-07-a, sql-07-b, sql-07-c, sql-09-a and sql-09-b all use the table names source and target with the same reconciling-two-extracts framing. Slot 8 no longer overlaps them, but the applied section as a whole still reads",
+   "sql-08-b option c (INNER JOIN followed by IS NULL) is correct in intent but returns zero rows. It is the canonical teaching point for why the join type matters, and a human reviewer should confirm they accept a distracto",
+   "The guard sentence in sql-08-c stating that neither code column holds a NULL value is needed to keep the subquery key defensible, but it very slightly signposts the subquery family. Judged worth keeping over an undefensi",
+   "The assembled bank holds 65 items while the docs/04 workflow text says 66. Two items per slot across thirty slots plus five contested slots gives 65, so the docs figure looks like an arithmetic slip rather than a missing",
+   "Validation of the assembled bank reported no problems at all, so no findings against other slots were available to list from that run."
+  ]
+ },
+ {
+  "slot": "sql-09",
+  "changed": 2,
+  "concerns": [
+   "No validation problems were reported for any slot, so there is nothing outstanding to hand to other agents.",
+   "Both slot 9 items show two pipe tables. docs/04 grants the two-small-tables shape to SQL slots 2 and 8; slot 9 is the same source-against-target comparison shape and cannot pose the question with one table, so I kept it.",
+   "sql-09-a's fourth option is the LEFT JOIN with IS NULL anti-join, which is the key of sql-08-b. That is the intended discrimination between missing rows and changed values, but a paper drawing both sql-08-b and sql-09-a ",
+   "sql-09-b is modestly longer than sql-09-a (622 against 459 stem characters, and option strings around 127 against 103) because it compares two columns rather than one. The reading load is comparable but the pair is not p",
+   "sql-09-b's stem uses the word \"or\" to state the goal, which cues the OR operator. I preferred that to vaguer phrasing, which would have risked ambiguity, but it does make the item slightly more direct than sql-09-a.",
+   "Not my slot, so not touched: sql-10-a uses data values \"Customer A\", \"Customer B\", \"Customer C\" and \"TEST customer one\" in a name column. They are placeholders rather than real names, but a reviewer applying the no-perso"
+  ]
+ },
+ {
+  "slot": "sql-10",
+  "changed": 2,
+  "concerns": [
+   "sql-10-b option d succeeds and inserts a row whose balance is left empty. It is mechanically correct and the stem asks only which statements succeed and add a row, but a reviewer who reads the slot through a data-hygiene",
+   "sql-10-a option f (`ref LIKE '%4001%'`) depends on the test references TMP-4001 and TMP-4002 deliberately echoing the permanent references REF-4001 and REF-4002. This is realistic (test rows cloned from a template) and m",
+   "Both items use a five-row pipe table or an eight-line fenced block. docs/04 says tables of at most 5 rows; I read that as five data rows excluding the header and separator, which is what the previous version of sql-10-a ",
+   "Bank-wide arithmetic: the assembled bank contains 65 items (ta 20, sql 23, python 22), which is exactly 30 slots at 2 items plus 5 contested slots at 3. docs/04 step 1 of the review workflow states 66 items total. The do",
+   "No validation problems were reported against any other slot in the assemble run, so I have nothing to hand back on behalf of other agents."
+  ]
+ },
+ {
+  "slot": "ta-01",
+  "changed": 2,
+  "concerns": [
+   "ta-01-a retains an inherent structural pairing: the key is the only option that concerns the existing regression checks, while b, c and d concern the new discount work. This is unavoidable in the \"which plan objective do",
+   "Slot ta-01 has no mechanically checkable key by construction: the blueprint calls for concept selection, so both items rest on the argued rationale rather than on a executed result. If a dispute arises, the rationale tex",
+   "ta-01-b's key is 19 words against distractors of 17, 17 and 14, so it is marginally the longest option. I judged the margin too small to be a test-wise cue but did not eliminate it.",
+   "Cross-slot adjacency worth a second opinion: ta-01-b's key (deciding an expected figure and authoring a new check) sits near slot 5 (automation candidacy factors) and slot 6 (weakest candidate for automation). I judged t",
+   "The assembled bank contains 65 items, while docs/04 step 1 of the generation workflow states 66. The depth rule in the validator passes (30 slots at 2 items each plus 5 contested slots at 3 gives 65), so the docs figure ",
+   "Not my slot, flagged only: ta-08-b option d reads \"The name of the team member who wrote the check\". No actual name appears and it is a distractor, but given the project's no-personal-data posture a reviewer may want to "
+  ]
+ },
+ {
+  "slot": "ta-02",
+  "changed": 1,
+  "concerns": [
+   "Sanctioned near-duplication: ta-02-a and ta-02-b share identical elements (Unit tests, API tests, UI tests) and an identical key, differing only in the ordering criterion (most numerous to fewest vs fastest to slowest). ",
+   "sourceAnchor on both items reads \"ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 ...\", which names a standards body and a platform. This is the convention across all 20 ta drafts and the field is never sent to participants, but t",
+   "The assembled bank contains 65 items (ta 20, sql 23, python 22), while the docs/04 workflow states 66 total. That is arithmetic in the doc rather than a missing file: 30 slots at 2 items plus one extra for each of the fi",
+   "docs/03 marks TA slot 2 being an ordering item as a CONFIRM default. Both items depend on that decision standing; if slot 2 became single, the whole slot would need reauthoring.",
+   "No validation problems were reported against any other slot in this assembly run, so there is nothing from other agents' slots to hand back."
+  ]
+ },
+ {
+  "slot": "ta-03",
+  "changed": 2,
+  "concerns": [
+   "Item ta-03-b now keys to a quadrant on the 'support the team' half. A human reviewer should confirm they are content that neither ta-03 item covers exploratory testing (business-facing critique), which is the quadrant ex",
+   "The four option labels are word-for-word identical across ta-03-a and ta-03-b. This is inherent to a fixed-framework placement slot and matches the docs/04 precedent for TA slot 2, but if the owner wants sibling items to",
+   "sourceAnchor values across the whole TA assessment name a course and platform ('ISTQB CTAL-TAE v2 (Udemy)'). That is consistent with the docs/04 data-format exemplar and anchors are never shown to participants, but it is",
+   "docs/04 states the bank is '66 items total', but the blueprint lists 30 slots of which 5 are marked contested, which yields 65 (25 x 2 + 5 x 3). The assembled bank is 65 items and validates cleanly, so the '66' in docs/0",
+   "No validation problems were reported against any other slot in the assembled check bank, so I have nothing to hand back to other agents."
+  ]
+ },
+ {
+  "slot": "ta-04",
+  "changed": 2,
+  "concerns": [
+   "sourceAnchor on both items keeps the bank-wide convention \"ISTQB CTAL-TAE v2 (Udemy) - Chapter 1 ...\", which names a certification scheme and a learning platform. That sits against the instruction to avoid organisation a",
+   "The slot's two keys are Regression testing and Progression testing. \"Progression testing\" is the less familiar of the two terms in general industry use, so a candidate who knows only the regression definition can still r",
+   "ta-04-b uses an API endpoint framing (a reference-data service with named lookup endpoints). ta-07-b and ta-08-a also use API framings, on entirely different topics. There is no wording or scenario overlap, but a reviewe",
+   "Both items now describe three activities, which is the mechanism that equalises them. That makes each stem 65 to 69 words, at the longer end for a one-minute-per-item budget. I judged this acceptable because the sentence"
+  ]
+ },
+ {
+  "slot": "ta-05",
+  "changed": 2,
+  "concerns": [
+   "sourceAnchor convention: all 20 ta items, including both of mine, anchor to \"ISTQB CTAL-TAE v2 (Udemy) - Chapter N ...\", which names a certification scheme and a platform. That is the house convention across the whole ta",
+   "ta-05-b option c (\"The layout of the file it reads changes without warning.\") has one arguable counter-reading: a candidate could reason that an automated check would surface the layout change sooner and therefore call i",
+   "Both items necessarily sample the same small candidacy-factor set, so two axes recur across the pair with the polarity flipped: run frequency is a key in ta-05-a and the inverse of a distractor in ta-05-b, and stability ",
+   "Slot 5 carries no visual element in either item, which the charter permits (\"at most one\") and which the blueprint's \"concept selection\" style implies, but it means this slot never exercises the preferred \"read this and ",
+   "The assembled bank contains 65 items while docs/04 step 1 of the review workflow states 66 items total. Two per slot across 30 slots plus one extra for each of the five contested slots (sql 2, 7, 8 and python 6, 7) gives"
+  ]
+ },
+ {
+  "slot": "ta-06",
+  "changed": 2,
+  "concerns": [
+   "Cross-slot concept overlap with ta-05, which a paper can serve alongside ta-06: ta-05-a carries the distractor \"Its result needs human visual judgement each run\", which is the same factor ta-06-a keys on, and ta-05-b car",
+   "The sourceAnchor convention used bank-wide names courses and their publishers, for example \"ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 ...\". I kept both items on the existing anchor for consistency with the other 63 items and",
+   "Both items key on option id \"a\", matching the convention across the rest of the drafts. fixedOrder is false and the engine shuffles presentation order, so this is not a leak in the served paper, but it is worth one check",
+   "The assemble-bank run reported 65 items against the 66 stated in docs/04 and still validated clean, so the depth requirement in src/engine/structure.ts is being met with one fewer item than the authoring doc's headline c"
+  ]
+ },
+ {
+  "slot": "ta-07",
+  "changed": 2,
+  "concerns": [
+   "ta-07-b now hinges on light arithmetic (10 + 2x20 against 20 + 1x20). It is deliberately whole-number and the structure is spottable without a calculator, but a human reviewer should confirm that any arithmetic at all is",
+   "ta-07-a's key depends on the reader taking 'finds each screen element by its position on the screen' as position-based location and 'by an identifier looked up in one shared list' as identifier-based location. I judge th",
+   "Bank-wide convention, not confined to my slot: every sourceAnchor in bank/drafts/ta names a course provider ('ISTQB CTAL-TAE v2 (Udemy)'). That is metadata never served to participants and it matches docs/plan/course-syl",
+   "scripts/assemble-bank.ts assembles 65 items (ta 20, sql 23, python 22), which matches the blueprint plus the contested slots exactly, but docs/04 step 1 states '66 items total'. The doc's total appears to be off by one; ",
+   "No validation problems were reported against any other slot, so there is nothing from other agents' items to hand back."
+  ]
+ },
+ {
+  "slot": "ta-08",
+  "changed": 2,
+  "concerns": [
+   "Judgement call a human should confirm: ta-08-b's three distractors are all operational configuration (where results are published, alert escalation route, output retention). That homogeneity is the item's construct (run ",
+   "sourceAnchor on both items retains the established bank-wide convention 'ISTQB CTAL-TAE v2 (Udemy) - Chapter 6 Test automation reporting and metrics: logging and failure evidence', which matches docs/plan/course-syllabi.",
+   "Bank-wide arithmetic, not a slot ta-08 problem: assemble-bank.ts produces 65 items (ta 20, sql 23, python 22) with no validation problems, whereas docs/04 states 66 items total. The validator's required depth is satisfie",
+   "No validation problems were reported against any other slot, so there is nothing from other agents' slots to hand back."
+  ]
+ },
+ {
+  "slot": "ta-09",
+  "changed": 2,
+  "concerns": [
+   "Both siblings now carry the added stem sentence \"Every trigger takes at least one scenario.\" This is participant-facing copy on the only matching slot in the bank. It materially removes an alternative assignment, but if ",
+   "The doubled bucket is structural (five tokens over four buckets), so the two tokens sharing a bucket necessarily share that trigger's defining property: ta-09-a's two On commit tokens both describe a change reaching the ",
+   "ta-09-a t3 and ta-09-b t3 both require the participant to read a release gate as Pre-release rather than On demand. The wording (\"the final gate before production\", \"the version that is about to go live\", with no person ",
+   "sourceAnchor on both items still names the course provider (\"ISTQB CTAL-TAE v2 (Udemy)\"), matching all twenty ta drafts. If the owner wants provider names out of bank data that is a bank-wide change, not a ta-09 one, so ",
+   "The assembled bank contains 65 items, whereas docs/04 states 66 as the total for the generation step. The per-slot depth check passes for every slot, so this looks like arithmetic in the doc rather than a missing item, b",
+   "The scratch assembly reported no validation problems for any slot, so there are no other-agent structural problems to hand on."
+  ]
+ },
+ {
+  "slot": "ta-10",
+  "changed": 2,
+  "concerns": [
+   "Both keys now sit on option id 'a' in both items. The engine shuffles option order per seed so this is invisible to participants, but a human reviewer reading the drafts side by side may want the keys spread across lette",
+   "ta-10-a states the cause evidence in the stem (several checks write rows to the same table) so that the correct response is defensible without guessing. That makes it slightly more of a 'fix the shared state' item than a",
+   "The sourceAnchor on both items retains the bank-wide convention of naming the course (ISTQB CTAL-TAE v2 (Udemy)) alongside the chapter topic, matching every other ta item. That field is metadata never shown to participan",
+   "The assembled bank contains 65 items where docs/04 anticipates 66; validation reports no depth problems, so this is a count of authored depth rather than a defect, but it belongs to whoever owns overall bank assembly, no"
+  ]
+ }
+]

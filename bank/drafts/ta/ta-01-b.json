@@ -4,31 +4,31 @@
   "section": "fundamentals",
   "slot": 1,
   "type": "single",
-  "stem": "A data team loads a reporting database every night. After each load, 60 automated reconciliation checks run against the loaded data, each comparing a total in the database with the matching total in the source files. Tonight's run reports that all 60 checks passed. What can the team conclude from that result?",
+  "stem": "A warehouse team has automated a set of 40 stock-movement checks that it used to run by hand before every deployment. The checks and the expected figures behind them have stayed the same for two years, and the automated set now runs on each deployment. Which part of the team's testing work is still carried out by a person after this change?",
   "options": [
     {
       "id": "a",
-      "text": "Tonight's loaded data met the 60 conditions that the scripted checks evaluate.",
+      "text": "Deciding the correct stock figure for a movement type the set does not yet cover, and writing its check.",
       "correct": true
     },
     {
       "id": "b",
-      "text": "Tonight's loaded data contains no defects, so no further checking of it is needed.",
+      "text": "Comparing the stock figure each movement produces with the figure recorded in the check that covers it.",
       "correct": false
     },
     {
       "id": "c",
-      "text": "The 60 reconciliation rules are themselves correct, because every check built on them passed.",
+      "text": "Repeating every check in the set after a fix, to establish that the other checks still pass.",
       "correct": false
     },
     {
       "id": "d",
-      "text": "The result cannot be relied on until a tester has repeated the 60 checks by hand.",
+      "text": "Reporting, after each deployment, which of the checks passed and which of them failed.",
       "correct": false
     }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Key a: an automated check can report only on the condition it was scripted to evaluate, so a run in which all 60 checks passed establishes exactly that the loaded data met those 60 scripted conditions. It establishes this consistently and without repeated manual effort, which is the purpose of automating a stable set of checks. b is wrong because the run is silent about anything that no scripted check describes; a defect outside the 60 conditions is invisible to it, so a pass cannot show that the data is free of defects or that no further checking is needed. c is wrong because a pass says nothing about whether the rules themselves are right: a rule that is too lenient, or a check that compares the wrong totals, passes in the same way as a correct one, so the correctness of the rules has to be established separately. d is wrong because the automated checks have already evaluated tonight's data; repeating the same deterministic checks by hand adds no information and is precisely the repeated manual effort that automating them removes.",
+  "rationale": "Key a: automation takes over the execution of checks that already exist; it does not decide what should be checked or what the right answer is. Working out the correct stock figure for a movement type that no check covers, and then writing that check, is analysis and design carried out by a person, and it stays with a person however much of the existing set is automated. This is the boundary between automated and manual testing that the slot examines. b is wrong because comparing a produced figure with an expected figure is precisely the deterministic comparison an automated check performs on every run; a person fixed the expected figure once, when the check was written, but the repeated comparison is the machine's work. c is wrong because re-executing an unchanged set of checks after a fix is repetition, which is the strongest case for automation and is what the automated set now does on each deployment; the effort of that repetition is exactly what the team has removed from people. d is wrong because an automated run reports its own outcome, listing the checks that passed and the checks that failed; a person then decides what to do about a failure, but producing the list is part of the run and is no longer a manual task.",
   "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 1 Introduction and objectives for test automation: purpose of automation, advantages and limitations, automation versus manual testing"
 }

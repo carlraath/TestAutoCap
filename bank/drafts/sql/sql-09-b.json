@@ -4,15 +4,15 @@
   "section": "applied",
   "slot": 9,
   "type": "single",
-  "stem": "A synchronisation job copies ticket statuses from `source` to `target`. Both tables hold the same four ids and every status is present.\n\n| source.id | source.status |\n|---|---|\n| 1 | open |\n| 2 | closed |\n| 3 | open |\n| 4 | pending |\n\n| target.id | target.status |\n|---|---|\n| 1 | open |\n| 2 | open |\n| 3 | open |\n| 4 | closed |\n\nWhich query returns the source rows whose status differs from the row with the same id in target, giving (2, closed) and (4, pending)?",
+  "stem": "A reconciliation compares a daily `feed` against the `master` record for four sites. Both tables hold the same four site codes, and every row has a region and a stage.\n\n| feed.site_code | feed.region | feed.stage |\n|---|---|---|\n| S-301 | North | active |\n| S-302 | North | active |\n| S-303 | South | closed |\n| S-304 | East | active |\n\n| master.site_code | master.region | master.stage |\n|---|---|---|\n| S-301 | North | active |\n| S-302 | West | active |\n| S-303 | South | active |\n| S-304 | East | active |\n\nWhich query returns the site codes whose region or stage differs between the two tables, giving S-302 and S-303?",
   "options": [
-    { "id": "a", "text": "SELECT id, status FROM source EXCEPT SELECT id, status FROM target", "correct": true },
-    { "id": "b", "text": "SELECT id FROM source EXCEPT SELECT id FROM target", "correct": false },
-    { "id": "c", "text": "SELECT status FROM source EXCEPT SELECT status FROM target", "correct": false },
-    { "id": "d", "text": "SELECT id, status FROM source INTERSECT SELECT id, status FROM target", "correct": false }
+    { "id": "a", "text": "SELECT f.site_code FROM feed f INNER JOIN master m ON f.site_code = m.site_code WHERE f.region <> m.region OR f.stage <> m.stage", "correct": true },
+    { "id": "b", "text": "SELECT f.site_code FROM feed f INNER JOIN master m ON f.site_code = m.site_code WHERE f.region <> m.region AND f.stage <> m.stage", "correct": false },
+    { "id": "c", "text": "SELECT f.site_code FROM feed f INNER JOIN master m ON f.site_code = m.site_code WHERE f.region <> m.region", "correct": false },
+    { "id": "d", "text": "SELECT f.site_code FROM feed f INNER JOIN master m ON f.site_code = m.site_code WHERE f.region = m.region AND f.stage = m.stage", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "EXCEPT over both columns returns the source rows that have no identical (id, status) row in target. Because every id exists in both tables, those are exactly the rows whose status changed, (2, closed) and (4, pending), so option a is correct. Option b compares ids only and returns nothing, because both tables hold the same ids. Option c compares status values on their own and returns just the value pending, with no ids, because it ignores which row a status belongs to. Option d returns the rows that are identical in both tables, (1, open) and (3, open), the opposite of the goal. Each query was run against the shown rows and only option a produces (2, closed) and (4, pending).",
-  "sourceAnchor": "SQL for Testers - validating data integrity: detecting changed values between source and target (EXCEPT over several columns)"
+  "rationale": "Joining on the site code pairs each feed row with its master row, and OR keeps a pair when either compared column disagrees, which is S-302 (region North against West) and S-303 (stage closed against active), so option a is correct. No site differs in both columns at once, so an inclusive or an exclusive reading of \"or\" in the stem names the same two site codes. Option b requires both columns to disagree in the same row and returns nothing, because each changed site changed in only one column. Option c compares the region alone and misses the site whose stage changed, returning S-302 only. Option d keeps the pairs where both columns agree and returns S-301 and S-304, the sites that did not change. All four queries were executed in PGlite against the rows shown: option a returned S-302 and S-303, option b returned nothing, option c returned S-302 and option d returned S-301 and S-304.",
+  "sourceAnchor": "SQL for Testers - validating data integrity: detecting changed values between source and target (join on the key and compare several columns)"
 }

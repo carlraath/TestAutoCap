@@ -4,15 +4,15 @@
   "section": "core",
   "slot": 6,
   "type": "single",
-  "stem": "A test run records each test name together with whether it passed. What does this code print?\n\n```python\nresults = [(\"login\", False), (\"search\", False), (\"export\", False), (\"report\", True)]\nfailed = []\npassed_count = 0\nfor name, passed in results:\n    if passed:\n        passed_count += 1\n    else:\n        failed.append(name)\nprint(passed_count, len(failed), failed[-1])\n```",
+  "stem": "A test run records how long each check took, in seconds, and reports the shortest. What does this code print?\n\n```python\nseconds = [12, 5, 9]\nshortest = 0\nfor value in seconds:\n    if value < shortest:\n        shortest = value\nprint(\"shortest\", shortest)\n```",
   "options": [
-    { "id": "a", "text": "1 3 export", "correct": true },
-    { "id": "b", "text": "1 3 login", "correct": false },
-    { "id": "c", "text": "3 1 report", "correct": false },
-    { "id": "d", "text": "2 2 export", "correct": false }
+    { "id": "a", "text": "shortest 0", "correct": true },
+    { "id": "b", "text": "shortest 5", "correct": false },
+    { "id": "c", "text": "shortest 12", "correct": false },
+    { "id": "d", "text": "shortest 9", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Each pair unpacks into name and passed. login, search and export have passed set to False, so the else branch appends each of them and failed becomes ['login', 'search', 'export']; only report has passed set to True, so passed_count is 1. len(failed) is 3 and failed[-1] is the last element of failed, 'export'. \"1 3 login\" takes the first element of failed; an index of -1 counts from the end of the list. \"3 1 report\" swaps the two branches, counting the False results and collecting the one True name. \"2 2 export\" counts only two failures; three pairs hold False.",
-  "sourceAnchor": "Programming for Everybody - loops and iteration (loop idioms) with conditional code and lists (reading a short program end to end)"
+  "rationale": "shortest is set to 0 before the loop, so each comparison asks whether the value is less than 0. 12, 5 and 9 are all greater than 0, so the if body never runs, shortest keeps its starting value and print outputs the label followed by 0. \"shortest 5\" assumes the loop finds the smallest value in the list; it would do so only if shortest started at the first value or at a number larger than every value. \"shortest 12\" assumes shortest is seeded from the first element; the line above the loop sets it to 0. \"shortest 9\" assumes the last value examined is assigned; assignment happens only inside the if, and that condition is false for every value.",
+  "sourceAnchor": "Programming for Everybody - loops and iteration (finding maximum and minimum) with lists and conditional code (reading a short program end to end)"
 }

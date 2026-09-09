@@ -4,16 +4,16 @@
   "section": "testing",
   "slot": 7,
   "type": "multi",
-  "stem": "pytest runs with default settings in a folder containing `test_cart.py` with the content below. Which of the listed functions and methods will pytest collect as tests?\n\n```python\nclass TestCart:\n    def test_add_item(self):\n        assert True\n    def verify_stock(self):\n        assert True\nclass TestCartChecks:\n    def test_remove_item(self):\n        assert True\ndef test_empty_cart():\n    assert True\ndef checkout_test():\n    assert True\n```",
+  "stem": "pytest runs with default settings in a folder containing `test_cart.py` with the content below. Which of the listed functions and methods will pytest collect as tests?\n\n```python\nclass TestCart:\n    def test_add_item(self):\n        assert True\n\n    def check_stock(self):\n        assert True\n\nclass CartHelpers:\n    def test_reset(self):\n        assert True\n\ndef test_empty_cart():\n    assert True\n\ndef build_cart():\n    assert True\n```",
   "options": [
     { "id": "a", "text": "TestCart.test_add_item", "correct": true },
-    { "id": "b", "text": "TestCart.verify_stock", "correct": false },
-    { "id": "c", "text": "TestCartChecks.test_remove_item", "correct": true },
+    { "id": "b", "text": "TestCart.check_stock", "correct": false },
+    { "id": "c", "text": "CartHelpers.test_reset", "correct": false },
     { "id": "d", "text": "test_empty_cart", "correct": true },
-    { "id": "e", "text": "checkout_test", "correct": false }
+    { "id": "e", "text": "build_cart", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "pytest collects functions and methods whose names start with test (the test_ prefix is the conventional form) at module level and inside classes whose names start with Test. Both classes here start with Test, so whether a method is collected depends only on the method's own name. test_add_item and test_remove_item start with test and sit inside TestCart and TestCartChecks, and test_empty_cart is a module-level function starting with test, so all three are collected. verify_stock does not start with test, so it is an ordinary method even though it contains an assert. checkout_test has test at the end; the default rule matches a prefix, not a suffix, so it is not collected.",
+  "rationale": "With default settings pytest collects module-level functions whose names begin with the lowercase prefix test (conventionally written test_), and it collects methods carrying that same prefix only when they sit inside a class whose own name begins with Test. test_add_item carries the prefix and sits inside TestCart, and test_empty_cart carries the prefix at module level, so both are collected. check_stock does not begin with the prefix, so it stays an ordinary helper method even though it contains an assert. test_reset does begin with the prefix, but its class is named CartHelpers, which does not begin with Test, so pytest never looks inside that class and the method is not collected. build_cart does not begin with the prefix, so it is an ordinary helper function. Verified by running pytest --collect-only against exactly this file: only test_cart.py::TestCart::test_add_item and test_cart.py::test_empty_cart were collected.",
   "sourceAnchor": "Python Automation Testing With Pytest - assertions and test discovery (test naming and discovery)"
 }

@@ -4,15 +4,15 @@
   "section": "core",
   "slot": 5,
   "type": "single",
-  "stem": "What does this code print?\n\n```python\ncode = \"ab-123-XYZ\"\nresult = code.replace(\"-\", \"\").lower()\nprint(result[5:8], len(result))\n```",
+  "stem": "What does this code print?\n\n```python\nline = \"  order:1042  \"\ntrimmed = line.strip()\nposition = trimmed.find(\":\")\nprint(trimmed[:position], position, len(trimmed))\n```",
   "options": [
-    { "id": "a", "text": "xyz 8", "correct": true },
-    { "id": "b", "text": "XYZ 8", "correct": false },
-    { "id": "c", "text": "xyz 10", "correct": false },
-    { "id": "d", "text": "3xy 8", "correct": false }
+    { "id": "a", "text": "order 5 10", "correct": true },
+    { "id": "b", "text": "order 6 10", "correct": false },
+    { "id": "c", "text": "order: 5 10", "correct": false },
+    { "id": "d", "text": "order 5 14", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "replace removes both hyphens, giving \"ab123XYZ\", and lower converts every letter to lower case, giving \"ab123xyz\", which has 8 characters. Indexes start at 0, so result[5:8] takes positions 5, 6 and 7: \"xyz\". \"XYZ 8\" ignores lower; lower returns a new string with the letters in lower case, and that string is what result holds. \"xyz 10\" reports the original length; replace removed two hyphens, so result has 8 characters, not 10. \"3xy 8\" counts positions from 1; indexes start at 0, so position 5 of result is \"x\", not \"3\".",
-  "sourceAnchor": "Programming for Everybody - strings (slicing, methods such as replace and lower)"
+  "rationale": "strip removes the leading and trailing spaces, so trimmed is \"order:1042\", which has 10 characters. find returns the index of the first match, and indexes start at 0, so the colon at the sixth character has index 5. A slice runs up to but not including its end index, so trimmed[:5] takes indexes 0 to 4 and gives \"order\". The printed line is therefore \"order 5 10\". \"order 6 10\" counts the colon as the sixth character and reports 6; find reports an index counted from 0, not a position counted from 1. \"order: 5 10\" includes the colon in the slice; trimmed[:5] stops before index 5, so the colon is excluded. \"order 5 14\" reports the length of line rather than trimmed; strip returns a new string with the four surrounding spaces removed, and len is applied to that new string.",
+  "sourceAnchor": "Programming for Everybody - strings (slicing, indexing from zero, methods such as strip and find)"
 }

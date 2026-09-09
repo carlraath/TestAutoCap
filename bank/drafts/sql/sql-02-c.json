@@ -4,15 +4,15 @@
   "section": "foundations",
   "slot": 2,
   "type": "single",
-  "stem": "The tables `departments` and `staff` hold these rows.\n\n| departments.id |\n|---|\n| 1 |\n| 2 |\n| 3 |\n\n| staff.dept_id |\n|---|\n| 2 |\n| 2 |\n| 3 |\n| 3 |\n| 5 |\n\nHow many rows does `SELECT * FROM staff LEFT JOIN departments ON staff.dept_id = departments.id;` return?",
+  "stem": "The tables `stock_moves` and `price_history` hold these rows.\n\n| stock_moves.item_code |\n|---|\n| I1 |\n| I1 |\n| I2 |\n| I3 |\n| I9 |\n\n| price_history.item_code |\n|---|\n| I1 |\n| I2 |\n| I2 |\n| I4 |\n\nHow many rows does `SELECT * FROM stock_moves LEFT JOIN price_history ON stock_moves.item_code = price_history.item_code` return?",
   "options": [
-    { "id": "a", "text": "3", "correct": false },
-    { "id": "b", "text": "4", "correct": false },
-    { "id": "c", "text": "5", "correct": true },
-    { "id": "d", "text": "6", "correct": false }
+    { "id": "a", "text": "4", "correct": false },
+    { "id": "b", "text": "5", "correct": false },
+    { "id": "c", "text": "6", "correct": true },
+    { "id": "d", "text": "7", "correct": false }
   ],
   "fixedOrder": true,
   "difficulty": "standard",
-  "rationale": "A LEFT JOIN keeps every row of the left table, which here is staff. The two staff rows for department 2 and the two for department 3 each match one department row, and the staff row for department 5 has no department so it is kept with NULL department columns, giving 5 rows, so option c is correct. Department 1 has no staff and is dropped because it is on the right side. Option a counts the department rows rather than the result rows. Option b is the INNER JOIN count, which drops the unmatched staff row for department 5. Option d also adds a row for the unmatched department 1, which only a full outer join would do. Verified by running the query against the shown rows.",
+  "rationale": "A LEFT JOIN pairs each left row with every matching right row, then keeps any left row that matched nothing. The two stock moves for I1 each match the single price row for I1, giving 2 rows. The single stock move for I2 matches both price rows for I2, giving 2 more. The stock moves for I3 and I9 match nothing and are kept once each with NULL price columns. That is 6 rows, so option c is correct. Option a is the INNER JOIN count of 4 matched rows, which drops I3 and I9. Option b is the number of stock move rows, the answer of a candidate who assumes a LEFT JOIN always returns one row per left row; that ignores the second price row for I2. Option d also keeps the unmatched price row for I4, which only a full outer join would do. Counts verified by running the LEFT JOIN, the INNER JOIN and the full outer join against the shown rows in PostgreSQL, and by inspecting the six returned rows.",
   "sourceAnchor": "Joining Data in SQL - combining data horizontally: LEFT JOIN"
 }

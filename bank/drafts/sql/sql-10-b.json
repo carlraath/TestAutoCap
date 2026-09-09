@@ -4,17 +4,17 @@
   "section": "applied",
   "slot": 10,
   "type": "multi",
-  "stem": "An automated test needs rows in `accounts` that it can find again on every run. The table was created and populated by this script.\n\n```sql\nCREATE TABLE accounts (\n  id INTEGER PRIMARY KEY,\n  ref TEXT NOT NULL UNIQUE,\n  balance INTEGER NOT NULL CHECK (balance >= 0)\n);\nINSERT INTO accounts (id, ref, balance) VALUES (1, 'ACC-001', 120);\nINSERT INTO accounts (id, ref, balance) VALUES (2, 'ACC-002', 40);\n```\n\nWhich of these INSERT statements succeed and add a row, when each statement is run on its own against the table as the script leaves it?",
+  "stem": "An automated test creates its own rows in `accounts`. The table was created and populated by this script.\n\n```sql\nCREATE TABLE accounts (\n  id INTEGER PRIMARY KEY,\n  ref TEXT NOT NULL UNIQUE,\n  region TEXT NOT NULL,\n  balance INTEGER\n);\nINSERT INTO accounts (id, ref, region, balance) VALUES (1, 'ACC-001', 'North', 120);\nINSERT INTO accounts (id, ref, region, balance) VALUES (2, 'ACC-002', 'South', 40);\n```\n\nWhich of these statements succeed and add a row, when each statement is run on its own against the table as the script leaves it?",
   "options": [
-    { "id": "a", "text": "INSERT INTO accounts (id, ref, balance) VALUES (9001, 'TEST-A', 0);", "correct": true },
-    { "id": "b", "text": "INSERT INTO accounts (id, ref, balance) VALUES (1, 'TEST-B', 50);", "correct": false },
-    { "id": "c", "text": "INSERT INTO accounts (id, ref, balance) VALUES (9002, 'ACC-001', 50);", "correct": false },
-    { "id": "d", "text": "INSERT INTO accounts (id, ref, balance) VALUES (9003, 'TEST-C', -10);", "correct": false },
-    { "id": "e", "text": "INSERT INTO accounts (id, ref, balance) VALUES (9004, 'TEST-D', 250);", "correct": true },
-    { "id": "f", "text": "INSERT INTO accounts (id, balance, ref) VALUES (9005, 75, 'TEST-E');", "correct": true }
+    { "id": "a", "text": "INSERT INTO accounts (id, ref, region, balance) VALUES (9001, 'TEST-A', 'North', 0);", "correct": true },
+    { "id": "b", "text": "INSERT INTO accounts (id, ref, region, balance) VALUES (1, 'TEST-B', 'North', 50);", "correct": false },
+    { "id": "c", "text": "INSERT INTO accounts (id, ref, region, balance) VALUES (9002, 'ACC-001', 'South', 50);", "correct": false },
+    { "id": "d", "text": "INSERT INTO accounts (id, ref, region) VALUES (9003, 'TEST-C', 'North');", "correct": true },
+    { "id": "e", "text": "INSERT INTO accounts (id, ref, balance) VALUES (9004, 'TEST-D', 75);", "correct": false },
+    { "id": "f", "text": "INSERT INTO accounts (id, region, ref, balance) VALUES (9005, 'South', 'TEST-E', 90);", "correct": true }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "A deterministic test row must respect every constraint on the table. Option a uses an unused id, a new reference and a balance of 0, which satisfies balance >= 0. Option e uses an unused id, a new reference and a positive balance. Option f lists the columns in a different order but supplies matching values for each, which is valid. Option b reuses id 1 and is rejected by the primary key. Option c reuses the reference ACC-001 and is rejected by the UNIQUE constraint. Option d supplies a negative balance and is rejected by the CHECK constraint. Each statement was run against the table as the script leaves it and the outcome recorded.",
+  "rationale": "A test row is only added if it satisfies every constraint the shown script declares. Option a supplies an unused id, an unused reference and a value for every column, so the row is added. Option d omits balance, which the script declares as plain INTEGER with no NOT NULL, so the row is added with balance left empty. Option f lists the columns in a different order from the script and supplies a matching value for each, which is valid, so the row is added. Option b reuses id 1, which the primary key already holds, so the insert is rejected. Option c reuses the reference ACC-001, which the UNIQUE constraint on ref already holds, so the insert is rejected. Option e omits region, which the script declares NOT NULL with no default, so the insert is rejected. Each statement was executed on its own against the table as the script leaves it: a, d and f each added a row, and b, c and e were each rejected by the primary key, the unique constraint on ref and the not-null constraint on region respectively.",
   "sourceAnchor": "SQL for Testers - using SQL for data generation: create new entries; testing SQL queries: field constraints"
 }

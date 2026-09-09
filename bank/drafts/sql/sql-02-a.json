@@ -4,7 +4,7 @@
   "section": "foundations",
   "slot": 2,
   "type": "single",
-  "stem": "The tables `customers` and `orders` hold these rows.\n\n| customers.id |\n|---|\n| 1 |\n| 2 |\n| 3 |\n\n| orders.customer_id |\n|---|\n| 1 |\n| 1 |\n| 3 |\n| 4 |\n\nHow many rows does `SELECT * FROM customers INNER JOIN orders ON customers.id = orders.customer_id` return?",
+  "stem": "The tables `regions` and `sites` hold these rows.\n\n| regions.code |\n|---|\n| N1 |\n| N2 |\n| N3 |\n| N4 |\n\n| sites.region_code |\n|---|\n| N2 |\n| N2 |\n| N4 |\n| N8 |\n\nHow many rows does `SELECT * FROM regions INNER JOIN sites ON regions.code = sites.region_code` return?",
   "options": [
     { "id": "a", "text": "2", "correct": false },
     { "id": "b", "text": "3", "correct": true },
@@ -13,6 +13,6 @@
   ],
   "fixedOrder": true,
   "difficulty": "standard",
-  "rationale": "An INNER JOIN returns one row per matching pair. Customer 1 matches two orders and customer 3 matches one, giving 3 rows, so option b is correct. Customer 2 has no orders and the order for customer 4 has no customer, so neither contributes a row. Option a counts only the two distinct customers that have orders, customers 1 and 3, and misses the second order for customer 1. Option c counts every order row, including the unmatched order for customer 4; it is also the row count a LEFT JOIN would give, because that join keeps customer 2 with NULL order columns. Option d adds a row for each unmatched side, customer 2 and the order for customer 4, which only a full outer join would do. Verified by running the query against the shown rows.",
+  "rationale": "An INNER JOIN returns one row per matching pair and keeps nothing else. Region N2 matches two site rows and region N4 matches one, giving 3 rows, so option b is correct. Regions N1 and N3 have no sites and the site row for N8 has no region, so none of them contributes a row. Option a counts the two regions that have any site, N2 and N4, and misses the second site row for N2. Option c is the row count of either table on its own, the answer of a candidate who assumes a join returns one row per region or one row per site. Option d is the LEFT JOIN count, which keeps the 3 matched rows and adds N1 and N3 with NULL site columns; this is the INNER against LEFT confusion the slot exists to detect. A full outer join would return 6 by also keeping the site row for N8. Counts verified by running the join, the LEFT JOIN and the full outer join against the shown rows in PostgreSQL.",
   "sourceAnchor": "Joining Data in SQL - combining data horizontally: INNER JOIN"
 }

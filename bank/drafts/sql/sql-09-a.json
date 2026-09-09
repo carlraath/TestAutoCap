@@ -4,15 +4,15 @@
   "section": "applied",
   "slot": 9,
   "type": "single",
-  "stem": "A migration copies balances from `source` to `target`. Both tables hold the same four ids and every amount is present.\n\n| source.id | source.amount |\n|---|---|\n| 1 | 100 |\n| 2 | 250 |\n| 3 | 75 |\n| 4 | 300 |\n\n| target.id | target.amount |\n|---|---|\n| 1 | 100 |\n| 2 | 200 |\n| 3 | 75 |\n| 4 | 350 |\n\nWhich query returns the ids whose amount differs between the two tables, giving 2 and 4?",
+  "stem": "A nightly extract copies part quantities from `source` into `target`. Both tables hold the same four part codes, and every row has a quantity.\n\n| source.part_code | source.quantity |\n|---|---|\n| P-11 | 40 |\n| P-12 | 65 |\n| P-13 | 12 |\n| P-14 | 90 |\n\n| target.part_code | target.quantity |\n|---|---|\n| P-11 | 40 |\n| P-12 | 55 |\n| P-13 | 12 |\n| P-14 | 25 |\n\nWhich query returns the part codes whose quantity differs between the two tables, giving P-12 and P-14?",
   "options": [
-    { "id": "a", "text": "SELECT s.id FROM source s INNER JOIN target t ON s.id = t.id WHERE s.amount <> t.amount", "correct": true },
-    { "id": "b", "text": "SELECT s.id FROM source s INNER JOIN target t ON s.id = t.id WHERE s.amount = t.amount", "correct": false },
-    { "id": "c", "text": "SELECT id FROM source EXCEPT SELECT id FROM target", "correct": false },
-    { "id": "d", "text": "SELECT s.id FROM source s INNER JOIN target t ON s.amount = t.amount", "correct": false }
+    { "id": "a", "text": "SELECT s.part_code FROM source s INNER JOIN target t ON s.part_code = t.part_code WHERE s.quantity <> t.quantity", "correct": true },
+    { "id": "b", "text": "SELECT s.part_code FROM source s INNER JOIN target t ON s.part_code = t.part_code WHERE s.quantity = t.quantity", "correct": false },
+    { "id": "c", "text": "SELECT s.part_code FROM source s INNER JOIN target t ON s.part_code = t.part_code", "correct": false },
+    { "id": "d", "text": "SELECT s.part_code FROM source s LEFT JOIN target t ON s.part_code = t.part_code WHERE t.part_code IS NULL", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Joining the two tables on id pairs each source row with its target row, and the WHERE clause keeps the pairs whose amounts differ, 2 and 4, so option a is correct. Option b keeps the pairs whose amounts are equal, 1 and 3, the opposite of the goal. Option c compares ids only, and because both tables hold the same ids it returns nothing. Option d joins on amount rather than id, which pairs rows by coincidence of value and returns 1 and 3 here. Each query was run against the shown rows and only option a produces 2 and 4.",
-  "sourceAnchor": "SQL for Testers - validating data integrity: detecting changed values between source and target (join and compare)"
+  "rationale": "Joining on the key pairs each source row with the target row that carries the same part code, and the filter then keeps only the pairs whose quantities disagree, which is P-12 (65 against 55) and P-14 (90 against 25), so option a is correct. Option b keeps the pairs whose quantities agree and returns P-11 and P-13, the rows that did not change. Option c joins correctly but compares nothing, so it returns all four part codes. Option d is the pattern for finding rows missing from the target rather than rows whose value changed, and because both tables hold the same four part codes it returns no rows at all. All four queries were executed in PGlite against the rows shown: option a returned P-12 and P-14, option b returned P-11 and P-13, option c returned all four codes and option d returned nothing.",
+  "sourceAnchor": "SQL for Testers - validating data integrity: detecting changed values between source and target (join on the key and compare one column)"
 }

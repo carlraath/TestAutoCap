@@ -7,9 +7,9 @@
  * shown to a participant: keys, rationales and source anchors appear in
  * participantDetail and itemAnalysis, which are admin surfaces only.
  */
-import { and, asc, eq, inArray } from "drizzle-orm";
+import { and, asc, count, desc, eq, inArray } from "drizzle-orm";
 import type { Db } from "@/db/client";
-import { attempts, items, users, type AttemptRow, type ItemRow } from "@/db/schema";
+import { attempts, auditLog, items, users, type AttemptRow, type ItemRow } from "@/db/schema";
 import { scoreItem } from "@/engine/scoring";
 import { ASSESSMENTS, ASSESSMENT_IDS, MODULES, isAssessmentId } from "@/engine/structure";
 import type {
@@ -574,7 +574,7 @@ export async function moduleDemand(db: Db): Promise<ModuleDemand> {
   );
 
   const counts = new Map<ModuleId, Record<Exclude<ModuleOutcome, "not_assessed">, number>>();
-  for (const module of MODULES) counts.set(module.id, { prescribed: 0, credited: 0, evidence_review: 0 });
+  for (const definition of MODULES) counts.set(definition.id, { prescribed: 0, credited: 0, evidence_review: 0 });
 
   for (const person of people) {
     for (const assessmentId of ASSESSMENT_IDS) {
@@ -806,4 +806,95 @@ export async function itemAnalysis(db: Db): Promise<ItemAnalysis> {
     (a, b) => ASSESSMENT_IDS.indexOf(a.assessment) - ASSESSMENT_IDS.indexOf(b.assessment) || a.slot - b.slot || (a.itemId < b.itemId ? -1 : 1),
   );
   return { bankVersion, rows };
+}
+
+// ---------------------------------------------------------------- audit log view
+
+export const AUDIT_PAGE_SIZE = 50;
+
+const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+/** Resolves the opaque ids the audit log stores into participant codes. */
+export interface AuditIdMap {
+  users: Map<string, string>;
+  attempts: Map<string, string>;
+}
+
+/** Builds the id to participant-code map used by the audit view and the audit export. */
+export async function loadAuditIdMap(db: Db): Promise<AuditIdMap> {
+  const people = await db.select({ id: users.id, username: users.username }).from(users);
+  const userMap = new Map(people.map((person) => [person.id, person.username] as const));
+  const rows = await db
+    .select({ id: attempts.id, userId: attempts.userId, assessmentId: attempts.assessmentId, attemptNumber: attempts.attemptNumber })
+    .from(attempts);
+  const attemptMap = new Map(
+    rows.map((row) => [row.id, `${userMap.get(row.userId) ?? "participant"} ${row.assessmentId} attempt ${row.attemptNumber}`] as const),
+  );
+  return { users: userMap, attempts: attemptMap };
+}
+
+/** A participant code for a known id, the value itself when it is not an id, or a withheld marker. */
+export function resolveAuditId(map: AuditIdMap, value: string): string {
+  return map.users.get(value) ?? map.attempts.get(value) ?? (UUID_PATTERN.test(value) ? "(id withheld)" : value);
+}
+
+export interface AuditEntry {
+  id: number;
+  at: Date;
+  actor: string;
+  actorRole: string;
+  action: string;
+  targetType: string | null;
+  target: string;
+  reason: string | null;
+  details: Record<string, unknown> | null;
+}
+
+export interface AuditView {
+  entries: AuditEntry[];
+  total: number;
+  page: number;
+  pages: number;
+  pageSize: number;
+  /** Every action present in the log, for the filter. */
+  actions: string[];
+  action: string | null;
+}
+
+/** One page of the audit log, newest first, optionally filtered to one action. */
+export async function auditView(db: Db, options: { action?: string | null; page?: number } = {}): Promise<AuditView> {
+  const action = options.action?.trim() ? options.action.trim() : null;
+  const where = action ? eq(auditLog.action, action) : undefined;
+  const [totals] = await db.select({ n: count() }).from(auditLog).where(where);
+  const total = totals?.n ?? 0;
+  const pages = Math.max(1, Math.ceil(total / AUDIT_PAGE_SIZE));
+  const page = Math.min(Math.max(1, options.page ?? 1), pages);
+  const rows = await db
+    .select()
+    .from(auditLog)
+    .where(where)
+    .orderBy(desc(auditLog.id))
+    .limit(AUDIT_PAGE_SIZE)
+    .offset((page - 1) * AUDIT_PAGE_SIZE);
+  const map = await loadAuditIdMap(db);
+  const distinct = await db.selectDistinct({ action: auditLog.action }).from(auditLog).orderBy(asc(auditLog.action));
+  return {
+    entries: rows.map((row) => ({
+      id: row.id,
+      at: row.at,
+      actor: row.actorUsername,
+      actorRole: row.actorRole,
+      action: row.action,
+      targetType: row.targetType,
+      target: row.targetId ? resolveAuditId(map, row.targetId) : "",
+      reason: row.reason,
+      details: row.details,
+    })),
+    total,
+    page,
+    pages,
+    pageSize: AUDIT_PAGE_SIZE,
+    actions: distinct.map((row) => row.action),
+    action,
+  };
 }

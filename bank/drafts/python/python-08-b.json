@@ -4,15 +4,15 @@
   "section": "testing",
   "slot": 8,
   "type": "single",
-  "stem": "What happens when pytest runs this test?\n\n```python\ndef test_totals():\n    values = [1, 2, 3]\n    assert sum(values) == 6\n    assert len(values) == 4\n    assert max(values) == 3\n```",
+  "stem": "A test file contains the code below. What happens when pytest runs `test_order_total_rejects_empty`?\n\n```python\nimport pytest\n\ndef order_total(lines):\n    total = 0\n    for line in lines:\n        total += line[\"amount\"]\n    return total\n\ndef test_order_total_rejects_empty():\n    with pytest.raises(ValueError):\n        order_total([])\n```",
   "options": [
-    { "id": "a", "text": "The test fails at `assert len(values) == 4` and the last assert is not executed.", "correct": true },
-    { "id": "b", "text": "The test fails at `assert len(values) == 4` and the last assert still runs and passes.", "correct": false },
-    { "id": "c", "text": "The test passes, because two of its three asserts hold.", "correct": false },
-    { "id": "d", "text": "The test fails at `assert sum(values) == 6`.", "correct": false }
+    { "id": "a", "text": "The test fails, because the block finished without raising `ValueError` and `pytest.raises` requires that exception to be raised.", "correct": true },
+    { "id": "b", "text": "The test passes, because `order_total` returned a value instead of raising an exception.", "correct": false },
+    { "id": "c", "text": "The test passes, because the function contains no `assert` statement, so there is nothing in it that can fail.", "correct": false },
+    { "id": "d", "text": "The test is reported as an expected failure, because `pytest.raises` marks the block it wraps as expected to fail.", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "sum(values) is 6, so the first assert holds. len(values) is 3, so the second assert raises AssertionError, which ends the function immediately; the third assert never runs, and pytest reports one failure showing 3 == 4. A failed assert stops the test function, so the last assert does not run. A test passes only when every assert it reaches holds; a majority is not enough. The first assert holds, so the failure is not there.",
-  "sourceAnchor": "Python Automation Testing With Pytest - assertions and test discovery (assertions); Introduction to Testing in Python - creating tests with pytest"
+  "rationale": "order_total([]) runs the loop zero times and returns 0, so no exception is raised inside the with block. pytest.raises asserts that the wrapped block raises the named exception, so when the block completes normally pytest fails the test and reports 'DID NOT RAISE <class \\'ValueError\\'>'. Option b inverts the meaning of pytest.raises: returning a value is exactly the outcome that makes the test fail, not pass. Option c is wrong because pytest.raises is itself an assertion about the block, so a test can fail without containing an assert statement; the absence of assert does not make the test safe. Option d confuses pytest.raises with the xfail marker: pytest.raises checks that a specific exception occurs within a block and fails the test when it does not, whereas marking a test as expected to fail is a separate decorator applied to the test function.",
+  "sourceAnchor": "Introduction to Testing in Python - creating tests with pytest (pytest.raises); Python Automation Testing With Pytest - assertions and test discovery"
 }

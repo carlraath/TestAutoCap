@@ -4,31 +4,31 @@
   "section": "fundamentals",
   "slot": 10,
   "type": "single",
-  "stem": "A data pipeline runs an automated reconciliation check every night. In one week the check fails on Monday, passes on Tuesday and Wednesday, fails on Thursday and passes on Friday. The check, the input data and the pipeline are the same on every night of the week. Which conclusion fits these results?",
+  "stem": "An automated check compares the row count of a loaded table with the row count in the file the load reads from. On about one run in twenty the two counts differ and the check fails, and repeating the check straight away gives matching counts and a pass. The check, the file and the load job are unchanged throughout. Which action should the team take first?",
   "options": [
     {
       "id": "a",
-      "text": "It is a flaky check, and the cause of its inconsistent results must be found before any of them is relied on.",
+      "text": "Compare the logs and timings recorded for the failing runs with those recorded for the passing runs, to find what differs.",
       "correct": true
     },
     {
       "id": "b",
-      "text": "It has detected a new pipeline defect on Monday and a second new pipeline defect on Thursday.",
+      "text": "Raise a defect against the load job describing the intermittent difference, and hand it to the team that owns the job.",
       "correct": false
     },
     {
       "id": "c",
-      "text": "It is a passing check, because Friday's run is the most recent result and the most recent result is the one that counts.",
+      "text": "Loosen the check so that a small difference between the two counts is recorded as a pass rather than a failure.",
       "correct": false
     },
     {
       "id": "d",
-      "text": "It only needs a retry rule, so the nightly run should run it again after each failure and report the eventual pass.",
+      "text": "Measure how often the check has failed across its last two hundred runs, and report that failure rate to the team.",
       "correct": false
     }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Key a: a check that gives different results on different nights while the check, the data and the pipeline stay the same is flaky (non-deterministic). Flakiness describes the observed pattern, not where the cause lies; the cause may be in the check, in its environment or in the pipeline, and only investigation can tell, so none of the week's results can be relied on until the cause has been found. b is wrong because nothing in the pipeline changed during the week, so no new defect could have been introduced on Monday or on Thursday, and the same fault cannot be found as new twice; the results give no evidence that the cause lies in the pipeline rather than in the check or its environment, which is exactly what investigation must establish. c is wrong because the most recent pass does not account for the two failures; a check that gives different answers to the same question cannot be trusted on any night until the cause is known, and taking the latest result as the answer would also hide a real intermittent fault in the pipeline. d is wrong because retrying until a pass appears hides the inconsistency instead of resolving it, and a real intermittent fault in the pipeline would be hidden with it; the check's results become trustworthy only when the cause has been found and removed.",
+  "rationale": "Key a: a check that returns different results for the same check, the same file and the same job is giving a non-deterministic, that is flaky, result, and the first step is to establish what actually differs between the runs that fail and the runs that pass. The runs themselves hold that evidence in what they recorded, so comparing the logs and timings of failing runs against passing runs is what turns a varying symptom into a known cause. It is also the step the other actions depend on: only that comparison shows whether the cause sits in the check, in its environment or in the load job. b is wrong because nothing observed so far shows where the cause lies; a non-deterministic result may come from the check, from the environment it runs in or from the job it exercises, and intermittent faults in each of those are possible. Handing a defect to another team before the failing and passing runs have been compared passes on a symptom without the evidence needed to act on it, and it stops the team investigating the parts they own. c is wrong because widening what counts as a match turns a reconciliation check into one that can no longer report the mismatch it exists to find; it removes the failure report rather than the cause, and a genuine shortfall in the load would then be recorded as a pass. d is wrong because a failure rate counts how often the symptom appears rather than showing what happens differently on the runs that fail; the team already knows it fails on roughly one run in twenty, so measuring that more precisely adds no information about the cause and leaves the investigation where it started.",
   "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 7 Verifying the test automation solution: flaky tests and non-deterministic results"
 }

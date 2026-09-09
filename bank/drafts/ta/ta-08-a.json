@@ -13,7 +13,7 @@
     },
     {
       "id": "b",
-      "text": "The build identifier and environment the test ran against.",
+      "text": "The identifier of the build under test and the environment it ran in.",
       "correct": true
     },
     {
@@ -39,6 +39,6 @@
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Key a, b and c: the expected and actual values show what went wrong, the build identifier and environment show which version of the system failed and where it was running, and the log output with the response received shows the state at the moment of failure, which together let an investigator work from the record alone. d is wrong because an average duration is a trend metric about the suite as a whole with no bearing on why this test failed. e is wrong because when the test was written is history about the test's origin, not evidence about the failure. f is wrong because the size and coverage of the suite are static properties with no bearing on why this test failed.",
+  "rationale": "Key a, b and c: the expected and actual values show what went wrong, the identifier of the build under test and the environment it ran in show which version of the system failed and where it was running, and the log output with the response received shows the state at the moment of failure, which together let an investigator work from the record alone. d is wrong because an average duration is a trend metric about the suite as a whole with no bearing on why this test failed. e is wrong because when the test was written is history about the test's origin, not evidence about the failure. f is wrong because the size and coverage of the suite are static properties with no bearing on why this test failed.",
   "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 6 Test automation reporting and metrics: logging and failure evidence"
 }

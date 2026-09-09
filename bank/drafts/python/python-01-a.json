@@ -4,15 +4,15 @@
   "section": "core",
   "slot": 1,
   "type": "single",
-  "stem": "What does this code print?\n\n```python\nvalues = [0, 1, \"\", \"no\", [], None]\ncount = 0\nfor v in values:\n    if v:\n        count += 1\nprint(count)\n```",
+  "stem": "What does this code print?\n\n```python\nthreshold = 0\nlabel = \"\"\noffset = -1\nif threshold:\n    print(\"threshold\")\nelif label:\n    print(\"label\")\nelif offset:\n    print(\"offset\")\nelse:\n    print(\"fallback\")\n```",
   "options": [
-    { "id": "a", "text": "1", "correct": false },
-    { "id": "b", "text": "2", "correct": true },
-    { "id": "c", "text": "3", "correct": false },
-    { "id": "d", "text": "4", "correct": false }
+    { "id": "a", "text": "threshold", "correct": false },
+    { "id": "b", "text": "label", "correct": false },
+    { "id": "c", "text": "offset", "correct": true },
+    { "id": "d", "text": "fallback", "correct": false }
   ],
-  "fixedOrder": true,
+  "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "The if statement tests each value's truthiness. 1 and \"no\" are truthy; 0, the empty string, the empty list and None are falsy, so count is 2. 1 treats the non-empty string \"no\" as falsy because of the word it holds, but any non-empty string is truthy; only the empty string is falsy. 3 treats one of the empty string, the empty list or None as truthy; all three are falsy. 4 treats only 0 and None as falsy; the empty string and the empty list are falsy too.",
+  "rationale": "The chain runs the first branch whose value is truthy. threshold holds the integer 0, which is falsy, so that branch is skipped. label holds the empty string, which is falsy, so that branch is skipped. offset holds -1, and every non-zero number is truthy, so the third branch runs and the code prints offset. threshold assumes the integer 0 is truthy; 0 is the only falsy integer. label assumes the empty string is truthy; a string is truthy only when it holds at least one character. fallback assumes a negative number is falsy, so that no branch runs and the else clause fires; truthiness for numbers depends on being non-zero, not on being positive, so -1 is truthy.",
   "sourceAnchor": "Programming for Everybody - variables and expressions (data types) and conditional code"
 }

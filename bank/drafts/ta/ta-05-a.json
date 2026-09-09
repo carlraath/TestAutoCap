@@ -8,12 +8,12 @@
   "options": [
     {
       "id": "a",
-      "text": "It runs every release.",
+      "text": "The same check is run again at every release.",
       "correct": true
     },
     {
       "id": "b",
-      "text": "The functionality it covers is stable.",
+      "text": "The functionality it covers has been stable for a year.",
       "correct": true
     },
     {
@@ -23,17 +23,17 @@
     },
     {
       "id": "d",
-      "text": "Its requirements change frequently.",
+      "text": "Its requirements change from one sprint to the next.",
       "correct": false
     },
     {
       "id": "e",
-      "text": "Its expected outcome is known in advance and does not vary between runs.",
+      "text": "Its expected result is the same on every run.",
       "correct": true
     }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Key a, b and e: repeated execution, stable functionality and an expected outcome that is known in advance and does not vary between runs (a deterministic outcome) are the candidacy factors; each makes the automated check cheaper to keep and its result trustworthy. c is wrong because a result that needs human visual judgement each run has no expected value a script can compare against, so it weakens the case. d is wrong because frequently changing requirements mean the script would need frequent rework, which weakens the case.",
+  "rationale": "Key a, b and e. a is right because a check repeated at every release gives the automated version many runs over which to repay the cost of writing it, which is the frequency factor. b is right because functionality that has been stable for a year is unlikely to force the script to be rewritten, so the maintenance cost stays low. e is right because an expected result that is the same on every run gives the script a fixed value to compare the actual result against, which is what makes an automated verdict trustworthy. c is wrong because a verdict that rests on a person looking at the result each run cannot be reduced to a comparison a script can make, so a person is still needed every time and the automation saves nothing. d is wrong because requirements that change from one sprint to the next mean the script is reworked as often as it is run, so the effort is never repaid.",
   "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 4 Implementing test automation: when to automate, automation candidacy factors"
 }

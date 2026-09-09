@@ -4,15 +4,15 @@
   "section": "testing",
   "slot": 9,
   "type": "single",
-  "stem": "A test file contains the code below. How does pytest run `test_square`?\n\n```python\nimport pytest\n\n@pytest.mark.parametrize(\"value, expected\", [(2, 4), (3, 9), (4, 16)])\ndef test_square(value, expected):\n    assert value * value == expected\n```",
+  "stem": "A test file contains the code below. What does pytest report when it runs `test_square`?\n\n```python\nimport pytest\n\n@pytest.mark.parametrize(\"value, expected\", [(2, 4), (3, 9), (4, 15)])\ndef test_square(value, expected):\n    assert value * value == expected\n```",
   "options": [
-    { "id": "a", "text": "As three separate tests, one per tuple, each reported with its own pass or fail result.", "correct": true },
-    { "id": "b", "text": "As one test that runs the assert three times and reports a single result.", "correct": false },
-    { "id": "c", "text": "As one test using only the first tuple; the remaining tuples are ignored.", "correct": false },
-    { "id": "d", "text": "It does not run, because value and expected are not defined as fixtures.", "correct": false }
+    { "id": "a", "text": "Three results, one for each tuple: the cases for 2 and for 3 pass, and the case for 4 fails on its assertion.", "correct": true },
+    { "id": "b", "text": "One result, a failure, because the three tuples are checked inside a single test that stops at the first assertion that does not hold.", "correct": false },
+    { "id": "c", "text": "One result, a pass, because pytest uses only the first tuple in the list and ignores the two tuples that follow it.", "correct": false },
+    { "id": "d", "text": "An error at collection time and no test results, because value and expected are not defined anywhere as fixtures for the test.", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "parametrize generates one test case per entry in the list, and pytest reports each separately, for example test_square[2-4], test_square[3-9] and test_square[4-16]. It is not a single test with a repeated assert: each case is an independent test with its own outcome, so one failing tuple does not hide the others. Every tuple is used, not only the first. The decorator itself supplies value and expected for each case, so no fixture is needed.",
+  "rationale": "Key is a. parametrize generates one independent test case per entry in the list, and each case is reported with its own outcome, named after its arguments. Here 2 * 2 == 4 and 3 * 3 == 9 hold, while 4 * 4 is 16 and not 15, so that case fails. Verified by running the shown file under pytest: three cases were collected and reported, test_square[2-4] and test_square[3-9] passed and test_square[4-15] failed, giving 1 failed, 3 passed across the run. Option b is wrong because the cases are separate tests rather than three assertions inside one test, so a failing case does not hide or stop the others; the run reported three results, not one. Option c is wrong because every entry in the list is used, not only the first, which is the whole point of listing them. Option d is wrong because the decorator itself supplies value and expected for each case, so no fixture of those names is needed and collection succeeds.",
   "sourceAnchor": "Python Automation Testing With Pytest - parameterize and setup and teardown (parametrised testing)"
 }

@@ -4,17 +4,17 @@
   "section": "applied",
   "slot": 10,
   "type": "multi",
-  "stem": "An automated test inserted the rows with ids 9001 and 9002 into `customers`. The other three rows are permanent data that must stay. The table now holds these rows.\n\n| id | name | city |\n|---|---|---|\n| 1 | Customer A | Leeds |\n| 2 | Customer B | Hull |\n| 3 | Customer C | York |\n| 9001 | TEST customer one | Leeds |\n| 9002 | TEST customer two | Hull |\n\nWhich statements delete exactly the two inserted rows and leave the three permanent rows in place, when each statement is run on its own against the table shown?",
+  "stem": "An automated test inserted the two rows with ids 9001 and 9002 into `bookings`. The other three rows are permanent reference data that must remain. The table now holds these rows.\n\n| id | ref | region |\n|---|---|---|\n| 4001 | REF-4001 | North |\n| 4002 | REF-4002 | South |\n| 4003 | REF-4003 | North |\n| 9001 | TMP-4001 | North |\n| 9002 | TMP-4002 | South |\n\nWhich statements remove exactly the two inserted rows and leave the other three rows in place, when each statement is run on its own against the table shown?",
   "options": [
-    { "id": "a", "text": "DELETE FROM customers WHERE id IN (9001, 9002);", "correct": true },
-    { "id": "b", "text": "DELETE FROM customers WHERE name LIKE 'TEST%';", "correct": true },
-    { "id": "c", "text": "DELETE FROM customers WHERE id >= 9001;", "correct": true },
-    { "id": "d", "text": "DELETE FROM customers;", "correct": false },
-    { "id": "e", "text": "DELETE FROM customers WHERE id > 2;", "correct": false },
-    { "id": "f", "text": "DELETE FROM customers WHERE city = 'Leeds';", "correct": false }
+    { "id": "a", "text": "DELETE FROM bookings WHERE ref IN ('TMP-4001', 'TMP-4002');", "correct": true },
+    { "id": "b", "text": "DELETE FROM bookings WHERE ref LIKE 'TMP-%';", "correct": true },
+    { "id": "c", "text": "DELETE FROM bookings WHERE id >= 9001;", "correct": true },
+    { "id": "d", "text": "DELETE FROM bookings WHERE region = 'North';", "correct": false },
+    { "id": "e", "text": "DELETE FROM bookings WHERE id > 9000 AND region = 'South';", "correct": false },
+    { "id": "f", "text": "DELETE FROM bookings WHERE ref LIKE '%4001%';", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Test rows should be created with values that identify them beyond doubt so that clean-up can target them precisely. Option a names the two test ids explicitly. Option b matches the TEST prefix that only the two inserted names carry; no permanent name begins with that text in any letter case. Option c uses the reserved id range that only the test rows occupy. Each of these leaves ids 1, 2 and 3 untouched. Option d has no WHERE clause and deletes every row. Option e also deletes the permanent row with id 3. Option f deletes by city, which removes the permanent Leeds row (id 1) and leaves the test row 9002 behind. Each statement was run against the shown rows and the remaining ids checked.",
-  "sourceAnchor": "SQL for Testers - using SQL for data generation: create new entries and delete data; test data hygiene"
+  "rationale": "Clean-up must remove the rows the test created and nothing else, so each statement is judged by the rows it leaves behind. Option a names the two inserted references, so it removes 9001 and 9002 only. Option b matches references that begin with TMP-, and among the shown rows only the two inserted references begin with that text; the three permanent references begin with REF-. Option c matches ids of 9001 and above, and among the shown rows only the two inserted rows sit in that range, the permanent ids being 4001, 4002 and 4003. All three leave 4001, 4002 and 4003 in place. Option d deletes by region: it removes the permanent rows 4001 and 4003 and leaves the inserted row 9002 behind. Option e adds a region condition to the id range, so it removes 9002 only and leaves 9001 behind. Option f matches references containing 4001 anywhere, so it removes the permanent row 4001 as well as 9001 and leaves 9002 behind. Each statement was executed in turn against the shown rows and the remaining ids were checked: options a, b and c each left exactly 4001, 4002 and 4003; option d left 4002 and 9002; option e left 4001, 4002, 4003 and 9001; option f left 4002, 4003 and 9002.",
+  "sourceAnchor": "SQL for Testers - using SQL for data generation: delete data"
 }

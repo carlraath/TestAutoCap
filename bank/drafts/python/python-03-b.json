@@ -4,15 +4,15 @@
   "section": "core",
   "slot": 3,
   "type": "single",
-  "stem": "What does this code print?\n\n```python\ndef total(values):\n    result = 0\n    for v in values:\n        result += v\n\nprint(total([1, 2, 3]))\n```",
+  "stem": "What does this code print?\n\n```python\ndef capped(value, limit):\n    result = min(value, limit)\n\nprint(capped(90, 60))\n```",
   "options": [
-    { "id": "a", "text": "6", "correct": false },
-    { "id": "b", "text": "None", "correct": true },
-    { "id": "c", "text": "0", "correct": false },
-    { "id": "d", "text": "An error is raised because result is a local variable", "correct": false }
+    { "id": "a", "text": "None", "correct": true },
+    { "id": "b", "text": "60", "correct": false },
+    { "id": "c", "text": "90", "correct": false },
+    { "id": "d", "text": "An error, because there is no return statement", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "The function computes result but has no return statement, so the call evaluates to None and print shows None. 6 assumes the computed value is returned; without a return statement the value stays inside the function. 0 assumes the initial value leaks out; local variables are not visible to the caller. Calling a function that has no return statement is not an error; the call simply produces None.",
+  "rationale": "The function assigns result but has no return statement, so the call evaluates to None and print shows None. 60 assumes the computed local value is handed back to the caller: min(90, 60) is indeed 60, but without a return statement that value stays inside the function and the caller receives None. 90 assumes a value is handed back and reads min as choosing the larger of its two arguments; min returns the smaller, and in any case nothing is returned. An error is not raised: calling a function that has no return statement is ordinary Python, and the resulting None prints as None.",
   "sourceAnchor": "Programming for Everybody - functions (defining, arguments, return values)"
 }

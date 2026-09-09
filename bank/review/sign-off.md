@@ -27,6 +27,7 @@ A reviewer that failed an item returned each problem as a precise sentence quoti
 | Review verdicts recorded | 303 |
 | Items revised in response to findings | 54 |
 | Slots given a final resolve-and-verify pass | 28 |
+| Items rewritten or amended in that final pass | 53 |
 
 The review ran in two interrupted sessions. After the interruptions, every item that still carried an unresolved finding, and every item that had been revised without being re-reviewed, was taken through a final pass organised by slot: one reviewer per slot, holding all of that slot's items at once, resolving the outstanding findings, re-verifying every key by execution where the item shows code or data, and judging the slot's items against each other for calibration. Reviewing by slot rather than by item was deliberate: the most common finding in the first pass was that sibling items were near-duplicates of one another, which can only be judged by holding the siblings side by side.
 
@@ -47,6 +48,14 @@ The findings clustered into five recurring problems, all of which were addressed
 - Concept items carry a rationale that argues each alternative down; those arguments are in `bank-review.md`.
 - `npx tsx scripts/assemble-bank.ts` rebuilds `bank/bank.v1.json` from the per-item drafts and runs the structural validator. It reports no problems.
 - `npx tsx scripts/bank-review-doc.ts` regenerates `bank-review.md` from the assembled bank, so the review document always describes exactly what loads.
+
+## The one-visual-element rule as applied
+
+docs/04 allows one visual element per item, and its SQL exemplars show the shape that resolves the tension for a question that must show data and a query: the data is the visual element and the query is written inline in the stem. Every SQL item now follows that shape.
+
+Four SQL slots ask the candidate to compare two sets of data (slot 2 joins, slot 7 set operations for reconciliation, slot 8 records missing from a target, slot 9 changed values between source and target). These cannot be posed with one table. docs/04 grants the two-small-tables shape explicitly for slots 2 and 8; it has been read as applying to slots 7 and 9 as well, since they are the same source-against-target comparison. Those items show two small tables and the query inline, and nothing else. A machine check across the assembled bank confirms no item exceeds this: no item carries both a table and a fenced block, and only the three slot 7 items sit at two tables alongside slots 2, 8 and 9.
+
+Also confirmed mechanically across all 65 items: no emojis, no "Select all that apply." inside any stem, no person names in any data value, and every multiple-answer item at five or six options with two or three correct.
 
 ## Known points for the owner
 

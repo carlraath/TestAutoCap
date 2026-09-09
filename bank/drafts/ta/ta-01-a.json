@@ -4,31 +4,31 @@
   "section": "fundamentals",
   "slot": 1,
   "type": "single",
-  "stem": "A billing team runs its regression checks by hand before each monthly release and is now automating those existing checks. The next release adds a discount scheme and changes the invoice layout. The team's test plan for that release lists four objectives. Which objective does the automation directly achieve?",
+  "stem": "Before each monthly release, a billing team executes a fixed set of regression checks manually. That set has now been automated. The coming release changes the discount rules and adds two new discount bands, and the test plan for it lists four objectives. Which objective does a run of the automated set achieve on its own?",
   "options": [
     {
       "id": "a",
-      "text": "The existing checks run the same way each time and return results sooner than by hand.",
+      "text": "The behaviour that the existing checks cover is confirmed at every release, in an identical way each time.",
       "correct": true
     },
     {
       "id": "b",
-      "text": "The changed invoice layout is judged for how clearly customers can read the amounts on it.",
+      "text": "The written discount rules are reviewed against the charging policy to see that they say what was intended.",
       "correct": false
     },
     {
       "id": "c",
-      "text": "The new discount scheme is explored for behaviour beyond what its written requirements describe.",
+      "text": "The new discount bands are explored for behaviour that the written requirements do not describe.",
       "correct": false
     },
     {
       "id": "d",
-      "text": "The features carrying the most business risk are identified before testing effort is allocated to them.",
+      "text": "The parts of the release carrying the most business risk are identified so that effort can be directed at them.",
       "correct": false
     }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "Key a: automating an existing set of regression checks makes them run in exactly the same way each time and return their results far sooner than the same checks run by hand. Consistent, repeatable execution with faster feedback is the direct purpose of automating checks that already exist. b is wrong because how clearly a customer can read an invoice is a human judgement with no expected result that a script can compare against, so it stays a manual activity whatever else is automated. c is wrong because an automated check can only compare behaviour against the expected result it was given; the automation here covers the existing checks, which predate the discount scheme, and exploring a feature for behaviour that nobody has specified is exploratory testing carried out by a person. Automation may free time for that exploration, but it does not perform it. d is wrong because deciding which features carry the most business risk is an analysis that people make before checks are chosen; automation executes the checks that this analysis selects and does not make the selection.",
+  "rationale": "Key a: an automated set of checks executes a predetermined comparison and reports whether it held. Running it delivers exactly one of the four objectives by itself: the behaviour the checks already cover is re-confirmed at every release, and confirmed the same way each time, free of the variation a person introduces when repeating the same steps manually. Consistent, repeatable re-execution of checks that already exist is what automating them buys, and it is the objective the run meets with no further human work. b is wrong because reading the written rules against the charging policy is a static review of a document: there is no running system for a check to exercise and no expected result for it to compare against, so the objective is met by people reading and discussing, whatever is automated elsewhere. c is wrong because exploring a feature for behaviour that no requirement describes is exploratory testing performed by a person: an automated check can only compare against the expected result it was given, and this set predates the discount bands entirely, so nothing in the run can meet this objective. Automation may free time for that exploration, but it does not perform it. d is wrong because judging which parts of a release carry the most business risk is an analysis people carry out before deciding what to test; the automated set executes the checks that such an analysis has already led the team to write, and a run of it produces no ranking of risk.",
   "sourceAnchor": "ISTQB CTAL-TAE v2 (Udemy) - Chapter 1 Introduction and objectives for test automation: purpose of automation, advantages and limitations, automation versus manual testing"
 }

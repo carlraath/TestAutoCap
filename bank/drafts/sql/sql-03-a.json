@@ -4,15 +4,15 @@
   "section": "foundations",
   "slot": 3,
   "type": "single",
-  "stem": "The table `orders` holds these rows.\n\n| id | category | amount |\n|---|---|---|\n| 1 | stationery | 40 |\n| 2 | furniture | 35 |\n| 3 | stationery | 60 |\n| 4 | lighting | 30 |\n| 5 | furniture | 20 |\n\nWhich rows does `SELECT category, SUM(amount) AS total FROM orders GROUP BY category HAVING SUM(amount) > 50;` return?",
+  "stem": "The table `charges` holds these rows.\n\n| id | account | amount |\n|---|---|---|\n| 1 | AC-10 | 40 |\n| 2 | AC-20 | 35 |\n| 3 | AC-10 | 60 |\n| 4 | AC-30 | 30 |\n| 5 | AC-20 | 20 |\n\nWhich rows does `SELECT account, SUM(amount) AS total FROM charges GROUP BY account HAVING SUM(amount) > 55;` return?",
   "options": [
-    { "id": "a", "text": "stationery with total 100 and furniture with total 55", "correct": true },
-    { "id": "b", "text": "stationery with total 100, furniture with total 55 and lighting with total 30", "correct": false },
-    { "id": "c", "text": "stationery with total 60", "correct": false },
-    { "id": "d", "text": "stationery with total 100", "correct": false }
+    { "id": "a", "text": "AC-10 with a total of 100", "correct": true },
+    { "id": "b", "text": "AC-10 with a total of 100, AC-20 with a total of 55 and AC-30 with a total of 30", "correct": false },
+    { "id": "c", "text": "AC-10 with a total of 60", "correct": false },
+    { "id": "d", "text": "AC-10 with a total of 100 and AC-20 with a total of 55", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "GROUP BY produces one row per category with the summed amount: stationery 100, furniture 55, lighting 30. HAVING then keeps only groups whose sum exceeds 50, which leaves stationery and furniture, so option a is correct. Option b ignores the HAVING clause and keeps lighting. Option c applies the condition to individual rows before grouping, as a WHERE clause would, keeping only the single order of 60. Option d drops furniture, whose total of 55 is above 50. Verified by running the query against the shown rows.",
-  "sourceAnchor": "Intermediate SQL - data aggregation: one grouping column and filtering groups with HAVING"
+  "rationale": "GROUP BY produces one row per account with the summed amount: AC-10 is 40 + 60 = 100, AC-20 is 35 + 20 = 55 and AC-30 is 30. HAVING then filters those grouped rows, keeping only totals strictly above 55, so only AC-10 survives and option a is correct. Option b is the result of ignoring the HAVING clause and reporting every group. Option c is the result of filtering individual rows before grouping, as a WHERE clause would, which leaves only the single charge of 60 and sums that alone. Option d treats the strict > as >= and keeps AC-20, whose total is exactly 55 and therefore excluded. The query has no ORDER BY, so the options describe the set of rows returned rather than their order. Verified by executing the query and each misreading against the shown rows in PGlite: the key returns AC-10 with 100, ignoring HAVING returns all three groups, filtering rows first returns AC-10 with 60, and the inclusive threshold returns AC-10 with 100 and AC-20 with 55.",
+  "sourceAnchor": "Intermediate SQL - data aggregation (summary values, one grouping column) and data filtering (complex filtering with HAVING)"
 }

@@ -4,15 +4,15 @@
   "section": "foundations",
   "slot": 4,
   "type": "single",
-  "stem": "The table `staff` holds these rows.\n\n| id | name | dept | city |\n|---|---|---|---|\n| 1 | Ana | Sales | Leeds |\n| 2 | Ben | Support | York |\n| 3 | Cal | Sales | York |\n| 4 | Dee | Finance | Bath |\n| 5 | Eli | Support | Leeds |\n\nWhat does this query return?\n\n```sql\nSELECT name\nFROM staff\nWHERE dept IN (SELECT dept FROM staff WHERE city = 'Leeds');\n```",
+  "stem": "The table `machines` holds these rows.\n\n| id | ref | line | site |\n|---|---|---|---|\n| 1 | M-01 | assembly | north |\n| 2 | M-02 | packing | south |\n| 3 | M-03 | assembly | south |\n| 4 | M-04 | testing | east |\n| 5 | M-05 | packing | north |\n\nWhat does `SELECT ref FROM machines WHERE line IN (SELECT line FROM machines WHERE site = 'north');` return?",
   "options": [
-    { "id": "a", "text": "Ana, Ben, Cal and Eli", "correct": true },
-    { "id": "b", "text": "Ana and Eli", "correct": false },
-    { "id": "c", "text": "Sales and Support", "correct": false },
-    { "id": "d", "text": "Ana and Cal", "correct": false }
+    { "id": "a", "text": "M-01, M-02, M-03 and M-05", "correct": true },
+    { "id": "b", "text": "M-01 and M-05", "correct": false },
+    { "id": "c", "text": "assembly and packing", "correct": false },
+    { "id": "d", "text": "M-01 and M-03", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "The subquery runs first and returns the departments that have someone in Leeds: Sales and Support. The outer query then returns every member of those departments, whatever their city: Ana, Ben, Cal and Eli, so option a is correct. Option b returns only the staff based in Leeds, as if the city condition applied to the outer query. Option c is the result of the inner subquery, which feeds the IN list and is not what the outer SELECT returns. Option d uses only the first department from the subquery and misses the Support staff. Verified by running the query against the shown rows.",
+  "rationale": "The inner subquery runs first and returns the lines that have a machine at the north site: assembly and packing. The outer query then returns every machine on either of those lines, whatever its own site, so the result is M-01, M-02, M-03 and M-05 and option a is correct. Option b returns only the machines at the north site, which is what the query would give if the site condition applied to the outer query instead of the subquery. Option c is the value list the subquery itself produces, which feeds the IN comparison and is not what the outer SELECT returns. Option d takes only the assembly line and misses the two packing machines. Verified in PostgreSQL: the subquery returns assembly and packing, the query returns M-01, M-02, M-03 and M-05, filtering on site returns M-01 and M-05, and filtering on the assembly line returns M-01 and M-03.",
   "sourceAnchor": "Joining Data in SQL - subqueries inside WHERE"
 }

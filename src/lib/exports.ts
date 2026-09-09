@@ -17,13 +17,13 @@
  */
 import { asc, eq } from "drizzle-orm";
 import type { Db } from "@/db/client";
-import { attempts, auditLog, items, settings, users } from "@/db/schema";
+import { auditLog, attempts, items, settings, users } from "@/db/schema";
 import { MODULES } from "@/engine/structure";
 import type { Answer, BankItem, ItemPresentation, ModuleOutcome, SectionScore } from "@/engine/types";
 import { audit, type AuditActor } from "./audit";
 import { getBankVersion } from "./bank-loader";
 import { toCsv, type CsvValue } from "./csv";
-import { itemAnalysis, resultsTable, type ItemDistribution } from "./reports";
+import { itemAnalysis, loadAuditIdMap, resolveAuditId, resultsTable, type AuditIdMap, type ItemDistribution } from "./reports";
 import { EXERCISE_CLOSED_AT_KEY, getSetting, setSetting } from "./settings";
 import { formatMelbourneDateTimeWithZone } from "./time";
 
@@ -217,33 +217,9 @@ export const AUDIT_HEADERS: readonly string[] = [
   "details",
 ];
 
-const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-
-/** Resolves the opaque ids the audit log stores into participant codes, so no uuid reaches a CSV. */
-interface IdMap {
-  users: Map<string, string>;
-  attempts: Map<string, string>;
-}
-
-async function loadIdMap(db: Db): Promise<IdMap> {
-  const people = await db.select({ id: users.id, username: users.username }).from(users);
-  const userMap = new Map(people.map((person) => [person.id, person.username] as const));
-  const rows = await db
-    .select({ id: attempts.id, userId: attempts.userId, assessmentId: attempts.assessmentId, attemptNumber: attempts.attemptNumber })
-    .from(attempts);
-  const attemptMap = new Map(
-    rows.map((row) => [row.id, `${userMap.get(row.userId) ?? "participant"} ${row.assessmentId} attempt ${row.attemptNumber}`] as const),
-  );
-  return { users: userMap, attempts: attemptMap };
-}
-
-function resolveId(map: IdMap, value: string): string {
-  return map.users.get(value) ?? map.attempts.get(value) ?? (UUID_PATTERN.test(value) ? "(id withheld)" : value);
-}
-
 /** Rewrites every uuid inside an audit details object into its participant code. */
-function scrubDetails(value: unknown, map: IdMap): unknown {
-  if (typeof value === "string") return UUID_PATTERN.test(value) ? resolveId(map, value) : value;
+function scrubDetails(value: unknown, map: AuditIdMap): unknown {
+  if (typeof value === "string") return resolveAuditId(map, value);
   if (Array.isArray(value)) return value.map((entry) => scrubDetails(entry, map));
   if (value !== null && typeof value === "object") {
     const out: Record<string, unknown> = {};
@@ -255,7 +231,7 @@ function scrubDetails(value: unknown, map: IdMap): unknown {
 
 /** The full audit trail, oldest first, with every id resolved to a participant code. */
 export async function auditCsv(db: Db): Promise<ExportFile> {
-  const map = await loadIdMap(db);
+  const map = await loadAuditIdMap(db);
   const rows = await db.select().from(auditLog).orderBy(asc(auditLog.id));
   const body: CsvValue[][] = rows.map((row) => {
     const [melbourne, iso] = timePair(row.at);
@@ -266,7 +242,7 @@ export async function auditCsv(db: Db): Promise<ExportFile> {
       row.actorRole,
       row.action,
       row.targetType ?? "",
-      row.targetId ? resolveId(map, row.targetId) : "",
+      row.targetId ? resolveAuditId(map, row.targetId) : "",
       row.reason ?? "",
       row.details ? JSON.stringify(scrubDetails(row.details, map)) : "",
     ];

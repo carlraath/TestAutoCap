@@ -4,15 +4,15 @@
   "section": "applied",
   "slot": 7,
   "type": "single",
-  "stem": "A tester is reconciling two extracts. The tables `source` and `target` each hold an `id` column.\n\n| source.id |\n|---|\n| 101 |\n| 102 |\n| 103 |\n| 104 |\n\n| target.id |\n|---|\n| 102 |\n| 104 |\n| 105 |\n\nWhich query returns the ids that appear in both tables, giving 102 and 104?",
+  "stem": "Two systems each produce a list of the unit codes they hold for the same day. The tables `system_a` and `system_b` each hold a `unit_code` column.\n\n| system_a.unit_code |\n|---|\n| UC-11 |\n| UC-12 |\n| UC-13 |\n| UC-14 |\n\n| system_b.unit_code |\n|---|\n| UC-12 |\n| UC-14 |\n| UC-15 |\n| UC-16 |\n\nWhich query returns the unit codes held by both systems, giving UC-12 and UC-14?",
   "options": [
-    { "id": "a", "text": "SELECT id FROM source INTERSECT SELECT id FROM target", "correct": true },
-    { "id": "b", "text": "SELECT id FROM source UNION SELECT id FROM target", "correct": false },
-    { "id": "c", "text": "SELECT id FROM source EXCEPT SELECT id FROM target", "correct": false },
-    { "id": "d", "text": "SELECT id FROM target EXCEPT SELECT id FROM source", "correct": false }
+    { "id": "a", "text": "SELECT unit_code FROM system_a INTERSECT SELECT unit_code FROM system_b", "correct": true },
+    { "id": "b", "text": "SELECT unit_code FROM system_a EXCEPT SELECT unit_code FROM system_b", "correct": false },
+    { "id": "c", "text": "SELECT unit_code FROM system_b EXCEPT SELECT unit_code FROM system_a", "correct": false },
+    { "id": "d", "text": "SELECT unit_code FROM system_a UNION SELECT unit_code FROM system_b", "correct": false }
   ],
   "fixedOrder": false,
   "difficulty": "standard",
-  "rationale": "INTERSECT returns the rows common to both result sets, which here is 102 and 104, so option a is correct. Option b returns every id from either table, 101 to 105. Option c returns the ids in source that are absent from target, 101 and 103. Option d returns the ids in target that are absent from source, 105. Each query was run against the shown rows and only option a produces 102 and 104.",
+  "rationale": "INTERSECT keeps only the rows that appear in both result sets, which against the shown rows is UC-12 and UC-14, so option a is correct. Option b returns the codes held by the first system alone, UC-11 and UC-13. Option c returns the codes held by the second system alone, UC-15 and UC-16. Option d returns every code from either system, all six. Options a, b and c each return two rows, so the candidate has to read which two codes are returned rather than count rows. Every option was run in PostgreSQL against the shown rows and only option a returns UC-12 and UC-14.",
   "sourceAnchor": "SQL for Testers - validating data integrity with set operations (INTERSECT)"
 }

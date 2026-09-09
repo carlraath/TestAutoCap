@@ -68,6 +68,10 @@ export function useAutosave(attemptId: string, onFinalised: () => void): Autosav
 
   const url = useCallback((itemId: string) => `/api/attempts/${encodeURIComponent(attemptId)}/answers/${encodeURIComponent(itemId)}`, [attemptId]);
 
+  // A retry has to call the sender again. Going through a ref keeps that one
+  // recursive hop out of the callback's own dependencies.
+  const sendRef = useRef<(itemId: string) => Promise<void>>(async () => undefined);
+
   const send = useCallback(
     async (itemId: string): Promise<void> => {
       if (finalised.current) return;
@@ -118,7 +122,7 @@ export function useAutosave(attemptId: string, onFinalised: () => void): Autosav
         if (previous) window.clearTimeout(previous.timer);
         const delay = Math.min(FIRST_RETRY_MS * 2 ** (attempts - 1), MAX_RETRY_MS);
         const timer = window.setTimeout(() => {
-          void send(itemId);
+          void sendRef.current(itemId);
         }, delay);
         retries.current.set(itemId, { attempts, timer });
         sync();
@@ -126,6 +130,10 @@ export function useAutosave(attemptId: string, onFinalised: () => void): Autosav
     },
     [sync, url],
   );
+
+  useEffect(() => {
+    sendRef.current = send;
+  }, [send]);
 
   const queue = useCallback(
     (itemId: string, answer: Answer) => {
