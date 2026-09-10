@@ -63,3 +63,22 @@ All notable changes to Avec / Capability Placement. Dates are Australia/Melbourn
 ### Phase 8 - Go-live (2026-09-10)
 - The docs/06 go-live checklist executed against a production HTTPS deployment and evidenced line
   by line in docs/evidence/go-live.
+
+### Managed PostgreSQL path (2026-09-10)
+- The DATABASE_URL path (Neon, Supabase, Railway, Render) made to work first time for a
+  non-technical operator, after finding that a Neon connection string was reaching node-postgres in
+  a way that printed a multi-line SECURITY WARNING deprecation notice, and that a hosted connection
+  string without `sslmode` connected in plain text and was refused.
+- src/db/config.ts decides the target and the TLS setting explicitly: hosted databases get TLS with
+  the certificate checked, a database on this machine does not, `sslmode` and `DATABASE_SSL` are
+  honoured, and pasted quotes, whitespace and a `psql ` prefix are stripped. The ssl query
+  parameters are removed before the string reaches node-postgres.
+- src/db/errors.ts turns connection failures into a sentence with something to do about it, keeping
+  the original message; DEBUG_DB=1 still prints the stack.
+- Every database command now names the database it is about to touch, refuses to build a throwaway
+  local database when the connection string is sitting under a mistyped variable name, closes the
+  connection pool so it returns to the prompt, and creates DATA_DIR itself.
+- Migrations on managed PostgreSQL run inside a transaction behind a transaction-scoped advisory
+  lock, so concurrent serverless cold starts cannot half-create the schema.
+- 314 unit and integration tests.
+

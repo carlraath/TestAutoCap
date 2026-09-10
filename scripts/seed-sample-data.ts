@@ -10,12 +10,13 @@
  */
 import { loadEnvConfig } from "@next/env";
 import { eq } from "drizzle-orm";
-import { getDb, type Db } from "@/db/client";
+import { type Db } from "@/db/client";
 import { users } from "@/db/schema";
 import type { AuditActor } from "@/lib/audit";
 import { bootstrapAdmin } from "@/lib/auth";
 import { getBankVersion } from "@/lib/bank-loader";
 import { generateSampleCohort } from "@/lib/sample-data";
+import { runDbScript, ScriptError } from "./lib/db-script";
 
 loadEnvConfig(process.cwd());
 
@@ -23,7 +24,7 @@ function numberArg(name: string, fallback: number): number {
   const raw = process.argv.find((arg) => arg.startsWith(`--${name}=`))?.split("=")[1];
   if (raw === undefined) return fallback;
   const value = Number(raw);
-  if (!Number.isInteger(value)) throw new Error(`--${name} must be a whole number.`);
+  if (!Number.isInteger(value)) throw new ScriptError(`--${name} must be a whole number.`);
   return value;
 }
 
@@ -32,21 +33,20 @@ async function adminActor(db: Db): Promise<AuditActor> {
   const password = process.env.ADMIN_PASSWORD ?? "";
   if (username && password) await bootstrapAdmin(db, username, password);
   const admin = await db.query.users.findFirst({ where: eq(users.role, "admin") });
-  if (!admin) throw new Error("No administrator exists. Run scripts/seed.ts first.");
+  if (!admin) throw new ScriptError("No administrator exists. Run scripts/seed.ts first.");
   return { userId: admin.id, username: admin.username, role: "admin" };
 }
 
-async function main(): Promise<void> {
+void runDbScript(async (db) => {
   const force = process.argv.includes("--force");
   if (process.env.NODE_ENV === "production" && !force) {
-    throw new Error("Refusing to seed sample data with NODE_ENV=production. Pass --force if this really is a demonstration environment.");
+    throw new ScriptError("Refusing to seed sample data with NODE_ENV=production. Pass --force if this really is a demonstration environment.");
   }
   const participants = numberArg("participants", 15);
   const seed = numberArg("seed", 7);
 
-  const db = await getDb();
   if ((await getBankVersion(db)) === null) {
-    throw new Error("No question bank is frozen. Run scripts/load-bank.ts <bank file> --freeze first.");
+    throw new ScriptError("No question bank is frozen. Run scripts/load-bank.ts <bank file> --freeze first.");
   }
   const admin = await adminActor(db);
   const cohort = await generateSampleCohort(db, admin, { participants, seed });
@@ -61,10 +61,4 @@ async function main(): Promise<void> {
   for (const participant of cohort.participants) {
     for (const note of participant.notes) console.log(`  ${participant.code}: ${note}`);
   }
-  process.exit(0);
-}
-
-main().catch((err: unknown) => {
-  console.error(err instanceof Error ? err.message : err);
-  process.exit(1);
 });

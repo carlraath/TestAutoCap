@@ -8,14 +8,13 @@
  */
 import { loadEnvConfig } from "@next/env";
 import fs from "node:fs";
-import { getDb } from "@/db/client";
 import { listColumns } from "@/db/migrate";
 import { findPiiIdentifiers, findPiiInText } from "@/lib/pii-check";
+import { runDbScript } from "./lib/db-script";
 
 loadEnvConfig(process.cwd());
 
-async function main(): Promise<void> {
-  const db = await getDb();
+void runDbScript(async (db) => {
   const cols = await listColumns(db);
   const offenders = findPiiIdentifiers(cols);
   console.log(`Schema: ${cols.length} columns inspected.`);
@@ -42,10 +41,5 @@ async function main(): Promise<void> {
       console.log(`PASS ${f}: ${headers.length ? `${headers.length} columns, ` : ""}${text.length} bytes, nothing personal found.`);
     }
   }
-  process.exit(failed ? 1 : 0);
-}
-
-main().catch((err: unknown) => {
-  console.error(err);
-  process.exit(1);
+  return failed ? 1 : 0;
 });

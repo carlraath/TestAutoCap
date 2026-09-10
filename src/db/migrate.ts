@@ -4,8 +4,34 @@ import { MIGRATIONS } from "./migrations";
 
 type AnyDb = PgDatabase<PgQueryResultHKT, Record<string, unknown>>;
 
+/**
+ * Advisory lock identifier for schema migrations. Any number would do; it only has to be the same
+ * in every process that migrates this database.
+ */
+const MIGRATION_LOCK = "6127893451";
+
+export interface MigrateOptions {
+  /**
+   * Take a transaction-scoped advisory lock first, so that two processes starting at the same time
+   * cannot both create the schema. Needed on managed PostgreSQL, where several serverless instances
+   * can open the database at once. The lock is released when the transaction ends, which is what
+   * makes it safe through a connection pooler.
+   */
+  serialise?: boolean;
+}
+
 /** Applies each migration once, in order, tracked in schema_migrations. Safe to run on every start. */
-export async function runMigrations(db: AnyDb): Promise<string[]> {
+export async function runMigrations(db: AnyDb, options: MigrateOptions = {}): Promise<string[]> {
+  if (options.serialise) {
+    return db.transaction(async (tx) => {
+      await tx.execute(sql.raw(`SELECT pg_advisory_xact_lock(${MIGRATION_LOCK})`));
+      return applyMigrations(tx as unknown as AnyDb);
+    });
+  }
+  return applyMigrations(db);
+}
+
+async function applyMigrations(db: AnyDb): Promise<string[]> {
   await db.execute(
     sql`CREATE TABLE IF NOT EXISTS schema_migrations (name text PRIMARY KEY, applied_at timestamptz NOT NULL DEFAULT now())`,
   );

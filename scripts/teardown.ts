@@ -9,7 +9,8 @@
  */
 import { loadEnvConfig } from "@next/env";
 import fs from "node:fs";
-import path from "node:path";
+import { resolveDatabaseTarget, type DatabaseTarget } from "@/db/config";
+import { formatDatabaseFailure } from "@/db/errors";
 
 loadEnvConfig(process.cwd());
 
@@ -21,10 +22,17 @@ async function main(): Promise<void> {
     process.exit(2);
   }
   const stamp = new Date().toISOString();
-  const url = process.env.DATABASE_URL?.trim();
-  if (url) {
+  const target = resolveDatabaseTarget();
+  console.log(`Using ${target.description}.`);
+  if (target.kind === "managed") {
     const { Pool } = await import("pg");
-    const pool = new Pool({ connectionString: url, max: 1 });
+    const pool = new Pool({
+      connectionString: target.connectionString,
+      ...(target.ssl === undefined ? {} : { ssl: target.ssl }),
+      max: 1,
+      connectionTimeoutMillis: 15_000,
+      application_name: "capability-placement",
+    });
     for (const t of TABLES) {
       await pool.query(`DROP TABLE IF EXISTS ${t} CASCADE`);
     }
@@ -40,7 +48,11 @@ async function main(): Promise<void> {
     console.log(`DELETION CONFIRMED ${stamp}: all application tables dropped from the managed database. Now delete the database itself in the provider console and revoke its credentials.`);
     return;
   }
-  const dataDir = path.resolve(process.env.DATA_DIR?.trim() || "./data/pglite");
+  const dataDir = target.dataDir;
+  if (dataDir === ":memory:") {
+    console.log(`DELETION CONFIRMED ${stamp}: the database was in memory only, so nothing was ever written to disk.`);
+    return;
+  }
   fs.rmSync(dataDir, { recursive: true, force: true });
   if (fs.existsSync(dataDir)) {
     console.error(`FAIL ${dataDir} still exists`);
@@ -50,6 +62,13 @@ async function main(): Promise<void> {
 }
 
 main().catch((err: unknown) => {
-  console.error(err);
+  let target: DatabaseTarget | null = null;
+  try {
+    target = resolveDatabaseTarget();
+  } catch {
+    target = null;
+  }
+  console.error(formatDatabaseFailure(err, target));
+  if (process.env.DEBUG_DB) console.error(err);
   process.exit(1);
 });
